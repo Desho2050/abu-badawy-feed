@@ -5,6 +5,9 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 export const BUCKET = 'media';
 export const MAX_BYTES = 26214400;
+/* مشروع Supabase الخاص بهذا التطبيق — يُملأ تلقائيًا في بوابة الاتصال، ويمكن
+   تغييره من اللوحة دون تعديل الكود (يُحفظ في localStorage). */
+export const PROJECT_URL = 'https://hrsrtvrrpnwxqhadxhfg.supabase.co';
 export const MEDIA_TYPES = {
   image: ['image/jpeg', 'image/png', 'image/webp', 'image/avif', 'image/gif'],
   audio: ['audio/mpeg', 'audio/mp4', 'audio/aac', 'audio/ogg', 'audio/wav', 'audio/x-wav'],

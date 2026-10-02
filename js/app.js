@@ -41,7 +41,7 @@ function gate() {
 
 function renderConnect(message) {
   const saved = api.savedConnection();
-  const url = input({ dir: 'ltr', placeholder: 'https://xxxxxxxx.supabase.co', autocomplete: 'off' }, saved.url);
+  const url = input({ dir: 'ltr', placeholder: api.PROJECT_URL, autocomplete: 'off' }, saved.url || api.PROJECT_URL);
   const anon = input({ dir: 'ltr', placeholder: 'anon public key (eyJ…)', autocomplete: 'off' }, saved.anon);
   const line = stateLine(message || '', message ? 'bad' : '');
   const status = stateLine('اترك الحقلين فارغين إذا أردت مجرد استعراض النسخة المنشورة.');

@@ -102,7 +102,7 @@ web/
       "fields": { "الموقع": "وسط القرية", "الوقت": "10 صباحًا" },
       "attachments": [
         { "type": "image", "url": "assets/village.svg", "label": "منظر عام" },
-        { "type": "video", "url": "https://xxxx.supabase.co/storage/v1/object/public/media/village_news/ab12/clip.mp4",
+        { "type": "video", "url": "https://hrsrtvrrpnwxqhadxhfg.supabase.co/storage/v1/object/public/media/village_news/ab12/clip.mp4",
           "poster": "assets/village.svg", "duration": 95 }
       ],
       "body": "<p>فقرة أو فقرات. يُسمح بعناصر: p, h2, h3, ul, ol, li, a, strong, em, blockquote.</p>"
@@ -153,8 +153,9 @@ web/
 على نفس GitHub Pages، لا تحتاج بناءً ولا حزمة اعتماديات (ES modules + عميل Supabase من CDN)،
 ويفتحها فقط بريد موجود في جدول `admin_emails`.
 
-افتحها على `https://<user>.github.io/<repo>/dashboard.html` أو محليًا من سيرفر ثابت.
-عند أول تشغيل تطلب رابط المشروع ومفتاح `anon` وتحفظهما في `localStorage` هذا المتصفح فقط.
+افتحها على `https://Desho2050.github.io/abu-badawy-feed/dashboard.html` أو محليًا من سيرفر ثابت.
+عند أول تشغيل تطلب رابط المشروع (مملوءًا مسبقًا برابط هذا المشروع) ومفتاح `anon`،
+وتحفظ الاثنين في `localStorage` هذا المتصفح فقط.
 
 ### خط السير
 
@@ -180,11 +181,23 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 
 ### 1) تهيئة Supabase (خطة Free)
 
+> **حالة هذا المشروع:** الخطوات التالية منفّذة فعلًا في مشروع **DeshoStore**
+> (`hrsrtvrrpnwxqhadxhfg` — الرابط `https://hrsrtvrrpnwxqhadxhfg.supabase.co`):
+> المخطط، والبذر، وبريد المدير `mostafa.alnajar.2050@gmail.com` في `admin_emails`،
+> ومستودع `media` عامّ القراءة بحدّ 25 MB وقائمة أنواع مقبولة.
+
 1. أنشئ مشروعًا على <https://supabase.com> (خطة Free تكفي).
-2. SQL Editor ← New query ← الصق `tools/supabase-setup.sql` كله ← Run.
-3. عدّل سطر `insert into public.admin_emails …` إلى بريدك الحقيقي، وأضف سطرًا لكل مدير.
-4. Authentication ← Users ← Add user: نفس البريد، كلمة مرور قوية، Auto Confirm مُفعّل.
-5. Settings ← API Keys: انسخ **Project URL** و**anon public** (لا تحتاج `service_role` هنا).
+2. عدّل سطر `insert into public.admin_emails …` إلى بريدك الحقيقي، وأضف سطرًا لكل مدير.
+3. SQL Editor ← New query ← الصق `tools/supabase-setup.sql` كله ← Run.
+4. ثم `tools/seed-content.sql` (يحوّل المحتوى المنشور حاليًا إلى صفوف؛ تكراره آمن).
+5. Authentication ← Users: استخدم بريدًا موجودًا أو أضف مستخدمًا جديدًا بكلمة مرور قوية
+   مع Auto Confirm — بهذه الحصص يسجّل المدير دخوله في `dashboard.html`.
+6. Settings ← API Keys: انسخ **Project URL** و**anon public** للوحة، واحتفظ
+   بـ **service_role** لأسرار GitHub فقط (لا يُطبع ولا يُخزَّن في المستودع).
+
+ملاحظة: السطر `alter table storage.objects enable row level security` محذوف من المخطط
+لأن `storage.objects` مفعّلة RLS أصلًا ومالكها دور `supabase_storage_admin` لا `postgres`؛
+إن أضفته يفشل التنفيذ كاملًا ويُتراجع عنه (السياسات نفسها تُنشأ بلا مشكلة).
 
 الـ SQL يبني الجداول الثمانية (`sections`, `items`, `app_settings`, `legal_docs`,
 `price_rows`, `media_library`, `publish_log`, `admin_emails`) ويفعّل RLS عليها كلها وعلى
@@ -198,8 +211,11 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 
 | الاسم | القيمة |
 |---|---|
-| `SUPABASE_URL` | `https://xxxx.supabase.co` |
+| `SUPABASE_URL` | `https://hrsrtvrrpnwxqhadxhfg.supabase.co` |
 | `SUPABASE_SERVICE_KEY` | مفتاح `service_role` — يمرّ عبر Action ولا يصل إلى المتصفح |
+
+(هذا المشروع يستخدم مستودع `Desho2050/abu-badawy-feed`؛ السرّان يُضافان هناك في
+Settings ← Secrets and variables ← Actions.)
 
 ثم في Settings ← Actions ← General اجعل Workflow permissions = **Read and write permissions**،
 وإلا فشل الـ push الذي يقوم به الناشر.
@@ -238,7 +254,7 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 
 ```bash
 cd web
-SUPABASE_URL=https://xxxx.supabase.co SUPABASE_SERVICE_KEY=… DATA_DIR=data \
+SUPABASE_URL=https://hrsrtvrrpnwxqhadxhfg.supabase.co SUPABASE_SERVICE_KEY=… DATA_DIR=data \
   node .github/scripts/publish.mjs
 ```
 
