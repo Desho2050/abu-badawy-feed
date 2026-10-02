@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "sectionId": "village_news",
+  "updatedAt": "2026-09-28T06:00:00Z",
+  "items": [
+    {
+      "id": "vn-1",
+      "title": "عنوان خبر القرية",
+      "subtitle": "ملخص من سطرين يظهر في القائمة",
+      "image": "assets/news.svg",
+      "imageCredit": "صورة توضيحية — CC0",
+      "date": "2026-09-27",
+      "tags": [
+        "خدمات"
+      ],
+      "breaking": true,
+      "fields": {
+        "التواصل": "…"
+      },
+      "body": "<p>متن الخبر: ماذا حدث؟ أين؟ متى؟ من الجهة المسؤولة؟</p><ul><li>تفصيلة أولى</li><li>تفصيلة ثانية</li></ul>",
+      "attachments": [
+        {
+          "type": "image",
+          "url": "assets/village.svg",
+          "label": "منظر عام"
+        },
+        {
+          "type": "image",
+          "url": "assets/news.svg",
+          "label": "البوابة"
+        }
+      ]
+    },
+    {
+      "id": "vn-2",
+      "title": "خبر ثانٍ عن أعمال الصيانة",
+      "subtitle": "مثال على خبر غير عاجل",
+      "image": "assets/news.svg",
+      "imageCredit": "صورة توضيحية — CC0",
+      "date": "2026-09-24",
+      "tags": [
+        "أعمال عامة"
+      ],
+      "body": "<p>نص الخبر.</p>"
+    },
+    {
+      "id": "vn-3",
+      "title": "نتيجة طلاب القرية في الشهادة",
+      "subtitle": "مناسبات اجتماعية تُفرح القرية",
+      "date": "2026-09-18",
+      "tags": [
+        "تعليم"
+      ],
+      "body": "<p>نص الخبر.</p>"
+    }
+  ]
+}

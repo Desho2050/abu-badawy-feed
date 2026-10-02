@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "title": "أسعار الذهب",
+  "updatedAt": "2026-09-28T06:00:00Z",
+  "disclaimer": "أسعار تقديرية للاسترشاد فقط — اعتمد على الصائغ المحلي",
+  "rates": [
+    { "code": "24", "name": "جرام ذهب عيار 24", "symbol": "ج.م", "value": "…", "change": "…" },
+    { "code": "22", "name": "جرام ذهب عيار 22", "symbol": "ج.م", "value": "…", "change": "…" },
+    { "code": "21", "name": "جرام ذهب عيار 21", "symbol": "ج.م", "value": "…", "change": "…" },
+    { "code": "18", "name": "جرام ذهب عيار 18", "symbol": "ج.م", "value": "…", "change": "…" },
+    { "code": "XAU", "name": "أوقية الذهب عالميًا", "symbol": "$", "value": "…", "change": "…" }
+  ]
+}

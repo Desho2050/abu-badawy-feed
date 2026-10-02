@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "sectionId": "sports",
+  "updatedAt": "2026-09-28T06:00:00Z",
+  "items": [
+    {
+      "id": "sp-1",
+      "title": "فريق القرية يفوز في دوري المنطقة",
+      "subtitle": "ملخص المباراة والأهداف بأسلوب محلي",
+      "image": "assets/sport.svg",
+      "imageCredit": "رسم توضيحي — CC0",
+      "date": "2026-09-26",
+      "tags": ["دوري", "محلي"],
+      "body": "<p>التشكيلة، الأهداف، والكلمات المفتاحية التي يحبها جمهور القرية.</p>"
+    },
+    {
+      "id": "sp-2",
+      "title": "نقل مباراة نهائي الكأس على شاشة الساحة",
+      "subtitle": "فعالية اجتماعية",
+      "date": "2026-09-22",
+      "link": "https://example.com/match-info",
+      "source": { "name": "المصدر", "url": "https://example.com/match-info" },
+      "body": "<p>تفاصيل الفعالية والمكان.</p>"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+name: مزامنة أسعار العملات والذهب
+
+# يجلب الأسعار من واجهات مفتوحة ويكتبها في جدول price_rows في Supabase.
+# لم يعد يكتب data/prices/*.json مباشرة: publish.yml هو المسؤول عن توليد الملفات
+# من القاعدة، فيبقى مصدر التعديل واحدًا (اللوحة + هذا التزامن + الناشر).
+# لذلك قد تظهر الأسعار الجديدة في التطبيق بعد حتى ١٥ دقيقة (دورية publish).
+
+on:
+  schedule:
+    - cron: "5 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: "ما الذي يُحدَّث: fx أو gold أو both"
+        required: false
+        default: "both"
+        type: choice
+        options:
+          - both
+          - fx
+          - gold
+
+permissions: {}
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: جلب الأسعار وكتابتها في price_rows
+        run: node .github/scripts/sync-prices.mjs --kind="${{ github.event.inputs.kind || 'both' }}"
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}

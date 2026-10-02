@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-28T06:00:00Z",
+  "notice": null,
+
+  "brand": {
+    "name": "قرية أبو بدوي",
+    "tagline": "أخبار القرية ومعالمها وأهلها بأسلوب بسيط",
+    "logoUrl": "assets/logo.svg",
+    "supportEmail": "example@abubadawy.local",
+    "primaryColor": "#00696E",
+    "fontUrl": "https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap",
+    "fontFamily": "Cairo"
+  },
+
+  "digest": {
+    "defaultSections": ["village_news"],
+    "hour": 7,
+    "minute": 30
+  },
+
+  "prices": {
+    "fxUrl": "data/prices/fx.json",
+    "goldUrl": "data/prices/gold.json",
+    "liveFxApi": "https://open.er-api.com/v6/latest/EGP",
+    "liveGoldApi": "https://api.gold-api.com/price/XAU"
+  },
+
+  "legal": {
+    "privacy": { "title": "سياسة الخصوصية", "url": "data/legal/privacy.json" },
+    "terms": { "title": "شروط الاستخدام", "url": "data/legal/terms.json" }
+  },
+
+  "sections": [
+    {
+      "id": "about",
+      "title": "التعريف بالقرية",
+      "icon": "info",
+      "layout": "richArticle",
+      "order": 10,
+      "home": false,
+      "enabled": true,
+      "source": { "kind": "json", "url": "data/sections/about.json" }
+    },
+    {
+      "id": "landmarks",
+      "title": "معالم القرية",
+      "subtitle": "مساجد، مدارس، آثار وأماكن عامة",
+      "icon": "landmark",
+      "layout": "cards",
+      "order": 20,
+      "home": true,
+      "enabled": true,
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/landmarks.json" }
+    },
+    {
+      "id": "figures",
+      "title": "شخصيات بارزة",
+      "icon": "person",
+      "layout": "profiles",
+      "order": 30,
+      "home": false,
+      "enabled": true,
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/figures.json" }
+    },
+    {
+      "id": "village_news",
+      "title": "أخبار القرية",
+      "icon": "newspaper",
+      "layout": "list",
+      "order": 40,
+      "home": true,
+      "enabled": true,
+      "notifications": { "default": true, "breaking": true },
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/village_news.json" }
+    },
+    {
+      "id": "world_news",
+      "title": "أخبار عالمية",
+      "icon": "public",
+      "layout": "list",
+      "order": 50,
+      "home": false,
+      "enabled": true,
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/world_news.json" }
+    },
+    {
+      "id": "sports",
+      "title": "أخبار الرياضة",
+      "icon": "trophy",
+      "layout": "list",
+      "order": 60,
+      "home": false,
+      "enabled": true,
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/sports.json" }
+    },
+    {
+      "id": "currency",
+      "title": "أسعار العملات",
+      "icon": "currency",
+      "layout": "rates",
+      "order": 70,
+      "home": true,
+      "enabled": true,
+      "source": { "kind": "fx" }
+    },
+    {
+      "id": "gold",
+      "title": "أسعار الذهب",
+      "icon": "gold",
+      "layout": "rates",
+      "order": 80,
+      "home": true,
+      "enabled": true,
+      "source": { "kind": "gold" }
+    },
+    {
+      "id": "offers",
+      "title": "عروض ومنتجات",
+      "icon": "sell",
+      "layout": "offers",
+      "order": 90,
+      "home": true,
+      "enabled": true,
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/offers.json" }
+    },
+    {
+      "id": "ads",
+      "title": "إعلانات القرية",
+      "icon": "campaign",
+      "layout": "ads",
+      "order": 100,
+      "home": false,
+      "enabled": true,
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/ads.json" }
+    },
+    {
+      "id": "obituaries",
+      "title": "العزاء والوفيات",
+      "icon": "history",
+      "layout": "list",
+      "order": 110,
+      "home": false,
+      "enabled": false,
+      "notifications": { "default": false, "breaking": true },
+      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/obituaries.json" }
+    }
+  ]
+}

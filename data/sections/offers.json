@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sectionId": "offers",
+  "updatedAt": "2026-09-28T06:00:00Z",
+  "items": [
+    {
+      "id": "of-1",
+      "title": "تمور البلدية — درجة أولى",
+      "subtitle": "من مزرعة أم محمد، توصيل داخل القرية",
+      "image": "assets/product-dates.svg",
+      "imageCredit": "صورة المنتج ملك لصاحب العرض",
+      "date": "2026-09-25",
+      "tags": ["أغذية"],
+      "fields": { "السعر": "… ج.م / كيلو", "تواصل": "01xxxxxxxxx" },
+      "body": "<p>الكمية المتاحة وطريقة الحجز.</p>"
+    },
+    {
+      "id": "of-2",
+      "title": "خيالة موسمية",
+      "subtitle": "قطع بتفصيل المقاس",
+      "image": "assets/product-craft.svg",
+      "date": "2026-09-20",
+      "tags": ["حرف"],
+      "fields": { "السعر": "…", "تواصل": "…" }
+    }
+  ]
+}

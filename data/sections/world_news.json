@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sectionId": "world_news",
+  "updatedAt": "2026-09-28T06:00:00Z",
+  "note": "هذا القسم يُكتب ملخصًا أصليًا باللغة العربية مع رابط المصدر، لا نقلًا حرفيًا. أو يُحوَّل إلى RSS عبر تغيير source.kind في index.json (راجع README).",
+  "items": [
+    {
+      "id": "wn-1",
+      "title": "عنوان الخبر العالمي بصياغة القرية",
+      "subtitle": "ملخص من سطرين نكتبه بأسلوبنا، لا نسخة من المصدر",
+      "date": "2026-09-28",
+      "tags": ["عالمي"],
+      "link": "https://example.com/original-story",
+      "source": { "name": "اسم المصدر الأصلي", "url": "https://example.com/original-story" },
+      "body": "<p>ملخص تحريري خاص بالقرية، ويظهر في التطبيق مع زر «فتح المصدر».</p>"
+    },
+    {
+      "id": "wn-2",
+      "title": "خبر ثانٍ مع مصدر موثّق",
+      "subtitle": "مثال على التوثيق",
+      "date": "2026-09-27",
+      "link": "https://example.com/another-story",
+      "source": { "name": "اسم المصدر", "url": "https://example.com/another-story" },
+      "body": "<p>نص الملخص.</p>"
+    }
+  ]
+}

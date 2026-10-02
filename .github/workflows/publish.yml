@@ -1,0 +1,52 @@
+name: Publish content from admin panel
+
+# يعمل كل ١٥ دقيقة، ويمكن تشغيله فورًا من Actions ← «Publish content from admin panel» ← Run workflow
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/scripts/publish.mjs'
+      - '.github/workflows/publish.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-content
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Render index.json + sections + legal + prices from Supabase
+        run: node .github/scripts/publish.mjs
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          DATA_DIR: data
+
+      - name: Commit and push (only when something changed)
+        run: |
+          set -euo pipefail
+          git config user.name "abubadawy-publisher[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "لا تغييرات في المحتوى — لا حاجة إلى commit."
+          else
+            git commit -m "content: publish from admin panel (${{ github.run_number }})"
+            git push
+            echo "تم النشر — GitHub Pages يحدّث النسخة خلال دقيقة إلى دقيقتين."
+          fi

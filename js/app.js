@@ -1,0 +1,316 @@
+/* نقطة الإقلاع: بوابة الدخول، التنقل بين اللوحات، والنشر الفوري.
+   لا تُحمَّل أي لوحة قبل أن يكون هناك نموذج (Supabase أو ملفات منشورة). */
+
+import { el, clear, toast, field, input, stateLine } from './dom.js';
+import * as api from './db.js';
+import { PANELS } from './panels.js';
+
+const NAV = [
+  ['overview', 'نظرة عامة'],
+  ['sections', 'الأقسام'],
+  ['items', 'العناصر'],
+  ['media', 'الوسائط'],
+  ['prices', 'الأسعار'],
+  ['legal', 'القوانين'],
+  ['settings', 'المظهر والإعدادات'],
+  ['log', 'سجل النشر']
+];
+
+const state = { model: null, panel: 'overview', user: null, busy: false };
+
+const ctx = {
+  get model() { return state.model; },
+  get demo() { return !!(state.model && state.model.demo); },
+  get user() { return state.user; },
+  go(panel) { location.hash = '#' + panel; },
+  async refresh() { await loadModel(); await renderPanel(); },
+  writable() {
+    if (!ctx.demo) return true;
+    toast('وضع الاستعراض للقراءة فقط — سجّل الدخول إلى Supabase للتحرير.', 4000);
+    return false;
+  },
+  banner(kind, text, actions = []) { renderBanner(kind, text, actions); }
+};
+
+/* ── البوابة ───────────────────────────────────────────────────────────────── */
+function gate() {
+  const host = document.getElementById('gate');
+  clear(host);
+  return host;
+}
+
+function renderConnect(message) {
+  const saved = api.savedConnection();
+  const url = input({ dir: 'ltr', placeholder: 'https://xxxxxxxx.supabase.co', autocomplete: 'off' }, saved.url);
+  const anon = input({ dir: 'ltr', placeholder: 'anon public key (eyJ…)', autocomplete: 'off' }, saved.anon);
+  const line = stateLine(message || '', message ? 'bad' : '');
+  const status = stateLine('اترك الحقلين فارغين إذا أردت مجرد استعراض النسخة المنشورة.');
+
+  const connect = el('button', {
+    class: 'btn',
+    onclick: async () => {
+      const u = url.value.trim();
+      const a = anon.value.trim();
+      const isLocal = /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/?$/.test(u);
+      if (!isLocal && !/^https:\/\/.+\..+/.test(u)) { setLine(line, 'العنوان يجب أن يبدأ بـ https:// — أو http://localhost:PORT للتجربة المحلية.', 'bad'); return; }
+      if (a.length < 20) { setLine(line, 'مفتاح anon قصير أو ناقص.', 'bad'); return; }
+      setBusy(connect, true);
+      try {
+        api.saveConnection(u, a);
+        api.connect(u, a);
+        const user = await api.currentUser();
+        if (user) { state.user = user; await openAdmin(); return; }
+        renderLogin();
+      } catch (error) {
+        setLine(line, 'تعذّر الاتصال: ' + error.message, 'bad');
+      } finally {
+        setBusy(connect, false);
+      }
+    }
+  }, 'اتصال وتسجيل دخول');
+
+  const explore = el('button', { class: 'btn plain', onclick: () => enterDemo() }, 'استعراض النسخة المنشورة (قراءة فقط)');
+
+  gate().append(
+    el('h2', {}, 'لوحة تحكم محتوى قرية أبو بدوي'),
+    el('p', { class: 'muted', text: 'تُخزَّن البيانات في مشروع Supabase الخاص بك، ثم ينشرها GitHub Action كملفات JSON يقرأها التطبيق. لا تغادر مفاتيحك هذا المتصفح.' }),
+    field('رابط المشروع', url, 'SUPABASE_URL من Settings ← API'),
+    field('مفتاح anon العام', anon, 'SUPABASE_ANON_KEY — لا تكتب service key هنا، فهو للمنفّذ الخلفي فقط.'),
+    line,
+    el('div', { class: 'btnrow' }, [connect, explore]),
+    status
+  );
+}
+
+function renderLogin(message) {
+  const saved = api.savedConnection();
+  const email = input({ type: 'email', dir: 'ltr', placeholder: 'admin@…', autocomplete: 'username' });
+  const pass = input({ type: 'password', dir: 'ltr', placeholder: 'كلمة المرور', autocomplete: 'current-password' });
+  const line = stateLine(message || '', message ? 'bad' : '');
+
+  const enter = el('button', {
+    class: 'btn',
+    onclick: async () => {
+      if (!email.value.trim() || !pass.value) { setLine(line, 'اكتب البريد وكلمة المرور.', 'bad'); return; }
+      setBusy(enter, true);
+      try {
+        api.connect(saved.url, saved.anon);
+        await api.signIn(email.value, pass.value);
+        state.user = await api.currentUser();
+        await openAdmin();
+      } catch (error) {
+        setLine(line, 'لم يتم الدخول: ' + error.message + (
+          /row-level|not authorized|invalid/i.test(error.message) ? '' : ' — تأكد أن البريد مضاف في public.admin_emails.'
+        ), 'bad');
+      } finally {
+        setBusy(enter, false);
+      }
+    }
+  }, 'دخول');
+
+  gate().append(
+    el('h2', {}, 'تسجيل دخول المدير'),
+    el('div', { class: 'muted', text: saved.url }),
+    field('البريد', email),
+    field('كلمة المرور', pass),
+    line,
+    el('div', { class: 'btnrow' }, [
+      enter,
+      el('button', { class: 'btn plain', onclick: () => enterDemo() }, 'استعراض القراءة فقط'),
+      el('button', { class: 'btn ghost', onclick: () => renderConnect() }, 'تغيير الاتصال')
+    ])
+  );
+}
+
+async function enterDemo() {
+  const host = gate();
+  clear(host).append(el('h2', {}, 'جارٍ قراءة الملفات المنشورة…'));
+  try {
+    state.model = await api.loadDemoModel();
+    state.user = null;
+    await openAdmin();
+  } catch (error) {
+    renderConnect('لا يمكن قراءة data/index.json (' + error.message + '). افتح الصفحة من مستوى المستودع نفسه.');
+  }
+}
+
+async function loadModel() {
+  const host = gate();
+  clear(host).append(el('h2', {}, 'جارٍ تحميل البيانات…'));
+  try {
+    state.model = await api.loadModel();
+    clear(host);
+  } catch (error) {
+    state.model = null;
+    renderConnect('فشل التحميل من Supabase: ' + error.message);
+    throw error;
+  }
+}
+
+async function openAdmin() {
+  if (!ctx.demo) await loadModel();
+  clear(gate());
+  renderShell();
+  if (!ctx.demo) {
+    renderBanner('info', 'آخر محتوى محرَّر هنا غير منشور بعد. انقر «نشر الآن» أو انتظر جولة الـ Action (كل ١٥ دقيقة).', [
+      el('button', { class: 'iconbtn', onclick: () => { clear(document.getElementById('banner')); } }, 'إخفاء')
+    ]);
+  }
+  await renderPanel();
+}
+
+/* ── الهيكل: العلامة، القائمة، من نحن ──────────────────────────────────────── */
+function renderBanner(kind, text, actions = []) {
+  const host = document.getElementById('banner');
+  if (!host) return;
+  clear(host);
+  if (!text) return;
+  host.append(el('div', { class: 'banner ' + kind }, [el('span', { text }), ...actions]));
+}
+
+function renderShell() {
+  fillBrand();
+  renderNav();
+  renderWho();
+  renderTopActions();
+  if (ctx.demo) {
+    renderBanner('info', 'وضع الاستعراض: تُعرض الملفات المنشورة في data/ كما يراها التطبيق، والتحرير معطَّل.', [
+      el('button', { class: 'iconbtn', onclick: () => renderLogin('') }, 'دخول للتحرير')
+    ]);
+  }
+}
+
+function fillBrand() {
+  const brand = (state.model && state.model.settings && state.model.settings.brand) || {};
+  document.getElementById('brandName').textContent = brand.name || 'قرية أبو بدوي';
+  document.getElementById('brandTagline').textContent = brand.tagline || 'لوحة التحكم بالمحتوى';
+  const logo = document.getElementById('brandLogo');
+  const url = brand.logoUrl || brand.logo;
+  if (url) logo.src = String(url);
+  const color = String(brand.seedColor || brand.primaryColor || '');
+  if (/^#[0-9a-f]{6}$/i.test(color)) {
+    document.documentElement.style.setProperty('--brand', color);
+    document.documentElement.style.setProperty('--brand-soft', 'color-mix(in srgb, ' + color + ' 16%, transparent)');
+  }
+}
+
+function counts() {
+  const m = state.model;
+  if (!m) return {};
+  return {
+    sections: m.sections.length,
+    items: m.items.length,
+    media: m.media.length,
+    prices: m.prices.length
+  };
+}
+
+function renderNav() {
+  const host = document.getElementById('nav');
+  const c = counts();
+  clear(host).append(...NAV.map(([id, label]) => el('button', {
+    dataset: { panel: id },
+    class: id === state.panel ? 'active' : '',
+    onclick: () => { location.hash = '#' + id; }
+  }, [label, c[id] !== undefined ? el('span', { class: 'n', text: c[id] }) : null])));
+}
+
+function renderWho() {
+  const host = document.getElementById('who');
+  const kids = [el('b', { text: state.user ? state.user.email : 'زائر (قراءة فقط)' })];
+  if (state.user) {
+    kids.push(el('div', { class: 'btnrow' }, [
+      el('button', {
+        class: 'btn plain', onclick: async () => {
+          await api.signOut();
+          state.user = null;
+          state.model = null;
+          clear(document.getElementById('panel'));
+          clear(document.getElementById('banner'));
+          clear(document.getElementById('topActions'));
+          clear(document.getElementById('nav'));
+          renderLogin('تم تسجيل الخروج.');
+        }
+      }, 'خروج'),
+      el('button', { class: 'iconbtn', onclick: () => renderConnect() }, 'مشروع آخر')
+    ]));
+  } else {
+    kids.push(el('button', { class: 'btn plain', onclick: () => renderLogin('') }, 'دخول للتحرير'));
+  }
+  clear(host).append(...kids);
+}
+
+function renderTopActions() {
+  const host = document.getElementById('topActions');
+  clear(host).append(
+    el('button', { class: 'btn plain', onclick: () => ctx.refresh() }, 'تحديث'),
+    el('button', { class: 'btn ghost', onclick: () => publishNow(host) }, 'نشر الآن')
+  );
+}
+
+async function publishNow(host) {
+  if (!ctx.writable()) return;
+  const button = host.querySelector('.btn.ghost');
+  setBusy(button, true);
+  try {
+    await api.dispatchWorkflow('publish.yml');
+    toast('أُرسل الطلب إلى GitHub Actions — سيُحدَّد الموقع خلال دقيقة إلى دقيقتين.', 5000);
+  } catch (error) {
+    toast('لم يُرسل الطلب: ' + error.message, 6000);
+  } finally {
+    setBusy(button, false);
+  }
+}
+
+/* ── اللوحة الحالية ────────────────────────────────────────────────────────── */
+async function renderPanel() {
+  const id = decodeURIComponent((location.hash || '').replace('#', ''));
+  if (PANELS[id]) state.panel = id;
+  const def = PANELS[state.panel];
+  if (!def) return;
+  document.getElementById('panelTitle').textContent = def.title;
+  document.getElementById('panelSub').textContent = def.sub;
+  const host = document.getElementById('panel');
+  clear(host).append(el('div', { class: 'muted', text: '…' }));
+  try {
+    clear(host);
+    await def.render(host, ctx);
+  } catch (error) {
+    clear(host).append(el('div', { class: 'state bad', text: 'تعذّر عرض اللوحة: ' + error.message }));
+  }
+  renderNav();
+}
+
+function setLine(node, message, kind) {
+  node.className = 'state ' + (kind || '');
+  node.textContent = message;
+}
+
+function setBusy(button, busy) {
+  if (!button) return;
+  state.busy = busy;
+  button.disabled = !!busy;
+  if (!busy) return;
+  setTimeout(() => { button.disabled = false; }, 20000);
+}
+
+window.addEventListener('hashchange', () => { if (state.model) renderPanel(); });
+
+/* إن وُجدت جلسة محفوظة من زيارة سابقة نُفتح مباشرة، وإلا تظهر البوابة. */
+async function boot() {
+  const saved = api.savedConnection();
+  if (saved.url && saved.anon) {
+    api.connect(saved.url, saved.anon);
+    const user = await api.currentUser().catch(() => null);
+    if (user) {
+      state.user = user;
+      await openAdmin();
+      return;
+    }
+    renderLogin();
+    return;
+  }
+  renderConnect();
+}
+
+boot();

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>قرية أبو بدوي — الصفحة الرسمية للمحتوى</title>
+<meta name="description" content="صفحة المحتوى الرسمية لقرية أبو بدوي: أخبار القرية والمعالم والشخصيات والأسعار، بصيغة مقروءة للإنسان وللتطبيق في الوقت نفسه.">
+<meta name="theme-color" content="#00696E">
+<meta name="robots" content="index, follow">
+<link rel="alternate" type="application/json" title="قائمة الأقسام (JSON)" href="data/index.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!--
+  هذه الصفحة "قابلة للقراءة برمجياً" عن قصد، وهي مصدر المحتوى الوحيد للتطبيق.
+  قواعد التنسيق المتعمدة (تعاقدها ثابت وموثق في README):
+    section[data-ab-section="…"]      كل قسم، وdata-ab-layout يصف طريقته
+      article.ab-item[data-ab-id]     عنصر واحد داخل القسم
+        data-ab-title / date / image / link / tags / breaking / pinned / source-name / source-url
+        data-ab-body                  متن المقال (HTML بسيط)
+        data-ab-f-*                   حقول إضافية تظهر في التطبيق (السعر، تواصل، الموقع…)
+                                      المسافات في اسم الحقل تتحول إلى شرطة: data-ab-f-عدد-الفصول
+        data-ab-attachments           مصفوفة JSON: [{"type":"image|video|audio","url":"…","poster":"…","label":"…","duration":95}]
+                                      وإن غابت يقرأ التطبيق وسوم <video>/<audio> داخل data-ab-body
+  لا يوجد أي استخراج من تخطيط صفحة موقع آخر: البيانات معلَّمة صراحةً.
+-->
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="شعار القرية" width="44" height="44">
+      <div>
+        <h1 id="site-name">قرية أبو بدوي</h1>
+        <p id="site-tagline" class="tagline">يُملأ هذا الوصف تلقائيًا من data/index.json</p>
+      </div>
+    </div>
+    <nav class="section-nav" id="section-nav" aria-label="أقسام الموقع"></nav>
+  </div>
+</header>
+
+<main class="wrap" id="content">
+  <p class="loading" id="loading">جارٍ تحميل المحتوى…</p>
+  <noscript>
+    <div class="notice">
+      هذه الصفحة تعرض المحتوى عبر ملف البيانات <code>data/index.json</code>.
+      بدون جافاسكريبت اقرأ البيانات مباشرةً: <a href="data/index.json">data/index.json</a>
+      أو افتح ملف قسم مثل <a href="data/sections/village_news.json">أخبار القرية</a>.
+    </div>
+  </noscript>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <a href="data/index.json">بيانات الأقسام (JSON)</a> ·
+      <a href="dashboard.html">لوحة التحكم بالمحتوى (رفع صور وفيديو وصوت)</a> ·
+      <a href="#legal-privacy">سياسة الخصوصية</a> ·
+      <a href="#legal-terms">شروط الاستخدام</a>
+    </p>
+    <p class="fine">المحتوى ملك لأصحابه؛ المواد المنقولة تُذكر بمصادرها وروابطها.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
