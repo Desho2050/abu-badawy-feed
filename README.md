@@ -185,6 +185,10 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 > (`hrsrtvrrpnwxqhadxhfg` — الرابط `https://hrsrtvrrpnwxqhadxhfg.supabase.co`):
 > المخطط، والبذر، وبريد المدير `mostafa.alnajar.2050@gmail.com` في `admin_emails`،
 > ومستودع `media` عامّ القراءة بحدّ 25 MB وقائمة أنواع مقبولة.
+> مستخدم المصادقة لهذا البريد موجود في Authentication ← Users، فيكفي كلمة مروره للدخول
+> على `dashboard.html` مع مفتاح `anon public`.
+> سرّ `SUPABASE_URL` أُضيف في مستودع `abu-badawy-feed`؛ المتبقّي: `SUPABASE_SERVICE_KEY`
+> (لصقه من Settings ← API Keys)، ثم تشغيل `publish.yml` مرة واحدة.
 
 1. أنشئ مشروعًا على <https://supabase.com> (خطة Free تكفي).
 2. عدّل سطر `insert into public.admin_emails …` إلى بريدك الحقيقي، وأضف سطرًا لكل مدير.
@@ -204,6 +208,10 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 `storage.objects` بقاعدة واحدة: القراءة والكتابة مقصورة على بريد موجود في `admin_emails` عبر
 دالة `is_admin()`. أي قراءة أو كتابة خارج القائمة ترفضها قاعدة البيانات نفسها، لا الصفحة.
 مفتاح `service_role` يستثني من RLS، وهو للناشر الخلفي فقط.
+
+> **تنبيه مشاركة المشروع:** `DeshoStore` يضمّ بيانات تطبيقات أخرى، و`service_role` الخاص به
+> يقرأ ويكتب في جداولها كلها. إن أردت عزلًا كاملًا، أنشئ مشروعًا مخصصًا لأبو بدوي وأعد
+> خطوتين ٢–٤ فيه، ثم بدّل الرابط في `web/js/db.js` (`PROJECT_URL`) وسرّ `SUPABASE_URL`.
 
 ### 2) أسرار GitHub (للناشر فقط)
 
