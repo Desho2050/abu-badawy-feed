@@ -801,6 +801,8 @@ async function main() {
   }
 
   /* 6ت) الأسعار: من price_rows إلى الملفين اللذين يقرأهما التطبيق */
+  /* كل العملات المنشورة تُرسل للتطبيق؛ البحث هناك لا هنا، فلا معنى لتقصير القائمة. */
+  const maxPrices = Math.max(1, Number(process.env.MAX_PRICES) || 200);
   const priceSettings = settings.prices && typeof settings.prices === 'object' ? settings.prices : {};
   let pricesWritten = 0;
   for (const kind of ['fx', 'gold']) {
@@ -816,7 +818,7 @@ async function main() {
       schemaVersion: 1,
       title,
       updatedAt: latestIso(rows),
-      rates: rows.slice(0, 40).map((row) => {
+      rates: rows.slice(0, maxPrices).map((row) => {
         const rate = { code: plain(row.code, 30), name: plain(row.name, 120) };
         const symbol = plain(row.symbol, 20);
         if (symbol) rate.symbol = symbol;

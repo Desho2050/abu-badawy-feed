@@ -23,7 +23,7 @@ export const ui = {
   sections: { editing: null },
   items: { section: '', status: '', q: '', editing: null },
   media: { kind: '', q: '' },
-  prices: { kind: 'fx' },
+  prices: { kind: 'fx', q: '' },
   legal: { key: 'privacy' }
 };
 
@@ -871,44 +871,81 @@ function mediaPanel(host, ctx) {
   renderLibrary();
 }
 
+/* يطوي همزات الألف والتاء المربوطة والتطويل، فيطابق البحث «دولار» كتابةً واحدة. */
+function searchFold(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[\u064B-\u0652\u0640]/g, '')
+    .replace(/[أإآٱ]/g, 'ا')
+    .replace(/ى/g, 'ي')
+    .replace(/ة/g, 'ه')
+    .trim();
+}
+
 /* ── ٥) الأسعار ────────────────────────────────────────────────────────────── */
 function pricesPanel(host, ctx) {
   const draw = () => {
     clear(host);
     const kind = ui.prices.kind;
-    const rows = ctx.model.prices.filter((r) => r.kind === kind).sort((a, b) => (a.sort_order - b.sort_order) || String(a.code).localeCompare(String(b.code)));
+    const all = ctx.model.prices.filter((r) => r.kind === kind).sort((a, b) => (a.sort_order - b.sort_order) || String(a.code).localeCompare(String(b.code)));
     const prices = ctx.model.settings.prices || {};
     const line = stateLine('', '');
+    const results = el('div');
+    const shown = el('div', { class: 'muted', style: 'margin:8px 0' });
+    const search = input({
+      value: ui.prices.q,
+      placeholder: kind === 'fx' ? 'دولار أو USD أو يورو' : 'عيار 21 أو 21 أو جنيه ذهب',
+      oninput: () => { ui.prices.q = search.value; renderRows(); }
+    });
+
+    const rowNode = (row) => {
+      const edit = (key) => input({ value: String(row[key] ?? ''), dir: key === 'sort_order' ? 'ltr' : 'auto' });
+      const cells = {};
+      ['code', 'name', 'symbol', 'value', 'change'].forEach((key) => { cells[key] = edit(key); });
+      const order = input({ type: 'number', dir: 'ltr', value: String(row.sort_order ?? 0) });
+      return el('tr', {}, [
+        td(withLtr(cells.code)), td(cells.name), td(withLtr(cells.symbol)), td(cells.value), td(cells.change), td(order),
+        td(el('div', { class: 'btnrow' }, [
+          tiny('حفظ', async () => {
+            if (!ctx.writable()) return;
+            const next = { ...row, code: cells.code.value.trim(), name: cells.name.value.trim(), symbol: cells.symbol.value.trim(), value: cells.value.value.trim(), change: cells.change.value.trim(), sort_order: Number(order.value) || 0 };
+            if (!next.code || !next.name) { toast('الرمز والاسم مطلوبان.'); return; }
+            try { await api.savePrice(next); await ctx.refresh(); } catch (error) { failWith(ctx, error); }
+          }),
+          row.id ? tiny('حذف', async () => {
+            if (!ctx.writable()) return;
+            if (!ask('حذف صف ' + row.code + '؟')) return;
+            try { await api.deletePrice(row.id); await ctx.refresh(); } catch (error) { failWith(ctx, error); }
+          }) : tiny('—', () => {})
+        ]), 'acts')
+      ]);
+    };
+
+    function renderRows() {
+      const q = searchFold(ui.prices.q);
+      const rows = q
+        ? all.filter((row) => [row.code, row.name, row.symbol].some((v) => searchFold(v).includes(q)))
+        : all;
+      shown.textContent = q
+        ? 'مطابق ' + rows.length + ' من ' + all.length + ' — الحفظ يعمل على الصفوف الظاهرة فقط.'
+        : '';
+      put(clear(results), rows.length
+        ? tableNode(['الرمز', 'الاسم', 'علامة', 'القيمة', 'التغيّر', 'الترتيب', ''], rows.map(rowNode))
+        : el('div', { class: 'muted', text: 'لا صف مطابق لهذا البحث.' }));
+    }
+
+    renderRows();
 
     host.append(
-      card('صفوف الأسعار', arCount(rows.length, { one: 'صف', two: 'صفّان', few: 'صفوف', many: 'صفًّا' }) + ' في ' + (kind === 'fx' ? 'العملات' : 'الذهب'), [
+      card('صفوف الأسعار', arCount(all.length, { one: 'صف', two: 'صفّان', few: 'صفوف', many: 'صفًّا' }) + ' في ' + (kind === 'fx' ? 'العملات' : 'الذهب'), [
         el('div', { class: 'btnrow', style: 'margin-bottom:10px' }, [
           button('عملات (fx)', kind === 'fx' ? '' : 'plain', () => { ui.prices.kind = 'fx'; draw(); }),
           button('ذهب (gold)', kind === 'gold' ? '' : 'plain', () => { ui.prices.kind = 'gold'; draw(); }),
           button('+ صف', 'ghost', () => addRow())
         ]),
-        tableNode(['الرمز', 'الاسم', 'علامة', 'القيمة', 'التغيّر', 'الترتيب', ''], rows.map((row) => {
-          const edit = (key) => input({ value: String(row[key] ?? ''), dir: key === 'sort_order' ? 'ltr' : 'auto' });
-          const cells = {};
-          ['code', 'name', 'symbol', 'value', 'change'].forEach((key) => { cells[key] = edit(key); });
-          const order = input({ type: 'number', dir: 'ltr', value: String(row.sort_order ?? 0) });
-          return el('tr', {}, [
-            td(withLtr(cells.code)), td(cells.name), td(withLtr(cells.symbol)), td(cells.value), td(cells.change), td(order),
-            td(el('div', { class: 'btnrow' }, [
-              tiny('حفظ', async () => {
-                if (!ctx.writable()) return;
-                const next = { ...row, code: cells.code.value.trim(), name: cells.name.value.trim(), symbol: cells.symbol.value.trim(), value: cells.value.value.trim(), change: cells.change.value.trim(), sort_order: Number(order.value) || 0 };
-                if (!next.code || !next.name) { toast('الرمز والاسم مطلوبان.'); return; }
-                try { await api.savePrice(next); await ctx.refresh(); } catch (error) { failWith(ctx, error); }
-              }),
-              row.id ? tiny('حذف', async () => {
-                if (!ctx.writable()) return;
-                if (!ask('حذف صف ' + row.code + '؟')) return;
-                try { await api.deletePrice(row.id); await ctx.refresh(); } catch (error) { failWith(ctx, error); }
-              }) : tiny('—', () => {})
-            ]), 'acts')
-          ]);
-        }))
+        el('div', { class: 'grid two' }, [field('بحث', search)]),
+        shown,
+        results
       ]),
       card('إعدادات الأسعار ونقاط التحديث', '', [
         el('div', { class: 'grid two' }, [
@@ -920,7 +957,7 @@ function pricesPanel(host, ctx) {
           field('API للعملات (احتياطي)', input({ dir: 'ltr', value: prices.liveFxApi || '', oninput: (e) => { prices.liveFxApi = e.target.value; } }), 'اختياري: يستخدمه التطبيق فقط إن فشل ملف JSON.'),
           field('API للذهب (احتياطي)', input({ dir: 'ltr', value: prices.liveGoldApi || '', oninput: (e) => { prices.liveGoldApi = e.target.value; } }))
         ]),
-        el('div', { class: 'muted', text: 'جدول price_rows هو مصدر الملفات المنشورة. زر «مزامنة الأسعار الآن» يجلبها من المتصفح مباشرةً من open.er-api.com و gold-api ويكتبها بجلسة دخولك؛ ويعمل prices.yml تلقائيًا كل ٦ ساعات على الجلب نفسه.' }),
+        el('div', { class: 'muted', text: 'جدول price_rows هو مصدر الملفات المنشورة. زر «مزامنة الأسعار الآن» يجلبها من المتصفح مباشرةً من open.er-api.com و gold-api ويكتبها بجلسة دخولك؛ ويعمل prices.yml تلقائيًا كل ساعتين على الجلب نفسه. المزامنة تنشر كل عملات الواجهة (١٦٠+) بأسمائها العربية، والصفوف المختارة يدويًا تأتي أولًا في التطبيق.' }),
         line,
         el('div', { class: 'btnrow', style: 'margin-top:10px' }, [
           button('حفظ الإعدادات', '', async () => {

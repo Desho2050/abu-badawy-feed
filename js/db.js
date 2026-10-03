@@ -295,7 +295,7 @@ const FX_API = 'https://open.er-api.com/v6/latest/USD';
 const GOLD_API = 'https://api.gold-api.com/price/XAU';
 const GRAM_PER_OUNCE = 31.1034768;
 
-/* ما يعرفه المستخدم المصري: كم جنيهاً مقابل وحدة العملة. */
+/* ما يعرفه المستخدم المصري: كم جنيهاً مقابل وحدة العملة — تُعرض أولًا والقائمة تُستكمل تلقائيًا. */
 const FX_WATCH = [
   ['USD', 'دولار أمريكي', '$'],
   ['EUR', 'يورو', '€'],
@@ -306,9 +306,22 @@ const FX_WATCH = [
   ['TRY', 'ليرة تركية', '₺']
 ];
 
+/* نفس arName في sync-prices.mjs: المتصفح يحمل بيانات CLDR العربية مثل Node. */
+const NAMES_AR = typeof Intl.DisplayNames === 'function' ? new Intl.DisplayNames(['ar'], { type: 'currency' }) : null;
+
+function arName(code) {
+  if (!NAMES_AR) return code;
+  try {
+    return NAMES_AR.of(code) || code;
+  } catch {
+    return code;
+  }
+}
+
+/* عملة تساوِ أقل من جنيه تُعرض بأربعة منازل، وإلا صارت 0.00. */
 function money(value) {
   if (!Number.isFinite(value) || value <= 0) return null;
-  return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: value < 1 ? 4 : 2 });
 }
 
 /** الواجهتان المفتوحتان تسمحان بالقراءة من المتصفح (access-control-allow-origin: *). */
@@ -349,10 +362,27 @@ export async function syncPrices(kind = 'both') {
     try {
       const rates = await ratesFromUsd();
       const base = await egpPerUsd();
+      /* كل ما ترسله الواجهة، لا القائمة المختصرة فقط — نفس سلوك sync-prices.mjs. */
+      const priced = Object.keys(rates).filter((code) => {
+        const perUsd = Number(rates[code]);
+        return code !== 'EGP' && Number.isFinite(perUsd) && perUsd > 0;
+      });
+      const watch = new Map(FX_WATCH.map(([code, name, symbol]) => [code, { name, symbol }]));
+      const ordered = [
+        ...FX_WATCH.map(([code]) => code).filter((code) => priced.includes(code)),
+        ...priced.filter((code) => !watch.has(code)).sort()
+      ];
       const rows = [];
-      FX_WATCH.forEach(([code, name, symbol], index) => {
+      ordered.forEach((code, index) => {
         const value = money(base / Number(rates[code]));
-        if (value) rows.push({ kind: 'fx', code, name, symbol, value, change: null, sort_order: index });
+        if (!value) return;
+        const curated = watch.get(code);
+        rows.push({
+          kind: 'fx', code,
+          name: curated ? curated.name : arName(code),
+          symbol: curated ? curated.symbol : null,
+          value, change: null, sort_order: index
+        });
       });
       await writePrices(rows);
       result.fx = rows.length;
@@ -367,12 +397,15 @@ export async function syncPrices(kind = 'both') {
       const ounceUsd = Number(ounce?.price ?? ounce?.data?.price ?? ounce?.USD);
       if (!Number.isFinite(ounceUsd) || ounceUsd <= 0) throw new Error('لا سعر للأوقية في رد الذهب');
       const gram24 = (ounceUsd / GRAM_PER_OUNCE) * (await egpPerUsd());
+      const gram21 = (gram24 * 21) / 24;
       const rows = [
         ['24', 'جرام ذهب عيار 24', gram24],
         ['22', 'جرام ذهب عيار 22', (gram24 * 22) / 24],
-        ['21', 'جرام ذهب عيار 21', (gram24 * 21) / 24],
+        ['21', 'جرام ذهب عيار 21', gram21],
         ['18', 'جرام ذهب عيار 18', (gram24 * 18) / 24],
-        ['SOV', 'جنيه ذهب (8 جرام عيار 21)', ((gram24 * 21) / 24) * 8],
+        ['14', 'جرام ذهب عيار 14', (gram24 * 14) / 24],
+        ['SOV', 'جنيه ذهب (8 جرام عيار 21)', gram21 * 8],
+        ['HALF', 'نصف جنيه ذهب (4 جرام عيار 21)', gram21 * 4],
         ['XAU', 'أوقية الذهب عالميًا', null]
       ].map(([code, name, valueEgp], index) => ({
         kind: 'gold',
