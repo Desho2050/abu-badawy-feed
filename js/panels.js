@@ -129,27 +129,52 @@ const DROP_TAGS = new Set(['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'LINK
 function previewNode(html) {
   const host = el('div', { class: 'preview' });
   const doc = new DOMParser().parseFromString(String(html || '<p>لا متن بعد.</p>'), 'text/html');
-  copyChildren(host, doc.body);
+  copyChildren(host, doc.body, false);
   return host;
 }
 
-function copyChildren(target, source) {
+/* نفس قواعد linkifyText في publish.mjs: عنوان خام في النص يصير رابطًا قابلًا للنقر. */
+const BARE_LINK = /(?:https?:\/\/|www\.)[^\s<>"'،؛]+|[A-Za-z0-9._%+\-']+@[\w-]+(?:\.[\w-]+)+/g;
+const TRAILING_PUNCTUATION = /[.,;:!?)}\]"'«»،؛؟]+$/;
+
+function bareHref(found) {
+  if (/^www\./i.test(found)) return 'https://' + found;
+  return found.includes('@') ? 'mailto:' + found : found;
+}
+
+function appendText(target, text) {
+  BARE_LINK.lastIndex = 0;
+  let cursor = 0;
+  for (const match of String(text).matchAll(BARE_LINK)) {
+    const url = match[0].replace(TRAILING_PUNCTUATION, '');
+    if (!url) continue;
+    if (match.index > cursor) target.append(String(text).slice(cursor, match.index));
+    target.append(el('a', { href: bareHref(url), rel: 'noopener noreferrer nofollow', target: '_blank', text: url }));
+    cursor = match.index + url.length;
+  }
+  if (cursor < String(text).length) target.append(String(text).slice(cursor));
+}
+
+function copyChildren(target, source, insideLink) {
   Array.from(source.childNodes).forEach((node) => {
-    if (node.nodeType === 3) { target.append(node.data); return; }
+    if (node.nodeType === 3) {
+      if (insideLink) target.append(node.data); else appendText(target, node.data);
+      return;
+    }
     if (node.nodeType !== 1) return;
     if (DROP_TAGS.has(node.tagName)) return;
-    if (!OK_TAGS.has(node.tagName)) { copyChildren(target, node); return; }
+    if (!OK_TAGS.has(node.tagName)) { copyChildren(target, node, insideLink); return; }
     if (node.tagName === 'A') {
       const href = node.getAttribute('href') || '';
-      if (!/^(https?:|mailto:)/i.test(href)) { copyChildren(target, node); return; }
+      if (!/^(https?:|mailto:)/i.test(href)) { copyChildren(target, node, insideLink); return; }
       const link = el('a', { href, rel: 'noopener noreferrer nofollow', target: '_blank' });
-      copyChildren(link, node);
+      copyChildren(link, node, true);
       target.append(link);
       return;
     }
     if (node.tagName === 'BR') { target.append(el('br')); return; }
     const copy = document.createElement(node.tagName.toLowerCase());
-    copyChildren(copy, node);
+    copyChildren(copy, node, insideLink);
     target.append(copy);
   });
 }

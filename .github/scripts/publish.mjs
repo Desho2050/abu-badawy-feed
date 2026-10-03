@@ -62,6 +62,33 @@ function escapeAttr(value) {
   return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+/* عنوان خام في نص مقروء: http/https أو www. أو بريد — بلا أقواس ولا علامات ترقيم ذيل. */
+const BARE_LINK = /(?:https?:\/\/|www\.)[^\s<>"'،؛]+|[A-Za-z0-9._%+\-']+@[\w-]+(?:\.[\w-]+)+/g;
+const TRAILING_PUNCTUATION = /[.,;:!?)}\]"'«»،؛؟]+$/;
+
+function bareHref(found) {
+  if (/^www\./i.test(found)) return 'https://' + found;
+  if (found.includes('@')) return 'mailto:' + found;
+  return found;
+}
+
+/** يحوّل العناوين المكتوبة كنص إلى وسوم <a>، ويتخطّى ما هو داخل رابط موجود أصلًا. */
+function linkifyText(html) {
+  let insideLink = 0;
+  return html.split(/(<\/?[a-z][a-z0-9]*\b[^>]*>)/gi).map((part) => {
+    if (/^<a\b/i.test(part)) { insideLink += 1; return part; }
+    if (/^<\/a[\s>]/i.test(part)) { insideLink = Math.max(0, insideLink - 1); return part; }
+    if (insideLink || part.startsWith('<')) return part;
+    return part.replace(BARE_LINK, (match) => {
+      const url = match.replace(TRAILING_PUNCTUATION, '');
+      if (!url) return match;
+      /* النص وصل بعد التنقية بلا وسوم ولا علامات اقتباس، فيُدرج كما هو. */
+      return '<a href="' + bareHref(url) + '" rel="noopener noreferrer nofollow" target="_blank">' +
+        url + '</a>' + match.slice(url.length);
+    });
+  }).join('');
+}
+
 /* صفحة الويب تدرج المتن بـ innerHTML، فالتنقية هنا شرط أمان لا تجميل. */
 function sanitizeHtml(raw) {
   if (!raw) return '';
@@ -72,7 +99,7 @@ function sanitizeHtml(raw) {
   });
   /* stack يمنع وسم إغلاق يتيم بعد حذف وسمه الافتتاحي (مثل <a href="javascript:…">). */
   const stack = [];
-  return html.replace(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b([^>]*)>/g, (match, name, rest) => {
+  const clean = html.replace(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b([^>]*)>/g, (match, name, rest) => {
     const tag = name.toLowerCase();
     if (!ALLOWED_TAGS.has(tag)) return '';
     if (match.charAt(1) === '/') {
@@ -91,6 +118,7 @@ function sanitizeHtml(raw) {
     stack.push(tag);
     return '<' + tag + '>';
   });
+  return linkifyText(clean);
 }
 
 function plain(raw, limit = 300) {
