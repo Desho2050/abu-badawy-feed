@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "world_news",
-  "updatedAt": "2026-10-03T18:27:48Z",
+  "updatedAt": "2026-10-03T19:09:51Z",
   "note": "هذا القسم يُكتب ملخصًا أصليًا باللغة العربية مع رابط المصدر، لا نقلًا حرفيًا. أو يُحوَّل إلى RSS عبر تغيير source.kind في index.json (راجع README).",
   "items": [
     {
