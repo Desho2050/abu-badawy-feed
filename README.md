@@ -187,8 +187,8 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 > ومستودع `media` عامّ القراءة بحدّ 25 MB وقائمة أنواع مقبولة.
 > مستخدم المصادقة لهذا البريد موجود في Authentication ← Users، فيكفي كلمة مروره للدخول
 > على `dashboard.html` مع مفتاح `anon public`.
-> سرّ `SUPABASE_URL` أُضيف في مستودع `abu-badawy-feed`؛ المتبقّي: `SUPABASE_SERVICE_KEY`
-> (لصقه من Settings ← API Keys)، ثم تشغيل `publish.yml` مرة واحدة.
+> سرّا GitHub مضبوطان (`SUPABASE_URL` + `SUPABASE_SERVICE_KEY`)، و`publish.yml` يعمل:
+> آخر نشر من القاعدة صدر في `data/` بنفس المحتوى (١١ قسمًا، ١٧ عنصرًا).
 
 1. أنشئ مشروعًا على <https://supabase.com> (خطة Free تكفي).
 2. عدّل سطر `insert into public.admin_emails …` إلى بريدك الحقيقي، وأضف سطرًا لكل مدير.
