@@ -52,13 +52,15 @@ async function getJson(url) {
 /** upsert عبر PostgREST: دمج على (kind, code). */
 async function upsert(rows) {
   if (!rows.length) return 0;
-  const res = await fetch(SUPABASE_URL + '/rest/v1/price_rows', {
+  /* عمود النزاع يُمرَّر استعلامًا (on_conflict=)، لا في ترويسة Prefer؛
+     وإلا صار الدمج على المفتاح الأساسي وألقى 409 على أول تكرار. */
+  const res = await fetch(SUPABASE_URL + '/rest/v1/price_rows?on_conflict=kind,code', {
     method: 'POST',
     headers: {
       apikey: SERVICE_KEY,
       Authorization: 'Bearer ' + SERVICE_KEY,
       'Content-Type': 'application/json',
-      Prefer: 'resolution=merge-duplicates,onConflict=kind,code',
+      Prefer: 'resolution=merge-duplicates',
       Accept: 'application/json'
     },
     body: JSON.stringify(rows),
