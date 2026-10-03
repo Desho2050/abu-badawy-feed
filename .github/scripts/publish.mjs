@@ -22,10 +22,8 @@ import path from 'node:path';
 
 /* قيمة السرّ تُنسخ أحيانًا ومعها مسافة أو رمز خفي أو مقطع /rest/v1 زائد، فترفضها
    بوابة Supabase بخطأ PGRST125 الذي لا يوحي بإطلاقًا أن المشكلة في الإعداد. */
-const SUPABASE_URL = String(process.env.SUPABASE_URL || '')
-  .replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '')
-  .replace(/\/rest\/v1$/i, '')
-  .replace(/\/+$/, '');
+const RAW_URL = String(process.env.SUPABASE_URL || '').replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '');
+const SUPABASE_URL = RAW_URL ? new URL(RAW_URL).origin : RAW_URL;
 const SERVICE_KEY = String(process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '')
   .replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '');
 const DATA_DIR = process.env.DATA_DIR || 'data';
