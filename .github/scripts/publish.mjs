@@ -141,29 +141,41 @@ function guessKind(url) {
 }
 
 /* ── 2) Supabase REST بمفتاح service_role ─────────────────────────────────── */
+/* بوابة Supabase ترجع أحيانًا 404/PGRST125 أو 5xx على مسار سليم من مستضيف
+   GitHub، والاستعلام نفسه ينجح من جهاز آخر، فتُعاد المحاولة قبل الفشل. */
+const ATTEMPTS = 3;
+const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
+
 async function request(table, params, init = {}) {
   const query = new URLSearchParams(params).toString();
   const url = SUPABASE_URL + '/rest/v1/' + table + (query ? '?' + query : '');
-  let res;
-  try {
-    res = await fetch(url, {
-      ...init,
-      headers: {
-        apikey: SERVICE_KEY,
-        Authorization: 'Bearer ' + SERVICE_KEY,
-        'Content-Type': 'application/json',
-        ...(init.headers || {})
-      },
-      signal: AbortSignal.timeout(60000)
-    });
-  } catch (error) {
-    fail('تعذّر الوصول إلى Supabase (' + table + '): ' + error.message);
+  let res, lastError = '';
+  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
+    try {
+      res = await fetch(url, {
+        ...init,
+        headers: {
+          apikey: SERVICE_KEY,
+          Authorization: 'Bearer ' + SERVICE_KEY,
+          'Content-Type': 'application/json',
+          ...(init.headers || {})
+        },
+        signal: AbortSignal.timeout(60000)
+      });
+      if (res.ok) break;
+      lastError = 'Supabase رجّع ' + res.status + ': ' + (await res.text()).slice(0, 240);
+      if (res.status !== 404 && res.status < 500) attempt = ATTEMPTS;
+    } catch (error) {
+      res = null;
+      lastError = 'تعذّر الوصول إلى Supabase: ' + error.message;
+    }
+    if (attempt < ATTEMPTS) {
+      notice('إعادة محاولة /rest/v1/' + table + ' (' + (attempt + 1) + '/' + ATTEMPTS + '): ' + lastError);
+      await sleep(attempt * 2000);
+    }
   }
-  if (!res.ok) {
-    /* يُطبع المسار الكامل لا المفتاح: خطأ مثل PGRST125 يعني أن قيمة SUPABASE_URL
-       في أسرار GitHub فيها زيادة (مسار أو مسافة) وليست مشكلة في المحتوى. */
-    fail('Supabase رجّع ' + res.status + ' على ' + table + ' (الرابط المستخدم: ' + url + '): ' +
-      (await res.text()).slice(0, 300));
+  if (!res || !res.ok) {
+    fail('فشل /rest/v1/' + table + ' — الرابط: ' + url + ' — ' + lastError);
   }
   if ((init.method || 'GET') === 'HEAD' || res.status === 204) return null;
   const text = await res.text();
