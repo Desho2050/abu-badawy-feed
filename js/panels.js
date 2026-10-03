@@ -150,6 +150,39 @@ function trimUrl(found) {
   return opens > closes ? found : cut;
 }
 
+/* نفس linkLabel في publish.mjs: الرابط يُعرض بالنطاق وآخر مقطع مفيد، لا بعنوان مُشفَّر طويل. */
+const LABEL_LIMIT = 64;
+
+function decodeSegment(segment) {
+  try {
+    return decodeURIComponent(segment.replace(/\+/g, ' '));
+  } catch {
+    return segment;
+  }
+}
+
+function linkLabel(url) {
+  if (!/^[a-z][\w+.-]*:\/\//i.test(url) && url.includes('@')) return url;
+  let parsed;
+  try {
+    parsed = new URL(bareHref(url));
+  } catch {
+    return url;
+  }
+  if (!/^https?:$/.test(parsed.protocol)) return url;
+  const host = parsed.hostname.replace(/^www\./i, '');
+  const segments = parsed.pathname.split('/').filter(Boolean);
+  let last = decodeSegment(segments[segments.length - 1] || '');
+  last = last
+    .replace(/\.(x?html?|php|aspx?|jsp|shtml)$/i, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!last || last.length < 3 || /^\d+$/.test(last) || last.toLowerCase() === 'index') return host;
+  const label = last.length > LABEL_LIMIT ? last.slice(0, LABEL_LIMIT).trimEnd() + '…' : last;
+  return host + ' › ' + label;
+}
+
 function appendText(target, text) {
   BARE_LINK.lastIndex = 0;
   let cursor = 0;
@@ -157,7 +190,9 @@ function appendText(target, text) {
     const url = trimUrl(match[0]);
     if (!url) continue;
     if (match.index > cursor) target.append(String(text).slice(cursor, match.index));
-    target.append(el('a', { href: bareHref(url), rel: 'noopener noreferrer nofollow', target: '_blank', text: url }));
+    target.append(el('a', {
+      href: bareHref(url), rel: 'noopener noreferrer nofollow', target: '_blank', title: url, text: linkLabel(url)
+    }));
     cursor = match.index + url.length;
   }
   if (cursor < String(text).length) target.append(String(text).slice(cursor));
