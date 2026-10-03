@@ -74,7 +74,6 @@ function escapeAttr(value) {
 
 /* عنوان خام في نص مقروء: http/https أو www. أو بريد — بلا علامات ترقيم ذيل. */
 const BARE_LINK = /(?:https?:\/\/|www\.)[^\s<>"'،؛]+|[A-Za-z0-9._%+\-']+@[\w-]+(?:\.[\w-]+)+/g;
-const TRAILING_PUNCTUATION = /[.,;:!?)}\]"'«»،؛؟]+$/;
 
 function bareHref(found) {
   if (/^www\./i.test(found)) return 'https://' + found;
@@ -83,12 +82,18 @@ function bareHref(found) {
 }
 
 /* `(https://example.com/x)` ← القوس ملك الجملة، لكن
-   `https://ar.wikipedia.org/wiki/_(عزبة_بدوي)` ← قوساه جزء من العنوان نفسه. */
+   `https://ar.wikipedia.org/wiki/_(عزبة_بدوي).` ← قوساه جزء من العنوان والنقطة بعده.
+   لذلك يُقتطع حرفًا حرفًا ولا يُحذف قوسٌ يترك شريكه بلا مقابل. */
+const TRAILER = /[.,;:!?)}\]"'«»،؛؟]$/;
+
 function trimUrl(found) {
-  const cut = found.replace(TRAILING_PUNCTUATION, '');
-  const opens = (found.match(/\(/g) || []).length;
-  const closes = (cut.match(/\)/g) || []).length;
-  return opens > closes ? found : cut;
+  let cut = found;
+  while (cut.length > 1 && TRAILER.test(cut)) {
+    const next = cut.slice(0, -1);
+    if ((next.match(/\(/g) || []).length > (next.match(/\)/g) || []).length) break;
+    cut = next;
+  }
+  return cut;
 }
 
 /*
@@ -127,6 +132,221 @@ function linkLabel(url) {
   return host + ' › ' + label;
 }
 
+/*
+   اسم الرابط قد تأتي به الصفحة نفسها: og:title أو <title>. يُجلب مرة واحدة لكل رابط
+   ويُخزَّن في link_previews، فلا شبكة ولا انتظار في بقية عمليات النشر.
+*/
+const LINK_TTL_DAYS = 120;
+const LINK_FAIL_TTL_DAYS = 30;
+const LINK_FETCH_LIMIT = 8;
+const LINK_FETCH_TIMEOUT = 8000;
+const LINK_LABEL_LIMIT = 72;
+const BOT_UA = 'AbuBadawyBot/1.0 (+https://desho2050.github.io/abu-badawy-feed/)';
+const LINK_LABELS = new Map();
+
+const NAMED_ENTITIES = {
+  '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'", '&#39;': "'",
+  '&nbsp;': ' ', '&ndash;': '–', '&mdash;': '—', '&hellip;': '…',
+  '&rsquo;': '’', '&lsquo;': '‘', '&rdquo;': '”', '&ldquo;': '“', '&rarr;': '→', '&larr;': '←'
+};
+
+function decodeEntities(text) {
+  return String(text).replace(/&(?:[a-z]+|#\d+|#x[0-9a-f]+);/gi, (found) => {
+    if (NAMED_ENTITIES[found.toLowerCase()]) return NAMED_ENTITIES[found.toLowerCase()];
+    const code = /^&#x/i.test(found)
+      ? parseInt(found.slice(3, -1), 16)
+      : parseInt(found.slice(2, -1), 10);
+    return Number.isFinite(code) && code > 0 && code < 0x10FFFF
+      ? String.fromCodePoint(code)
+      : found;
+  });
+}
+
+function tagAttr(tag, name) {
+  const pattern = new RegExp(
+    '\\b' + name + '\\s*=\\s*"([^"]*)"|\\b' + name + "\\s*=\\s*'([^']*)'|\\b" + name + '\\s*=\\s*([^\\s>]+)',
+    'i'
+  );
+  const found = tag.match(pattern);
+  if (!found) return '';
+  return (found[1] ?? found[2] ?? found[3] ?? '').trim();
+}
+
+function metaMap(html) {
+  const out = new Map();
+  for (const [tag] of html.matchAll(/<meta\b[^>]*>/gi)) {
+    const key = (tagAttr(tag, 'property') || tagAttr(tag, 'name')).toLowerCase();
+    const value = tagAttr(tag, 'content');
+    if (key && value && !out.has(key)) out.set(key, value);
+  }
+  return out;
+}
+
+/* عنوان مقبول للحفظ أو للطلب: http(s) مطلق فقط — لا data: ولا javascript:. */
+function httpUrl(value, base) {
+  if (!value) return null;
+  try {
+    const abs = new URL(String(value).trim(), base);
+    return abs.protocol === 'http:' || abs.protocol === 'https:' ? abs.href : null;
+  } catch {
+    return null;
+  }
+}
+
+/* عناوين الاستضافة المحلية (منها 169.254.169.254) لا تُطلب من داخل المُنفِّذ. */
+function publicHttp(value) {
+  const abs = httpUrl(value);
+  if (!abs) return null;
+  const host = new URL(abs).hostname.toLowerCase().replace(/\.$/, '');
+  if (host === 'localhost' || host.endsWith('.localhost')) return null;
+  if (host.includes(':')) return null;
+  const ip = host.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (ip) {
+    const [a, b] = [Number(ip[1]), Number(ip[2])];
+    if (a === 0 || a === 10 || a === 127 || (a === 100 && b >= 64 && b <= 127) ||
+        (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168)) return null;
+  }
+  return abs;
+}
+
+function hostOf(url) {
+  try {
+    return new URL(url).hostname.toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
+function iconFrom(html, base) {
+  for (const [tag] of html.matchAll(/<link\b[^>]*>/gi)) {
+    const rel = tagAttr(tag, 'rel').toLowerCase();
+    if (!/\bicon\b/.test(rel)) continue;
+    const href = httpUrl(tagAttr(tag, 'href'), base);
+    if (href) return href;
+  }
+  return httpUrl('/favicon.ico', base);
+}
+
+function flatText(value) {
+  return decodeEntities(String(value || '')).replace(/\s+/g, ' ').trim();
+}
+
+/* <title> كثيرًا ما ينتهي باسم الموقع بعد فاصل ("خبر - اليوم السابع")، فيُحذف
+   ويُستعمل الاسم بدلًا منه كبادئة، وإلا ظهر الاسم مرتين في سطر واحد. */
+function cleanTitle(title, site) {
+  if (!site) return title;
+  const esc = site.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const cut = title.replace(new RegExp('\\s*[-–—|·:]+\\s*' + esc + '\\s*$', 'iu'), '').trim();
+  return cut || title;
+}
+
+function previewLabel(row) {
+  const title = flatText(row.title);
+  if (!title) return '';
+  const site = flatText(row.site_name);
+  const named = site && !title.toLowerCase().includes(site.toLowerCase()) ? site + ': ' + title : title;
+  return named.length > LINK_LABEL_LIMIT ? named.slice(0, LINK_LABEL_LIMIT).trimEnd() + '…' : named;
+}
+
+async function fetchPreview(rawHref) {
+  const href = publicHttp(rawHref);
+  if (!href) return null;
+  try {
+    const res = await fetch(href, {
+      headers: { 'user-agent': BOT_UA, accept: 'text/html,application/xhtml+xml,*/*' },
+      /* fetch يلتزم التحويل تلقائيًا؛ يُعاد فحص الوجهة هنا لأن الحارس يمنع العناوين المحلية. */
+      redirect: 'follow',
+      signal: AbortSignal.timeout(LINK_FETCH_TIMEOUT)
+    });
+    const base = publicHttp(res.url);
+    if (!base) return null;
+    const type = res.headers.get('content-type') || '';
+    if (!res.ok || !type.includes('html')) return null;
+    const html = (await res.text()).slice(0, 250000);
+    const meta = metaMap(html);
+    const title = meta.get('og:title') || meta.get('twitter:title') ||
+      (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1] || '';
+    if (!title.trim()) return null;
+    const siteName = flatText(meta.get('og:site_name'));
+    return {
+      host: hostOf(base),
+      title: cleanTitle(flatText(title), siteName).slice(0, 200),
+      site_name: siteName.slice(0, 80) || null,
+      description: flatText(meta.get('og:description') || meta.get('description') || meta.get('twitter:description')).slice(0, 300) || null,
+      image_url: httpUrl(meta.get('og:image') || meta.get('twitter:image'), base),
+      icon_url: iconFrom(html, base)
+    };
+  } catch {
+    return null;
+  }
+}
+
+function staleAt(row, days) {
+  const at = Date.parse(String(row.fetched_at || row.failed_at || ''));
+  return Number.isNaN(at) || at < NOW.getTime() - days * 86400000;
+}
+
+async function resolveLinkLabels(rawBodies) {
+  const urls = new Set();
+  for (const raw of rawBodies) {
+    BARE_LINK.lastIndex = 0;
+    for (const found of String(raw || '').matchAll(BARE_LINK)) {
+      const url = trimUrl(found[0]);
+      if (url && !url.includes('@')) urls.add(bareHref(url));
+    }
+  }
+  if (!SUPABASE_URL || !SERVICE_KEY || !urls.size) return;
+
+  const rows = await request('link_previews', {
+    select: 'url,title,site_name,fetched_at,failed_at',
+    order: 'fetched_at.desc',
+    limit: '2000'
+  }, { soft: true });
+  if (!Array.isArray(rows)) return;
+
+  const byUrl = new Map(rows.map((row) => [row.url, row]));
+  const pending = [];
+  for (const url of urls) {
+    const hit = byUrl.get(url);
+    if (hit) {
+      const label = previewLabel(hit);
+      if (label) LINK_LABELS.set(url, label);
+      const usable = hit.title ? staleAt(hit, LINK_TTL_DAYS) : staleAt(hit, LINK_FAIL_TTL_DAYS);
+      if (usable && pending.length < LINK_FETCH_LIMIT) pending.push(url);
+    } else if (pending.length < LINK_FETCH_LIMIT) {
+      pending.push(url);
+    }
+  }
+  if (!pending.length) return;
+
+  const upserts = [];
+  for (const url of pending) {
+    const preview = await fetchPreview(url);
+    const host = hostOf(url);
+    if (!host) continue;
+    if (preview) {
+      upserts.push({ ...preview, url, fetched_at: nowIso, failed_at: null });
+      LINK_LABELS.set(url, previewLabel(preview));
+    } else {
+      const hit = byUrl.get(url);
+      /* fetched_at غير قابل للفراغ في المخطط، فلا يُرسل إلا إن كان للصف قيمة سابقة. */
+      const row = { url, host, title: hit?.title ?? null, failed_at: nowIso };
+      if (hit?.fetched_at) row.fetched_at = hit.fetched_at;
+      upserts.push(row);
+    }
+  }
+  try {
+    await request('link_previews', { on_conflict: 'url' }, {
+      method: 'POST',
+      headers: { Prefer: 'return=minimal,resolution=merge-duplicates' },
+      body: JSON.stringify(upserts)
+    }, { soft: true });
+    notice('معاينات الروابط: ' + pending.length + ' رابطًا جُلبت وحُفظت في link_previews.');
+  } catch {
+    /* التخزين فشل — الاسم المحفوظ في الذاكرة يكفي لهذا النشر. */
+  }
+}
+
 /** يحوّل العناوين المكتوبة كنص إلى وسوم <a>، ويتخطّى ما هو داخل رابط موجود أصلًا. */
 function linkifyText(html) {
   let insideLink = 0;
@@ -137,9 +357,10 @@ function linkifyText(html) {
     return part.replace(BARE_LINK, (match) => {
       const url = trimUrl(match);
       if (!url) return match;
-      /* النص وصل بعد التنقية بلا وسوم ولا علامات اقتباس، فيُدرج كما هو. */
+      /* الاسم المقروء من og:title إن وُجد، وإلا النطاق وآخر مقطع مفيد من المسار. */
       return '<a href="' + escapeAttr(bareHref(url)) + '" rel="noopener noreferrer nofollow" target="_blank" title="' +
-        escapeAttr(url) + '">' + escapeAttr(linkLabel(url)) + '</a>' + match.slice(url.length);
+        escapeAttr(url) + '">' + escapeAttr(LINK_LABELS.get(bareHref(url)) || linkLabel(url)) + '</a>' +
+        match.slice(url.length);
     });
   }).join('');
 }
@@ -202,24 +423,26 @@ const ATTEMPTS = 3;
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 
 async function request(table, params, init = {}) {
+  const { soft = false, ...fetchInit } = init;
   const query = new URLSearchParams(params).toString();
   const url = SUPABASE_URL + '/rest/v1/' + table + (query ? '?' + query : '');
   let res, lastError = '';
   for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
     try {
       res = await fetch(url, {
-        ...init,
+        ...fetchInit,
         headers: {
           apikey: SERVICE_KEY,
           Authorization: 'Bearer ' + SERVICE_KEY,
           'Content-Type': 'application/json',
-          ...(init.headers || {})
+          ...(fetchInit.headers || {})
         },
         signal: AbortSignal.timeout(60000)
       });
       if (res.ok) break;
       lastError = 'Supabase رجّع ' + res.status + ': ' + (await res.text()).slice(0, 240);
-      if (res.status !== 404 && res.status < 500) attempt = ATTEMPTS;
+      /* 404 في جدول اختياري (soft) ثابت: الجدول غير مُنفَّذ بعد، فلا إعادة محاولة. */
+      if ((res.status !== 404 || soft) && res.status < 500) attempt = ATTEMPTS;
     } catch (error) {
       res = null;
       lastError = 'تعذّر الوصول إلى Supabase: ' + error.message;
@@ -230,9 +453,15 @@ async function request(table, params, init = {}) {
     }
   }
   if (!res || !res.ok) {
+    /* soft: جدول اختياري غير موجود بعد (مثل link_previews قبل تنفيذ SQL) —
+       يُترك للمحتوى أن يُنشر بغيره بدل أن يتوقف كل النشر. */
+    if (soft) {
+      notice('/rest/v1/' + table + ' غير متاح — تُجاوز الخطوة: ' + lastError);
+      return null;
+    }
     fail('فشل /rest/v1/' + table + ' — الرابط: ' + url + ' — ' + lastError);
   }
-  if ((init.method || 'GET') === 'HEAD' || res.status === 204) return null;
+  if ((fetchInit.method || 'GET') === 'HEAD' || res.status === 204) return null;
   const text = await res.text();
   if (!text) return null;
   try {
@@ -492,6 +721,12 @@ async function main() {
       notice('لم تُحدَّث حالة العناصر المجدولة في القاعدة (سيُنشر محتواها الآن على أي حال): ' + error.message);
     }
   }
+
+  /* أسماء الروابط تُجلب مرة وتُخزَّن، فلا بطء ولا فشل إن تعذّر الجلب. */
+  await resolveLinkLabels([
+    ...live.map((row) => row.body),
+    ...(legalRows || []).map((row) => row.body)
+  ]);
 
   const settings = settingsRows[0];
   const indexPayload = renderIndex(settings, sectionRows, legalRows || []);

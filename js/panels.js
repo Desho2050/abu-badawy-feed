@@ -135,19 +135,24 @@ function previewNode(html) {
 
 /* نفس قواعد linkifyText في publish.mjs: عنوان خام في النص يصير رابطًا قابلًا للنقر. */
 const BARE_LINK = /(?:https?:\/\/|www\.)[^\s<>"'،؛]+|[A-Za-z0-9._%+\-']+@[\w-]+(?:\.[\w-]+)+/g;
-const TRAILING_PUNCTUATION = /[.,;:!?)}\]"'«»،؛؟]+$/;
 
 function bareHref(found) {
   if (/^www\./i.test(found)) return 'https://' + found;
   return found.includes('@') ? 'mailto:' + found : found;
 }
 
-/* الأقواس المتوازنة جزء من العنوان (ويكيبيديا مثلًا)، والذيل المنفرد ملك الجملة. */
+/* نفس trimUrl في publish.mjs: الفاصل اللاحق يُقتطع حرفًا حرفًا، ولا يُحذف قوسٌ
+   يترك شريكه بلا مقابل — قواسا عنوان ويكيبيديا جزء منه. */
+const TRAILER = /[.,;:!?)}\]"'«»،؛؟]$/;
+
 function trimUrl(found) {
-  const cut = found.replace(TRAILING_PUNCTUATION, '');
-  const opens = (found.match(/\(/g) || []).length;
-  const closes = (cut.match(/\)/g) || []).length;
-  return opens > closes ? found : cut;
+  let cut = found;
+  while (cut.length > 1 && TRAILER.test(cut)) {
+    const next = cut.slice(0, -1);
+    if ((next.match(/\(/g) || []).length > (next.match(/\)/g) || []).length) break;
+    cut = next;
+  }
+  return cut;
 }
 
 /* نفس linkLabel في publish.mjs: الرابط يُعرض بالنطاق وآخر مقطع مفيد، لا بعنوان مُشفَّر طويل. */
@@ -183,6 +188,27 @@ function linkLabel(url) {
   return host + ' › ' + label;
 }
 
+/* أسماء الصفحات التي يجلبها الناشر من og:title وتُحفظ في link_previews؛ المعاينة
+   تعرض الاسم نفسه الذي سيراه القارئ في التطبيق، لا اسمًا تقريبيًا من المسار. */
+const PREVIEW_LIMIT = 72;
+let linkTitles = new Map();
+
+export function setLinkPreviews(rows) {
+  const next = new Map();
+  for (const row of rows || []) {
+    const title = String(row.title || '').replace(/\s+/g, ' ').trim();
+    if (!row.url || !title) continue;
+    const site = String(row.site_name || '').replace(/\s+/g, ' ').trim();
+    const named = site && !title.toLowerCase().includes(site.toLowerCase()) ? site + ': ' + title : title;
+    next.set(row.url, named.length > PREVIEW_LIMIT ? named.slice(0, PREVIEW_LIMIT).trimEnd() + '…' : named);
+  }
+  linkTitles = next;
+}
+
+function linkText(url) {
+  return linkTitles.get(bareHref(url)) || linkLabel(url);
+}
+
 function appendText(target, text) {
   BARE_LINK.lastIndex = 0;
   let cursor = 0;
@@ -191,7 +217,7 @@ function appendText(target, text) {
     if (!url) continue;
     if (match.index > cursor) target.append(String(text).slice(cursor, match.index));
     target.append(el('a', {
-      href: bareHref(url), rel: 'noopener noreferrer nofollow', target: '_blank', title: url, text: linkLabel(url)
+      href: bareHref(url), rel: 'noopener noreferrer nofollow', target: '_blank', title: url, text: linkText(url)
     }));
     cursor = match.index + url.length;
   }

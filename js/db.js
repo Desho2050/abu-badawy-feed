@@ -112,14 +112,16 @@ export async function removeEditor(email) {
 
 /* ── قراءة النموذج كاملًا ─────────────────────────────────────────────────── */
 export async function loadModel() {
-  const [settings, sections, items, legal, prices, media, log] = await Promise.all([
+  const [settings, sections, items, legal, prices, media, log, previews] = await Promise.all([
     db.from('app_settings').select('*').limit(1),
     db.from('sections').select('*').order('sort_order', { ascending: true }),
     db.from('items').select('*').order('sort_order', { ascending: false }).order('updated_at', { ascending: false }),
     db.from('legal_docs').select('*'),
     db.from('price_rows').select('*').order('kind').order('sort_order'),
     db.from('media_library').select('*').order('created_at', { ascending: false }),
-    db.from('publish_log').select('*').order('created_at', { ascending: false }).limit(25)
+    db.from('publish_log').select('*').order('created_at', { ascending: false }).limit(25),
+    /* جدول اختياري: موجود فقط بعد تنفيذ قسم link_previews في supabase-setup.sql. */
+    db.from('link_previews').select('url,title,site_name,fetched_at,failed_at').order('fetched_at', { ascending: false }).limit(500)
   ]);
   [[settings, 'app_settings'], [sections, 'sections'], [items, 'items'], [legal, 'legal_docs'],
     [prices, 'price_rows'], [media, 'media_library'], [log, 'publish_log']]
@@ -133,7 +135,8 @@ export async function loadModel() {
     legal: legal.data || [],
     prices: prices.data || [],
     media: media.data || [],
-    log: log.data || []
+    log: log.data || [],
+    previews: previews.error ? [] : (previews.data || [])
   };
 }
 

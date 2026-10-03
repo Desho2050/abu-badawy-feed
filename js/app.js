@@ -4,7 +4,7 @@
 import { el, clear, toast, field, input, stateLine } from './dom.js';
 import { icon } from './icons.js';
 import * as api from './db.js';
-import { PANELS, ui } from './panels.js';
+import { PANELS, ui, setLinkPreviews } from './panels.js';
 
 const NAV = [
   ['overview', 'نظرة عامة', 'grid'],
@@ -140,6 +140,7 @@ async function loadModel() {
   clear(host).append(el('h2', {}, 'جارٍ تحميل البيانات…'));
   try {
     state.model = await api.loadModel();
+    setLinkPreviews(state.model.previews);
     clear(host);
   } catch (error) {
     state.model = null;
