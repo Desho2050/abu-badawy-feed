@@ -2,21 +2,22 @@
    لا تُحمَّل أي لوحة قبل أن يكون هناك نموذج (Supabase أو ملفات منشورة). */
 
 import { el, clear, toast, field, input, stateLine } from './dom.js';
+import { icon } from './icons.js';
 import * as api from './db.js';
-import { PANELS } from './panels.js';
+import { PANELS, ui } from './panels.js';
 
 const NAV = [
-  ['overview', 'نظرة عامة'],
-  ['sections', 'الأقسام'],
-  ['items', 'العناصر'],
-  ['media', 'الوسائط'],
-  ['prices', 'الأسعار'],
-  ['legal', 'القوانين'],
-  ['settings', 'المظهر والإعدادات'],
-  ['log', 'سجل النشر']
+  ['overview', 'نظرة عامة', 'grid'],
+  ['sections', 'الأقسام', 'list'],
+  ['items', 'العناصر', 'article'],
+  ['media', 'الوسائط', 'image'],
+  ['prices', 'الأسعار', 'currency'],
+  ['legal', 'القوانين', 'info'],
+  ['settings', 'المظهر والإعدادات', 'settings'],
+  ['log', 'سجل النشر', 'history']
 ];
 
-const state = { model: null, panel: 'overview', user: null, busy: false };
+const state = { model: null, panel: 'overview', user: null, busy: false, railMin: false };
 
 const ctx = {
   get model() { return state.model; },
@@ -171,6 +172,8 @@ function renderBanner(kind, text, actions = []) {
 function renderShell() {
   fillBrand();
   renderNav();
+  wireRail();
+  renderRail();
   renderWho();
   renderTopActions();
   if (ctx.demo) {
@@ -208,11 +211,89 @@ function counts() {
 function renderNav() {
   const host = document.getElementById('nav');
   const c = counts();
-  clear(host).append(...NAV.map(([id, label]) => el('button', {
+  clear(host).append(...NAV.map(([id, label, iconName]) => el('button', {
     dataset: { panel: id },
     class: id === state.panel ? 'active' : '',
+    title: label,
     onclick: () => { location.hash = '#' + id; }
-  }, [label, c[id] !== undefined ? el('span', { class: 'n', text: c[id] }) : null])));
+  }, [
+    el('span', { class: 'icell' }, [icon(iconName, 17)]),
+    el('span', { class: 'ct', text: label }),
+    c[id] !== undefined ? el('span', { class: 'n', text: c[id] }) : null
+  ])));
+}
+
+/* ── شريط الأقسام الجانبي: يعمل كمرشّح للقائمة كما في المتاجر ─────────────── */
+const RAIL_KEY = 'abu-badawy-rail-min';
+let railWired = false;
+
+function selectSection(id) {
+  ui.items.section = id;
+  ui.items.editing = null;
+  if (state.panel === 'items' && (location.hash || '#items') === '#items') {
+    renderPanel();
+    renderRail();
+  } else {
+    ctx.go('items');
+  }
+}
+
+function applyRailMode() {
+  const shell = document.getElementById('shell');
+  const toggle = document.getElementById('railToggle');
+  if (!shell || !toggle) return;
+  shell.classList.toggle('railmin', state.railMin);
+  toggle.setAttribute('aria-expanded', String(!state.railMin));
+  toggle.title = state.railMin ? 'تكبير الأقسام' : 'تصغير الأقسام';
+  toggle.setAttribute('aria-label', state.railMin ? 'تكبير الأقسام' : 'تصغير الأقسام');
+  clear(toggle).append(icon('collapse', 17));
+}
+
+function wireRail() {
+  if (!railWired) {
+    railWired = true;
+    try { state.railMin = localStorage.getItem(RAIL_KEY) === '1'; } catch (error) { state.railMin = false; }
+    document.getElementById('railToggle').addEventListener('click', () => {
+      state.railMin = !state.railMin;
+      try { localStorage.setItem(RAIL_KEY, state.railMin ? '1' : '0'); } catch (error) { /* التخزين اختياري */ }
+      applyRailMode();
+    });
+  }
+  applyRailMode();
+}
+
+function renderRail() {
+  const host = document.getElementById('secnav');
+  const total = document.getElementById('railTotal');
+  if (!host || !state.model) return;
+  const m = state.model;
+  const perSection = {};
+  m.items.forEach((item) => { perSection[item.section_id] = (perSection[item.section_id] || 0) + 1; });
+  const sections = m.sections.slice().sort((a, b) => (a.sort_order - b.sort_order) || String(a.title).localeCompare(String(b.title), 'ar'));
+  const onItems = state.panel === 'items' && !ui.items.editing;
+
+  const row = (id, label, iconName, count) => el('button', {
+    type: 'button',
+    class: 'sec' + (onItems && ui.items.section === id ? ' active' : ''),
+    dataset: { section: id },
+    title: label + ' — ' + count,
+    onclick: () => selectSection(id)
+  }, [
+    el('span', { class: 'icell' }, [icon(iconName, 17)]),
+    el('span', { class: 'ct', text: label }),
+    el('span', { class: 'n', text: String(count) })
+  ]);
+
+  clear(host).append(
+    row('', 'كل الأقسام', 'grid', m.items.length),
+    ...sections.map((section) => row(
+      section.id,
+      section.title || section.id,
+      section.icon || 'article',
+      perSection[section.id] || 0
+    ))
+  );
+  if (total) total.textContent = String(sections.length);
 }
 
 function renderWho() {
@@ -279,6 +360,7 @@ async function renderPanel() {
     clear(host).append(el('div', { class: 'state bad', text: 'تعذّر عرض اللوحة: ' + error.message }));
   }
   renderNav();
+  renderRail();
 }
 
 function setLine(node, message, kind) {
@@ -295,6 +377,7 @@ function setBusy(button, busy) {
 }
 
 window.addEventListener('hashchange', () => { if (state.model) renderPanel(); });
+document.addEventListener('ab:section-filter', () => renderRail());
 
 /* إن وُجدت جلسة محفوظة من زيارة سابقة نُفتح مباشرة، وإلا تظهر البوابة. */
 async function boot() {

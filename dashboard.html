@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-<div class="shell">
+<div class="shell" id="shell">
   <aside class="side">
     <div class="brandrow">
       <img id="brandLogo" src="assets/logo.svg" alt="">
@@ -21,6 +21,17 @@
       </div>
     </div>
     <nav class="nav" id="nav" aria-label="لوحات التحكم"></nav>
+
+    <section class="rail" aria-label="شريط الأقسام">
+      <div class="railhead">
+        <button type="button" class="iconbtn railtoggle" id="railToggle" aria-expanded="true"
+          aria-controls="secnav" title="تصغير الأقسام"></button>
+        <b class="railtitle">الأقسام</b>
+        <span class="n" id="railTotal"></span>
+      </div>
+      <nav class="secnav" id="secnav"></nav>
+    </section>
+
     <div class="who" id="who"></div>
   </aside>
 

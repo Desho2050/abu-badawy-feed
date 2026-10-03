@@ -15,7 +15,8 @@ export const PANELS = {
   log: { title: 'سجل النشر', sub: 'آخر تشغيلات ناشر GitHub Actions', render: logPanel }
 };
 
-const ui = {
+/* حالة مرشّحات اللوحات؛ يقرأها شريط الأقسام في app.js فيبقى الجانبان متزامنين. */
+export const ui = {
   sections: { editing: null },
   items: { section: '', status: '', q: '', editing: null },
   media: { kind: '', q: '' },
@@ -510,7 +511,12 @@ function itemsPanel(host, ctx) {
   const box = el('section', { class: 'card' }, [
     el('h2', {}, ['العناصر', count]),
     el('div', { class: 'grid four' }, [
-      field('القسم', select([['', 'كل الأقسام'], ...sectionIds(ctx.model)], ui.items.section, (v) => { ui.items.section = v; renderResults(); })),
+      field('القسم', select([['', 'كل الأقسام'], ...sectionIds(ctx.model)], ui.items.section, (v) => {
+        ui.items.section = v;
+        renderResults();
+        /* شريط الأقسام في الجانب يقرأ نفس المرشّح */
+        document.dispatchEvent(new CustomEvent('ab:section-filter'));
+      })),
       field('الحالة', select([['', 'كل الحالات'], ...api.STATUSES], ui.items.status, (v) => { ui.items.status = v; renderResults(); })),
       field('بحث', search),
       el('div', { class: 'btnrow', style: 'align-self:end' }, [
