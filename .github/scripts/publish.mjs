@@ -160,7 +160,10 @@ async function request(table, params, init = {}) {
     fail('تعذّر الوصول إلى Supabase (' + table + '): ' + error.message);
   }
   if (!res.ok) {
-    fail('Supabase رجّع ' + res.status + ' على ' + table + ': ' + (await res.text()).slice(0, 300));
+    /* يُطبع المسار الكامل لا المفتاح: خطأ مثل PGRST125 يعني أن قيمة SUPABASE_URL
+       في أسرار GitHub فيها زيادة (مسار أو مسافة) وليست مشكلة في المحتوى. */
+    fail('Supabase رجّع ' + res.status + ' على ' + table + ' (الرابط المستخدم: ' + url + '): ' +
+      (await res.text()).slice(0, 300));
   }
   if ((init.method || 'GET') === 'HEAD' || res.status === 204) return null;
   const text = await res.text();
