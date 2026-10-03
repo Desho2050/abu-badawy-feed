@@ -626,6 +626,9 @@ function renderIndex(settings, sectionRows, legalRows) {
         };
         const subtitle = plain(row.subtitle, 200);
         if (subtitle) section.subtitle = subtitle;
+        /* صورة القسم اختيارية؛ تُمرَّر فقط إن كانت رابطًا أو أصلًا آمنًا في الموقع. */
+        const cover = safeAsset(row.cover_image);
+        if (cover) section.image = cover;
         const managed = row.items_source === 'admin' && kind === 'json';
         if (managed) section.managedBy = 'admin';
         const source = { kind };

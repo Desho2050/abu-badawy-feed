@@ -154,7 +154,14 @@ export async function saveSection(row) {
   const clean = { ...row };
   delete clean.created_at;
   delete clean.updated_at;
-  const { error } = await db.from('sections').upsert(clean, { onConflict: 'id' });
+  if (clean.cover_image === undefined || clean.cover_image === '') delete clean.cover_image;
+  let { error } = await db.from('sections').upsert(clean, { onConflict: 'id' });
+  /* عمود cover_image اختياري حتى يُنفَّذ tools/section-cover-image.sql: إعادة محاولة بدونه. */
+  if (error && /cover_image/i.test(error.message)) {
+    console.warn('-- NOTICE: جدول sections لا يملك عمود cover_image بعد — سيُحفظ القسم دون صورة:', error.message);
+    delete clean.cover_image;
+    ({ error } = await db.from('sections').upsert(clean, { onConflict: 'id' }));
+  }
   if (error) throw new Error(error.message);
 }
 
@@ -271,6 +278,38 @@ export async function uploadMedia(file, sectionId, onProgress) {
   };
   const { error: logError } = await db.from('media_library').upsert(meta, { onConflict: 'path' });
   if (logError) console.warn('-- NOTICE: رُفع الملف لكن لم يُسجَّل في المكتبة:', logError.message);
+  return meta;
+}
+
+/**
+ * استبدال ملف موجود بآخر جديد في نفس مساره: الرابط لا يتغير، فتتحدّث كل مواضع
+ * استخدامه في العناصر والأقسام بلا إعادة تحرير. النوع يجب أن يبقى نفسه.
+ */
+export async function replaceMedia(file, row) {
+  const kind = kindOf(file);
+  if (!kind) throw new Error('نوع غير مدعوم: ' + (file.type || file.name));
+  if (file.size > MAX_BYTES) throw new Error('حجم ' + file.name + ' أكبر من 25 MB.');
+  if (row.kind && kind !== row.kind) throw new Error('البديل يجب أن يكون من نفس النوع: ' + row.kind + '.');
+  const { error } = await db.storage.from(BUCKET).upload(row.path, file, {
+    contentType: file.type || 'application/octet-stream',
+    /* كاش قصير حتى يظهر البديل سريعًا؛ الرفع الجديد يوضع بساعة. */
+    cacheControl: '300',
+    upsert: true
+  });
+  if (error) throw new Error(error.message);
+  const { data } = db.storage.from(BUCKET).getPublicUrl(row.path);
+  const duration = kind === 'image' ? null : await readDuration(data.publicUrl, kind);
+  const meta = {
+    path: row.path,
+    url: data.publicUrl,
+    kind,
+    bytes: file.size,
+    label: row.label || safeName(file.name).replace(/\.\w+$/, ''),
+    duration_seconds: duration,
+    poster_url: kind === 'video' ? null : row.poster_url
+  };
+  const { error: logError } = await db.from('media_library').upsert(meta, { onConflict: 'path' });
+  if (logError) console.warn('-- NOTICE: استُبدل الملف لكن لم تُحدَّث سجلته:', logError.message);
   return meta;
 }
 

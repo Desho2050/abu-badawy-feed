@@ -16,7 +16,7 @@ export const PANELS = {
 };
 
 /* لا زر نشر يدوي في اللوحة: النشر مجدول في مستودع الملفات، ودخول Supabase يكفي للتحرير. */
-const AUTO_PUBLISH = 'النشر التلقائي كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق';
+export const AUTO_PUBLISH = 'النشر التلقائي كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق';
 
 /* حالة مرشّحات اللوحات؛ يقرأها شريط الأقسام في app.js فيبقى الجانبان متزامنين. */
 export const ui = {
@@ -473,6 +473,12 @@ function sectionEditor(initial, ctx, onDone) {
 
   const render = () => {
     const kind = draft.source_kind || 'json';
+    const cover = imageControl(
+      () => draft.cover_image,
+      (url) => { draft.cover_image = url; cover.redraw(); },
+      ctx,
+      () => draft.id || 'general'
+    );
     put(clear(fieldsHost),
       field('المعرّف (id)', input({
         dir: 'ltr', value: draft.id, disabled: !draft.isNew, placeholder: 'village_news',
@@ -481,6 +487,7 @@ function sectionEditor(initial, ctx, onDone) {
       field('العنوان', input({ value: draft.title, oninput: (e) => { draft.title = e.target.value; } })),
       field('العنوان الفرعي', input({ value: draft.subtitle || '', oninput: (e) => { draft.subtitle = e.target.value; } })),
       field('الأيقونة', select(iconOptions(draft.icon), draft.icon, (v) => { draft.icon = v; })),
+      field('صورة القسم (اختيارية)', cover.node),
       field('التخطيط', select(api.LAYOUTS, draft.layout, (v) => { draft.layout = v; }), 'طريقة عرض التطبيق للعناصر.'),
       field('الترتيب', input({ type: 'number', dir: 'ltr', value: String(draft.sort_order ?? 100), oninput: (e) => { draft.sort_order = Number(e.target.value) || 0; } })),
       field('نوع المصدر', select(api.KINDS, kind, (v) => { draft.source_kind = v; render(); }),
@@ -648,6 +655,7 @@ function itemEditor(draftIn, ctx, onDone) {
       ]),
       el('div', { class: 'foot' }, [
         el('input', { value: att.label || '', placeholder: 'تسمية', oninput: (e) => { att.label = e.target.value; } }),
+        libraryRowFor(ctx, att.url) ? replaceControl(libraryRowFor(ctx, att.url), ctx) : null,
         tiny('×', () => { attachments.splice(index, 1); drawAttachments(); }, 'إزالة من هذا العنصر')
       ])
     ]))));
@@ -704,6 +712,7 @@ function itemEditor(draftIn, ctx, onDone) {
         setLine2(uploadState, 'رُفع ' + file.name + ' (' + fmtBytes(meta.bytes) + ').', 'ok');
         drawAttachments();
         drawPreview();
+        cover.redraw();
       } catch (error) {
         setLine2(uploadState, 'تعذّر رفع ' + file.name + ': ' + error.message, 'bad');
       }
@@ -737,6 +746,18 @@ function itemEditor(draftIn, ctx, onDone) {
     } catch (error) { setLine2(line, error.message, 'bad'); }
   }
 
+  const coverInput = input({
+    value: draft.image || '', dir: 'ltr',
+    oninput: (e) => { draft.image = e.target.value; drawPreview(); },
+    onchange: () => cover.redraw()
+  });
+  const cover = imageControl(
+    () => draft.image,
+    (url) => { draft.image = url; coverInput.value = url; cover.redraw(); drawPreview(); },
+    ctx,
+    () => draft.section_id || 'general'
+  );
+
   const form = card(draft.id ? 'تحرير عنصر' : 'عنصر جديد', '', [
     el('div', { class: 'grid two' }, [
       field('القسم', select(sectionIds(ctx.model), draft.section_id, (v) => { draft.section_id = v; })),
@@ -746,7 +767,8 @@ function itemEditor(draftIn, ctx, onDone) {
       field('السطر التعريفي (يظهر تحت العنوان)', input({ value: draft.subtitle || '', oninput: (e) => { draft.subtitle = e.target.value; } })),
       field('التاريخ كما يظهر', input({ value: draft.event_date || '', placeholder: '1950 أو 2026-05-01', dir: 'ltr', oninput: (e) => { draft.event_date = e.target.value; } }), 'نص حر: سنة أو فصل أو تاريخ كامل.'),
       field('معرّف ثابت في JSON (اختياري)', input({ value: draft.slug || '', dir: 'ltr', oninput: (e) => { draft.slug = e.target.value; } }), 'إن تُرك استُخدم id الصف تلقائيًا.'),
-      field('رابط الصورة الرئيسية', input({ value: draft.image || '', dir: 'ltr', oninput: (e) => { draft.image = e.target.value; drawPreview(); } })),
+      field('رابط الصورة الرئيسية', coverInput),
+      field('صورة الغلاف — رفع أو تغيير', cover.node),
       field('حقوق الصورة', input({ value: draft.image_credit || '', oninput: (e) => { draft.image_credit = e.target.value; } })),
       field('رابط خارجي', input({ value: draft.link || '', dir: 'ltr', oninput: (e) => { draft.link = e.target.value; } })),
       field('اسم المصدر', input({ value: draft.source_name || '', oninput: (e) => { draft.source_name = e.target.value; } })),
@@ -779,6 +801,86 @@ function itemEditor(draftIn, ctx, onDone) {
 
 function acceptList() {
   return [...api.MEDIA_TYPES.image, ...api.MEDIA_TYPES.audio, ...api.MEDIA_TYPES.video].join(',');
+}
+
+/* ── أزرار الصور: رفع وتغيير واستبدال في كل سطح يعرض صورة ─────────────────── */
+
+/*
+   تحكم صورة واحدة (غلاف عنصر أو غلاف قسم): معاينة + رفع + اختيار من المكتبة + مسح.
+   القيمة تُقرأ بالدالة حتى يبقى التحكم ملتصقًا بالمسودة أثناء التحرير.
+*/
+function imageControl(getValue, setValue, ctx, getFolder) {
+  const state = stateLine('', '');
+  const host = el('div');
+  const pick = el('input', {
+    type: 'file', accept: api.MEDIA_TYPES.image.join(','), style: 'display:none',
+    onchange: async (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = '';
+      if (!file || !ctx.writable()) return;
+      setLine2(state, 'جارٍ رفع ' + file.name + '…', '');
+      try {
+        const meta = await api.uploadMedia(file, getFolder());
+        setLine2(state, 'رُفع ' + file.name + ' (' + fmtBytes(meta.bytes) + ').', 'ok');
+        setValue(meta.url);
+      } catch (error) { setLine2(state, error.message, 'bad'); }
+    }
+  });
+
+  function draw() {
+    const value = String(getValue() || '');
+    const images = ctx.model.media.filter((row) => row.kind === 'image').slice(0, 240);
+    const lib = images.length
+      ? select([['', 'من مكتبة الوسائط…'], ...images.map((row) => [row.url, row.label || row.path])], '',
+        (url) => { if (url && ctx.writable()) setValue(url); })
+      : null;
+    const foot = [
+      tiny('رفع', () => { if (ctx.writable()) pick.click(); }, value ? 'رفع صورة بديلة' : 'رفع صورة جديدة'),
+      pick
+    ];
+    if (lib) foot.push(lib);
+    if (value) foot.push(tiny('مسح', () => { if (ctx.writable()) setValue(''); }, 'إزالة الصورة من هذا الموضع'));
+    clear(host).append(
+      el('div', { class: 'thumb', style: 'max-width:240px' }, [
+        el('div', { class: 'box' }, [value ? el('img', { src: value, alt: '', loading: 'lazy' }) : el('span', { text: 'لا صورة' })]),
+        el('div', { class: 'foot' }, foot)
+      ]),
+      state
+    );
+  }
+
+  draw();
+  return { node: host, redraw: draw };
+}
+
+/* استبدال ملف مكتبة في نفس مساره: الرابط لا يتغيّر، فتتحدّث كل استخداماته دفعة واحدة. */
+function replaceControl(row, ctx) {
+  const pick = el('input', {
+    type: 'file',
+    accept: row.kind === 'image' ? api.MEDIA_TYPES.image.join(',') : acceptList(),
+    style: 'display:none',
+    onchange: async (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = '';
+      if (!file || !ctx.writable()) return;
+      toast('جارٍ استبدال ' + (row.label || row.path) + '…');
+      try {
+        await api.replaceMedia(file, row);
+        await ctx.refresh();
+        toast('استُبدل الملف — الروابط كما هي، ويظهر الجديد خلال دقائق على الأكثر.', 4200);
+      } catch (error) { toast(error.message, 5200); }
+    }
+  });
+  return el('div', {}, [
+    tiny('استبدال', () => { if (ctx.writable()) pick.click(); },
+      'رفع بديل في نفس المسار: كل عنصر يستخدم هذا الرابط يتحدّث'),
+    pick
+  ]);
+}
+
+/* صف المكتبة المقابل لرابط مرفق، إن كان المرفق من المكتبة أصلًا. */
+function libraryRowFor(ctx, url) {
+  return ctx.model.media.find((row) => (row.url || row.src) === url) || null;
 }
 
 /* ── ٤) الوسائط ────────────────────────────────────────────────────────────── */
@@ -839,6 +941,7 @@ function mediaPanel(host, ctx) {
             try { await api.saveMedia({ ...row, label: e.target.value }); toast('حُدِّثت التسمية.'); } catch (error) { failWith(ctx, error); }
           } }),
         tiny('نسخ', () => { navigator.clipboard.writeText(row.url).then(() => toast('نُسخ الرابط.'), () => toast(row.url, 6000)); }),
+        replaceControl(row, ctx),
         tiny(String(inUse), () => {
           ui.items.q = ''; ui.items.status = ''; ui.items.editing = null;
           ui.items.section = row.path.split('/')[0] === 'general' ? '' : row.path.split('/')[0];

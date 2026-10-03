@@ -4,7 +4,7 @@
 import { el, clear, toast, field, input, stateLine } from './dom.js';
 import { icon } from './icons.js';
 import * as api from './db.js';
-import { PANELS, ui, setLinkPreviews } from './panels.js';
+import { PANELS, ui, setLinkPreviews, AUTO_PUBLISH } from './panels.js';
 
 const NAV = [
   ['overview', 'نظرة عامة', 'grid'],
@@ -194,11 +194,39 @@ function fillBrand() {
   const logo = document.getElementById('brandLogo');
   const url = brand.logoUrl || brand.logo;
   if (url) logo.src = String(url);
+  wireLogoChange(brand);
   const color = String(brand.seedColor || brand.primaryColor || '');
   if (/^#[0-9a-f]{6}$/i.test(color)) {
     document.documentElement.style.setProperty('--brand', color);
     document.documentElement.style.setProperty('--brand-soft', 'color-mix(in srgb, ' + color + ' 16%, transparent)');
   }
+}
+
+/* زر تغيير الشعار بجانبه في الترويسة: يرفع إلى media ويحفظ brand.logoUrl مباشرة. */
+function wireLogoChange(brand) {
+  const row = document.querySelector('.side .brandrow');
+  if (!row) return;
+  const btn = document.getElementById('logoChange');
+  if (btn) { btn.style.display = ctx.demo ? 'none' : ''; return; }
+  const pick = el('input', {
+    type: 'file', accept: 'image/*', style: 'display:none',
+    onchange: async (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = '';
+      if (!file || !ctx.writable()) return;
+      toast('جارٍ رفع الشعار…');
+      try {
+        const meta = await api.uploadMedia(file, 'brand');
+        await api.saveSettings({ brand: { ...brand, logoUrl: meta.url } });
+        await ctx.refresh();
+        toast('حُدِّث الشعار — يصل إلى التطبيق مع ' + AUTO_PUBLISH + '.', 4200);
+      } catch (error) { toast(error.message, 5200); }
+    }
+  });
+  row.append(pick, el('button', {
+    id: 'logoChange', class: 'iconbtn logobtn', type: 'button',
+    title: 'رفع شعار جديد للوحة والتطبيق', onclick: () => pick.click()
+  }, 'تغيير الشعار'));
 }
 
 function counts() {
