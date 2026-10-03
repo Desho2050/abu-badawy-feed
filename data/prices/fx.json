@@ -1,15 +1,51 @@
 {
   "schemaVersion": 1,
   "title": "أسعار العملات",
-  "updatedAt": "2026-09-28T06:00:00Z",
-  "base": "EGP",
-  "disclaimer": "أسعار تقديرية للاسترشاد فقط",
+  "updatedAt": "2026-10-02T20:12:50.563741+00:00",
   "rates": [
-    { "code": "USD", "name": "دولار أمريكي", "symbol": "$", "value": "…", "change": "…" },
-    { "code": "EUR", "name": "يورو", "symbol": "€", "value": "…", "change": "…" },
-    { "code": "SAR", "name": "ريال سعودي", "symbol": "﷼", "value": "…", "change": "…" },
-    { "code": "AED", "name": "درهم إماراتي", "symbol": "د.إ", "value": "…", "change": "…" },
-    { "code": "KWD", "name": "دينار كويتي", "symbol": "د.ك", "value": "…", "change": "…" },
-    { "code": "GBP", "name": "جنيه إسترليني", "symbol": "£", "value": "…", "change": "…" }
-  ]
+    {
+      "code": "USD",
+      "name": "دولار أمريكي",
+      "symbol": "$",
+      "value": "…",
+      "change": "…"
+    },
+    {
+      "code": "EUR",
+      "name": "يورو",
+      "symbol": "€",
+      "value": "…",
+      "change": "…"
+    },
+    {
+      "code": "SAR",
+      "name": "ريال سعودي",
+      "symbol": "﷼",
+      "value": "…",
+      "change": "…"
+    },
+    {
+      "code": "AED",
+      "name": "درهم إماراتي",
+      "symbol": "د.إ",
+      "value": "…",
+      "change": "…"
+    },
+    {
+      "code": "KWD",
+      "name": "دينار كويتي",
+      "symbol": "د.ك",
+      "value": "…",
+      "change": "…"
+    },
+    {
+      "code": "GBP",
+      "name": "جنيه إسترليني",
+      "symbol": "£",
+      "value": "…",
+      "change": "…"
+    }
+  ],
+  "base": "EGP",
+  "disclaimer": "أسعار تقديرية للاسترشاد فقط"
 }

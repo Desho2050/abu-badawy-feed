@@ -1,36 +1,39 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T06:00:00Z",
+  "generatedAt": "2026-10-03T09:46:54Z",
   "notice": null,
-
   "brand": {
     "name": "قرية أبو بدوي",
     "tagline": "أخبار القرية ومعالمها وأهلها بأسلوب بسيط",
     "logoUrl": "assets/logo.svg",
-    "supportEmail": "example@abubadawy.local",
     "primaryColor": "#00696E",
+    "supportEmail": "example@abubadawy.local",
     "fontUrl": "https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap",
     "fontFamily": "Cairo"
   },
-
   "digest": {
-    "defaultSections": ["village_news"],
+    "defaultSections": [
+      "village_news"
+    ],
     "hour": 7,
     "minute": 30
   },
-
   "prices": {
     "fxUrl": "data/prices/fx.json",
     "goldUrl": "data/prices/gold.json",
     "liveFxApi": "https://open.er-api.com/v6/latest/EGP",
     "liveGoldApi": "https://api.gold-api.com/price/XAU"
   },
-
   "legal": {
-    "privacy": { "title": "سياسة الخصوصية", "url": "data/legal/privacy.json" },
-    "terms": { "title": "شروط الاستخدام", "url": "data/legal/terms.json" }
+    "privacy": {
+      "title": "سياسة الخصوصية",
+      "url": "data/legal/privacy.json"
+    },
+    "terms": {
+      "title": "شروط الاستخدام",
+      "url": "data/legal/terms.json"
+    }
   },
-
   "sections": [
     {
       "id": "about",
@@ -40,18 +43,34 @@
       "order": 10,
       "home": false,
       "enabled": true,
-      "source": { "kind": "json", "url": "data/sections/about.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/about.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "landmarks",
       "title": "معالم القرية",
-      "subtitle": "مساجد، مدارس، آثار وأماكن عامة",
       "icon": "landmark",
       "layout": "cards",
       "order": 20,
       "home": true,
       "enabled": true,
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/landmarks.json" }
+      "subtitle": "مساجد، مدارس، آثار وأماكن عامة",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/landmarks.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "figures",
@@ -61,7 +80,15 @@
       "order": 30,
       "home": false,
       "enabled": true,
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/figures.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/figures.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "village_news",
@@ -71,8 +98,15 @@
       "order": 40,
       "home": true,
       "enabled": true,
-      "notifications": { "default": true, "breaking": true },
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/village_news.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/village_news.json"
+      },
+      "notifications": {
+        "default": true,
+        "breaking": true
+      }
     },
     {
       "id": "world_news",
@@ -82,7 +116,15 @@
       "order": 50,
       "home": false,
       "enabled": true,
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/world_news.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/world_news.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "sports",
@@ -92,7 +134,15 @@
       "order": 60,
       "home": false,
       "enabled": true,
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/sports.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/sports.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "currency",
@@ -102,7 +152,13 @@
       "order": 70,
       "home": true,
       "enabled": true,
-      "source": { "kind": "fx" }
+      "source": {
+        "kind": "fx"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "gold",
@@ -112,7 +168,13 @@
       "order": 80,
       "home": true,
       "enabled": true,
-      "source": { "kind": "gold" }
+      "source": {
+        "kind": "gold"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "offers",
@@ -122,7 +184,15 @@
       "order": 90,
       "home": true,
       "enabled": true,
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/offers.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/offers.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "ads",
@@ -132,7 +202,15 @@
       "order": 100,
       "home": false,
       "enabled": true,
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/ads.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/ads.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     },
     {
       "id": "obituaries",
@@ -142,8 +220,15 @@
       "order": 110,
       "home": false,
       "enabled": false,
-      "notifications": { "default": false, "breaking": true },
-      "managedBy": "admin", "source": { "kind": "json", "url": "data/sections/obituaries.json" }
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/obituaries.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
+      }
     }
   ]
 }
