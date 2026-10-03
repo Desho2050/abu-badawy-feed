@@ -13,8 +13,13 @@
  * يعمل بلا اعتماديات على Node 20. المفاتيح من أسرار GitHub Actions.
  */
 
-const SUPABASE_URL = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
-const SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+/* مثل publish.mjs: رمز خفي أو مسافة أو مقطع /rest/v1 زائد في السرّ يفسد كل طلب. */
+const SUPABASE_URL = String(process.env.SUPABASE_URL || '')
+  .replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '')
+  .replace(/\/rest\/v1$/i, '')
+  .replace(/\/+$/, '');
+const SERVICE_KEY = String(process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '')
+  .replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '');
 const KIND = (process.argv.find((arg) => arg.startsWith('--kind=')) || '--kind=both').split('=')[1];
 
 const FX_API = 'https://open.er-api.com/v6/latest/USD';

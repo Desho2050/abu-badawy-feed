@@ -142,11 +142,19 @@ function bareHref(found) {
   return found.includes('@') ? 'mailto:' + found : found;
 }
 
+/* الأقواس المتوازنة جزء من العنوان (ويكيبيديا مثلًا)، والذيل المنفرد ملك الجملة. */
+function trimUrl(found) {
+  const cut = found.replace(TRAILING_PUNCTUATION, '');
+  const opens = (found.match(/\(/g) || []).length;
+  const closes = (cut.match(/\)/g) || []).length;
+  return opens > closes ? found : cut;
+}
+
 function appendText(target, text) {
   BARE_LINK.lastIndex = 0;
   let cursor = 0;
   for (const match of String(text).matchAll(BARE_LINK)) {
-    const url = match[0].replace(TRAILING_PUNCTUATION, '');
+    const url = trimUrl(match[0]);
     if (!url) continue;
     if (match.index > cursor) target.append(String(text).slice(cursor, match.index));
     target.append(el('a', { href: bareHref(url), rel: 'noopener noreferrer nofollow', target: '_blank', text: url }));

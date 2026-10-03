@@ -20,13 +20,25 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
-const SUPABASE_URL = (process.env.SUPABASE_URL || '').replace(/\/+$/, '');
-const SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '';
+/* قيمة السرّ تُنسخ أحيانًا ومعها مسافة أو رمز خفي أو مقطع /rest/v1 زائد، فترفضها
+   بوابة Supabase بخطأ PGRST125 الذي لا يوحي بإطلاقًا أن المشكلة في الإعداد. */
+const SUPABASE_URL = String(process.env.SUPABASE_URL || '')
+  .replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '')
+  .replace(/\/rest\/v1$/i, '')
+  .replace(/\/+$/, '');
+const SERVICE_KEY = String(process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || '')
+  .replace(/[\s\u0000-\u001f\u200b-\u200f\ufeff]/g, '');
 const DATA_DIR = process.env.DATA_DIR || 'data';
 const MAX_ITEMS = Number(process.env.MAX_ITEMS || 80);
 const ALLOW_EMPTY = process.env.ALLOW_EMPTY === '1';
 const FORCE = process.env.FORCE === '1';
 const COMMIT_SHA = process.env.GITHUB_SHA || null;
+
+if (SUPABASE_URL && !/^https:\/\/[A-Za-z0-9.-]+$/.test(SUPABASE_URL)) {
+  console.error('\n-- ERROR: SUPABASE_URL في أسرار GitHub يجب أن يكون نطاق المشروع وحده مثل\n' +
+    '   https://xxxx.supabase.co — القيمة بعد التنظيف: ' + JSON.stringify(SUPABASE_URL) + '\n');
+  process.exit(1);
+}
 
 const NOW = new Date();
 const nowIso = NOW.toISOString().replace(/\.\d+Z$/, 'Z');
@@ -62,7 +74,7 @@ function escapeAttr(value) {
   return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-/* عنوان خام في نص مقروء: http/https أو www. أو بريد — بلا أقواس ولا علامات ترقيم ذيل. */
+/* عنوان خام في نص مقروء: http/https أو www. أو بريد — بلا علامات ترقيم ذيل. */
 const BARE_LINK = /(?:https?:\/\/|www\.)[^\s<>"'،؛]+|[A-Za-z0-9._%+\-']+@[\w-]+(?:\.[\w-]+)+/g;
 const TRAILING_PUNCTUATION = /[.,;:!?)}\]"'«»،؛؟]+$/;
 
@@ -70,6 +82,15 @@ function bareHref(found) {
   if (/^www\./i.test(found)) return 'https://' + found;
   if (found.includes('@')) return 'mailto:' + found;
   return found;
+}
+
+/* `(https://example.com/x)` ← القوس ملك الجملة، لكن
+   `https://ar.wikipedia.org/wiki/_(عزبة_بدوي)` ← قوساه جزء من العنوان نفسه. */
+function trimUrl(found) {
+  const cut = found.replace(TRAILING_PUNCTUATION, '');
+  const opens = (found.match(/\(/g) || []).length;
+  const closes = (cut.match(/\)/g) || []).length;
+  return opens > closes ? found : cut;
 }
 
 /** يحوّل العناوين المكتوبة كنص إلى وسوم <a>، ويتخطّى ما هو داخل رابط موجود أصلًا. */
@@ -80,7 +101,7 @@ function linkifyText(html) {
     if (/^<\/a[\s>]/i.test(part)) { insideLink = Math.max(0, insideLink - 1); return part; }
     if (insideLink || part.startsWith('<')) return part;
     return part.replace(BARE_LINK, (match) => {
-      const url = match.replace(TRAILING_PUNCTUATION, '');
+      const url = trimUrl(match);
       if (!url) return match;
       /* النص وصل بعد التنقية بلا وسوم ولا علامات اقتباس، فيُدرج كما هو. */
       return '<a href="' + bareHref(url) + '" rel="noopener noreferrer nofollow" target="_blank">' +
