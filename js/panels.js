@@ -491,7 +491,10 @@ function sectionEditor(initial, ctx, onDone) {
       field('التخطيط', select(api.LAYOUTS, draft.layout, (v) => { draft.layout = v; }), 'طريقة عرض التطبيق للعناصر.'),
       field('الترتيب', input({ type: 'number', dir: 'ltr', value: String(draft.sort_order ?? 100), oninput: (e) => { draft.sort_order = Number(e.target.value) || 0; } })),
       field('نوع المصدر', select(api.KINDS, kind, (v) => { draft.source_kind = v; render(); }),
-        kind === 'fx' || kind === 'gold' ? 'الملف يُبنى من جدول price_rows ومن لوحة الأسعار.' : 'rss/html يقرؤهما التطبيق مباشرة من الرابط الخارجي.'),
+        kind === 'fx' || kind === 'gold' ? 'الملف يُبنى من جدول price_rows ومن لوحة الأسعار.'
+          : kind === 'prayer' || kind === 'weather' ? 'التطبيق يجلبه مباشرة من واجهة مفتوحة حسب موقع القرية في الإعدادات — بلا رابط ولا عناصر.'
+            : kind === 'converter' ? 'آلة حاسبة داخل التطبيق؛ تعمل على أسعار العملات المنشورة.'
+              : 'rss/html يقرؤهما التطبيق مباشرة من الرابط الخارجي.'),
       kind === 'json' ? field('مصدر العناصر', select([['admin', 'من هذه اللوحة'], ['file', 'ملف JSON ثابت في المستودع']], draft.items_source, (v) => { draft.items_source = v; render(); })) : null,
       kind === 'json' && draft.items_source === 'admin' ? field('مسار الملف المنشور (اختياري)', input({ dir: 'ltr', value: draft.feed_url || '', oninput: (e) => { draft.feed_url = e.target.value; } }), 'افتراضيًا data/sections/<id>.json — اتركه فارغًا إلا لو أردت مسارًا آخر.') : null,
       kind === 'json' && draft.items_source === 'file' ? field('مسار ملف JSON في المستودع', input({ dir: 'ltr', value: draft.feed_url || '', oninput: (e) => { draft.feed_url = e.target.value; } }), 'مثال: data/sections/landmarks.json — تحرّره يدويًا أو بأمر git، لا من هذه اللوحة.') : null,
@@ -1147,11 +1150,35 @@ function legalPanel(host, ctx) {
 }
 
 /* ── ٧) المظهر والإعدادات ──────────────────────────────────────────────────── */
+
+/** معاينة من واجهة Aladhan نفسها التي يقرأها التطبيق، بلا مفاتيح. */
+async function previewPrayer(location) {
+  const lat = Number.isFinite(location.latitude) ? location.latitude : 31.1728;
+  const lng = Number.isFinite(location.longitude) ? location.longitude : 31.2210;
+  const today = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const url = 'https://api.aladhan.com/v1/timings/' +
+    pad(today.getDate()) + '-' + pad(today.getMonth() + 1) + '-' + today.getFullYear() +
+    '?latitude=' + lat + '&longitude=' + lng + '&method=5&school=0&timezonestamp=' +
+    encodeURIComponent(location.timezone || 'Africa/Cairo');
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('رمز ' + res.status);
+  const body = await res.json();
+  const data = (body && body.data) || {};
+  const t = data.timings || {};
+  const clock = (value) => String(value || '—').split(' ')[0];
+  const method = ((data.meta && data.meta.method && data.meta.method.name) || '').trim();
+  return 'الفجر ' + clock(t.Fajr) + ' · الظهر ' + clock(t.Dhuhr) + ' · العصر ' + clock(t.Asr) +
+    ' · المغرب ' + clock(t.Maghrib) + ' · العشاء ' + clock(t.Isha) + (method ? ' — ' + method : '');
+}
+
 async function settingsPanel(host, ctx) {
   const settings = ctx.model.settings;
   const brand = { ...(settings.brand || {}) };
   const digest = { ...(settings.digest || {}) };
+  const location = { ...(settings.location || {}) };
   const line = stateLine('', '');
+  const placeLine = stateLine('', '');
   const logoUrl = input({ dir: 'ltr', value: brand.logoUrl || '', oninput: (e) => { brand.logoUrl = e.target.value; } });
   const logoPick = el('input', { type: 'file', accept: 'image/*', style: 'display:none', onchange: async (e) => {
     const file = e.target.files[0];
@@ -1198,6 +1225,26 @@ async function settingsPanel(host, ctx) {
       )
     ]),
 
+    card('موقع القرية (للأقسام الحيّة)', '', [
+      el('div', { class: 'muted', text: 'إحداثيات واحدة تحسب منها مواقيت الصلاة وتُطلب منها حالة الطقس؛ لا يطلب التطبيق موقع هاتفك ولا يستأذن الوصول إلى GPS.' }),
+      el('div', { class: 'grid two', style: 'margin-top:10px' }, [
+        field('الاسم الظاهر للمستخدم', input({ value: location.name || '', placeholder: 'مركز بيلا، كفر الشيخ', oninput: (e) => { location.name = e.target.value; } })),
+        field('المنطقة الزمنية', input({ dir: 'ltr', value: location.timezone || '', placeholder: 'Africa/Cairo', oninput: (e) => { location.timezone = e.target.value; } }), 'اسم منطقة Java مثل Africa/Cairo.'),
+        field('خط العرض', input({ type: 'number', step: '0.000001', dir: 'ltr', value: location.latitude ?? '', placeholder: '31.1728', oninput: (e) => { location.latitude = e.target.value === '' ? null : Number(e.target.value); } })),
+        field('خط الطول', input({ type: 'number', step: '0.000001', dir: 'ltr', value: location.longitude ?? '', placeholder: '31.2210', oninput: (e) => { location.longitude = e.target.value === '' ? null : Number(e.target.value); } }), 'اتركهما فارغين فيستخدم التطبيق موضع القرية الافتراضي.')
+      ]),
+      el('div', { class: 'btnrow', style: 'margin-top:10px' }, [
+        button('معاينة المواقيت لهذه الإحداثيات', 'ghost', async () => {
+          setLine2(placeLine, 'جارٍ السؤال…', '');
+          try {
+            setLine2(placeLine, 'مواقيت اليوم: ' + (await previewPrayer(location)), 'ok');
+          } catch (error) { setLine2(placeLine, 'تعذّرت المعاينة: ' + error.message, 'bad'); }
+        }),
+        el('span', { class: 'muted', text: 'الهيئة المصرية العامة للمساحة، وعصر شافعي — وهي نفسها التي يقرأها التطبيق.' })
+      ]),
+      placeLine
+    ]),
+
     card('تنبيه عام', '', [
       field('رسالة تظهر أعلى التطبيق والصفحة (اتركها فارغة لإخفائها)', textarea(settings.notice || '', (v) => { settings.notice = v; }), 'مثال: «نعمل على تحديث الأقسام، قد تتأخر الأخبار.»'),
       line,
@@ -1206,7 +1253,8 @@ async function settingsPanel(host, ctx) {
           if (!ctx.writable()) return;
           setLine2(line, 'جارٍ الحفظ…', '');
           try {
-            await api.saveSettings({ brand, digest, notice: settings.notice || null });
+            const place = Number.isFinite(location.latitude) && Number.isFinite(location.longitude) ? location : null;
+            await api.saveSettings({ brand, digest, location: place, notice: settings.notice || null });
             setLine2(line, 'حُفظ — يصل إلى التطبيق مع ' + AUTO_PUBLISH + '.', 'ok');
             await ctx.refresh();
           } catch (error) { setLine2(line, error.message, 'bad'); }

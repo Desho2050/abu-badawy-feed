@@ -21,18 +21,22 @@ export const ICONS = [
   ['public', 'عالم (public)'], ['trophy', 'كأس (trophy)'], ['currency', 'عملة (currency)'],
   ['gold', 'ذهب (gold)'], ['sell', 'عرض (sell)'], ['shop', 'متجر (shop)'],
   ['ads', 'إعلان (ads)'], ['history', 'تراث (history)'], ['water', 'زراعة/ماء (water)'],
-  ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)']
+  ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)'],
+  ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)']
 ];
 
 export const LAYOUTS = [
   ['list', 'قائمة (list)'], ['richArticle', 'مقال مفصل (richArticle)'], ['cards', 'بطاقات (cards)'],
   ['profiles', 'تراجم (profiles)'], ['offers', 'عروض (offers)'], ['ads', 'إعلانات (ads)'],
-  ['rates', 'أسعار (rates)'], ['directory', 'دليل (directory)']
+  ['rates', 'أسعار (rates)'], ['directory', 'دليل (directory)'],
+  ['prayer', 'مواقيت صلاة (prayer)'], ['weather', 'طقس (weather)'], ['converter', 'آلة حاسبة للقياس (converter)']
 ];
 
 export const KINDS = [
   ['json', 'json — عناصر من اللوحة'], ['rss', 'rss — تغذية خارجية'], ['html', 'html — صفحة بمُحدِّد'],
-  ['fx', 'fx — أسعار العملات'], ['gold', 'gold — أسعار الذهب'], ['inline', 'inline — مضمّن في index.json']
+  ['fx', 'fx — أسعار العملات'], ['gold', 'gold — أسعار الذهب'], ['inline', 'inline — مضمّن في index.json'],
+  ['prayer', 'prayer — مواقيت من Aladhan'], ['weather', 'weather — أرصاد Open-Meteo'],
+  ['converter', 'converter — تحويل عملات ووحدات']
 ];
 
 export const STATUSES = [
@@ -141,12 +145,19 @@ export async function loadModel() {
 }
 
 export function blankSettings() {
-  return { id: 1, schema_version: 1, brand: {}, digest: {}, prices: {}, notice: null };
+  return { id: 1, schema_version: 1, brand: {}, digest: {}, prices: {}, location: {}, notice: null };
 }
 
 /* ── الكتابة ───────────────────────────────────────────────────────────────── */
 export async function saveSettings(patch) {
-  const { error } = await db.from('app_settings').upsert({ id: 1, ...patch }, { onConflict: 'id' });
+  const clean = { id: 1, ...patch };
+  let { error } = await db.from('app_settings').upsert(clean, { onConflict: 'id' });
+  /* عمود location اختياري حتى يُنفَّذ tools/almanac-sections.sql: حفظ بدونه. */
+  if (error && /location/i.test(error.message)) {
+    console.warn('-- NOTICE: جدول app_settings لا يملك عمود location بعد — لن يُحفظ موقع القرية:', error.message);
+    delete clean.location;
+    ({ error } = await db.from('app_settings').upsert(clean, { onConflict: 'id' }));
+  }
   if (error) throw new Error(error.message);
 }
 

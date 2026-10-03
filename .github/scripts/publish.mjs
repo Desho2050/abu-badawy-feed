@@ -558,8 +558,8 @@ function toItem(row, index) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory']);
-const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'prayer', 'weather', 'converter']);
+const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);
   return Number.isFinite(n) ? Math.round(Math.min(max, Math.max(min, n))) : fallback;
@@ -567,6 +567,24 @@ const CLAMP = (value, min, max, fallback) => {
 
 function sectionFileOf(section) {
   return section.feed_url || path.posix.join(DATA_DIR, 'sections', section.id + '.json');
+}
+
+/** إحداثيات مضبوطة فقط؛ أي قيمة ناقصة أو خارج المدى تعني «استخدم الافتراضي في التطبيق». */
+function renderLocation(raw) {
+  const loc = raw && typeof raw === 'object' ? raw : null;
+  if (!loc) return null;
+  const latitude = Number(loc.latitude);
+  const longitude = Number(loc.longitude);
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return null;
+  if (Math.abs(latitude) > 90 || Math.abs(longitude) > 180) return null;
+  if (latitude === 0 && longitude === 0) return null;
+  const timezone = /^[A-Za-z]+\/[A-Za-z_+-]+$/.test(String(loc.timezone || '')) ? String(loc.timezone) : 'Africa/Cairo';
+  return {
+    name: plain(loc.name, 120) || 'قرية أبو بدوي',
+    latitude: Math.round(latitude * 1e6) / 1e6,
+    longitude: Math.round(longitude * 1e6) / 1e6,
+    timezone
+  };
 }
 
 function renderIndex(settings, sectionRows, legalRows) {
@@ -606,6 +624,8 @@ function renderIndex(settings, sectionRows, legalRows) {
       liveFxApi: ABSOLUTE.test(String(prices.liveFxApi || '')) ? plain(prices.liveFxApi, 400) : null,
       liveGoldApi: ABSOLUTE.test(String(prices.liveGoldApi || '')) ? plain(prices.liveGoldApi, 400) : null
     },
+    /* موقع القرية: منه تُحسب مواقيت الصلاة وتُطلب الأرصاد. */
+    location: renderLocation(settings.location),
     legal: {
       privacy: { title: legalTitle('privacy', 'سياسة الخصوصية'), url: path.posix.join(DATA_DIR, 'legal', 'privacy.json') },
       terms: { title: legalTitle('terms', 'شروط الاستخدام'), url: path.posix.join(DATA_DIR, 'legal', 'terms.json') }
@@ -651,6 +671,8 @@ function renderIndex(settings, sectionRows, legalRows) {
   };
 
   if (!out.brand.tagline) delete out.brand.tagline;
+  /* لا عمود location بعدُ أو إحداثيات غير صالحة: احذف المفتاح، فيتبنى التطبيق موضعه الافتراضي. */
+  if (!out.location) delete out.location;
   return out;
 }
 
