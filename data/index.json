@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T19:09:51Z",
+  "generatedAt": "2026-10-03T19:23:56Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
     "tagline": "أخبار القرية ومعالمها وأهلها بأسلوب بسيط",
     "logoUrl": "assets/logo.svg",
-    "primaryColor": "#00696E",
+    "primaryColor": "#08c4c1",
     "supportEmail": "example@abubadawy.local",
     "fontUrl": "https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap",
     "fontFamily": "Cairo"
