@@ -11,9 +11,12 @@ export const PANELS = {
   media: { title: 'الوسائط', sub: 'ملفات مستودع media المستخدمة في العناصر', render: mediaPanel },
   prices: { title: 'الأسعار', sub: 'صفوف أسعار العملات والذهب وإعدادات المزامنة', render: pricesPanel },
   legal: { title: 'القوانين', sub: 'سياسة الخصوصية وشروط الاستخدام', render: legalPanel },
-  settings: { title: 'المظهر والإعدادات', sub: 'العلامة، الملخص اليومي، المحررون، ومفتاح النشر الفوري', render: settingsPanel },
+  settings: { title: 'المظهر والإعدادات', sub: 'العلامة، الملخص اليومي، والمحررون', render: settingsPanel },
   log: { title: 'سجل النشر', sub: 'آخر تشغيلات ناشر GitHub Actions', render: logPanel }
 };
+
+/* لا زر نشر يدوي في اللوحة: النشر مجدول في مستودع الملفات، ودخول Supabase يكفي للتحرير. */
+const AUTO_PUBLISH = 'النشر التلقائي كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق';
 
 /* حالة مرشّحات اللوحات؛ يقرأها شريط الأقسام في app.js فيبقى الجانبان متزامنين. */
 export const ui = {
@@ -257,10 +260,7 @@ function overviewPanel(host, ctx) {
     card('روابط سريعة', '', el('div', { class: 'btnrow' }, [
       button('+ عنصر جديد', '', () => { if (!ctx.writable()) return; ui.items.editing = api.blankItem(managed[0] ? managed[0].id : (m.sections[0] || {}).id || ''); ctx.go('items'); }),
       button('+ قسم جديد', 'ghost', () => { if (!ctx.writable()) return; ui.sections.editing = blankSection(m); ctx.go('sections'); }),
-      button('نشر الآن', 'ghost', () => {
-        if (!ctx.writable()) return;
-        api.dispatchWorkflow('publish.yml').then(() => toast('أُرسل طلب النشر إلى GitHub Actions.')).catch((error) => failWith(ctx, error));
-      }),
+      el('a', { class: 'btn ghost', href: api.PUBLISH_ACTIONS_URL, target: '_blank', rel: 'noopener' }, 'نشر الآن من GitHub'),
       el('a', { class: 'btn plain', href: 'index.html', target: '_blank', rel: 'noopener' }, 'صفحة الموقع العام'),
       el('a', { class: 'btn plain', href: 'data/index.json', target: '_blank', rel: 'noopener' }, 'data/index.json')
     ]))
@@ -503,7 +503,7 @@ function itemsPanel(host, ctx) {
 
   function nextHint(item) {
     if (item.status === 'published') return 'يحوّله إلى مسودة فلا يظهر في التطبيق بعد النشر';
-    return 'ينشره في القاعدة؛ يظهر في التطبيق بعد «نشر الآن» أو في الجولة القادمة';
+    return 'ينشره في القاعدة؛ يظهر في التطبيق مع ' + AUTO_PUBLISH;
   }
 
   const count = el('span', { class: 'n', text: '' });
@@ -637,7 +637,7 @@ function itemEditor(draftIn, ctx, onDone) {
     try {
       const id = await api.saveItem(row);
       ui.items.editing = null;
-      toast(row.status === 'published' ? 'حُفظ ونُشر في القاعدة — انسخه إلى التطبيق بـ «نشر الآن».' : 'حُفظ العنصر.');
+      toast(row.status === 'published' ? 'حُفظ ونُشر في القاعدة — يصل إلى التطبيق مع ' + AUTO_PUBLISH + '.' : 'حُفظ العنصر.');
       await ctx.refresh();
       return id;
     } catch (error) { setLine2(line, error.message, 'bad'); }
@@ -826,7 +826,7 @@ function pricesPanel(host, ctx) {
           field('API للعملات (احتياطي)', input({ dir: 'ltr', value: prices.liveFxApi || '', oninput: (e) => { prices.liveFxApi = e.target.value; } }), 'اختياري: يستخدمه التطبيق فقط إن فشل ملف JSON.'),
           field('API للذهب (احتياطي)', input({ dir: 'ltr', value: prices.liveGoldApi || '', oninput: (e) => { prices.liveGoldApi = e.target.value; } }))
         ]),
-        el('div', { class: 'muted', text: 'جدول price_rows هو مصدر الملفات المنشورة. يعمل prices.yml كل ٦ ساعات على جلب الأسعار من open.er-api.com و metal-api وكتابتها هنا.' }),
+        el('div', { class: 'muted', text: 'جدول price_rows هو مصدر الملفات المنشورة. زر «مزامنة الأسعار الآن» يجلبها من المتصفح مباشرةً من open.er-api.com و gold-api ويكتبها بجلسة دخولك؛ ويعمل prices.yml تلقائيًا كل ٦ ساعات على الجلب نفسه.' }),
         line,
         el('div', { class: 'btnrow', style: 'margin-top:10px' }, [
           button('حفظ الإعدادات', '', async () => {
@@ -834,11 +834,19 @@ function pricesPanel(host, ctx) {
             setLine2(line, 'جارٍ الحفظ…', '');
             try { await api.saveSettings({ prices }); setLine2(line, 'حُفظت إعدادات الأسعار.', 'ok'); await ctx.refresh(); } catch (error) { setLine2(line, error.message, 'bad'); }
           }),
-          button('مزامنة الأسعار الآن', 'ghost', () => {
+          button('مزامنة الأسعار الآن', 'ghost', async () => {
             if (!ctx.writable()) return;
-            api.dispatchWorkflow('prices.yml', { kind: 'both' })
-              .then(() => toast('طلب المزامنة أُرسل — تصل النتائج إلى price_rows ثم تُنشر تلقائيًا.'))
-              .catch((error) => failWith(ctx, error));
+            setLine2(line, 'جارٍ الجلب من الواجهات المفتوحة…', '');
+            try {
+              const out = await api.syncPrices('both');
+              const parts = [];
+              if (out.fx) parts.push(out.fx + ' عملة');
+              if (out.gold) parts.push(out.gold + ' صف ذهب');
+              setLine2(line, parts.length
+                ? 'حُدِّث ' + parts.join(' و ') + ' في price_rows — تُنشر تلقائيًا بعد قليل.'
+                : 'لم تُجلب أي أسعار.');
+              await ctx.refresh();
+            } catch (error) { setLine2(line, error.message, 'bad'); }
           })
         ])
       ])
@@ -891,7 +899,7 @@ function legalPanel(host, ctx) {
             setLine2(line, 'جارٍ الحفظ…', '');
             try {
               await api.saveLegal({ key: draft.key, title: draft.title, body: draft.body });
-              setLine2(line, 'حُفظت — ستظهر في التطبيق بعد «نشر الآن».', 'ok');
+              setLine2(line, 'حُفظت — ستظهر في التطبيق مع ' + AUTO_PUBLISH + '.', 'ok');
               await ctx.refresh();
             } catch (error) { setLine2(line, error.message, 'bad'); }
           }),
@@ -910,7 +918,6 @@ async function settingsPanel(host, ctx) {
   const brand = { ...(settings.brand || {}) };
   const digest = { ...(settings.digest || {}) };
   const line = stateLine('', '');
-  const ghLine = stateLine('', '');
   const logoUrl = input({ dir: 'ltr', value: brand.logoUrl || '', oninput: (e) => { brand.logoUrl = e.target.value; } });
   const logoPick = el('input', { type: 'file', accept: 'image/*', style: 'display:none', onchange: async (e) => {
     const file = e.target.files[0];
@@ -923,11 +930,6 @@ async function settingsPanel(host, ctx) {
       setLine2(line, 'رُفع الشعار — احفظ الإعدادات العامة لتثبيته.', 'ok');
     } catch (error) { setLine2(line, error.message, 'bad'); }
   } });
-
-  const gh = api.savedGithub();
-  const ghToken = el('input', { type: 'password', dir: 'ltr', value: gh.token, placeholder: 'ghp_…', autocomplete: 'off' });
-  const ghRepo = el('input', { dir: 'ltr', value: gh.repo, placeholder: 'Desho2050/abu-badawy', autocomplete: 'off' });
-  const ghBranch = el('input', { dir: 'ltr', value: gh.branch, autocomplete: 'off' });
 
   host.append(
     card('العلامة', '', [
@@ -971,7 +973,7 @@ async function settingsPanel(host, ctx) {
           setLine2(line, 'جارٍ الحفظ…', '');
           try {
             await api.saveSettings({ brand, digest, notice: settings.notice || null });
-            setLine2(line, 'حُفظ. انسخه إلى التطبيق بالنشر الفوري.', 'ok');
+            setLine2(line, 'حُفظ — يصل إلى التطبيق مع ' + AUTO_PUBLISH + '.', 'ok');
             await ctx.refresh();
           } catch (error) { setLine2(line, error.message, 'bad'); }
         })
@@ -983,23 +985,11 @@ async function settingsPanel(host, ctx) {
       el('div', { class: 'muted', style: 'margin-top:8px', text: 'جدول public.admin_emails هو مصدر الصلاحية في RLS. من يُحذف منه لا يستطيع القراءة ولا الكتابة حتى بكلمة مرور صحيحة.' })
     ]),
 
-    card('النشر الفوري عبر GitHub', 'اختياري', [
-      el('p', { class: 'muted', text: 'الناشر يعمل تلقائيًا كل ١٥ دقيقة. لتفعيل زر «نشر الآن» من هذه اللوحة املأ بيانات مفتاح personal access token من نوع classic بنطاق actions واحد (يُخزَّن في هذا المتصفح فقط، ولا يُرسل إلا إلى api.github.com).' }),
-      el('div', { class: 'grid three' }, [
-        field('مفتاح GitHub', ghToken),
-        field('الريبو owner/name', ghRepo),
-        field('الفرع', ghBranch)
-      ]),
-      ghLine,
+    card('كيف يصل المحتوى إلى التطبيق؟', '', [
+      el('p', { class: 'muted', text: 'كل ما تحفظه هنا يبقى في Supabase، وناشر GitHub Actions يقرأ القاعدة ويكتب ملفات data/ كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق، ثم تحدّث GitHub Pages التطبيق. لذلك لا تحتاج أي مفتاح GitHub داخل اللوحة: دخولك إلى Supabase هو الصلاحية الوحيدة.' }),
       el('div', { class: 'btnrow', style: 'margin-top:10px' }, [
-        button('حفظ بيانات GitHub', '', () => {
-          api.saveGithub({ token: ghToken.value, repo: ghRepo.value, branch: ghBranch.value });
-          setLine2(ghLine, 'حُفظت في هذا المتصفح فقط.', 'ok');
-        }),
-        button('نشر الآن', 'ghost', () => {
-          if (!ctx.writable()) return;
-          api.dispatchWorkflow('publish.yml').then(() => toast('أُرسل طلب النشر.')).catch((error) => setLine2(ghLine, error.message, 'bad'));
-        })
+        el('a', { class: 'btn plain', href: api.PUBLISH_ACTIONS_URL, target: '_blank', rel: 'noopener' }, 'تشغيل النشر يدويًا على GitHub'),
+        el('a', { class: 'btn plain', href: 'data/index.json', target: '_blank', rel: 'noopener' }, 'ملفات data/ المنشورة')
       ])
     ])
   );
@@ -1050,7 +1040,7 @@ function logPanel(host, ctx) {
   const rows = ctx.model.log || [];
   host.append(
     card(arWord(rows.length, { one: 'آخر تشغيل', two: 'آخر تشغيلين', few: 'آخر ' + rows.length + ' تشغيلات', many: 'آخر ' + rows.length + ' تشغيلًا' }), '', [
-      el('p', { class: 'muted', text: 'يكتبها ناشر GitHub Action في جدول publish_log بعد كل جولة (كل ١٥ دقيقة) أو بعد زر «نشر الآن».' }),
+      el('p', { class: 'muted', text: 'يكتبها ناشر GitHub Action في جدول publish_log بعد كل جولة تلقائية (كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق) أو بعد تشغيله يدويًا من المستودع.' }),
       rows.length ? tableNode(['الوقت', 'الحالة', 'النتيجة', 'أقسام', 'عناصر', 'Commit'], rows.map((row) => el('tr', {}, [
         td(relTime(row.created_at) + ' · ' + new Date(row.created_at).toLocaleString('ar-EG')),
         td(tag(row.status, row.status === 'ok' ? 'published' : row.status === 'partial' ? 'draft' : 'archived')),

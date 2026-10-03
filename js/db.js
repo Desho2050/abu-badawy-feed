@@ -39,13 +39,19 @@ export const STATUSES = [
   ['draft', 'مسودة'], ['scheduled', 'مجدول'], ['published', 'منشور'], ['archived', 'مؤرشف']
 ];
 
+/* ريبو الملفات المنشورة: النشر فيه مجدول، والتشغيل اليدوي من GitHub نفسه.
+   اللوحة لا تحمل أي مفتاح لهذا الريبو — جلسة Supabase هي الصلاحية الوحيدة. */
+export const FEED_REPO = 'Desho2050/abu-badawy-feed';
+export const PUBLISH_ACTIONS_URL = 'https://github.com/' + FEED_REPO + '/actions/workflows/publish.yml';
+export const PUBLISH_EVERY_MINUTES = 5;
+
 const LS = {
   url: 'abuBadawyDash.url',
-  anon: 'abuBadawyDash.anon',
-  ghToken: 'abuBadawyDash.ghToken',
-  ghRepo: 'abuBadawyDash.ghRepo',
-  ghBranch: 'abuBadawyDash.ghBranch'
+  anon: 'abuBadawyDash.anon'
 };
+
+/* اللوحة لم تعد تعرف شيئًا عن مفاتيح GitHub — تُمسح بقاياها من متصفحات من ضبطها سابقًا. */
+['abuBadawyDash.ghToken', 'abuBadawyDash.ghRepo', 'abuBadawyDash.ghBranch'].forEach((key) => localStorage.removeItem(key));
 
 let db = null;
 
@@ -281,39 +287,108 @@ export async function saveMedia(meta) {
   if (error) throw new Error(error.message);
 }
 
-/* ── نشر فوري عبر GitHub Actions (اختياري: يحتاج مفتاحًا محليًا) ──────────── */
-export function savedGithub() {
-  return {
-    token: localStorage.getItem(LS.ghToken) || '',
-    repo: localStorage.getItem(LS.ghRepo) || '',
-    branch: localStorage.getItem(LS.ghBranch) || 'main'
-  };
+/* ── مزامنة الأسعار من المتصفح: تكفي جلسة الدخول، بلا أي مفتاح خارجي ───────── */
+const FX_API = 'https://open.er-api.com/v6/latest/USD';
+const GOLD_API = 'https://api.gold-api.com/price/XAU';
+const GRAM_PER_OUNCE = 31.1034768;
+
+/* ما يعرفه المستخدم المصري: كم جنيهاً مقابل وحدة العملة. */
+const FX_WATCH = [
+  ['USD', 'دولار أمريكي', '$'],
+  ['EUR', 'يورو', '€'],
+  ['SAR', 'ريال سعودي', '﷼'],
+  ['AED', 'درهم إماراتي', 'د.إ'],
+  ['KWD', 'دينار كويتي', 'د.ك'],
+  ['GBP', 'جنيه إسترليني', '£'],
+  ['TRY', 'ليرة تركية', '₺']
+];
+
+function money(value) {
+  if (!Number.isFinite(value) || value <= 0) return null;
+  return value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-export function saveGithub({ token, repo, branch }) {
-  if (token !== undefined) localStorage.setItem(LS.ghToken, token.trim());
-  if (repo !== undefined) localStorage.setItem(LS.ghRepo, repo.trim());
-  if (branch !== undefined) localStorage.setItem(LS.ghBranch, branch.trim() || 'main');
+/** الواجهتان المفتوحتان تسمحان بالقراءة من المتصفح (access-control-allow-origin: *). */
+async function openApi(url) {
+  const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
+  if (!res.ok) throw new Error(url + ' → HTTP ' + res.status);
+  return res.json();
 }
 
-export async function dispatchWorkflow(file, inputs = {}) {
-  const { token, repo, branch } = savedGithub();
-  if (!token || !/^[\w.-]+\/[\w.-]+$/.test(repo)) {
-    throw new Error('أضف مفتاح GitHub واسم الريبو (owner/repo) في لوحة الإعدادات أولًا.');
+async function writePrices(rows) {
+  if (!rows.length) return;
+  const { error } = await db.from('price_rows').upsert(rows, { onConflict: 'kind,code' });
+  if (error) throw new Error(error.message);
+}
+
+/**
+ * يجلب الأسعار لحظيًا ويكتبها في price_rows (نفس جدول prices.yml).
+ * يُرجع { fx, gold, errors } — الأخطاء نصية لأن الجولة الناجحة جزئيًا مقبولة.
+ */
+export async function syncPrices(kind = 'both') {
+  if (!db) throw new Error('سجّل الدخول إلى Supabase أولًا.');
+  const wantFx = kind !== 'gold';
+  const wantGold = kind !== 'fx';
+  const result = { fx: 0, gold: 0, errors: [] };
+
+  let usdRates = null;
+  async function ratesFromUsd() {
+    if (!usdRates) usdRates = (await openApi(FX_API)).rates || {};
+    return usdRates;
   }
-  const res = await fetch('https://api.github.com/repos/' + repo + '/actions/workflows/' + encodeURIComponent(file) + '/dispatches', {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + token,
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ ref: branch, inputs }),
-    signal: AbortSignal.timeout(20000)
-  });
-  if (!res.ok && res.status !== 204) throw new Error('GitHub رجّع ' + res.status + ': ' + (await res.text()).slice(0, 200));
-  return res.status === 204 || res.ok;
+  async function egpPerUsd() {
+    const base = Number((await ratesFromUsd()).EGP);
+    if (!Number.isFinite(base) || base <= 0) throw new Error('لا سعر للجنيه في رد العملات');
+    return base;
+  }
+
+  if (wantFx) {
+    try {
+      const rates = await ratesFromUsd();
+      const base = await egpPerUsd();
+      const rows = [];
+      FX_WATCH.forEach(([code, name, symbol], index) => {
+        const value = money(base / Number(rates[code]));
+        if (value) rows.push({ kind: 'fx', code, name, symbol, value, change: null, sort_order: index });
+      });
+      await writePrices(rows);
+      result.fx = rows.length;
+    } catch (error) {
+      result.errors.push('العملات: ' + error.message);
+    }
+  }
+
+  if (wantGold) {
+    try {
+      const ounce = await openApi(GOLD_API);
+      const ounceUsd = Number(ounce?.price ?? ounce?.data?.price ?? ounce?.USD);
+      if (!Number.isFinite(ounceUsd) || ounceUsd <= 0) throw new Error('لا سعر للأوقية في رد الذهب');
+      const gram24 = (ounceUsd / GRAM_PER_OUNCE) * (await egpPerUsd());
+      const rows = [
+        ['24', 'جرام ذهب عيار 24', gram24],
+        ['22', 'جرام ذهب عيار 22', (gram24 * 22) / 24],
+        ['21', 'جرام ذهب عيار 21', (gram24 * 21) / 24],
+        ['18', 'جرام ذهب عيار 18', (gram24 * 18) / 24],
+        ['SOV', 'جنيه ذهب (8 جرام عيار 21)', ((gram24 * 21) / 24) * 8],
+        ['XAU', 'أوقية الذهب عالميًا', null]
+      ].map(([code, name, valueEgp], index) => ({
+        kind: 'gold',
+        code,
+        name,
+        symbol: code === 'XAU' ? '$' : 'ج.م',
+        value: money(code === 'XAU' ? ounceUsd : valueEgp),
+        change: null,
+        sort_order: index
+      })).filter((row) => row.value);
+      await writePrices(rows);
+      result.gold = rows.length;
+    } catch (error) {
+      result.errors.push('الذهب: ' + error.message);
+    }
+  }
+
+  if (!result.fx && !result.gold && !result.errors.length) throw new Error('لم تُجلب أي أسعار.');
+  return result;
 }
 
 /* ── وضع الاستعراض: نفس النموذج لكن من الملفات المنشورة (قراءة فقط) ───────── */

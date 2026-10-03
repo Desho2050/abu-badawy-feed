@@ -1,9 +1,10 @@
 name: Publish content from admin panel
 
-# يعمل كل ١٥ دقيقة، ويمكن تشغيله فورًا من Actions ← «Publish content from admin panel» ← Run workflow
+# يعمل كل ٥ دقائق، ويمكن تشغيله فورًا من Actions ← «Publish content from admin panel» ← Run workflow
+# اللوحة لا تحمل مفتاح GitHub: الجدولة هنا هي بديل زر «نشر الآن».
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
   push:
     paths:

@@ -153,7 +153,10 @@ async function openAdmin() {
   clear(gate());
   renderShell();
   if (!ctx.demo) {
-    renderBanner('info', 'آخر محتوى محرَّر هنا غير منشور بعد. انقر «نشر الآن» أو انتظر جولة الـ Action (كل ١٥ دقيقة).', [
+    const last = (state.model.log || [])[0];
+    renderBanner('info', 'التعديلات تُنشر تلقائيًا كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق' +
+      (last && last.created_at ? ' — آخر نشر: ' + new Date(last.created_at).toLocaleString('ar-EG') : '.') +
+      ' لا حاجة لأي مفتاح GitHub داخل اللوحة؛ دخول Supabase يكفي.', [
       el('button', { class: 'iconbtn', onclick: () => { clear(document.getElementById('banner')); } }, 'إخفاء')
     ]);
   }
@@ -325,22 +328,14 @@ function renderTopActions() {
   const host = document.getElementById('topActions');
   clear(host).append(
     el('button', { class: 'btn plain', onclick: () => ctx.refresh() }, 'تحديث'),
-    el('button', { class: 'btn ghost', onclick: () => publishNow(host) }, 'نشر الآن')
+    el('a', {
+      class: 'btn ghost',
+      href: api.PUBLISH_ACTIONS_URL,
+      target: '_blank',
+      rel: 'noopener',
+      title: 'النشر يعمل تلقائيًا كل ' + api.PUBLISH_EVERY_MINUTES + ' دقائق — هنا يمكن تشغيله فورًا من مستودع الملفات.'
+    }, 'نشر فوري (GitHub)')
   );
-}
-
-async function publishNow(host) {
-  if (!ctx.writable()) return;
-  const button = host.querySelector('.btn.ghost');
-  setBusy(button, true);
-  try {
-    await api.dispatchWorkflow('publish.yml');
-    toast('أُرسل الطلب إلى GitHub Actions — سيُحدَّد الموقع خلال دقيقة إلى دقيقتين.', 5000);
-  } catch (error) {
-    toast('لم يُرسل الطلب: ' + error.message, 6000);
-  } finally {
-    setBusy(button, false);
-  }
 }
 
 /* ── اللوحة الحالية ────────────────────────────────────────────────────────── */
