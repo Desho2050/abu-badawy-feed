@@ -1,49 +1,49 @@
 {
   "schemaVersion": 1,
   "title": "أسعار العملات",
-  "updatedAt": "2026-10-02T20:12:50.563741+00:00",
+  "updatedAt": "2026-10-03T09:54:05.042711+00:00",
   "rates": [
     {
       "code": "USD",
       "name": "دولار أمريكي",
       "symbol": "$",
-      "value": "…",
-      "change": "…"
+      "value": "52.28"
     },
     {
       "code": "EUR",
       "name": "يورو",
       "symbol": "€",
-      "value": "…",
-      "change": "…"
+      "value": "58.83"
     },
     {
       "code": "SAR",
       "name": "ريال سعودي",
       "symbol": "﷼",
-      "value": "…",
-      "change": "…"
+      "value": "13.94"
     },
     {
       "code": "AED",
       "name": "درهم إماراتي",
       "symbol": "د.إ",
-      "value": "…",
-      "change": "…"
+      "value": "14.24"
     },
     {
       "code": "KWD",
       "name": "دينار كويتي",
       "symbol": "د.ك",
-      "value": "…",
-      "change": "…"
+      "value": "169.33"
     },
     {
       "code": "GBP",
       "name": "جنيه إسترليني",
       "symbol": "£",
-      "value": "…",
-      "change": "…"
+      "value": "69.13"
+    },
+    {
+      "code": "TRY",
+      "name": "ليرة تركية",
+      "symbol": "₺",
+      "value": "1.06"
     }
   ],
   "base": "EGP",
