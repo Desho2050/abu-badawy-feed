@@ -147,7 +147,9 @@ function stripTags(text) {
 
 /** نص نظيف سطر واحد بحدّ أقصى، مطابقًا لما يقصّه الناشر في toItem. */
 function flat(value, max) {
-  const text = stripTags(value).replace(/\s+/g, ' ').trim();
+  /* '&nbsp;' هنا ليست خطأً في فكّ الكيانات وحده: البوابة الرسمية تكتب «&amp;nbsp;»
+     فتخرج منها المسافة غير القابلة للانفصال نصًا ظاهرًا في البطاقة بعد فكّ واحدة. */
+  const text = stripTags(value).replace(/&nbsp;/gi, ' ').replace(/\s+/g, ' ').trim();
   return text.length > max ? text.slice(0, max - 1).trimEnd() : text;
 }
 
@@ -414,9 +416,13 @@ async function fetchOfficialLocal() {
       if (NOW - Date.parse(publishedAt) > OFFICIAL_LOCAL.maxAgeHours * 3600000) continue;
       if (seen.has(link)) continue;
       seen.add(link);
-      /* المقتطف كما كتبته البوابة (يقصّه الموقع نفسه بثلاث كلمات ونقاط حذف). */
-      const excerpt = flat((chunk.match(/class="card-excerpt"[^>]*>([\s\S]*?)<\/p>/i) || [])[1], 240)
-        .replace(/(?:\s*\.{3}|\s*…)\s*$/, '') + ' …';
+      /* المقتطف كما كتبته البوابة، يُقصَّر ويُختم بنقاط حذف كإشارة إلى المصدر.
+         حرف واحد يتسرّب أحيانًا في آخر السطر (واو أو فاء)، فتُحذف مع مسافتها. */
+      const rawExcerpt = flat((chunk.match(/class="card-excerpt"[^>]*>([\s\S]*?)<\/p>/i) || [])[1], 240)
+        .replace(/(?:\s*\.{3}|\s*…)\s*$/, '')
+        .replace(/\s[\u0648\u0641\u0644\u0643\u0628\u0645\u064a\u062a\u062f\u0631]\s*$/, '')
+        .trim();
+      const excerpt = rawExcerpt ? rawExcerpt + ' …' : '';
       items.push({
         section: 'local_news',
         sourceName: OFFICIAL_LOCAL.name,
