@@ -23,7 +23,7 @@ export const ICONS = [
   ['ads', 'إعلان (ads)'], ['history', 'تراث (history)'], ['water', 'زراعة/ماء (water)'],
   ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)'],
   ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
-  ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)']
+  ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)']
 ];
 
 export const LAYOUTS = [
@@ -32,7 +32,8 @@ export const LAYOUTS = [
   ['rates', 'أسعار (rates)'], ['directory', 'دليل (directory)'],
   ['apps', 'تطبيقات بأيقونة ورابط (apps)'],
   ['prayer', 'مواقيت صلاة (prayer)'], ['weather', 'طقس (weather)'], ['converter', 'آلة حاسبة للقياس (converter)'],
-  ['calendar', 'تقويم هجري وميلادي (calendar)']
+  ['calendar', 'تقويم هجري وميلادي (calendar)'],
+  ['channels', 'قنوات بروابط وشعار (channels)']
 ];
 
 export const KINDS = [

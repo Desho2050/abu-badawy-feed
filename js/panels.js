@@ -762,17 +762,22 @@ function itemEditor(draftIn, ctx, onDone) {
     () => draft.section_id || 'general'
   );
 
-  /* قسم التخطيط apps يحتاج توضيحًا: نفس الحقول العامة تُقرأ كأيقونة ورابط ومميزات. */
+  /* أقسام apps وchannels تعيد قراءة الحقول العامة؛ يحتاج العنصر توضيحًا. */
   const sectionHint = el('div', { class: 'muted', style: 'display:none;margin-top:6px' });
   function drawSectionHint() {
     const row = ctx.model.sections.find((s) => s.id === draft.section_id);
-    const isApps = !!row && row.layout === 'apps';
-    sectionHint.style.display = isApps ? '' : 'none';
-    if (isApps) {
-      sectionHint.textContent = 'قسم تطبيقات: الصورة هي أيقونة التطبيق، و«رابط خارجي» هو رابط المتجر ويظهر '
+    const layout = row && row.layout;
+    const show = layout === 'apps' || layout === 'channels';
+    sectionHint.style.display = show ? '' : 'none';
+    if (!show) return;
+    sectionHint.textContent = layout === 'apps'
+      ? 'قسم تطبيقات: الصورة هي أيقونة التطبيق، و«رابط خارجي» هو رابط المتجر ويظهر '
         + 'كزر «افتح التطبيق»، وأضف سطرًا في الحقول الإضافية على مثال: '
-        + 'المميزات: وضع ليلي، عمل بدون إنترنت، أوقات الصلاة.';
-    }
+        + 'المميزات: وضع ليلي، عمل بدون إنترنت، أوقات الصلاة.'
+      : 'قسم قنوات: الصورة شعار القناة (مربعة؛ وإن تُرك فارغًا رسم التطبيق رمزًا)، '
+        + 'و«رابط خارجي» هو صفحة القناة ويظهر كزر «افتح القناة على يوتيوب»، '
+        + 'وأضف سطرًا في الحقول الإضافية على مثال: '
+        + 'المواضيع: سكراتش، بايثون، روبوتكس — مع الفئة العمرية واللغة.';
   }
   const sectionField = field('القسم', select(sectionIds(ctx.model), draft.section_id, (v) => { draft.section_id = v; drawSectionHint(); }));
   sectionField.append(sectionHint);
