@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T05:43:44Z",
+  "generatedAt": "2026-10-04T05:50:07Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -285,6 +285,25 @@
       "notifications": {
         "default": false,
         "breaking": true
+      }
+    },
+    {
+      "id": "my_apps",
+      "title": "تطبيقاتي",
+      "icon": "apps",
+      "layout": "apps",
+      "order": 95,
+      "home": true,
+      "enabled": true,
+      "subtitle": "تطبيقات من تصميمي: أيقونة ووصف ومميزات ورابط",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/my_apps.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
       }
     },
     {
