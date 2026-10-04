@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T13:10:39Z",
+  "generatedAt": "2026-10-04T23:44:16Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -289,6 +289,25 @@
       }
     },
     {
+      "id": "trains",
+      "title": "مواعيد قطارات مصر",
+      "icon": "train",
+      "layout": "trains",
+      "order": 85,
+      "home": true,
+      "enabled": true,
+      "subtitle": "جدول الرحلات الداخلية: ابحث برقم القطار أو باسم المحطة",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/trains.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
+      }
+    },
+    {
       "id": "offers",
       "title": "عروض ومنتجات",
       "icon": "sell",
@@ -378,6 +397,25 @@
       "notifications": {
         "default": false,
         "breaking": true
+      }
+    },
+    {
+      "id": "memorials",
+      "title": "ولد صالح يدعو له",
+      "icon": "memorial",
+      "layout": "memorials",
+      "order": 115,
+      "home": true,
+      "enabled": true,
+      "subtitle": "تذكرة لكل من رحلوا من أهل القرية: اسمه وتاريخ وفاته والدعاء له",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/memorials.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
       }
     }
   ]
