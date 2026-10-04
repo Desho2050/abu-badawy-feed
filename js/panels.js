@@ -494,7 +494,8 @@ function sectionEditor(initial, ctx, onDone) {
         kind === 'fx' || kind === 'gold' ? 'الملف يُبنى من جدول price_rows ومن لوحة الأسعار.'
           : kind === 'prayer' || kind === 'weather' ? 'التطبيق يجلبه مباشرة من واجهة مفتوحة حسب موقع القرية في الإعدادات — بلا رابط ولا عناصر.'
             : kind === 'converter' ? 'آلة حاسبة داخل التطبيق؛ تعمل على أسعار العملات المنشورة.'
-              : 'rss/html يقرؤهما التطبيق مباشرة من الرابط الخارجي.'),
+              : kind === 'calendar' ? 'تقويم هجري/ميلادي بمناسباته ومحوّله داخل التطبيق؛ يحسبه من Aladhan حسب موقع القرية — بلا رابط ولا عناصر.'
+                : 'rss/html يقرؤهما التطبيق مباشرة من الرابط الخارجي.'),
       kind === 'json' ? field('مصدر العناصر', select([['admin', 'من هذه اللوحة'], ['file', 'ملف JSON ثابت في المستودع']], draft.items_source, (v) => { draft.items_source = v; render(); })) : null,
       kind === 'json' && draft.items_source === 'admin' ? field('مسار الملف المنشور (اختياري)', input({ dir: 'ltr', value: draft.feed_url || '', oninput: (e) => { draft.feed_url = e.target.value; } }), 'افتراضيًا data/sections/<id>.json — اتركه فارغًا إلا لو أردت مسارًا آخر.') : null,
       kind === 'json' && draft.items_source === 'file' ? field('مسار ملف JSON في المستودع', input({ dir: 'ltr', value: draft.feed_url || '', oninput: (e) => { draft.feed_url = e.target.value; } }), 'مثال: data/sections/landmarks.json — تحرّره يدويًا أو بأمر git، لا من هذه اللوحة.') : null,
@@ -1242,7 +1243,7 @@ async function settingsPanel(host, ctx) {
     ]),
 
     card('موقع القرية (للأقسام الحيّة)', '', [
-      el('div', { class: 'muted', text: 'إحداثيات واحدة تحسب منها مواقيت الصلاة وتُطلب منها حالة الطقس؛ لا يطلب التطبيق موقع هاتفك ولا يستأذن الوصول إلى GPS.' }),
+      el('div', { class: 'muted', text: 'إحداثيات واحدة تحسب منها مواقيت الصلاة والتقويم الهجري، وتُطلب منها حالة الطقس؛ لا يطلب التطبيق موقع هاتفك ولا يستأذن الوصول إلى GPS.' }),
       el('div', { class: 'grid two', style: 'margin-top:10px' }, [
         field('الاسم الظاهر للمستخدم', input({ value: location.name || '', placeholder: 'مركز بيلا، كفر الشيخ', oninput: (e) => { location.name = e.target.value; } })),
         field('المنطقة الزمنية', input({ dir: 'ltr', value: location.timezone || '', placeholder: 'Africa/Cairo', oninput: (e) => { location.timezone = e.target.value; } }), 'اسم منطقة Java مثل Africa/Cairo.'),

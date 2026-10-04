@@ -558,8 +558,8 @@ function toItem(row, index) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'prayer', 'weather', 'converter']);
-const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'prayer', 'weather', 'converter', 'calendar']);
+const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter', 'calendar']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);
   return Number.isFinite(n) ? Math.round(Math.min(max, Math.max(min, n))) : fallback;

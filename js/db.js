@@ -23,7 +23,7 @@ export const ICONS = [
   ['ads', 'إعلان (ads)'], ['history', 'تراث (history)'], ['water', 'زراعة/ماء (water)'],
   ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)'],
   ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
-  ['apps', 'تطبيقات (apps)']
+  ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)']
 ];
 
 export const LAYOUTS = [
@@ -31,14 +31,16 @@ export const LAYOUTS = [
   ['profiles', 'تراجم (profiles)'], ['offers', 'عروض (offers)'], ['ads', 'إعلانات (ads)'],
   ['rates', 'أسعار (rates)'], ['directory', 'دليل (directory)'],
   ['apps', 'تطبيقات بأيقونة ورابط (apps)'],
-  ['prayer', 'مواقيت صلاة (prayer)'], ['weather', 'طقس (weather)'], ['converter', 'آلة حاسبة للقياس (converter)']
+  ['prayer', 'مواقيت صلاة (prayer)'], ['weather', 'طقس (weather)'], ['converter', 'آلة حاسبة للقياس (converter)'],
+  ['calendar', 'تقويم هجري وميلادي (calendar)']
 ];
 
 export const KINDS = [
   ['json', 'json — عناصر من اللوحة'], ['rss', 'rss — تغذية خارجية'], ['html', 'html — صفحة بمُحدِّد'],
   ['fx', 'fx — أسعار العملات'], ['gold', 'gold — أسعار الذهب'], ['inline', 'inline — مضمّن في index.json'],
   ['prayer', 'prayer — مواقيت من Aladhan'], ['weather', 'weather — أرصاد Open-Meteo'],
-  ['converter', 'converter — تحويل عملات ووحدات']
+  ['converter', 'converter — تحويل عملات ووحدات'],
+  ['calendar', 'calendar — تقويم من Aladhan']
 ];
 
 export const STATUSES = [
