@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 /*
- * مزامن الأخبار: يجلب خلاصات RSS عربية رسمية (ويستقصي NewsAPI إن وُجد مفتاحه)
- * ويكتب العناصر في جدول items في Supabase — وهي الصفوف نفسها التي تحررها اللوحة
- * ويولّد منها publish.mjs ملفي data/sections/world_news.json و sports.json.
+ * مزامن الأخبار: يجلب خلاصات RSS عربية رسمية (ويستقصي NewsAPI إن وُجد مفتاحه)،
+ * ويجلب أخبار محافظة كفر الشيخ من بوابتها الرسمية، ويكتب العناصر في جدول items —
+ * وهي الصفوف نفسها التي تحررها اللوحة، ويولّد منها publish.mjs ملفات
+ * data/sections/world_news.json و sports.json و local_news.json.
  *
- *   node .github/scripts/sync-news.mjs                 # كل الخلاصات
- *   node .github/scripts/sync-news.mjs --dry-run       # يطبع ما سيُكتب، بلا كتابة
+ *   node .github/scripts/sync-news.mjs                      # كل الأقسام الثلاثة
+ *   node .github/scripts/sync-news.mjs --dry-run            # يطبع ما سيُكتب، بلا كتابة
  *   node .github/scripts/sync-news.mjs --section=sports
- *   node .github/scripts/sync-news.mjs --no-newsapi    # الخلاصات وحدها
+ *   node .github/scripts/sync-news.mjs --section=local_news # المحلّي وحده (خلاصات+بوابة)
+ *   node .github/scripts/sync-news.mjs --no-newsapi         # الخلاصات والبوابة وحدهما
  *
  * لا يكتب هذا السكريبت الملفات مباشرة، مثل sync-prices.mjs: يبقى مصدر التعديل
  * واحدًا (القاعدة)، فترى اللوحة الأخبار نفسها وتثبّتها أو تؤرشفها، ولا يتصارع
@@ -20,6 +22,11 @@
  *
  * الصور: إن غابت عن التغذية (الجزيرة والرياضية مثلًا) يُجلب og:image من صفحة الخبر
  * ويخزَّن في link_previews — الجدول الذي يستخدمه الناشر أصلًا، فلا يُجلب رابط مرتين.
+ *
+ * سياسة الجلب: لا استخراج من صفحات الوكالات ولا من الشبكات الاجتماعية. المصادر كلها
+ * واجهات مخصّصة للاستهلاك الآلي: تغذيات RSS تنشرها المواقع لأنفسها، وNewsAPI واجهة
+ * رسمية بمفتاح، وبوابة المحافظة الرسمية robots.txt عندها بلا أي منع. ولا يُنقل متن
+ * الخبر كاملًا: بطاقة بعنوان وملخّص قصير واسم مصدر ورابط «افتح المصدر».
  *
  * يعمل بلا اعتماديات على Node 20. المفاتيح من أسرار GitHub Actions.
  */
@@ -38,7 +45,9 @@ const ARGS = process.argv.slice(2);
 const DRY = ARGS.includes('--dry-run');
 const SKIP_NEWSAPI = ARGS.includes('--no-newsapi');
 const WHICH = (ARGS.find((arg) => arg.startsWith('--section=')) || '--section=both').split('=')[1];
-const SECTIONS = WHICH === 'both' ? ['world_news', 'sports'] : [WHICH];
+const ALL_SECTIONS = ['world_news', 'sports', 'local_news'];
+const SECTIONS = WHICH === 'both' ? [...ALL_SECTIONS] : [WHICH];
+const WANTS_LOCAL = SECTIONS.includes('local_news');
 
 const UA = 'AbuBadawyVillageApp/1.0 (content sync; GitHub Desho2050)';
 const FEED_TIMEOUT = 20000;
@@ -60,14 +69,47 @@ const FEEDS = [
   { section: 'world_news', name: 'سكاي نيوز عربية', url: 'https://www.skynewsarabia.com/rss.xml' },
   { section: 'world_news', name: 'الجزيرة نت', url: 'https://www.aljazeera.net/feed' },
   { section: 'world_news', name: 'سبوتنيك عربي', url: 'https://arabic.sputniknews.com/export/rss2/archive/index.xml' },
+  /* هاتان تزوّدان فلتر المحافظة: تغطيتهما لمصر أوفر من خلاصات العالم وحدها. */
+  { section: 'world_news', name: 'سي إن إن عربي', url: 'https://arabic.cnn.com/rss' },
+  { section: 'world_news', name: 'روسيا اليوم عربي', url: 'https://arabic.rt.com/rss/' },
   { section: 'sports', name: 'الرياضية', url: 'https://www.arriyadiyah.com/rss' }
 ];
 
 const ALL_SPORT_HOSTS = new Set(['www.arriyadiyah.com', 'arriyadiyah.com']);
 
+/* ── أخبار المحافظة: كلماتها ومصادرها ─────────────────────────────────────── */
+
+/* البوابة الرسمية لمحافظة كفر الشيخ: صفحة «أخبار المحافظة» قائمةٌ ثابتة البنية
+   (post-card / card-title / card-excerpt / meta-date) والوصول إليها مسموح في
+   robots.txt («Disallow:» فارغة). صفحتان لكل جولة = 18 بطاقة، فلا حمل على الموقع.
+   عمر العنصر هنا أطول من الخلاصات: البوابة تنشر على فترات، والإعلان الرسمي عن
+   قرار أو مشروع يبقى مفيدًا أسابيع، بخبر الوكالة الذي يخلق بعد يوم. */
+const OFFICIAL_LOCAL = {
+  name: 'البوابة الرسمية لمحافظة كفر الشيخ',
+  url: 'https://kfs.gov.eg/posts?category=akhbar-almhafth',
+  pages: 2,
+  maxAgeHours: 24 * 180,
+  perPage: 12
+};
+
+/* الكلمات: ما لا يشتبه مع كلام آخر قويّ وحده، وما يحتاج قرينة مصرية بجانبه.
+   «فوه» مثلًا داخل «فوهة»، و«بيلا» داخل «بيلاطس» أو اسم إيطالي، و«الروضة» روضة
+   أطفال وروضة غراء — فلا تُقبل إلا مع «مصر/محافظة/كفر/دسوق/…». */
+const LOCAL_STRONG = [
+  'كفر الشيخ', 'كفرالشيخ', 'محافظة كفر', 'دسوق', 'مطوبس', 'الحامول',
+  'قلين', 'بلطيم', 'سيدي سالم', 'سيدي غازي', 'البرلس'
+];
+const LOCAL_WEAK = ['فوه', 'بيلا', 'الروضة', 'البدريم', 'المثنى', 'شليمة', 'مرشد', 'القني'];
+const LOCAL_CONTEXT = ['مصر', 'محافظة', 'محافظ', 'كفر', 'دلتا', 'دسوق', 'بلطيم', 'الحامول', 'مطوبس', 'قلين'];
+const LOCAL_QUERY = '"كفر الشيخ" OR "كفرالشيخ" OR دسوق OR بلطيم OR مطوبس OR الحامول OR "سيدي سالم" OR "سيدي غازي" OR البرلس';
+
 const NEWSAPI_SOURCES = [
   { section: 'world_news', category: 'general', name: 'NewsAPI (عالمي)' },
-  { section: 'sports', category: 'sports', name: 'NewsAPI (رياضة)' }
+  { section: 'sports', category: 'sports', name: 'NewsAPI (رياضة)' },
+  /* بحث المحافظة على الواجهة الرسمية نفسها، بكلمات كفر الشيخ. دورته أبطأ (كل ست ساعات)
+     لأن الحصة المجانية 100 طلب/يوم، وللخطة المجانية تأخير أربع وعشرين ساعة عن النشر
+     — فسؤالها كل ربع ساعة لا يأتي بجديد ويحرق الحصة. */
+  { section: 'local_news', query: LOCAL_QUERY, name: 'NewsAPI (كفر الشيخ)', everyHours: 6 }
 ];
 
 const NOW = Date.now();
@@ -162,6 +204,59 @@ function slugFor(link) {
   return 'rss-' + createHash('sha1').update(link).digest('hex').slice(0, 12);
 }
 
+/* ── مطابقة كلمات المحافظة ────────────────────────────────────────────────── */
+
+/* صورة واحدة للنص العربي: تشكيل وتطويل محذوف، وهمزات موحَّدة، وتاء مربوطة هاء،
+   وألف مقصورة ياء، وكل فراغ (ب فيه nbsp) مسافة واحدة — وإلا ضاعت مطابقة
+   «كفرُالشيخ» و«كفر  الشيخ» و«كفرالشيخ» بين ثلاث صور يكتبها كل موقع. */
+function normalizeAr(text) {
+  return String(text || '')
+    .replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u08D3-\u08FF]/g, '')
+    .replace(/[\u0622\u0623\u0625\u0671\u0672\u0673]/g, 'ا')
+    .replace(/[\u0624]/g, 'و')
+    .replace(/[\u0626]/g, 'ي')
+    .replace(/\u0649/g, 'ي')
+    .replace(/\u0629/g, 'ه')
+    .replace(/\u06A9/g, 'ك')
+    .replace(/\u06BE/g, 'ه')
+    .replace(/[\s\p{Cf}]+/gu, ' ')
+    .toLowerCase();
+}
+
+const AR_LETTER = /[\u0620-\u064A\u0671-\u06EF\uFB50-\uFDFF\uFE70-\uFEFF]/;
+
+/* حروف تتصل بالكلمة من أمامها بلا مسافة: الجر والعطف والتعريف والنداء («بالحامول»،
+   «والدسوق»، «لكفرالشيخ»). لا تُقبل في آخر الكلمة، فتبقى «تدفوه» مستبعدة. */
+const CLITIC_LETTERS = new Set(['ا', 'ل', 'ب', 'و', 'ف', 'ك', 'ي', 'ت', 'م', 'ن', 'س', 'ه']);
+
+/**
+ * كلمة عربية بحدودها: ما بعدها حرف يمنعها (ف«فوه» لا تقع في «فوهة» ولا «بيلا» في
+ * «بيلاطس»)، وما قبلها يُسامح إن كان حروف اتصال معروفة (ف«بالحامول» خبر عن الحامول).
+ */
+function hasWord(haystack, term) {
+  const needle = normalizeAr(term);
+  let at = haystack.indexOf(needle);
+  while (at >= 0) {
+    const after = haystack[at + needle.length] || '';
+    if (!AR_LETTER.test(after)) {
+      let before = at;
+      while (before > 0 && AR_LETTER.test(haystack[before - 1])) before -= 1;
+      const prefix = haystack.slice(before, at);
+      if ([...prefix].every((ch) => CLITIC_LETTERS.has(ch))) return true;
+    }
+    at = haystack.indexOf(needle, at + 1);
+  }
+  return false;
+}
+
+/** هل هذا الخبر عن المحافظة؟ كلمة قوية تكفي، والضعيفة تحتاج قرينة مصرية بجانبها. */
+function isLocalNews(item) {
+  const hay = normalizeAr([item.title, item.summary, item.category].join(' '));
+  if (LOCAL_STRONG.some((term) => hasWord(hay, term))) return true;
+  if (!LOCAL_WEAK.some((term) => hasWord(hay, term))) return false;
+  return LOCAL_CONTEXT.some((term) => hasWord(hay, term));
+}
+
 /* ── تحليل RSS/Atom نصًا، بلا اعتماديات ───────────────────────────────────── */
 
 function blockField(block, names) {
@@ -226,15 +321,27 @@ async function fetchText(url, timeout = FEED_TIMEOUT) {
 /* ── NewsAPI اختياري ومقنَّن: الخطة المجانية 100 طلب/يوم ─────────────────── */
 
 /* الدورية 15 دقيقة = 96 جولة/يوم، فيُستقصى في أول ثماني دقائق من الساعة فقط:
-   24 جولة × طلبان = 48 طلبًا/يوم، ويبقى نصف الحصة لتجارب اللوحة. */
-function newsApiDueNow() {
-  return new Date().getUTCMinutes() < 8;
+   24 جولة × طلبان = 48 طلبًا/يوم، ويبقى نصف الحصة لتجارب اللوحة. والمصادر التي لها
+   everyHours (مثل بحث المحافظة) تُسأل مرة كل ذلك العدد من الساعات. */
+function newsApiDueNow(source) {
+  const now = new Date();
+  if (now.getUTCMinutes() >= 8) return false;
+  const every = source.everyHours || 1;
+  return every === 1 || now.getUTCHours() % every === 0;
+}
+
+function newsApiUrl(source) {
+  /* البحث بالكلمات على /v2/everything، لأن top-headlines لا يقبل إلا دولة أو فئة. */
+  if (source.query) {
+    return 'https://newsapi.org/v2/everything?q=' + encodeURIComponent(source.query) +
+      '&language=ar&sortBy=publishedAt&pageSize=60&page=1';
+  }
+  return 'https://newsapi.org/v2/top-headlines?language=ar&category=' +
+    encodeURIComponent(source.category) + '&pageSize=30&page=1';
 }
 
 async function fetchNewsApi(source) {
-  const url = 'https://newsapi.org/v2/top-headlines?language=ar&category=' +
-    encodeURIComponent(source.category) + '&pageSize=30&page=1';
-  const res = await fetch(url, {
+  const res = await fetch(newsApiUrl(source), {
     signal: AbortSignal.timeout(FEED_TIMEOUT),
     headers: { 'User-Agent': UA, Authorization: 'Bearer ' + NEWS_API_KEY }
   });
@@ -258,6 +365,73 @@ async function fetchNewsApi(source) {
       category: ''
     };
   }).filter((item) => item.title && item.link && item.publishedAt && !/^\[Removed\]$/i.test(item.title));
+}
+
+/* ── البوابة الرسمية للمحافظة: قائمة «أخبار المحافظة» ─────────────────────── */
+
+/* الشهور العربية كما تكتبها البوابة في meta-date («29 يونيو, 2026»)، بعد normalizeAr
+   الذي يوحّد الهمزات، فالكلمة تُذكر بصورتها غير المهموزة فقط. */
+const AR_MONTHS = {
+  يناير: 1, فبراير: 2, مارس: 3, ابريل: 4, مايو: 5, يونيو: 6,
+  يوليو: 7, اغسطس: 8, سبتمبر: 9, اكتوبر: 10, نوفمبر: 11, ديسمبر: 12
+};
+
+function parseArabicDate(text) {
+  const raw = normalizeAr(text).replace(/,/g, ' ').trim();
+  const parts = raw.match(/^(\d{1,2})\s+(\S+)\s+(\d{4})$/);
+  const month = parts && AR_MONTHS[parts[2]];
+  if (!parts || !month) return parseDate(text);
+  /* ظهر UTC: تاريخ بلا ساعة، والتوقيت المحلي للموقع مصري (UTC+3)، فلو بُني على
+     منتصف الليل لأصبح الخبر «أمس» قبل الفجر حسب مكان القارئ. */
+  return new Date(Date.UTC(Number(parts[3]), month - 1, Number(parts[1]), 12, 0, 0)).toISOString();
+}
+
+/**
+ * بطاقات أخبار البوابة الرسمية. قائمة HTML ثابتة البنية، والموقع يأذن الوصول في
+ * robots.txt، فنكتفي بالعنوان والمقتطف الذي كتبه ناشر الموقع نفسه والصورة المصغّرة
+ * والتاريخ — ولا نجلب صفحة الخبر أصلًا (لا حاجة: له صورة مصغّرة في القائمة).
+ */
+async function fetchOfficialLocal() {
+  const seen = new Set();
+  const items = [];
+  for (let page = 1; page <= OFFICIAL_LOCAL.pages; page++) {
+    const html = await fetchText(OFFICIAL_LOCAL.url + (page > 1 ? '&page=' + page : ''), PAGE_TIMEOUT);
+    /* البوابة تُعيد أحيانًا بطاقة على صفحتين متتاليتين؛ seen يمنع تكرارها. */
+    for (const block of html.split('class="post-card"').slice(1)) {
+      const chunk = block.slice(0, 4000);
+      const link = plainLink((chunk.match(/<h3[^>]*class="card-title"[^>]*>\s*<a[^>]+href="([^"]+)"/i) || [])[1]);
+      if (!link) continue;
+      let host = '';
+      try {
+        host = new URL(link).host;
+      } catch {
+        continue;
+      }
+      if (!/(^|\.)kfs\.gov\.eg$/.test(host)) continue;
+      const title = flat((chunk.match(/<h3[^>]*class="card-title"[^>]*>([\s\S]*?)<\/h3>/i) || [])[1], 200);
+      const publishedAt = parseArabicDate((chunk.match(/class="meta-date"[^>]*>([^<]*)</i) || [])[1]);
+      if (!title || !publishedAt) continue;
+      if (NOW - Date.parse(publishedAt) > OFFICIAL_LOCAL.maxAgeHours * 3600000) continue;
+      if (seen.has(link)) continue;
+      seen.add(link);
+      /* المقتطف كما كتبته البوابة (يقصّه الموقع نفسه بثلاث كلمات ونقاط حذف). */
+      const excerpt = flat((chunk.match(/class="card-excerpt"[^>]*>([\s\S]*?)<\/p>/i) || [])[1], 240)
+        .replace(/(?:\s*\.{3}|\s*…)\s*$/, '') + ' …';
+      items.push({
+        section: 'local_news',
+        sourceName: OFFICIAL_LOCAL.name,
+        title,
+        summary: excerpt,
+        body: excerpt,
+        image: httpsUrl((chunk.match(/<img[^>]+src="([^"]+)"/i) || [])[1]),
+        link,
+        publishedAt,
+        category: 'كفر الشيخ'
+      });
+      if (items.length >= OFFICIAL_LOCAL.perPage * OFFICIAL_LOCAL.pages) break;
+    }
+  }
+  return items;
 }
 
 /* ── Supabase ─────────────────────────────────────────────────────────────── */
@@ -451,15 +625,22 @@ if (!SUPABASE_URL || !SERVICE_KEY) {
 const byKey = new Map();
 let failedFeeds = 0;
 
+/** التجمع على مفتاح (القسم|الرابط): الخبر الواحد لا يُكتب مرتين في القسم نفسه. */
+function collect(item) {
+  if (!item || !SECTIONS.includes(item.section)) return;
+  const key = item.section + '|' + item.link;
+  if (!byKey.has(key)) byKey.set(key, item);
+}
+
 for (const feed of FEEDS) {
   try {
     const items = parseFeed(await fetchText(feed.url), feed);
     if (!items.length) throw new Error('لا عناصر ضمن آخر ' + MAX_AGE_HOURS + ' ساعة');
     console.log('✓ ' + feed.name.padEnd(18) + ' ' + String(items.length).padStart(3) + ' عنصرًا');
     for (const item of items) {
-      if (!SECTIONS.includes(item.section)) continue;
-      const key = item.section + '|' + item.link;
-      if (!byKey.has(key)) byKey.set(key, item);
+      collect(item);
+      /* الخبر الواحد قد يكون عالميًا ومحلّيًا معًا: ما ذكر المحافظة يُنسخ إليها. */
+      if (WANTS_LOCAL && isLocalNews(item)) collect({ ...item, section: 'local_news' });
     }
   } catch (error) {
     failedFeeds += 1;
@@ -467,26 +648,37 @@ for (const feed of FEEDS) {
   }
 }
 
+if (WANTS_LOCAL) {
+  try {
+    const items = await fetchOfficialLocal();
+    if (!items.length) throw new Error('لا بطاقات في قائمة أخبار المحافظة');
+    console.log('✓ ' + OFFICIAL_LOCAL.name.padEnd(18) + ' ' + String(items.length).padStart(3) + ' عنصرًا');
+    for (const item of items) collect(item);
+  } catch (error) {
+    failedFeeds += 1;
+    console.log('-- WARNING: ' + OFFICIAL_LOCAL.name + ': ' + error.message);
+  }
+}
+
 if (NEWS_API_KEY && !SKIP_NEWSAPI) {
-  if (!newsApiDueNow()) {
-    console.log('-- NOTICE: NewsAPI يعمل في أول ثماني دقائق من الساعة فقط — تُجاوز هذه الجولة.');
-  } else {
-    for (const source of NEWSAPI_SOURCES) {
-      if (!SECTIONS.includes(source.section)) continue;
-      try {
-        const items = await fetchNewsApi(source);
-        console.log('✓ ' + source.name.padEnd(18) + ' ' + String(items.length).padStart(3) + ' عنصرًا');
-        for (const item of items) {
-          const key = item.section + '|' + item.link;
-          if (!byKey.has(key)) byKey.set(key, item);
-        }
-      } catch (error) {
-        console.log('-- WARNING: ' + source.name + ': ' + error.message);
-      }
+  let anyDue = false;
+  for (const source of NEWSAPI_SOURCES) {
+    if (!SECTIONS.includes(source.section)) continue;
+    if (!newsApiDueNow(source)) continue;
+    anyDue = true;
+    try {
+      const items = await fetchNewsApi(source);
+      console.log('✓ ' + source.name.padEnd(18) + ' ' + String(items.length).padStart(3) + ' عنصرًا');
+      for (const item of items) collect(item);
+    } catch (error) {
+      console.log('-- WARNING: ' + source.name + ': ' + error.message);
     }
   }
+  if (!anyDue) {
+    console.log('-- NOTICE: NewsAPI مؤجَّل في هذه الجولة (يعمل في أول ثماني دقائق من الساعة، وبحث المحافظة كل ست ساعات).');
+  }
 } else {
-  console.log('-- NOTICE: NEWS_API_KEY غير مضبوط — الخلاصات وحدها. أضِفه في Settings ← Secrets and variables ← Actions ← New repository secret.');
+  console.log('-- NOTICE: NEWS_API_KEY غير مضبوط — الخلاصات والبوابة الرسمية وحدهما. أضِفه في Settings ← Secrets and variables ← Actions ← New repository secret.');
 }
 
 const planned = new Map(SECTIONS.map((section) => [section, []]));
