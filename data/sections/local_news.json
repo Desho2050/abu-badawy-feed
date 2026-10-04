@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "local_news",
-  "updatedAt": "2026-10-04T13:17:42Z",
+  "updatedAt": "2026-10-04T13:21:31Z",
   "note": "يملؤه .github/scripts/sync-news.mjs آليًا: البوابة الرسمية kfs.gov.eg + بحث NewsAPI بكلمات المحافظة + فلتر على الخلاصات العربية الموجودة. البطاقة عنوان وملخّص قصير ورابط للمصدر، لا متن منقول. العناصر الآلية يبدأ slug بالبادئة rss-؛ العناصر اليدوية لا يمسّها المزامن.",
   "items": [
     {
@@ -36,6 +36,40 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
+      }
+    },
+    {
+      "id": "rss-8bdf742e41a6",
+      "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BB7P1VKJDX035Y5QZY4KV.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
+      }
+    },
+    {
+      "id": "rss-810d4c32389a",
+      "title": "محافظ كفرالشيخ يتابع أعمال رفع كفاءة الطرق بقرى مركز كفرالشيخ ضمن مبادرة «تأهيل الطرق»",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9ACK4RJ4VX230PMT4Q5JZT.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk"
       }
     },
     {
@@ -90,40 +124,6 @@
       }
     },
     {
-      "id": "rss-8bdf742e41a6",
-      "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BB7P1VKJDX035Y5QZY4KV.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
-      }
-    },
-    {
-      "id": "rss-810d4c32389a",
-      "title": "محافظ كفرالشيخ يتابع أعمال رفع كفاءة الطرق بقرى مركز كفرالشيخ ضمن مبادرة «تأهيل الطرق»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9ACK4RJ4VX230PMT4Q5JZT.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk"
-      }
-    },
-    {
       "id": "rss-4ef4602a484f",
       "title": "محافظ كفرالشيخ يتابع أعمال رصف طريق محلة موسى ضمن مشروعات الخطة الاستثمارية",
       "date": "2026-06-28",
@@ -138,23 +138,6 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary"
-      }
-    },
-    {
-      "id": "rss-8abef03a415f",
-      "title": "محافظ كفرالشيخ: ضبط 137 قطعة مواد غذائية منتهية الصلاحية بقلين",
-      "date": "2026-06-27",
-      "subtitle": "تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود مديرية التموين في ضبط 137 قطعة مواد غذائية منتهية الص …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9DTZPMP6163MFYKQ58QQ10.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود مديرية التموين في ضبط 137 قطعة مواد غذائية منتهية الص …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-dbt-137-ktaa-moad-ghthayy-mnthy-alslahy-bklyn",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-dbt-137-ktaa-moad-ghthayy-mnthy-alslahy-bklyn"
       }
     },
     {
@@ -175,20 +158,20 @@
       }
     },
     {
-      "id": "rss-12fab9a62c4f",
-      "title": "محافظ كفرالشيخ يُسلّم 17 عقد تقنين للمواطنين وفق القانون 168 لسنة 2025.. انطلاقة جديدة لتسوية الأوضاع وتثبيت الملكية بتيسيرات غير مسبوقة",
+      "id": "rss-8abef03a415f",
+      "title": "محافظ كفرالشيخ: ضبط 137 قطعة مواد غذائية منتهية الصلاحية بقلين",
       "date": "2026-06-27",
-      "subtitle": "المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BE48GVJG2Z77QVR2FEGNZ.jpg",
+      "subtitle": "تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود مديرية التموين في ضبط 137 قطعة مواد غذائية منتهية الص …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9DTZPMP6163MFYKQ58QQ10.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …</p>",
+      "body": "<p>تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود مديرية التموين في ضبط 137 قطعة مواد غذائية منتهية الص …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-dbt-137-ktaa-moad-ghthayy-mnthy-alslahy-bklyn",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-dbt-137-ktaa-moad-ghthayy-mnthy-alslahy-bklyn"
       }
     },
     {
@@ -206,6 +189,23 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-astfaf-almaadat-lltakd-mn-kfaaatha-ogahzytha-lmgabh-alazmat-oalkoarth"
+      }
+    },
+    {
+      "id": "rss-12fab9a62c4f",
+      "title": "محافظ كفرالشيخ يُسلّم 17 عقد تقنين للمواطنين وفق القانون 168 لسنة 2025.. انطلاقة جديدة لتسوية الأوضاع وتثبيت الملكية بتيسيرات غير مسبوقة",
+      "date": "2026-06-27",
+      "subtitle": "المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BE48GVJG2Z77QVR2FEGNZ.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok"
       }
     }
   ]
