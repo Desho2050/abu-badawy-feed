@@ -358,13 +358,22 @@ function rowFor(item) {
 }
 
 async function writeSection(section, rows) {
+  /* القراءة بحدّ ذاتها بلا فلتر slug: PostgREST يفسّر like.rss.* كأنه LIKE 'rss.%'
+     (النقطة حرف لا وايلد)، فالفلترة في JS بالبادئة أدقّ وأضمن. */
   const existing = await rest('items', {
     select: 'id,slug,status',
     section_id: 'eq.' + section,
-    slug: 'like.rss.*',
-    limit: '500'
+    order: 'slug.asc,updated_at.desc',
+    limit: '1000'
   });
-  const bySlug = new Map((existing || []).map((row) => [row.slug, row]));
+  const bySlug = new Map();
+  const duplicates = [];
+  for (const row of existing || []) {
+    if (!row.slug || !row.slug.startsWith('rss-')) continue;
+    /* التكرار من خطأ الفلترة السابق: يبقى الأحدث (الترتيب فوق) وتُمحى نسخه الأخرى. */
+    if (bySlug.has(row.slug)) duplicates.push(row.id);
+    else bySlug.set(row.slug, row);
+  }
 
   const inserts = [];
   const updates = [];
@@ -398,15 +407,25 @@ async function writeSection(section, rows) {
   console.log((DRY ? '[dry-run] ' : '') + section + ' ← جديد ' + inserts.length + '، محدَّث ' + updates.length +
     '، متجاهَل لأرشيف المدير ' + skipped);
 
+  if (duplicates.length) {
+    if (!DRY) {
+      await rest('items', { id: 'in.(' + duplicates.join(',') + ')' }, {
+        method: 'DELETE',
+        headers: { Prefer: 'return=minimal' }
+      });
+    }
+    console.log('  dedupe: ' + duplicates.length + ' مكرّرًا (نفس الslug) حُذف — بقي الأحدث لكل خبر');
+  }
+
   /* التقليم: تبقى أحدث KEEP_PER_SECTION بطاقة آلية فقط، فلا يتضخم القسم. */
-  const recent = await rest('items', {
-    select: 'id',
+  const fresh = await rest('items', {
+    select: 'id,slug',
     section_id: 'eq.' + section,
-    slug: 'like.rss.*',
     order: 'published_at.desc',
-    limit: '500'
+    limit: '1000'
   });
-  const stale = (recent || []).slice(KEEP_PER_SECTION).map((row) => row.id);
+  const auto = (fresh || []).filter((row) => row.slug && row.slug.startsWith('rss-'));
+  const stale = auto.slice(KEEP_PER_SECTION).map((row) => row.id);
   if (stale.length) {
     if (!DRY) {
       await rest('items', { id: 'in.(' + stale.join(',') + ')' }, {
@@ -521,4 +540,5 @@ if (!written) {
   console.error('\n-- ERROR: لا عناصر للكتابة — تُترك القاعدة كما هي.\n');
   process.exit(1);
 }
-console.log('\nتمت مزامنة ' + written + ' خبرًا في ' + SECTIONS.join(' و ') + '. ينشرها publish.yml خلال خمس دقائق.');
+console.log('\nتمت مزامنة ' + written + ' خبرًا في ' + SECTIONS.join(' و ') +
+  '. ينشرها هذا التشغيل نفسه (publish.mjs ثم دفع data/) فيتمدّد التطبيق خلال دقائق.');
