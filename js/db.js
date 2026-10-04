@@ -22,13 +22,15 @@ export const ICONS = [
   ['gold', 'ذهب (gold)'], ['sell', 'عرض (sell)'], ['shop', 'متجر (shop)'],
   ['ads', 'إعلان (ads)'], ['history', 'تراث (history)'], ['water', 'زراعة/ماء (water)'],
   ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)'],
-  ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)']
+  ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
+  ['apps', 'تطبيقات (apps)']
 ];
 
 export const LAYOUTS = [
   ['list', 'قائمة (list)'], ['richArticle', 'مقال مفصل (richArticle)'], ['cards', 'بطاقات (cards)'],
   ['profiles', 'تراجم (profiles)'], ['offers', 'عروض (offers)'], ['ads', 'إعلانات (ads)'],
   ['rates', 'أسعار (rates)'], ['directory', 'دليل (directory)'],
+  ['apps', 'تطبيقات بأيقونة ورابط (apps)'],
   ['prayer', 'مواقيت صلاة (prayer)'], ['weather', 'طقس (weather)'], ['converter', 'آلة حاسبة للقياس (converter)']
 ];
 

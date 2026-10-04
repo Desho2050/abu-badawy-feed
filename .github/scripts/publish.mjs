@@ -549,7 +549,7 @@ function toItem(row, index) {
   const cleaned = {};
   Object.keys(fields).slice(0, 10).forEach((key) => {
     const k = plain(key, 40);
-    const v = plain(fields[key], 200);
+    const v = plain(fields[key], 400);
     if (k && v) cleaned[k] = v;
   });
   if (Object.keys(cleaned).length) item.fields = cleaned;
@@ -558,7 +558,7 @@ function toItem(row, index) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'prayer', 'weather', 'converter']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'prayer', 'weather', 'converter']);
 const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);

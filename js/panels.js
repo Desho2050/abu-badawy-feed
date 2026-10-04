@@ -761,9 +761,24 @@ function itemEditor(draftIn, ctx, onDone) {
     () => draft.section_id || 'general'
   );
 
+  /* قسم التخطيط apps يحتاج توضيحًا: نفس الحقول العامة تُقرأ كأيقونة ورابط ومميزات. */
+  const sectionHint = el('div', { class: 'muted', style: 'display:none;margin-top:6px' });
+  function drawSectionHint() {
+    const row = ctx.model.sections.find((s) => s.id === draft.section_id);
+    const isApps = !!row && row.layout === 'apps';
+    sectionHint.style.display = isApps ? '' : 'none';
+    if (isApps) {
+      sectionHint.textContent = 'قسم تطبيقات: الصورة هي أيقونة التطبيق، و«رابط خارجي» هو رابط المتجر ويظهر '
+        + 'كزر «افتح التطبيق»، وأضف سطرًا في الحقول الإضافية على مثال: '
+        + 'المميزات: وضع ليلي، عمل بدون إنترنت، أوقات الصلاة.';
+    }
+  }
+  const sectionField = field('القسم', select(sectionIds(ctx.model), draft.section_id, (v) => { draft.section_id = v; drawSectionHint(); }));
+  sectionField.append(sectionHint);
+
   const form = card(draft.id ? 'تحرير عنصر' : 'عنصر جديد', '', [
     el('div', { class: 'grid two' }, [
-      field('القسم', select(sectionIds(ctx.model), draft.section_id, (v) => { draft.section_id = v; })),
+      sectionField,
       field('الحالة', statusSelect),
       scheduleField,
       field('العنوان', input({ value: draft.title || '', oninput: (e) => { draft.title = e.target.value; drawPreview(); } })),
@@ -799,6 +814,7 @@ function itemEditor(draftIn, ctx, onDone) {
 
   drawAttachments();
   drawPreview();
+  drawSectionHint();
   return form;
 }
 
