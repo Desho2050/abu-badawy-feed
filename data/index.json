@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T05:14:37Z",
+  "generatedAt": "2026-10-04T05:43:44Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -24,6 +24,12 @@
     "liveFxApi": "https://open.er-api.com/v6/latest/EGP",
     "liveGoldApi": "https://api.gold-api.com/price/XAU"
   },
+  "location": {
+    "name": "مركز بيلا، كفر الشيخ",
+    "latitude": 31.1728,
+    "longitude": 31.221,
+    "timezone": "Africa/Cairo"
+  },
   "legal": {
     "privacy": {
       "title": "سياسة الخصوصية",
@@ -35,6 +41,57 @@
     }
   },
   "sections": [
+    {
+      "id": "prayer_times",
+      "title": "مواقيت الصلاة",
+      "icon": "mosque",
+      "layout": "prayer",
+      "order": 5,
+      "home": true,
+      "enabled": true,
+      "subtitle": "حسب موقع القرية وتوقيت المسجد",
+      "source": {
+        "kind": "prayer"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
+      }
+    },
+    {
+      "id": "calendar",
+      "title": "التقويم الهجري",
+      "icon": "calendar",
+      "layout": "calendar",
+      "order": 6,
+      "home": true,
+      "enabled": true,
+      "subtitle": "شهر ميلادي بهوامش هجرية، ومناسبات، وتحويل بين التقويمين",
+      "source": {
+        "kind": "calendar"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
+      }
+    },
+    {
+      "id": "weather",
+      "title": "حالة الطقس",
+      "icon": "thermostat",
+      "layout": "weather",
+      "order": 8,
+      "home": true,
+      "enabled": true,
+      "subtitle": "الآن والساعات القادمة وسبعة أيام",
+      "source": {
+        "kind": "weather"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
+      }
+    },
     {
       "id": "about",
       "title": "التعريف بالقرية",
@@ -51,6 +108,25 @@
       "notifications": {
         "default": false,
         "breaking": true
+      }
+    },
+    {
+      "id": "governorate",
+      "title": "محافظة كفر الشيخ",
+      "icon": "map",
+      "layout": "list",
+      "order": 12,
+      "home": true,
+      "enabled": true,
+      "subtitle": "معلومات المحافظة موثّقة من ويكيبيديا العربية مع ذكر المصادر",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/governorate.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
       }
     },
     {
@@ -161,6 +237,23 @@
       }
     },
     {
+      "id": "converter",
+      "title": "آلة حاسبة للقياس",
+      "icon": "calculate",
+      "layout": "converter",
+      "order": 75,
+      "home": true,
+      "enabled": true,
+      "subtitle": "عملات وأطوال وأوزان ومساحات وحرارة وسرعات",
+      "source": {
+        "kind": "converter"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
+      }
+    },
+    {
       "id": "gold",
       "title": "أسعار الذهب",
       "icon": "gold",
@@ -192,6 +285,25 @@
       "notifications": {
         "default": false,
         "breaking": true
+      }
+    },
+    {
+      "id": "code_channels",
+      "title": "قنوات البرمجة",
+      "icon": "channels",
+      "layout": "channels",
+      "order": 96,
+      "home": true,
+      "enabled": true,
+      "subtitle": "روابط قنوات عربية تعلّم الأطفال البرمجة بأسهل طريقة",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/code_channels.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
       }
     },
     {
