@@ -14,7 +14,7 @@
 --      — أضف كل بريد محرر في سطر مستقل.
 --   3) أنشئ حسابات المدراء: Authentication ← Users ← Add user
 --      (Email/Password + Auto Confirm)، ثم استخدمها في dashboard.html.
---   4) نفّذ tools/seed-content.sql بعد هذا الملف: يحوّل المحتوى المنشور حاليًا
+--   4) نفّذ supabase/sql/seed-content.sql بعد هذا الملف: يحوّل المحتوى المنشور حاليًا
 --      (web/data/*.json) إلى صفوف، فلا تفقد أي شيء عند أول نشر.
 --      توليد نسخة منه مستقبلًا: node tools/gen-seed-sql.mjs
 --   5) أضف السرّين في GitHub ← Settings ← Secrets and variables ← Actions:

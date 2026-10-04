@@ -14,12 +14,12 @@
 alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'prayer','weather','converter')
+             'apps','channels','prayer','weather','converter','calendar')
 );
 
 alter table public.sections drop constraint if exists sections_source_kind_check;
 alter table public.sections add constraint sections_source_kind_check check (
-  source_kind in ('json','rss','html','fx','gold','inline','prayer','weather','converter')
+  source_kind in ('json','rss','html','fx','gold','inline','prayer','weather','converter','calendar')
 );
 
 -- 2) موقع القرية: كتلة jsonb واحدة، فلا هجرة بيانات عند إضافة حقل جديد

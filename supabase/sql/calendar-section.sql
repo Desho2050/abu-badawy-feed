@@ -11,14 +11,14 @@
 --
 -- آمن للتكرار (idempotent): يوسّع قيدين ويزكي صفًّا واحدًا.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
--- يحلّ محل tools/almanac-sections.sql وtools/my-apps-section.sql في القيود،
--- فإن لم يُنفَّذ أحدهما بعد يكفي تشغيل هذا الملف وحده لتوسيع الاسمَين.
+-- قائمة أسماء القيود هنا نفسها في almanac-sections وmy-apps-section وcode-channels-section،
+-- فترتيب تشغيل هذه الملفات الأربعة لا يهم.
 
 -- 1) القيود: بلا توسيعهما ترفض القاعدة حفظ القسم الجديد.
 alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','prayer','weather','converter','calendar')
+             'apps','channels','prayer','weather','converter','calendar')
 );
 
 alter table public.sections drop constraint if exists sections_source_kind_check;
@@ -82,7 +82,7 @@ begin
   if has_place = 1 then
     raise notice 'NOTICE: عمود location موجود؛ وإن كان فارغًا يستخدم التطبيق مركز بيلا.';
   else
-    raise warning 'WARNING: لا عمود location (نفّذ tools/almanac-sections.sql) — التقويم سيبقى على الموضع الافتراضي.';
+    raise warning 'WARNING: لا عمود location (نفّذ supabase/sql/almanac-sections.sql) — التقويم سيبقى على الموضع الافتراضي.';
   end if;
 
   if exists (select 1 from public.sections where id = 'calendar' and enabled = false) then

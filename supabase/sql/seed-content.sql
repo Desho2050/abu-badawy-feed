@@ -1,7 +1,7 @@
 -- ─────────────────────────────────────────────────────────────────────────────
 -- بذر محتوى قرية أبو بدوي في Supabase — مولّد تلقائيًا، لا تعديله يدويًا.
 -- أعد التوليد: node tools/gen-seed-sql.mjs
--- نفّذه بعد tools/supabase-setup.sql. التكرار آمن (on conflict do nothing/update).
+-- نفّذه بعد supabase/sql/supabase-setup.sql. التكرار آمن (on conflict do nothing/update).
 -- تاريخ التوليد: 2026-10-02T18:43:06.241Z
 -- المصدر: web/data/index.json + sections/*.json + legal/*.json + prices/*.json
 -- ─────────────────────────────────────────────────────────────────────────────

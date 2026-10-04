@@ -17,8 +17,8 @@
 --
 -- آمن للتكرار (idempotent): يوسّع قيد layout، وينشئ القسم أو يحدّثه مع ستة عناصر.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
--- يوسّع قيد التخطيط ليشمل channels مع الأسماء كلها، فيحلّ محل tools/my-apps-section.sql
--- وtools/calendar-section.sql في القيد وحده؛ أمّا قسماهما فيبقيان بحاجة تشغيل ملفيهما.
+-- يوسّع قيد التخطيط ليشمل channels مع الأسماء كلها؛ والقوائم في الملفات الأربعة
+-- صارت نسخة واحدة، فلا يرتبط نجاح التشغيل بترتيب معيّن.
 
 -- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
 alter table public.sections drop constraint if exists sections_layout_check;

@@ -10,14 +10,14 @@
 --
 -- آمن للتكرار (idempotent): يوسّع قيد layout، ويزكي قسمًا وصفًّا واحدًا.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
--- ملاحظة: ينفّذ بعد tools/almanac-sections.sql إن لم يكن نُفِّذ بعد — قيده
--- يحوي الأسماء كلها، فلا يضرّ تشغيل أيهما آخر.
+-- ملاحظة: قائمة قيد التخطيط هنا مطابقة لقوائم almanac-sections وcalendar-section
+-- وcode-channels-section، فأي ترتيب يشغّلها.
 
 -- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
 alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','prayer','weather','converter')
+             'apps','channels','prayer','weather','converter','calendar')
 );
 
 -- 2) القسم: مصدره json وعناصره من اللوحة، فلا ملف تحريره يدويًا ولا رابط تغذية.
@@ -56,10 +56,10 @@ select
   'https://play-lh.googleusercontent.com/KxRd1Ie31XGwkTwn65iyWirvKILatU2KmbEO-LvaPds_QQwPxGLz9uH1OkAkP-SF4g08S1wy19GJLdjDxYSlllM=w192-h192-rw',
   'https://play.google.com/store/apps/details?id=ketabu.raby&hl=ar',
   'Google Play',
-  '{"المميزات": "خط عثماني واضح مع تفسير مدمج، أصوات متعددة للقراء، أوقات الصلاة مع إشعار الأذان، '
+  ('{"المميزات": "خط عثماني واضح مع تفسير مدمج، أصوات متعددة للقراء، أوقات الصلاة مع إشعار الأذان، '
     || 'الأذكار الصباحية والمسائية والنوم، اتجاه القبلة وعداد التسبيح، وضع ليلي وخطوط قابلة للتخصيص، '
     || 'يعمل بدون إنترنت بعد تحميل البيانات", '
-    || '"المطوّر": "Desho.Co.Ltd", "الحزمة": "ketabu.raby", "آخر تحديث": "2026-09-28"}'::jsonb,
+    || '"المطوّر": "Desho.Co.Ltd", "الحزمة": "ketabu.raby", "آخر تحديث": "2026-09-28"}')::jsonb,
   'published', 10, now()
 where not exists (select 1 from public.items where section_id = 'my_apps' and slug = 'ketabu-raby');
 

@@ -735,7 +735,7 @@ async function main() {
 
   if (!Array.isArray(sectionRows)) fail('ردّ غير متوقع من /rest/v1/sections');
   if (!Array.isArray(settingsRows) || !settingsRows.length) {
-    fail('جدول app_settings فارغ — نفّذ tools/supabase-setup.sql ثم tools/seed-content.sql.');
+    fail('جدول app_settings فارغ — نفّذ supabase/sql/supabase-setup.sql ثم supabase/sql/seed-content.sql.');
   }
   if (!sectionRows.length && !FORCE) {
     fail('جدول sections فارغ: النشر الآن سيمحو إعداد التطبيق بالكامل (data/index.json). ' +

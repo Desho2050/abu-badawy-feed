@@ -157,7 +157,7 @@ export function blankSettings() {
 export async function saveSettings(patch) {
   const clean = { id: 1, ...patch };
   let { error } = await db.from('app_settings').upsert(clean, { onConflict: 'id' });
-  /* عمود location اختياري حتى يُنفَّذ tools/almanac-sections.sql: حفظ بدونه. */
+  /* عمود location اختياري حتى يُنفَّذ supabase/sql/almanac-sections.sql: حفظ بدونه. */
   if (error && /location/i.test(error.message)) {
     console.warn('-- NOTICE: جدول app_settings لا يملك عمود location بعد — لن يُحفظ موقع القرية:', error.message);
     delete clean.location;
@@ -172,7 +172,7 @@ export async function saveSection(row) {
   delete clean.updated_at;
   if (clean.cover_image === undefined || clean.cover_image === '') delete clean.cover_image;
   let { error } = await db.from('sections').upsert(clean, { onConflict: 'id' });
-  /* عمود cover_image اختياري حتى يُنفَّذ tools/section-cover-image.sql: إعادة محاولة بدونه. */
+  /* عمود cover_image اختياري حتى يُنفَّذ supabase/sql/section-cover-image.sql: إعادة محاولة بدونه. */
   if (error && /cover_image/i.test(error.message)) {
     console.warn('-- NOTICE: جدول sections لا يملك عمود cover_image بعد — سيُحفظ القسم دون صورة:', error.message);
     delete clean.cover_image;
