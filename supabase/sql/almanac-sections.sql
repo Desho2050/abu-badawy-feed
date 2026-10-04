@@ -14,7 +14,7 @@
 alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar')
+             'apps','channels','prayer','weather','converter','calendar','memorials','trains')
 );
 
 alter table public.sections drop constraint if exists sections_source_kind_check;

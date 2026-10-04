@@ -23,7 +23,8 @@ export const ICONS = [
   ['ads', 'إعلان (ads)'], ['history', 'تراث (history)'], ['water', 'زراعة/ماء (water)'],
   ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)'],
   ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
-  ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)']
+  ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)'],
+  ['memorial', 'دعاء وتذكار (memorial)'], ['train', 'قطار (train)']
 ];
 
 export const LAYOUTS = [
@@ -33,7 +34,9 @@ export const LAYOUTS = [
   ['apps', 'تطبيقات بأيقونة ورابط (apps)'],
   ['prayer', 'مواقيت صلاة (prayer)'], ['weather', 'طقس (weather)'], ['converter', 'آلة حاسبة للقياس (converter)'],
   ['calendar', 'تقويم هجري وميلادي (calendar)'],
-  ['channels', 'قنوات بروابط وشعار (channels)']
+  ['channels', 'قنوات بروابط وشعار (channels)'],
+  ['memorials', 'تذكرة وفاة ودعاء (memorials)'],
+  ['trains', 'مواعيد قطارات برقم وخط (trains)']
 ];
 
 export const KINDS = [

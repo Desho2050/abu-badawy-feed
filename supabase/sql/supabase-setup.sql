@@ -149,7 +149,7 @@ create table if not exists public.sections (
   layout         text        not null default 'list'
                  check (layout in ('richArticle','list','cards','profiles',
                                    'offers','ads','rates','directory','apps','channels',
-                                   'prayer','weather','converter','calendar')),
+                                   'prayer','weather','converter','calendar','memorials','trains')),
   source_kind    text        not null default 'json'
                  check (source_kind in ('json','rss','html','fx','gold','inline',
                                         'prayer','weather','converter','calendar')),
