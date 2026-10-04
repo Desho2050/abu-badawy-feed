@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T05:50:07Z",
+  "generatedAt": "2026-10-04T13:10:39Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -181,6 +181,25 @@
       },
       "notifications": {
         "default": true,
+        "breaking": true
+      }
+    },
+    {
+      "id": "local_news",
+      "title": "أخبار كفر الشيخ",
+      "icon": "place",
+      "layout": "list",
+      "order": 45,
+      "home": true,
+      "enabled": true,
+      "subtitle": "أخبار المحافظة: البوابة الرسمية وخلاصات الوكالات، مع ذكر المصدر لكل خبر",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/local_news.json"
+      },
+      "notifications": {
+        "default": false,
         "breaking": true
       }
     },
