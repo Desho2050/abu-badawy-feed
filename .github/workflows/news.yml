@@ -14,7 +14,8 @@ name: مزامنة أخبار كفر الشيخ والعالم والرياضة
 # بالضبط. التتابع لا يعمل إلا إذا أضفت سرًّا للمستودع اسمه RELAY_TOKEN (مفتاح
 # شخصي أدنى الصلاحيات: Actions:write على هذا المستودع وحده) — بدونه يسري الكرون وحده.
 # NewsAPI يُستقصى في أول نافذة من كل ساعة فقط (48 طلبًا/يوم من حصة 100)، وبحث
-# المحافظة مرة كل ست ساعات (~56 طلبًا/يوم في مجموعته).
+# المحافظة مرة كل ست ساعات (~56 طلبًا/يوم في مجموعته). والتأخير الذي فوق يجعل النافذة
+# تسقط أحيانًا، لذا يبقى input «force_newsapi» اليدوي لتخطيها عند الحاجة.
 
 on:
   schedule:
@@ -33,6 +34,11 @@ on:
           - sports
       dry_run:
         description: "طباعة ما سيُكتب دون الكتابة في القاعدة"
+        required: false
+        default: false
+        type: boolean
+      force_newsapi:
+        description: "تجاوز نافذة NewsAPI الساعاتية (تشغيل يدوي فقط)"
         required: false
         default: false
         type: boolean
@@ -66,6 +72,7 @@ jobs:
         run: |
           ARGS="--section=${{ github.event.inputs.section || 'both' }}"
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ "${{ github.event.inputs.force_newsapi }}" = "true" ]; then ARGS="$ARGS --force-newsapi"; fi
           node .github/scripts/sync-news.mjs $ARGS
 
       - name: توليد data/*.json من القاعدة

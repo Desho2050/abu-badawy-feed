@@ -44,6 +44,9 @@ const NEWS_API_KEY = squeeze(process.env.NEWS_API_KEY);
 const ARGS = process.argv.slice(2);
 const DRY = ARGS.includes('--dry-run');
 const SKIP_NEWSAPI = ARGS.includes('--no-newsapi');
+/* نافذة NewsAPI تسقط إن جاء الدور متأخرًا عن أول الساعة (جدولة هذا المستودع متأخرة
+   فعلًا)، فالتشغيل اليدوي وحده يقدر يتجاوزها — أما الجدول فلا يتجاوزها. */
+const FORCE_NEWSAPI = ARGS.includes('--force-newsapi');
 const WHICH = (ARGS.find((arg) => arg.startsWith('--section=')) || '--section=both').split('=')[1];
 const ALL_SECTIONS = ['world_news', 'sports', 'local_news'];
 const SECTIONS = WHICH === 'both' ? [...ALL_SECTIONS] : [WHICH];
@@ -326,6 +329,7 @@ async function fetchText(url, timeout = FEED_TIMEOUT) {
    24 جولة × طلبان = 48 طلبًا/يوم، ويبقى نصف الحصة لتجارب اللوحة. والمصادر التي لها
    everyHours (مثل بحث المحافظة) تُسأل مرة كل ذلك العدد من الساعات. */
 function newsApiDueNow(source) {
+  if (FORCE_NEWSAPI) return true;
   const now = new Date();
   if (now.getUTCMinutes() >= 8) return false;
   const every = source.everyHours || 1;
