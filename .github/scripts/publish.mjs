@@ -677,9 +677,28 @@ function renderIndex(settings, sectionRows, legalRows) {
 }
 
 /* ── 5) الكتابة ───────────────────────────────────────────────────────────── */
+function withoutStamps(text) {
+  try {
+    const payload = JSON.parse(text);
+    delete payload.generatedAt;
+    delete payload.updatedAt;
+    return JSON.stringify(payload);
+  } catch {
+    return null;
+  }
+}
+
 async function writeJson(file, payload) {
   await mkdir(path.dirname(file), { recursive: true });
-  await writeFile(file, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+  const text = JSON.stringify(payload, null, 2) + '\n';
+  /* الطابع يتغيّر كل تشغيل بلا محتوى متغيّر؛ وترك الملف كما هو يجعل الناشر
+     يتخطّى commit بدل تاريخ فارغ يوقظ بناء Pages معه. */
+  if (existsSync(file)) {
+    const previous = await readFile(file, 'utf8').catch(() => null);
+    const a = previous === null ? null : withoutStamps(previous);
+    if (a !== null && a === withoutStamps(text)) return;
+  }
+  await writeFile(file, text, 'utf8');
 }
 
 async function readExisting(file) {
