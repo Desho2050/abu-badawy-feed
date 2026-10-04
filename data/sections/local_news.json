@@ -1,9 +1,37 @@
 {
   "schemaVersion": 1,
   "sectionId": "local_news",
-  "updatedAt": "2026-10-04T18:49:06Z",
+  "updatedAt": "2026-10-04T22:15:25Z",
   "note": "يملؤه .github/scripts/sync-news.mjs آليًا: البوابة الرسمية kfs.gov.eg + بحث NewsAPI بكلمات المحافظة + فلتر على الخلاصات العربية الموجودة. البطاقة عنوان وملخّص قصير ورابط للمصدر، لا متن منقول. العناصر الآلية يبدأ slug بالبادئة rss-؛ العناصر اليدوية لا يمسّها المزامن.",
   "items": [
+    {
+      "id": "rss-c397bc514040",
+      "title": "بهفوة شوبير.. منتخب مصر يسقط على أرضه أمام جنوب إفريقيا",
+      "date": "2026-10-04",
+      "subtitle": "أنهى المنتخب المصري معسكره الحالي بالخسارة على أرضه أمام ضيفه منتخب جنوب إفريقيا بهدف نظيف، في لقاء ودي أقيم مساء الأحد على أرضية استاد القاهرة الدولي.",
+      "image": "https://cdnv.russiatoday.com/media/pics/2026.10/thumbnail/6ac2b7c742360409dc7a00d7.png",
+      "imageCredit": "الصورة من روسيا اليوم عربي",
+      "body": "<p>أنهى المنتخب المصري معسكره الحالي بالخسارة على أرضه أمام ضيفه منتخب جنوب إفريقيا بهدف نظيف، في لقاء ودي أقيم مساء الأحد على أرضية استاد القاهرة الدولي.</p>",
+      "link": "https://rtarabic.com/sport/1839895-%D8%A8%D9%87%D9%81%D9%88%D8%A9-%D8%B4%D9%88%D8%A8%D9%8A%D8%B1-%D9%85%D9%86%D8%AA%D8%AE%D8%A8-%D9%85%D8%B5%D8%B1-%D9%8A%D8%B3%D9%82%D8%B7-%D8%B9%D9%84%D9%89-%D8%A3%D8%B1%D8%B6%D9%87-%D8%A3%D9%85%D8%A7%D9%85-%D8%AC%D9%86%D9%88%D8%A8-%D8%A5%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7/",
+      "source": {
+        "name": "روسيا اليوم عربي",
+        "url": "https://rtarabic.com/sport/1839895-%D8%A8%D9%87%D9%81%D9%88%D8%A9-%D8%B4%D9%88%D8%A8%D9%8A%D8%B1-%D9%85%D9%86%D8%AA%D8%AE%D8%A8-%D9%85%D8%B5%D8%B1-%D9%8A%D8%B3%D9%82%D8%B7-%D8%B9%D9%84%D9%89-%D8%A3%D8%B1%D8%B6%D9%87-%D8%A3%D9%85%D8%A7%D9%85-%D8%AC%D9%86%D9%88%D8%A8-%D8%A5%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7/"
+      }
+    },
+    {
+      "id": "rss-85ad245d35b2",
+      "title": "خطأ فادح من مصطفى شوبير يمنح جنوب إفريقيا التقدم أمام مصر",
+      "date": "2026-10-04",
+      "subtitle": "انتزع منتخب جنوب إفريقيا هدف التقدم على مضيفه المصري بهدف دون رد، في مواجهة المنتخبين الودية على أرضية ستاد القاهرة الدولي، إثر استغلال هفوة حارس المرمى مصطفى شوبير.",
+      "image": "https://cdnv.russiatoday.com/media/pics/2026.10/thumbnail/6ac2acf74c59b777163e932f.png",
+      "imageCredit": "الصورة من روسيا اليوم عربي",
+      "body": "<p>انتزع منتخب جنوب إفريقيا هدف التقدم على مضيفه المصري بهدف دون رد، في مواجهة المنتخبين الودية على أرضية ستاد القاهرة الدولي، إثر استغلال هفوة حارس المرمى مصطفى شوبير.</p>",
+      "link": "https://rtarabic.com/sport/1839889-%D8%AE%D8%B7%D8%A3-%D9%81%D8%A7%D8%AF%D8%AD-%D9%85%D9%86-%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%B4%D9%88%D8%A8%D9%8A%D8%B1-%D9%8A%D9%85%D9%86%D8%AD-%D8%AC%D9%86%D9%88%D8%A8-%D8%A5%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7-%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%85-%D8%A3%D9%85%D8%A7%D9%85-%D9%85%D8%B5%D8%B1/",
+      "source": {
+        "name": "روسيا اليوم عربي",
+        "url": "https://rtarabic.com/sport/1839889-%D8%AE%D8%B7%D8%A3-%D9%81%D8%A7%D8%AF%D8%AD-%D9%85%D9%86-%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%B4%D9%88%D8%A8%D9%8A%D8%B1-%D9%8A%D9%85%D9%86%D8%AD-%D8%AC%D9%86%D9%88%D8%A8-%D8%A5%D9%81%D8%B1%D9%8A%D9%82%D9%8A%D8%A7-%D8%A7%D9%84%D8%AA%D9%82%D8%AF%D9%85-%D8%A3%D9%85%D8%A7%D9%85-%D9%85%D8%B5%D8%B1/"
+      }
+    },
     {
       "id": "rss-2dddfb650bf5",
       "title": "محافظ كفرالشيخ: ضبط 201 زجاجة زيت تمويني مدعم خلال حملة رقابية بمطوبس",
@@ -22,23 +50,6 @@
       }
     },
     {
-      "id": "rss-4ef4602a484f",
-      "title": "محافظ كفرالشيخ يتابع أعمال رصف طريق محلة موسى ضمن مشروعات الخطة الاستثمارية",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9B91XWXEQP4ZVJ0AXJPT4K.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary"
-      }
-    },
-    {
       "id": "rss-32bba14b5743",
       "title": "محافظ كفرالشيخ يتابع زراعة الأشجار ببلطيم ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
@@ -53,57 +64,6 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-bbltym-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
-      }
-    },
-    {
-      "id": "rss-90cb8795cc67",
-      "title": "محافظ كفرالشيخ: تقييم شامل لأداء المراكز والمدن وفق معايير دقيقة لرفع كفاءة الخدمات وتعزيز التنافس لتطوير منظومة العمل الحكومي",
-      "date": "2026-06-28",
-      "subtitle": "تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AA5SWMDPCAGK6ZV672BD5.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
-      }
-    },
-    {
-      "id": "rss-f201d4b96e28",
-      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار بالحامول ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AEC9VSFAZ96A1T11BCFPV.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
-      }
-    },
-    {
-      "id": "rss-8bdf742e41a6",
-      "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BB7P1VKJDX035Y5QZY4KV.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
       }
     },
     {
@@ -138,6 +98,74 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
+      }
+    },
+    {
+      "id": "rss-4ef4602a484f",
+      "title": "محافظ كفرالشيخ يتابع أعمال رصف طريق محلة موسى ضمن مشروعات الخطة الاستثمارية",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9B91XWXEQP4ZVJ0AXJPT4K.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary"
+      }
+    },
+    {
+      "id": "rss-8bdf742e41a6",
+      "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BB7P1VKJDX035Y5QZY4KV.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
+      }
+    },
+    {
+      "id": "rss-f201d4b96e28",
+      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار بالحامول ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AEC9VSFAZ96A1T11BCFPV.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
+      }
+    },
+    {
+      "id": "rss-90cb8795cc67",
+      "title": "محافظ كفرالشيخ: تقييم شامل لأداء المراكز والمدن وفق معايير دقيقة لرفع كفاءة الخدمات وتعزيز التنافس لتطوير منظومة العمل الحكومي",
+      "date": "2026-06-28",
+      "subtitle": "تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AA5SWMDPCAGK6ZV672BD5.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
       }
     },
     {
