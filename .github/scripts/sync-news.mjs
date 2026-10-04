@@ -106,6 +106,21 @@ const LOCAL_WEAK = ['فوه', 'بيلا', 'الروضة', 'البدريم', 'ا�
 const LOCAL_CONTEXT = ['مصر', 'محافظة', 'محافظ', 'كفر', 'دلتا', 'دسوق', 'بلطيم', 'الحامول', 'مطوبس', 'قلين'];
 const LOCAL_QUERY = '"كفر الشيخ" OR "كفرالشيخ" OR دسوق OR بلطيم OR مطوبس OR الحامول OR "سيدي سالم" OR "سيدي غازي" OR البرلس';
 
+/* فهرس GDELT (api.gdeltproject.org): واجهة مفتوحة مخصّصة للسؤال الآلي، حدّها المعلن
+   «طلب كل خمس ثوان» ودوريتنا أبطأ من ذلك بكثير، وتُرجع العنوان والمصدر والرابط بلا
+   متن الخبر — فلا نسخة عن مقال ولا صورة من أرشيفه. فائدتها هنا التغطية: خلاصات
+   الوكالات لا تذكر المحافظة إلا نادرًا، وGDELT يفهرس صحف المحافظات المصرية نفسها.
+   الأسماء المفردة تُترك بلا اقتطاس لأن GDELT يرفض العبارة القصيرة المقتبَسة. */
+const GDELT_LOCAL = {
+  name: 'فهرس GDELT (كفر الشيخ)',
+  feeder: 'GDELT',
+  query: '(كفرالشيخ OR دسوق OR بلطيم OR مطوبس OR الحامول OR قلين OR البرلس OR ' +
+    '"كفر الشيخ" OR "سيدي سالم" OR "سيدي غازي") sourcelang:ara',
+  timespan: '3d',
+  maxAgeHours: 24 * 3,
+  maxRecords: 50
+};
+
 const NEWSAPI_SOURCES = [
   { section: 'world_news', category: 'general', name: 'NewsAPI (عالمي)' },
   { section: 'sports', category: 'sports', name: 'NewsAPI (رياضة)' },
@@ -444,8 +459,61 @@ async function fetchOfficialLocal() {
   return items;
 }
 
-/* ── Supabase ─────────────────────────────────────────────────────────────── */
+/* «20261004T155302Z» كما ترسلها GDELT، إلى صيغة ISO التي يفهمها باقي السكربت. */
+function gdeltDate(seendate) {
+  const m = /^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/.exec(String(seendate || ''));
+  if (!m) return '';
+  const iso = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6])).toISOString();
+  return NOW - Date.parse(iso) > GDELT_LOCAL.maxAgeHours * 3600000 ? '' : iso;
+}
 
+async function fetchGdeltLocal() {
+  const url = 'https://api.gdeltproject.org/api/v2/doc/doc?query=' +
+    encodeURIComponent(GDELT_LOCAL.query) +
+    '&mode=artlist&format=json&maxrecords=' + GDELT_LOCAL.maxRecords +
+    '&timespan=' + GDELT_LOCAL.timespan + '&sort=DateDesc';
+  let res;
+  try {
+    res = await fetch(url, { signal: AbortSignal.timeout(FEED_TIMEOUT), headers: { 'User-Agent': UA } });
+  } catch (error) {
+    throw new Error('تعذّر الاتصال بـ GDELT: ' + (error.cause?.code || error.name));
+  }
+  const text = await res.text();
+  /* GDELT تردّ أحيانًا بنصٍّ صريح بدل JSON (رسالة الحدّ أو خطأ استعلام)، فلا يُبتلع
+     السبب: يُطبع أول السطر في التحذير ليكون قابلًا للتشخيص من سجل التشغيل. */
+  let json = null;
+  try { json = JSON.parse(text); } catch { json = null; }
+  if (!res.ok || !json) {
+    throw new Error('GDELT HTTP ' + res.status + ': ' + text.replace(/\s+/g, ' ').trim().slice(0, 120));
+  }
+  const items = [];
+  for (const art of json.articles || []) {
+    const link = httpsUrl(art.url);
+    const title = flat(art.title || '', 200);
+    const publishedAt = gdeltDate(art.seendate);
+    if (!link || !title || !publishedAt) continue;
+    /* فهرسة GDELT تقرأ النص الكامل للمقال، فيردّ أحيانًا خبرٌ مذكورٌ فيه اسم
+       المحافظة عرضًا وهو عن مكان آخر — فيُفلتر بكلمات المحافظة نفسها التي
+       تمشي عليها الخلاصات. */
+    if (!isLocalNews({ title, summary: '', category: '' })) continue;
+    items.push({
+      section: 'local_news',
+      feeder: GDELT_LOCAL.feeder,
+      sourceName: flat(art.domain || 'GDELT', 120) || 'GDELT',
+      title,
+      summary: '',
+      body: 'عنوان من «' + (art.domain || 'GDELT') + '» رصدته واجهة GDELT المفتوحة؛ ' +
+        'الخبر كاملًا في موقع ناشره.',
+      image: null,
+      link,
+      publishedAt,
+      category: 'كفر الشيخ'
+    });
+  }
+  return items;
+}
+
+/* ── Supabase ─────────────────────────────────────────────────────────────── */
 async function rest(table, params, init = {}) {
   const url = new URL(SUPABASE_URL + '/rest/v1/' + table);
   Object.entries(params).forEach(([key, value]) => url.searchParams.set(key, value));
@@ -668,6 +736,15 @@ if (WANTS_LOCAL) {
     failedFeeds += 1;
     console.log('-- WARNING: ' + OFFICIAL_LOCAL.name + ': ' + error.message);
   }
+
+  try {
+    const items = await fetchGdeltLocal();
+    console.log('✓ ' + GDELT_LOCAL.name.padEnd(18) + ' ' + String(items.length).padStart(3) + ' عنصرًا');
+    for (const item of items) collect(item);
+  } catch (error) {
+    failedFeeds += 1;
+    console.log('-- WARNING: ' + GDELT_LOCAL.name + ': ' + error.message);
+  }
 }
 
 if (NEWS_API_KEY && !SKIP_NEWSAPI) {
@@ -695,13 +772,16 @@ const planned = new Map(SECTIONS.map((section) => [section, []]));
 for (const item of byKey.values()) planned.get(item.section).push(item);
 for (const items of planned.values()) {
   items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
-  /* سقف لكل مصدر حتى لا يبتلع مصدرٌ واحد القسم: قريةٌ تقرأ أصواتًا عدة. */
+  /* سقف لكل مصدر حتى لا يبتلع مصدرٌ واحد القسم: قريةٌ تقرأ أصواتًا عدة.
+     واجهات الفهرسة (GDELT) تُنسَب إلى ناشرٍ مختلف في كل بطاقة، فالتجميع يكون على
+     المُلتمِط (feeder) إن وُجد — وإلا حصّلت صحف المحافظات القسم وحدها. */
   const kept = [];
   const perSource = new Map();
   for (const item of items) {
-    const used = perSource.get(item.sourceName) || 0;
+    const bucket = item.feeder || item.sourceName;
+    const used = perSource.get(bucket) || 0;
     if (used >= PER_SOURCE) continue;
-    perSource.set(item.sourceName, used + 1);
+    perSource.set(bucket, used + 1);
     kept.push(item);
     if (kept.length >= PER_SECTION) break;
   }
