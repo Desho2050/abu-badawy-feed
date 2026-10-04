@@ -314,12 +314,17 @@ dashboard.html ──(1) رفع ملف──▶ Supabase Storage (مستودع m
 
 > **حالة هذا المشروع:** الخطوات التالية منفّذة فعلًا في مشروع **DeshoStore**
 > (`hrsrtvrrpnwxqhadxhfg` — الرابط `https://hrsrtvrrpnwxqhadxhfg.supabase.co`):
-> المخطط، والبذر، وبريد المدير `mostafa.alnajar.2050@gmail.com` في `admin_emails`،
+> جداول المخطط الاثني عشر + سياسات RLS + وظيفتا `is_admin()` و`admin_emails` كلها موجودة،
 > ومستودع `media` عامّ القراءة بحدّ 25 MB وقائمة أنواع مقبولة.
-> مستخدم المصادقة لهذا البريد موجود في Authentication ← Users، فيكفي كلمة مروره للدخول
-> على `dashboard.html` مع مفتاح `anon public`.
-> سرّا GitHub مضبوطان (`SUPABASE_URL` + `SUPABASE_SERVICE_KEY`)، و`publish.yml` يعمل:
-> آخر نشر من القاعدة صدر في `data/` بنفس المحتوى (١١ قسمًا، ١٧ عنصرًا).
+> كل هجرات `supabase/sql/` منفّذة فيه فعلًا (تاريخ التنفيذ ٢٠٢٦-١٠-٠٤): عمود `sections.cover_image`،
+> وجدول `link_previews` (ثمانية روابط معاينة بأسمائها)، وعمود `app_settings.location`،
+> والقيد الفريد على slugs أخبار RSS، والأقسام الستة الحيّة: مواقيت الصلاة والتقويم والطقس
+> والآلة الحاسبة و«تطبيقاتي» و«قنوات البرمجة» — مع قسم المحافظة بعشرين عنصرًا موثّقة.
+> بريد المدير `mostafa.alnajar.2050@gmail.com` في `admin_emails` وله مستخدم في Authentication ← Users،
+> فيكفي كلمة مروره للدخول على `dashboard.html` مع مفتاح `anon public`.
+> أسرار GitHub ثلاثة مضبوطة: `SUPABASE_URL` و`SUPABASE_SERVICE_KEY` و`NEWS_API_KEY`.
+> يبقى `RELAY_TOKEN` وحده معلّقًا (اختياري: يضمن دورات الأخبار كل ربع ساعة حين يتأخر الكرون).
+> و`publish.yml` يعمل: آخر نشر من القاعدة صدر في `data/` بنفس المحتوى (١٨ قسمًا، ١٠٧ عناصر).
 
 1. أنشئ مشروعًا على <https://supabase.com> (خطة Free تكفي).
 2. عدّل سطر `insert into public.admin_emails …` إلى بريدك الحقيقي، وأضف سطرًا لكل مدير.
