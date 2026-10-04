@@ -1,0 +1,58 @@
+name: مزامنة الأخبار العالمية والرياضية
+
+# يجلب خلاصات RSS عربية رسمية (وخبر NewsAPI إن كان NEWS_API_KEY مضبوطًا) ويكتب
+# العناصر في جدول items بقسمي «أخبار القرية» الشقيقين: world_news و sports.
+# لا يكتب data/sections/*.json هنا: الناشر publish.yml وحده يولّد الملفات من
+# القاعدة، فيبقى مصدر التعديل واحدًا وتستطيع اللوحة تعديل ما جلبه هذا التشغيل.
+# لذلك تصل البطاقة إلى التطبيق بعد حتى خمس دقائق (دورية publish)، لا بعد خمس عشرة.
+#
+# الدورية 15 دقيقة: هذا أقصى ما تحتاجه بطاقة إخبارية، وكل تشغيل يجلب الخلاصات
+# الست مرة واحدة بلا كتابة مكررة — العنصر يُحدَّث بالـslug لا يُزدوج.
+# NewsAPI يُستقصى في أول نافذة من كل ساعة فقط (48 طلبًا/يوم من حصة 100).
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      section:
+        description: "أي قسم يُحدَّث"
+        required: false
+        default: "both"
+        type: choice
+        options:
+          - both
+          - world_news
+          - sports
+      dry_run:
+        description: "طباعة ما سيُكتب دون الكتابة في القاعدة"
+        required: false
+        default: false
+        type: boolean
+
+permissions: {}
+
+concurrency:
+  group: sync-news
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: جلب الخلاصات وكتابتها في items
+        run: |
+          ARGS="--section=${{ github.event.inputs.section || 'both' }}"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          node .github/scripts/sync-news.mjs $ARGS
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
