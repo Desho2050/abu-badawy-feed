@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "local_news",
-  "updatedAt": "2026-10-05T01:02:49Z",
+  "updatedAt": "2026-10-05T07:05:05Z",
   "note": "يملؤه .github/scripts/sync-news.mjs آليًا: البوابة الرسمية kfs.gov.eg + بحث NewsAPI بكلمات المحافظة + فلتر على الخلاصات العربية الموجودة. البطاقة عنوان وملخّص قصير ورابط للمصدر، لا متن منقول. العناصر الآلية يبدأ slug بالبادئة rss-؛ العناصر اليدوية لا يمسّها المزامن.",
   "items": [
     {
@@ -50,37 +50,20 @@
       }
     },
     {
-      "id": "rss-90cb8795cc67",
-      "title": "محافظ كفرالشيخ: تقييم شامل لأداء المراكز والمدن وفق معايير دقيقة لرفع كفاءة الخدمات وتعزيز التنافس لتطوير منظومة العمل الحكومي",
+      "id": "rss-810d4c32389a",
+      "title": "محافظ كفرالشيخ يتابع أعمال رفع كفاءة الطرق بقرى مركز كفرالشيخ ضمن مبادرة «تأهيل الطرق»",
       "date": "2026-06-28",
-      "subtitle": "تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AA5SWMDPCAGK6ZV672BD5.jpg",
+      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9ACK4RJ4VX230PMT4Q5JZT.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …</p>",
+      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
-      }
-    },
-    {
-      "id": "rss-948f6727e899",
-      "title": "محافظ كفرالشيخ يتابع انتظام الخدمات والمرافق بمراكز ومدن المحافظة عبر مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العامة.. ويوجه بمواصلة جهود التنمية والتواصل المباشر مع المواطنين وحل مشاكلهم ميدانيًا",
-      "date": "2026-06-28",
-      "subtitle": "أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9A79GDVWWBT8FSJTCZKWC2.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk"
       }
     },
     {
@@ -101,6 +84,23 @@
       }
     },
     {
+      "id": "rss-90cb8795cc67",
+      "title": "محافظ كفرالشيخ: تقييم شامل لأداء المراكز والمدن وفق معايير دقيقة لرفع كفاءة الخدمات وتعزيز التنافس لتطوير منظومة العمل الحكومي",
+      "date": "2026-06-28",
+      "subtitle": "تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AA5SWMDPCAGK6ZV672BD5.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
+      }
+    },
+    {
       "id": "rss-32bba14b5743",
       "title": "محافظ كفرالشيخ يتابع زراعة الأشجار ببلطيم ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
@@ -118,6 +118,23 @@
       }
     },
     {
+      "id": "rss-948f6727e899",
+      "title": "محافظ كفرالشيخ يتابع انتظام الخدمات والمرافق بمراكز ومدن المحافظة عبر مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العامة.. ويوجه بمواصلة جهود التنمية والتواصل المباشر مع المواطنين وحل مشاكلهم ميدانيًا",
+      "date": "2026-06-28",
+      "subtitle": "أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9A79GDVWWBT8FSJTCZKWC2.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
+      }
+    },
+    {
       "id": "rss-8bdf742e41a6",
       "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
@@ -132,23 +149,6 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
-      }
-    },
-    {
-      "id": "rss-810d4c32389a",
-      "title": "محافظ كفرالشيخ يتابع أعمال رفع كفاءة الطرق بقرى مركز كفرالشيخ ضمن مبادرة «تأهيل الطرق»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9ACK4RJ4VX230PMT4Q5JZT.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk"
       }
     },
     {
@@ -186,6 +186,23 @@
       }
     },
     {
+      "id": "rss-b245a02b4485",
+      "title": "محافظ كفرالشيخ يتابع أعمال النظافة والتجميل بالرياض ضمن مبادرة «جميلة يا بلدي»",
+      "date": "2026-06-27",
+      "subtitle": "تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9DSTQ9PPPHEKPVCQSTYRT4.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy"
+      }
+    },
+    {
       "id": "rss-12fab9a62c4f",
       "title": "محافظ كفرالشيخ يُسلّم 17 عقد تقنين للمواطنين وفق القانون 168 لسنة 2025.. انطلاقة جديدة لتسوية الأوضاع وتثبيت الملكية بتيسيرات غير مسبوقة",
       "date": "2026-06-27",
@@ -217,23 +234,6 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-astfaf-almaadat-lltakd-mn-kfaaatha-ogahzytha-lmgabh-alazmat-oalkoarth"
-      }
-    },
-    {
-      "id": "rss-b245a02b4485",
-      "title": "محافظ كفرالشيخ يتابع أعمال النظافة والتجميل بالرياض ضمن مبادرة «جميلة يا بلدي»",
-      "date": "2026-06-27",
-      "subtitle": "تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9DSTQ9PPPHEKPVCQSTYRT4.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy"
       }
     }
   ]
