@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "local_news",
-  "updatedAt": "2026-10-05T07:05:05Z",
+  "updatedAt": "2026-10-05T16:03:13Z",
   "note": "يملؤه .github/scripts/sync-news.mjs آليًا: البوابة الرسمية kfs.gov.eg + بحث NewsAPI بكلمات المحافظة + فلتر على الخلاصات العربية الموجودة. البطاقة عنوان وملخّص قصير ورابط للمصدر، لا متن منقول. العناصر الآلية يبدأ slug بالبادئة rss-؛ العناصر اليدوية لا يمسّها المزامن.",
   "items": [
     {
@@ -50,37 +50,20 @@
       }
     },
     {
-      "id": "rss-810d4c32389a",
-      "title": "محافظ كفرالشيخ يتابع أعمال رفع كفاءة الطرق بقرى مركز كفرالشيخ ضمن مبادرة «تأهيل الطرق»",
+      "id": "rss-4ef4602a484f",
+      "title": "محافظ كفرالشيخ يتابع أعمال رصف طريق محلة موسى ضمن مشروعات الخطة الاستثمارية",
       "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9ACK4RJ4VX230PMT4Q5JZT.jpg",
+      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9B91XWXEQP4ZVJ0AXJPT4K.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …</p>",
+      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk"
-      }
-    },
-    {
-      "id": "rss-f201d4b96e28",
-      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار بالحامول ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AEC9VSFAZ96A1T11BCFPV.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary"
       }
     },
     {
@@ -101,6 +84,23 @@
       }
     },
     {
+      "id": "rss-810d4c32389a",
+      "title": "محافظ كفرالشيخ يتابع أعمال رفع كفاءة الطرق بقرى مركز كفرالشيخ ضمن مبادرة «تأهيل الطرق»",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9ACK4RJ4VX230PMT4Q5JZT.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يسهم في تحسين الخدمات وتيسير حركة المواطنين ودعم جهود التنمية …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rfaa-kfaaa-altrk-bkr-mrkz-kfralshykh-dmn-mbadr-tahyl-altrk"
+      }
+    },
+    {
       "id": "rss-32bba14b5743",
       "title": "محافظ كفرالشيخ يتابع زراعة الأشجار ببلطيم ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
@@ -118,20 +118,20 @@
       }
     },
     {
-      "id": "rss-948f6727e899",
-      "title": "محافظ كفرالشيخ يتابع انتظام الخدمات والمرافق بمراكز ومدن المحافظة عبر مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العامة.. ويوجه بمواصلة جهود التنمية والتواصل المباشر مع المواطنين وحل مشاكلهم ميدانيًا",
+      "id": "rss-f201d4b96e28",
+      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار بالحامول ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
-      "subtitle": "أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9A79GDVWWBT8FSJTCZKWC2.jpg",
+      "subtitle": "المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AEC9VSFAZ96A1T11BCFPV.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …</p>",
+      "body": "<p>المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
       }
     },
     {
@@ -152,20 +152,20 @@
       }
     },
     {
-      "id": "rss-4ef4602a484f",
-      "title": "محافظ كفرالشيخ يتابع أعمال رصف طريق محلة موسى ضمن مشروعات الخطة الاستثمارية",
+      "id": "rss-948f6727e899",
+      "title": "محافظ كفرالشيخ يتابع انتظام الخدمات والمرافق بمراكز ومدن المحافظة عبر مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العامة.. ويوجه بمواصلة جهود التنمية والتواصل المباشر مع المواطنين وحل مشاكلهم ميدانيًا",
       "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9B91XWXEQP4ZVJ0AXJPT4K.jpg",
+      "subtitle": "أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9A79GDVWWBT8FSJTCZKWC2.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: تطوير شبكة الطرق يدعم التنمية الشاملة ويُحسن جودة الحياة لأهاليناتابع المهندس إ …</p>",
+      "body": "<p>أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-rsf-tryk-mhl-mos-dmn-mshroaaat-alkht-alastthmary"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
       }
     },
     {
@@ -183,6 +183,23 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-dbt-137-ktaa-moad-ghthayy-mnthy-alslahy-bklyn"
+      }
+    },
+    {
+      "id": "rss-2943605e77b6",
+      "title": "محافظ كفرالشيخ: اصطفاف المعدات للتأكد من كفاءتها وجاهزيتها لمجابهة الأزمات والكوارث",
+      "date": "2026-06-27",
+      "subtitle": "تابع اللواء محمد شوقي بدر، السكرتير العام، عبر شاشات مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العا …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BFSGYFQ32EN37Q8V0V3GG.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>تابع اللواء محمد شوقي بدر، السكرتير العام، عبر شاشات مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العا …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-astfaf-almaadat-lltakd-mn-kfaaatha-ogahzytha-lmgabh-alazmat-oalkoarth",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-astfaf-almaadat-lltakd-mn-kfaaatha-ogahzytha-lmgabh-alazmat-oalkoarth"
       }
     },
     {
@@ -217,23 +234,6 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok"
-      }
-    },
-    {
-      "id": "rss-2943605e77b6",
-      "title": "محافظ كفرالشيخ: اصطفاف المعدات للتأكد من كفاءتها وجاهزيتها لمجابهة الأزمات والكوارث",
-      "date": "2026-06-27",
-      "subtitle": "تابع اللواء محمد شوقي بدر، السكرتير العام، عبر شاشات مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العا …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BFSGYFQ32EN37Q8V0V3GG.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تابع اللواء محمد شوقي بدر، السكرتير العام، عبر شاشات مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العا …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-astfaf-almaadat-lltakd-mn-kfaaatha-ogahzytha-lmgabh-alazmat-oalkoarth",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-astfaf-almaadat-lltakd-mn-kfaaatha-ogahzytha-lmgabh-alazmat-oalkoarth"
       }
     }
   ]
