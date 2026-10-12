@@ -1,9 +1,21 @@
 {
   "schemaVersion": 1,
   "sectionId": "local_news",
-  "updatedAt": "2026-10-12T02:13:00Z",
+  "updatedAt": "2026-10-12T09:19:32Z",
   "note": "يملؤه .github/scripts/sync-news.mjs آليًا: البوابة الرسمية kfs.gov.eg + بحث NewsAPI بكلمات المحافظة + فلتر على الخلاصات العربية الموجودة. البطاقة عنوان وملخّص قصير ورابط للمصدر، لا متن منقول. العناصر الآلية يبدأ slug بالبادئة rss-؛ العناصر اليدوية لا يمسّها المزامن.",
   "items": [
+    {
+      "id": "rss-8a1253367acb",
+      "title": "تحرك عراقي في حقل \"أبو خيمة\" النفطي قرب السعودية والكويت... ما هي الفوائد والتحديات؟",
+      "date": "2026-10-12",
+      "subtitle": "يكثّف العراق أعمال الاستكشاف في حقل \"أبو خيمة\" بمحافظة المثنى قرب الحدود مع السعودية والكويت، تمهيدًا لتقييم إمكاناته النفطية واتخاذ قرارات بشأن تطويره واستثمار موارده.",
+      "body": "<p>يكثّف العراق أعمال الاستكشاف في حقل \"أبو خيمة\" بمحافظة المثنى قرب الحدود مع السعودية والكويت، تمهيدًا لتقييم إمكاناته النفطية واتخاذ قرارات بشأن تطويره واستثمار موارده.</p>",
+      "link": "https://sarabic.ae/20261012/%D8%AA%D8%AD%D8%B1%D9%83-%D8%B9%D8%B1%D8%A7%D9%82%D9%8A-%D9%81%D9%8A-%D8%AD%D9%82%D9%84-%D8%A3%D8%A8%D9%88-%D8%AE%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D9%86%D9%81%D8%B7%D9%8A-%D9%82%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D9%85%D8%A7-%D9%87%D9%8A-%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%A6%D8%AF-%D9%88%D8%A7%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%A7%D8%AA-1117723586.html",
+      "source": {
+        "name": "سبوتنيك عربي",
+        "url": "https://sarabic.ae/20261012/%D8%AA%D8%AD%D8%B1%D9%83-%D8%B9%D8%B1%D8%A7%D9%82%D9%8A-%D9%81%D9%8A-%D8%AD%D9%82%D9%84-%D8%A3%D8%A8%D9%88-%D8%AE%D9%8A%D9%85%D8%A9-%D8%A7%D9%84%D9%86%D9%81%D8%B7%D9%8A-%D9%82%D8%B1%D8%A8-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%88%D8%A7%D9%84%D9%83%D9%88%D9%8A%D8%AA-%D9%85%D8%A7-%D9%87%D9%8A-%D8%A7%D9%84%D9%81%D9%88%D8%A7%D8%A6%D8%AF-%D9%88%D8%A7%D9%84%D8%AA%D8%AD%D8%AF%D9%8A%D8%A7%D8%AA-1117723586.html"
+      }
+    },
     {
       "id": "rss-65338505628f",
       "title": "تقرير: مصافي النفط الأمريكية تجني مليارات الدولارات من اضطراب إمدادات الطاقة العالمية",
@@ -64,71 +76,20 @@
       }
     },
     {
-      "id": "rss-90cb8795cc67",
-      "title": "محافظ كفرالشيخ: تقييم شامل لأداء المراكز والمدن وفق معايير دقيقة لرفع كفاءة الخدمات وتعزيز التنافس لتطوير منظومة العمل الحكومي",
+      "id": "rss-8bdf742e41a6",
+      "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
-      "subtitle": "تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AA5SWMDPCAGK6ZV672BD5.jpg",
+      "subtitle": "المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BB7P1VKJDX035Y5QZY4KV.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …</p>",
+      "body": "<p>المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
-      }
-    },
-    {
-      "id": "rss-f201d4b96e28",
-      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار بالحامول ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AEC9VSFAZ96A1T11BCFPV.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
-      }
-    },
-    {
-      "id": "rss-948f6727e899",
-      "title": "محافظ كفرالشيخ يتابع انتظام الخدمات والمرافق بمراكز ومدن المحافظة عبر مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العامة.. ويوجه بمواصلة جهود التنمية والتواصل المباشر مع المواطنين وحل مشاكلهم ميدانيًا",
-      "date": "2026-06-28",
-      "subtitle": "أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9A79GDVWWBT8FSJTCZKWC2.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
-      }
-    },
-    {
-      "id": "rss-32bba14b5743",
-      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار ببلطيم ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
-      "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: زيادة المسطحات الخضراء تدعم التنمية البيئية وتحسن جودة الحياة للأجيال الحالية …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9B7639C5KWM7HW1S9W22RJ.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: زيادة المسطحات الخضراء تدعم التنمية البيئية وتحسن جودة الحياة للأجيال الحالية …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-bbltym-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-bbltym-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
       }
     },
     {
@@ -149,20 +110,37 @@
       }
     },
     {
-      "id": "rss-8bdf742e41a6",
-      "title": "محافظ كفرالشيخ يتابع جهود النظافة والتجميل ودهان الأرصفة والبلدورات بعاصمة المحافظة ضمن مبادرة «جميلة يا بلدي»",
+      "id": "rss-32bba14b5743",
+      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار ببلطيم ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
       "date": "2026-06-28",
-      "subtitle": "المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BB7P1VKJDX035Y5QZY4KV.jpg",
+      "subtitle": "المهندس إبراهيم مكي: زيادة المسطحات الخضراء تدعم التنمية البيئية وتحسن جودة الحياة للأجيال الحالية …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9B7639C5KWM7HW1S9W22RJ.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: العمل الميداني مستمر للارتقاء بالمظهر الحضاري وتحسين جودة الخدمات المقدمة للموا …</p>",
+      "body": "<p>المهندس إبراهيم مكي: زيادة المسطحات الخضراء تدعم التنمية البيئية وتحسن جودة الحياة للأجيال الحالية …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-bbltym-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-ghod-alnthaf-oaltgmyl-odhan-alarsf-oalbldorat-baaasm-almhafth-dmn-mbadr-gmyl-ya-bldy"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-bbltym-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
+      }
+    },
+    {
+      "id": "rss-f201d4b96e28",
+      "title": "محافظ كفرالشيخ يتابع زراعة الأشجار بالحامول ضمن المبادرة الرئاسية «100 مليون شجرة» ومبادرة «جميلة يا بلدي»",
+      "date": "2026-06-28",
+      "subtitle": "المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AEC9VSFAZ96A1T11BCFPV.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: التوسع في المسطحات الخضراء يعزز جودة الحياة ويدعم جهود التنمية البيئية المستدام …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-zraaa-alashgar-balhamol-dmn-almbadr-alryasy-100-mlyon-shgr-ombadr-gmyl-ya-bldy"
       }
     },
     {
@@ -183,20 +161,37 @@
       }
     },
     {
-      "id": "rss-12fab9a62c4f",
-      "title": "محافظ كفرالشيخ يُسلّم 17 عقد تقنين للمواطنين وفق القانون 168 لسنة 2025.. انطلاقة جديدة لتسوية الأوضاع وتثبيت الملكية بتيسيرات غير مسبوقة",
-      "date": "2026-06-27",
-      "subtitle": "المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BE48GVJG2Z77QVR2FEGNZ.jpg",
+      "id": "rss-948f6727e899",
+      "title": "محافظ كفرالشيخ يتابع انتظام الخدمات والمرافق بمراكز ومدن المحافظة عبر مركز سيطرة الشبكة الوطنية للطوارئ والسلامة العامة.. ويوجه بمواصلة جهود التنمية والتواصل المباشر مع المواطنين وحل مشاكلهم ميدانيًا",
+      "date": "2026-06-28",
+      "subtitle": "أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9A79GDVWWBT8FSJTCZKWC2.jpg",
       "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …</p>",
+      "body": "<p>أجرى المهندس إبراهيم مكي، محافظ كفرالشيخ، اليوم الأحد، متابعة شاملة من داخل مركز سيطرة الشبكة الوطني …</p>",
       "tags": [
         "كفر الشيخ"
       ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok",
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya",
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok"
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-anttham-alkhdmat-oalmrafk-bmrakz-omdn-almhafth-aabr-mrkz-sytr-alshbk-alotny-lltoary-oalslam-alaaam-oyogh-bmoasl-ghod-altnmy-oaltoasl-almbashr-maa-almoatnyn-ohl-mshaklhm-mydanya"
+      }
+    },
+    {
+      "id": "rss-90cb8795cc67",
+      "title": "محافظ كفرالشيخ: تقييم شامل لأداء المراكز والمدن وفق معايير دقيقة لرفع كفاءة الخدمات وتعزيز التنافس لتطوير منظومة العمل الحكومي",
+      "date": "2026-06-28",
+      "subtitle": "تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9AA5SWMDPCAGK6ZV672BD5.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>تنفيذًا لتوجيهات المهندس إبراهيم مكي، محافظ كفرالشيخ، عقد الدكتور عمرو البشبيشي، نائب محافظ كفرالشيخ …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-tkyym-shaml-ladaaa-almrakz-oalmdn-ofk-maaayyr-dkyk-lrfaa-kfaaa-alkhdmat-otaazyz-altnafs-lttoyr-mnthom-alaaml-alhkomy"
       }
     },
     {
@@ -231,6 +226,23 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy"
+      }
+    },
+    {
+      "id": "rss-12fab9a62c4f",
+      "title": "محافظ كفرالشيخ يُسلّم 17 عقد تقنين للمواطنين وفق القانون 168 لسنة 2025.. انطلاقة جديدة لتسوية الأوضاع وتثبيت الملكية بتيسيرات غير مسبوقة",
+      "date": "2026-06-27",
+      "subtitle": "المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9BE48GVJG2Z77QVR2FEGNZ.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>المهندس إبراهيم مكي: القانون الجديد يحقق التوازن بين حماية حق الدولة ومراعاة البُعد الاجتماعي للمواط …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok"
       }
     },
     {
