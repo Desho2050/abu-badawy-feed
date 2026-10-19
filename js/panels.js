@@ -1206,11 +1206,29 @@ async function previewPrayer(location) {
     ' · المغرب ' + clock(t.Maghrib) + ' · العشاء ' + clock(t.Isha) + (method ? ' — ' + method : '');
 }
 
+/**
+ * مفتاح الباب عامٌّ بطبيعته: publishable من النوع الجديد، أو JWT صلاحيته anon.
+ * أما service_role فيتجاوز RLS كلّه، ونشره في index.json كشفٌ لجداول القاعدة كلها.
+ */
+function isPublicAnonKey(raw) {
+  const key = String(raw || '').trim();
+  if (!key) return false;
+  if (key.startsWith('sb_')) return key.startsWith('sb_publishable_');
+  const parts = key.split('.');
+  if (parts.length !== 3) return false;
+  try {
+    return JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/'))).role === 'anon';
+  } catch {
+    return false;
+  }
+}
+
 async function settingsPanel(host, ctx) {
   const settings = ctx.model.settings;
   const brand = { ...(settings.brand || {}) };
   const digest = { ...(settings.digest || {}) };
   const location = { ...(settings.location || {}) };
+  const results = { ...(settings.results || {}) };
   const line = stateLine('', '');
   const placeLine = stateLine('', '');
   const logoUrl = input({ dir: 'ltr', value: brand.logoUrl || '', oninput: (e) => { brand.logoUrl = e.target.value; } });
@@ -1279,16 +1297,31 @@ async function settingsPanel(host, ctx) {
       placeLine
     ]),
 
+    card('باب بحث نتائج الطلبة', '', [
+      el('div', { class: 'muted', text: 'درجةُ طالبٍ لا تُنشر على صفحة القرية: يقرأها التطبيق من بوابة Supabase برقم الجلوس مع اسم الطالب، والجدولان مرفوضان عن anon. هذه الحقول هي الباب، وتُنشر كما تُنشر الأسعار في كتلة results داخل index.json.' }),
+      el('div', { class: 'grid two', style: 'margin-top:10px' }, [
+        field('بوابة REST', input({ dir: 'ltr', value: results.restUrl || '', placeholder: 'https://<ref>.supabase.co/rest/v1', oninput: (e) => { results.restUrl = e.target.value.trim(); } }), 'من Supabase ← Project Settings ← API ← Rest URL.'),
+        field('اسم الدالة', input({ dir: 'ltr', value: results.lookup || 'lookup_result', placeholder: 'lookup_result', oninput: (e) => { results.lookup = e.target.value.trim(); } }), 'كما أنشأها supabase/sql/results-section.sql.'),
+        field('المفتاح العام (publishable أو anon)', input({ dir: 'ltr', value: results.anonKey || '', placeholder: 'sb_publishable_…', oninput: (e) => { results.anonKey = e.target.value.trim(); } }))
+      ]),
+      el('div', { class: 'muted', style: 'margin-top:8px', text: 'مفتاح anon/publishable وحده: إنه عميلٌ عام يضعه التطبيق في كل طلب وينشر في ملف عام. مفتاح service_role يتجاوز RLS كلّه، فوضعه هنا كارثة لا خطأ — ويُرفض قبل الحفظ.' })
+    ]),
+
     card('تنبيه عام', '', [
       field('رسالة تظهر أعلى التطبيق والصفحة (اتركها فارغة لإخفائها)', textarea(settings.notice || '', (v) => { settings.notice = v; }), 'مثال: «نعمل على تحديث الأقسام، قد تتأخر الأخبار.»'),
       line,
       el('div', { class: 'btnrow', style: 'margin-top:10px' }, [
         button('حفظ الإعدادات العامة', '', async () => {
           if (!ctx.writable()) return;
+          /* الباب إن ضُبط فبمفتاحٍ عامّ فقط؛ لا service_role يمرّ من هنا مهما لُصق. */
+          if ((results.restUrl || results.anonKey || results.lookup) && !isPublicAnonKey(results.anonKey)) {
+            setLine2(line, 'المفتاح المُدخل ليس anon/publishable، ولا يُحفظ مفتاح يتجاوز RLS.', 'bad');
+            return;
+          }
           setLine2(line, 'جارٍ الحفظ…', '');
           try {
             const place = Number.isFinite(location.latitude) && Number.isFinite(location.longitude) ? location : null;
-            await api.saveSettings({ brand, digest, location: place, notice: settings.notice || null });
+            await api.saveSettings({ brand, digest, location: place, results, notice: settings.notice || null });
             setLine2(line, 'حُفظ — يصل إلى التطبيق مع ' + AUTO_PUBLISH + '.', 'ok');
             await ctx.refresh();
           } catch (error) { setLine2(line, error.message, 'bad'); }

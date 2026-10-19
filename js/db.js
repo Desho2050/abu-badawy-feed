@@ -161,10 +161,11 @@ export function blankSettings() {
 export async function saveSettings(patch) {
   const clean = { id: 1, ...patch };
   let { error } = await db.from('app_settings').upsert(clean, { onConflict: 'id' });
-  /* عمود location اختياري حتى يُنفَّذ supabase/sql/almanac-sections.sql: حفظ بدونه. */
-  if (error && /location/i.test(error.message)) {
-    console.warn('-- NOTICE: جدول app_settings لا يملك عمود location بعد — لن يُحفظ موقع القرية:', error.message);
-    delete clean.location;
+  /* عمودا location و results يضيفهما ترحيلان منفصلان: حفظٌ بلا أحدهما لا يُسقط الآخر. */
+  for (const optional of ['location', 'results']) {
+    if (!error || !new RegExp(optional, 'i').test(error.message)) break;
+    console.warn('-- NOTICE: جدول app_settings لا يملك عمود ' + optional + ' بعد — فلن يُحفظ:', error.message);
+    delete clean[optional];
     ({ error } = await db.from('app_settings').upsert(clean, { onConflict: 'id' }));
   }
   if (error) throw new Error(error.message);
