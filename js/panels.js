@@ -767,7 +767,7 @@ function itemEditor(draftIn, ctx, onDone) {
   function drawSectionHint() {
     const row = ctx.model.sections.find((s) => s.id === draft.section_id);
     const layout = row && row.layout;
-    const show = ['apps', 'channels', 'memorials', 'trains', 'schedule', 'campaigns'].includes(layout);
+    const show = ['apps', 'channels', 'memorials', 'trains', 'schedule', 'campaigns', 'quran'].includes(layout);
     sectionHint.style.display = show ? '' : 'none';
     if (!show) return;
     sectionHint.textContent = layout === 'apps'
@@ -796,6 +796,15 @@ function itemEditor(draftIn, ctx, onDone) {
             + 'و«اسم المصدر» = الجهة ناشرة الإعلان؛ ولا يُقبل نشرُ إعلانٍ بلا مصدر، وإن كان مدفوعًا '
             + 'أضف وسم «إعلان مدفوع». القاعدة في هذا القسم: ما لم تأتِ به الحملة أو الهيئة فلا تُدخله '
             + 'من عندك — لا اسمًا ولا رقمًا ولا رمزًا.'
+        : layout === 'quran'
+          ? 'قسم تحميل القرآن لا عناصرَ له: مصدرُه كتالوجٌ مولَّد بأداة المستودع '
+            + 'tools/gen-quran-catalog.mjs من الواجهة العامة لـ mp3quran.net، ويُرفع ملفُه '
+            + 'web/data/quran/mushafs.json إلى مستودع التغذية (السورُ وأعدادُها ثابتةٌ في '
+            + 'التطبيق، والمصحفُ والقارئ والروايةُ والأسلوبُ والخادمُ في الكتالوج). لا تضف '
+            + 'سورةً ولا تلاوةً هنا فلن تُنشر: فالناشر يكتب عناصرَ الأقسام التي مصدرُها admin '
+            + 'فقط، وهذا القسم fileٌ بامتداد قسمِ المواعيد. ولا يُحفظ صوتٌ ولا نصُّ قرآنٍ على '
+            + 'خادم القرية: التطبيقُ يربط بموزّع mp3quran ويُنزّل عند نقرِ المستخدم، ويذكر '
+            + 'الموزّع على الشاشة.'
         : layout === 'trains'
           ? 'قسم قطارات: العنوان رقم القطار وخطه على مثال «906 — القاهرة ← الإسكندرية»، '
             + 'واكتب في الحقول الإضافية الأسطر: رقم، النوع، من، إلى، قيام، وصول، المدة، '

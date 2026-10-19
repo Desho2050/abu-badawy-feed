@@ -25,7 +25,7 @@ export const ICONS = [
   ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
   ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)'],
   ['memorial', 'دعاء وتذكار (memorial)'], ['train', 'قطار (train)'], ['school', 'مدرسة/نتائج (school)'],
-  ['voting', 'حملة انتخابية (voting)']
+  ['voting', 'حملة انتخابية (voting)'], ['quran', 'مصحف وتلاوات (quran)']
 ];
 
 export const LAYOUTS = [
@@ -40,7 +40,8 @@ export const LAYOUTS = [
   ['trains', 'مواعيد قطارات برقم وخط (trains)'],
   ['results', 'نتائج امتحانات برقم جلوس (results)'],
   ['schedule', 'جدول مواعيد امتحانات بمرحلة وموعد (schedule)'],
-  ['campaigns', 'حملات انتخابية بمرشح ودائرة (campaigns)']
+  ['campaigns', 'حملات انتخابية بمرشح ودائرة (campaigns)'],
+  ['quran', 'تحميل القرآن برواية وقارئ (quran) — قسم ملفٍ مولَّد']
 ];
 
 export const KINDS = [
