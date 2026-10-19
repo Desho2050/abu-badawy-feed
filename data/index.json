@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T20:02:33Z",
+  "generatedAt": "2026-10-19T20:24:21Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -403,6 +403,25 @@
       "notifications": {
         "default": false,
         "breaking": false
+      }
+    },
+    {
+      "id": "election_campaigns",
+      "title": "الحملات الانتخابية",
+      "icon": "voting",
+      "layout": "campaigns",
+      "order": 98,
+      "home": false,
+      "enabled": true,
+      "subtitle": "إعلانات المرشحين كما تنشرها حملاتُها، باسم الاستحقاق ودائرته",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/election_campaigns.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
       }
     },
     {
