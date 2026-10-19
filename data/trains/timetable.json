@@ -1,0 +1,8156 @@
+{
+  "schemaVersion": 1,
+  "kind": "train-timetable",
+  "updatedAt": "2026-10-19T14:04:38Z",
+  "source": "TRAINS.xlsx",
+  "note": "مواعيد منسوخة من ملف الجدول، بلا تاريخ سريان؛ تحقق من الإعلان الرسمي قبل السفر.",
+  "counts": {
+    "trains": 35,
+    "stations": 68
+  },
+  "stations": [
+    {
+      "id": "Abo Homos",
+      "ar": "أبو حمص",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Alexandria",
+      "ar": "الإسكندرية",
+      "gov": "الإسكندرية",
+      "note": null
+    },
+    {
+      "id": "Banha",
+      "ar": "بنها",
+      "gov": "القليوبية",
+      "note": null
+    },
+    {
+      "id": "Basandilah",
+      "ar": "بسنديلة",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Batrah",
+      "ar": "بطرة",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Bekatush",
+      "ar": "البكاتوش",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Belkas",
+      "ar": "بلقاس",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Berket Saba",
+      "ar": "بركة السبع",
+      "gov": "المنوفية",
+      "note": null
+    },
+    {
+      "id": "Biyala",
+      "ar": "بيلا",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Buhut",
+      "ar": "بهوت",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Cairo",
+      "ar": "القاهرة",
+      "gov": "القاهرة",
+      "note": null
+    },
+    {
+      "id": "Damanhour",
+      "ar": "دمنهور",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Daysat",
+      "ar": "ديسط",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Desouk",
+      "ar": "دسوق",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Duqmayrah",
+      "ar": "دقميرة",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Ebshway",
+      "ar": "إبشواي",
+      "gov": "الغربية",
+      "note": null
+    },
+    {
+      "id": "Ezbet Godah",
+      "ar": "عزبة جودة",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Fath",
+      "ar": "الفتح",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Gmagmun",
+      "ar": "جماجمون",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Hamidiyyah",
+      "ar": "الحميدية",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Henawi",
+      "ar": "الحناوي",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Hwariah",
+      "ar": "الهوارية",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Hwin",
+      "ar": "حوين",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Ibrahimiah",
+      "ar": "الإبراهيمية",
+      "gov": "الغربية",
+      "note": null
+    },
+    {
+      "id": "Ibshan",
+      "ar": "أبشان",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Kafr Beni Helal",
+      "ar": "كفر بني هلال",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Kafr Dawar",
+      "ar": "كفر الدوار",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Kafr Garaydah",
+      "ar": "كفر الجرايد",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Kafr Gazayer",
+      "ar": "كفر الجزائر",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Kafr Sheikh",
+      "ar": "كفر الشيخ",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Kafr Shennawy",
+      "ar": "كفر السناوى",
+      "gov": "الدقهلية",
+      "note": "اسم القرية المخدومة؛ لم تُثبت المحطة من صفحة رسمية"
+    },
+    {
+      "id": "Karykat",
+      "ar": "الكركات",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Khazan",
+      "ar": "الخزان",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Kom Hajnah",
+      "ar": "كوم الحجنة",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Kom Taweel",
+      "ar": "الكوم الطويل",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Madinah",
+      "ar": "المدينة",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Mahallat Mousa",
+      "ar": "محلة موسى",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Mahallat Rouh",
+      "ar": "محلة روح",
+      "gov": "الغربية",
+      "note": null
+    },
+    {
+      "id": "Manshyt Badrawy",
+      "ar": "منشأة البدراوي",
+      "gov": "الدقهلية",
+      "note": "اسم القرية المخدومة؛ لم تُثبت المحطة من صفحة رسمية"
+    },
+    {
+      "id": "Mansoura",
+      "ar": "المنصورة",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Mit Antar",
+      "ar": "ميت عنتر",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Monshaah Soghra",
+      "ar": "المنشأة الصغرى",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Murabian",
+      "ar": "المرابعين",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Nashart",
+      "ar": "نشرت",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Nefrah",
+      "ar": "نفرة",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Qaha",
+      "ar": "قليوب",
+      "gov": "القليوبية",
+      "note": null
+    },
+    {
+      "id": "Qleen",
+      "ar": "قلين",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Qleen B",
+      "ar": "قلين البلد",
+      "gov": "كفر الشيخ",
+      "note": "محطة داخل البلد، غير محطة قلين الرئيسية"
+    },
+    {
+      "id": "Qotur",
+      "ar": "قطور",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Quesna",
+      "ar": "قويسنا",
+      "gov": "المنوفية",
+      "note": null
+    },
+    {
+      "id": "Ragdiah",
+      "ar": "الرجدية",
+      "gov": "الغربية",
+      "note": null
+    },
+    {
+      "id": "Rahmaniah",
+      "ar": "الرحمانية",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Rezqet Amay",
+      "ar": "رزقة أماي",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Sakha",
+      "ar": "سخا",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Salam",
+      "ar": "السلام",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Sanhur",
+      "ar": "سنهور",
+      "gov": "البحيرة",
+      "note": null
+    },
+    {
+      "id": "Segin",
+      "ar": "سجين الكوم",
+      "gov": "المنوفية",
+      "note": null
+    },
+    {
+      "id": "Semad Talkha",
+      "ar": "سماد طلخا",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Shbas",
+      "ar": "شباس",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Shebshir Hessah",
+      "ar": "شبشير الحصة",
+      "gov": "الغربية",
+      "note": null
+    },
+    {
+      "id": "Shin",
+      "ar": "الشين",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Shirinqash",
+      "ar": "شربينقاش",
+      "gov": "الدقهلية",
+      "note": "اسم القرية المخدومة؛ لم تُثبت المحطة من صفحة رسمية"
+    },
+    {
+      "id": "Shobra Khemah",
+      "ar": "شبرا خيمة",
+      "gov": "القليوبية",
+      "note": "ليست شبرا الخيمة الكبرى؛ محطة قليوبية على خط القاهرة"
+    },
+    {
+      "id": "Sidi Gaber",
+      "ar": "سيدي جابر",
+      "gov": "الإسكندرية",
+      "note": null
+    },
+    {
+      "id": "Sidi Ghazy",
+      "ar": "سيدي غازي",
+      "gov": "كفر الشيخ",
+      "note": null
+    },
+    {
+      "id": "Tanta",
+      "ar": "طنطا",
+      "gov": "الغربية",
+      "note": null
+    },
+    {
+      "id": "Tawilah",
+      "ar": "الطويلة",
+      "gov": "الدقهلية",
+      "note": null
+    },
+    {
+      "id": "Toukh",
+      "ar": "طوخ",
+      "gov": "القليوبية",
+      "note": null
+    }
+  ],
+  "trains": [
+    {
+      "number": "بلا رقم",
+      "numbers": [
+        "بلا-رقم-B"
+      ],
+      "type": "",
+      "typeAr": "",
+      "from": "Ibshan",
+      "fromAr": "أبشان",
+      "to": "Alexandria",
+      "toAr": "الإسكندرية",
+      "depart": "04:43",
+      "arrive": "08:10",
+      "durationMin": 207,
+      "stopCount": 21,
+      "stops": [
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": null,
+          "dep": "04:43",
+          "arrAt": null,
+          "depAt": 283,
+          "at": 283,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "04:52",
+          "dep": "04:53",
+          "arrAt": 292,
+          "depAt": 293,
+          "at": 293,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "04:57",
+          "dep": "05:02",
+          "arrAt": 297,
+          "depAt": 302,
+          "at": 302,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "05:10",
+          "dep": "05:11",
+          "arrAt": 310,
+          "depAt": 311,
+          "at": 311,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "05:20",
+          "dep": "05:22",
+          "arrAt": 320,
+          "depAt": 322,
+          "at": 322,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "05:25",
+          "dep": "05:26",
+          "arrAt": 325,
+          "depAt": 326,
+          "at": 326,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "05:31",
+          "dep": "05:32",
+          "arrAt": 331,
+          "depAt": 332,
+          "at": 332,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "05:39",
+          "dep": "05:40",
+          "arrAt": 339,
+          "depAt": 340,
+          "at": 340,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "05:54",
+          "dep": "05:55",
+          "arrAt": 354,
+          "depAt": 355,
+          "at": 355,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Shbas",
+          "ar": "شباس",
+          "arr": "06:07",
+          "dep": "06:12",
+          "arrAt": 367,
+          "depAt": 372,
+          "at": 372,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Madinah",
+          "ar": "المدينة",
+          "arr": "06:17",
+          "dep": "06:18",
+          "arrAt": 377,
+          "depAt": 378,
+          "at": 378,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Desouk",
+          "ar": "دسوق",
+          "arr": "06:27",
+          "dep": "06:28",
+          "arrAt": 387,
+          "depAt": 388,
+          "at": 388,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Rahmaniah",
+          "ar": "الرحمانية",
+          "arr": "06:34",
+          "dep": "06:35",
+          "arrAt": 394,
+          "depAt": 395,
+          "at": 395,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Khazan",
+          "ar": "الخزان",
+          "arr": "06:41",
+          "dep": "06:42",
+          "arrAt": 401,
+          "depAt": 402,
+          "at": 402,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Hwariah",
+          "ar": "الهوارية",
+          "arr": "06:45",
+          "dep": "06:46",
+          "arrAt": 405,
+          "depAt": 406,
+          "at": 406,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Sanhur",
+          "ar": "سنهور",
+          "arr": "06:49",
+          "dep": "06:50",
+          "arrAt": 409,
+          "depAt": 410,
+          "at": 410,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Damanhour",
+          "ar": "دمنهور",
+          "arr": "07:04",
+          "dep": "07:05",
+          "arrAt": 424,
+          "depAt": 425,
+          "at": 425,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Abo Homos",
+          "ar": "أبو حمص",
+          "arr": "07:24",
+          "dep": "07:25",
+          "arrAt": 444,
+          "depAt": 445,
+          "at": 445,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Kafr Dawar",
+          "ar": "كفر الدوار",
+          "arr": "07:39",
+          "dep": "07:40",
+          "arrAt": 459,
+          "depAt": 460,
+          "at": 460,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Sidi Gaber",
+          "ar": "سيدي جابر",
+          "arr": "07:55",
+          "dep": "08:00",
+          "arrAt": 475,
+          "depAt": 480,
+          "at": 480,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Alexandria",
+          "ar": "الإسكندرية",
+          "arr": "08:10",
+          "dep": null,
+          "arrAt": 490,
+          "depAt": null,
+          "at": 490,
+          "tbc": false,
+          "seq": 21
+        }
+      ]
+    },
+    {
+      "number": "481",
+      "numbers": [
+        "481"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "04:37",
+      "arrive": "06:27",
+      "durationMin": 110,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "04:37",
+          "arrAt": null,
+          "depAt": 277,
+          "at": 277,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "04:46",
+          "dep": "04:47",
+          "arrAt": 286,
+          "depAt": 287,
+          "at": 287,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "04:51",
+          "dep": "04:52",
+          "arrAt": 291,
+          "depAt": 292,
+          "at": 292,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "04:56",
+          "dep": "04:57",
+          "arrAt": 296,
+          "depAt": 297,
+          "at": 297,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "05:01",
+          "dep": "05:07",
+          "arrAt": 301,
+          "depAt": 307,
+          "at": 307,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "05:12",
+          "dep": "05:13",
+          "arrAt": 312,
+          "depAt": 313,
+          "at": 313,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "05:18",
+          "dep": "05:19",
+          "arrAt": 318,
+          "depAt": 319,
+          "at": 319,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "05:22",
+          "dep": "05:23",
+          "arrAt": 322,
+          "depAt": 323,
+          "at": 323,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "05:27",
+          "dep": "05:28",
+          "arrAt": 327,
+          "depAt": 328,
+          "at": 328,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "05:35",
+          "dep": "05:36",
+          "arrAt": 335,
+          "depAt": 336,
+          "at": 336,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "05:41",
+          "dep": "05:42",
+          "arrAt": 341,
+          "depAt": 342,
+          "at": 342,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "05:45",
+          "dep": "05:46",
+          "arrAt": 345,
+          "depAt": 346,
+          "at": 346,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "05:51",
+          "dep": "05:52",
+          "arrAt": 351,
+          "depAt": 352,
+          "at": 352,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "05:57",
+          "dep": "06:00",
+          "arrAt": 357,
+          "depAt": 360,
+          "at": 360,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "06:21",
+          "dep": "06:22",
+          "arrAt": 381,
+          "depAt": 382,
+          "at": 382,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "06:27",
+          "dep": null,
+          "arrAt": 387,
+          "depAt": null,
+          "at": 387,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "482/485",
+      "numbers": [
+        "482",
+        "485"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Mansoura",
+      "toAr": "المنصورة",
+      "depart": "05:21",
+      "arrive": "07:45",
+      "durationMin": 144,
+      "stopCount": 22,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "05:21",
+          "arrAt": null,
+          "depAt": 321,
+          "at": 321,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "05:30",
+          "dep": "05:31",
+          "arrAt": 330,
+          "depAt": 331,
+          "at": 331,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "05:35",
+          "dep": "05:36",
+          "arrAt": 335,
+          "depAt": 336,
+          "at": 336,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "05:40",
+          "dep": "05:41",
+          "arrAt": 340,
+          "depAt": 341,
+          "at": 341,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "05:45",
+          "dep": "05:46",
+          "arrAt": 345,
+          "depAt": 346,
+          "at": 346,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "05:51",
+          "dep": "05:52",
+          "arrAt": 351,
+          "depAt": 352,
+          "at": 352,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "05:57",
+          "dep": "05:58",
+          "arrAt": 357,
+          "depAt": 358,
+          "at": 358,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "06:01",
+          "dep": "06:02",
+          "arrAt": 361,
+          "depAt": 362,
+          "at": 362,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "06:06",
+          "dep": "06:07",
+          "arrAt": 366,
+          "depAt": 367,
+          "at": 367,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "06:17",
+          "dep": "06:18",
+          "arrAt": 377,
+          "depAt": 378,
+          "at": 378,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "06:23",
+          "dep": "06:24",
+          "arrAt": 383,
+          "depAt": 384,
+          "at": 384,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "06:27",
+          "dep": "06:28",
+          "arrAt": 387,
+          "depAt": 388,
+          "at": 388,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "06:33",
+          "dep": "06:34",
+          "arrAt": 393,
+          "depAt": 394,
+          "at": 394,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "06:43",
+          "dep": "06:44",
+          "arrAt": 403,
+          "depAt": 404,
+          "at": 404,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "06:59",
+          "dep": "07:00",
+          "arrAt": 419,
+          "depAt": 420,
+          "at": 420,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Batrah",
+          "ar": "بطرة",
+          "arr": "07:14",
+          "dep": "07:15",
+          "arrAt": 434,
+          "depAt": 435,
+          "at": 435,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Daysat",
+          "ar": "ديسط",
+          "arr": "07:18",
+          "dep": "07:19",
+          "arrAt": 438,
+          "depAt": 439,
+          "at": 439,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Tawilah",
+          "ar": "الطويلة",
+          "arr": "07:24",
+          "dep": "07:25",
+          "arrAt": 444,
+          "depAt": 445,
+          "at": 445,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Shirinqash",
+          "ar": "شربينقاش",
+          "arr": "07:29",
+          "dep": "07:30",
+          "arrAt": 449,
+          "depAt": 450,
+          "at": 450,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Mit Antar",
+          "ar": "ميت عنتر",
+          "arr": "07:33",
+          "dep": "07:34",
+          "arrAt": 453,
+          "depAt": 454,
+          "at": 454,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Semad Talkha",
+          "ar": "سماد طلخا",
+          "arr": "07:38",
+          "dep": "07:39",
+          "arrAt": 458,
+          "depAt": 459,
+          "at": 459,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Mansoura",
+          "ar": "المنصورة",
+          "arr": "07:45",
+          "dep": null,
+          "arrAt": 465,
+          "depAt": null,
+          "at": 465,
+          "tbc": false,
+          "seq": 22
+        }
+      ]
+    },
+    {
+      "number": "487",
+      "numbers": [
+        "487"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "06:24",
+      "arrive": "08:02",
+      "durationMin": 98,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "06:24",
+          "arrAt": null,
+          "depAt": 384,
+          "at": 384,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "06:33",
+          "dep": "06:34",
+          "arrAt": 393,
+          "depAt": 394,
+          "at": 394,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "06:38",
+          "dep": "06:39",
+          "arrAt": 398,
+          "depAt": 399,
+          "at": 399,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "06:43",
+          "dep": "06:44",
+          "arrAt": 403,
+          "depAt": 404,
+          "at": 404,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "06:52",
+          "dep": "06:53",
+          "arrAt": 412,
+          "depAt": 413,
+          "at": 413,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "06:58",
+          "dep": "06:59",
+          "arrAt": 418,
+          "depAt": 419,
+          "at": 419,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "07:04",
+          "dep": "07:05",
+          "arrAt": 424,
+          "depAt": 425,
+          "at": 425,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "07:08",
+          "dep": "07:09",
+          "arrAt": 428,
+          "depAt": 429,
+          "at": 429,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "07:13",
+          "dep": "07:14",
+          "arrAt": 433,
+          "depAt": 434,
+          "at": 434,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "07:22",
+          "dep": "07:23",
+          "arrAt": 442,
+          "depAt": 443,
+          "at": 443,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "07:28",
+          "dep": "07:29",
+          "arrAt": 448,
+          "depAt": 449,
+          "at": 449,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "07:32",
+          "dep": "07:33",
+          "arrAt": 452,
+          "depAt": 453,
+          "at": 453,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "07:38",
+          "dep": "07:39",
+          "arrAt": 458,
+          "depAt": 459,
+          "at": 459,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "07:43",
+          "dep": "07:44",
+          "arrAt": 463,
+          "depAt": 464,
+          "at": 464,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "07:56",
+          "dep": "07:57",
+          "arrAt": 476,
+          "depAt": 477,
+          "at": 477,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "08:02",
+          "dep": null,
+          "arrAt": 482,
+          "depAt": null,
+          "at": 482,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "488",
+      "numbers": [
+        "488"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "06:20",
+      "arrive": "09:35",
+      "durationMin": 195,
+      "stopCount": 30,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "06:20",
+          "arrAt": null,
+          "depAt": 380,
+          "at": 380,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "06:27",
+          "dep": "06:28",
+          "arrAt": 387,
+          "depAt": 388,
+          "at": 388,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "06:32",
+          "dep": "06:33",
+          "arrAt": 392,
+          "depAt": 393,
+          "at": 393,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "06:36",
+          "dep": "06:37",
+          "arrAt": 396,
+          "depAt": 397,
+          "at": 397,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "06:41",
+          "dep": "06:42",
+          "arrAt": 401,
+          "depAt": 402,
+          "at": 402,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "06:51",
+          "dep": "06:52",
+          "arrAt": 411,
+          "depAt": 412,
+          "at": 412,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "06:55",
+          "dep": "06:56",
+          "arrAt": 415,
+          "depAt": 416,
+          "at": 416,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "07:00",
+          "dep": "07:01",
+          "arrAt": 420,
+          "depAt": 421,
+          "at": 421,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "07:05",
+          "dep": "07:06",
+          "arrAt": 425,
+          "depAt": 426,
+          "at": 426,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "07:15",
+          "dep": "07:30",
+          "arrAt": 435,
+          "depAt": 450,
+          "at": 450,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "07:33",
+          "dep": "07:34",
+          "arrAt": 453,
+          "depAt": 454,
+          "at": 454,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "07:38",
+          "dep": "07:39",
+          "arrAt": 458,
+          "depAt": 459,
+          "at": 459,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "07:41",
+          "dep": "07:42",
+          "arrAt": 461,
+          "depAt": 462,
+          "at": 462,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "07:45",
+          "dep": "07:46",
+          "arrAt": 465,
+          "depAt": 466,
+          "at": 466,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "07:49",
+          "dep": "07:50",
+          "arrAt": 469,
+          "depAt": 470,
+          "at": 470,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "07:53",
+          "dep": "07:54",
+          "arrAt": 473,
+          "depAt": 474,
+          "at": 474,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "07:56",
+          "dep": "07:57",
+          "arrAt": 476,
+          "depAt": 477,
+          "at": 477,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "08:04",
+          "dep": "08:05",
+          "arrAt": 484,
+          "depAt": 485,
+          "at": 485,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "08:08",
+          "dep": "08:09",
+          "arrAt": 488,
+          "depAt": 489,
+          "at": 489,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Ezbet Godah",
+          "ar": "عزبة جودة",
+          "arr": "08:12",
+          "dep": "08:13",
+          "arrAt": 492,
+          "depAt": 493,
+          "at": 493,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "08:20",
+          "dep": "08:21",
+          "arrAt": 500,
+          "depAt": 501,
+          "at": 501,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Hwin",
+          "ar": "حوين",
+          "arr": "08:26",
+          "dep": "08:27",
+          "arrAt": 506,
+          "depAt": 507,
+          "at": 507,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "08:37",
+          "dep": "08:38",
+          "arrAt": 517,
+          "depAt": 518,
+          "at": 518,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Ibrahimiah",
+          "ar": "الإبراهيمية",
+          "arr": "08:43",
+          "dep": "08:44",
+          "arrAt": 523,
+          "depAt": 524,
+          "at": 524,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "08:49",
+          "dep": "08:50",
+          "arrAt": 529,
+          "depAt": 530,
+          "at": 530,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "08:55",
+          "dep": "08:56",
+          "arrAt": 535,
+          "depAt": 536,
+          "at": 536,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "09:13",
+          "dep": "09:14",
+          "arrAt": 553,
+          "depAt": 554,
+          "at": 554,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Shebshir Hessah",
+          "ar": "شبشير الحصة",
+          "arr": "09:18",
+          "dep": "09:19",
+          "arrAt": 558,
+          "depAt": 559,
+          "at": 559,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Ragdiah",
+          "ar": "الرجدية",
+          "arr": "09:25",
+          "dep": "09:26",
+          "arrAt": 565,
+          "depAt": 566,
+          "at": 566,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "09:35",
+          "dep": null,
+          "arrAt": 575,
+          "depAt": null,
+          "at": 575,
+          "tbc": false,
+          "seq": 30
+        }
+      ]
+    },
+    {
+      "number": "489",
+      "numbers": [
+        "489"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "07:50",
+      "arrive": "09:40",
+      "durationMin": 110,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "07:50",
+          "arrAt": null,
+          "depAt": 470,
+          "at": 470,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "08:04",
+          "dep": "08:05",
+          "arrAt": 484,
+          "depAt": 485,
+          "at": 485,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "08:09",
+          "dep": "08:10",
+          "arrAt": 489,
+          "depAt": 490,
+          "at": 490,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "08:13",
+          "dep": "08:14",
+          "arrAt": 493,
+          "depAt": 494,
+          "at": 494,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "08:17",
+          "dep": "08:18",
+          "arrAt": 497,
+          "depAt": 498,
+          "at": 498,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "08:22",
+          "dep": "08:23",
+          "arrAt": 502,
+          "depAt": 503,
+          "at": 503,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "08:27",
+          "dep": "08:28",
+          "arrAt": 507,
+          "depAt": 508,
+          "at": 508,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "08:31",
+          "dep": "08:32",
+          "arrAt": 511,
+          "depAt": 512,
+          "at": 512,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "08:38",
+          "dep": "08:39",
+          "arrAt": 518,
+          "depAt": 519,
+          "at": 519,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "08:47",
+          "dep": "08:48",
+          "arrAt": 527,
+          "depAt": 528,
+          "at": 528,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "08:54",
+          "dep": "08:55",
+          "arrAt": 534,
+          "depAt": 535,
+          "at": 535,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "08:59",
+          "dep": "09:00",
+          "arrAt": 539,
+          "depAt": 540,
+          "at": 540,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "09:05",
+          "dep": "09:06",
+          "arrAt": 545,
+          "depAt": 546,
+          "at": 546,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "09:21",
+          "dep": "09:22",
+          "arrAt": 561,
+          "depAt": 562,
+          "at": 562,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "09:33",
+          "dep": "09:34",
+          "arrAt": 573,
+          "depAt": 574,
+          "at": 574,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "09:40",
+          "dep": null,
+          "arrAt": 580,
+          "depAt": null,
+          "at": 580,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "490",
+      "numbers": [
+        "490"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Qleen",
+      "toAr": "قلين",
+      "depart": "08:30",
+      "arrive": "10:05",
+      "durationMin": 95,
+      "stopCount": 18,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "08:30",
+          "arrAt": null,
+          "depAt": 510,
+          "at": 510,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "08:38",
+          "dep": "08:39",
+          "arrAt": 518,
+          "depAt": 519,
+          "at": 519,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "08:43",
+          "dep": "08:44",
+          "arrAt": 523,
+          "depAt": 524,
+          "at": 524,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "08:47",
+          "dep": "08:48",
+          "arrAt": 527,
+          "depAt": 528,
+          "at": 528,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "08:53",
+          "dep": "08:54",
+          "arrAt": 533,
+          "depAt": 534,
+          "at": 534,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "08:58",
+          "dep": "08:59",
+          "arrAt": 538,
+          "depAt": 539,
+          "at": 539,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "09:02",
+          "dep": "09:03",
+          "arrAt": 542,
+          "depAt": 543,
+          "at": 543,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "09:07",
+          "dep": "09:08",
+          "arrAt": 547,
+          "depAt": 548,
+          "at": 548,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "09:16",
+          "dep": "09:17",
+          "arrAt": 556,
+          "depAt": 557,
+          "at": 557,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "09:21",
+          "dep": "09:22",
+          "arrAt": 561,
+          "depAt": 562,
+          "at": 562,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "09:35",
+          "dep": "09:36",
+          "arrAt": 575,
+          "depAt": 576,
+          "at": 576,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "09:40",
+          "dep": "09:41",
+          "arrAt": 580,
+          "depAt": 581,
+          "at": 581,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "09:44",
+          "dep": "09:45",
+          "arrAt": 584,
+          "depAt": 585,
+          "at": 585,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "09:49",
+          "dep": "09:50",
+          "arrAt": 589,
+          "depAt": 590,
+          "at": 590,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "09:53",
+          "dep": "09:54",
+          "arrAt": 593,
+          "depAt": 594,
+          "at": 594,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "09:56",
+          "dep": "09:57",
+          "arrAt": 596,
+          "depAt": 597,
+          "at": 597,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "10:00",
+          "dep": "10:01",
+          "arrAt": 600,
+          "depAt": 601,
+          "at": 601,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "10:05",
+          "dep": null,
+          "arrAt": 605,
+          "depAt": null,
+          "at": 605,
+          "tbc": false,
+          "seq": 18
+        }
+      ]
+    },
+    {
+      "number": "491",
+      "numbers": [
+        "491"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "12:08",
+      "arrive": "14:02",
+      "durationMin": 114,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "12:08",
+          "arrAt": null,
+          "depAt": 728,
+          "at": 728,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "12:22",
+          "dep": "12:23",
+          "arrAt": 742,
+          "depAt": 743,
+          "at": 743,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "12:27",
+          "dep": "12:28",
+          "arrAt": 747,
+          "depAt": 748,
+          "at": 748,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "12:31",
+          "dep": "12:32",
+          "arrAt": 751,
+          "depAt": 752,
+          "at": 752,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "12:35",
+          "dep": "12:36",
+          "arrAt": 755,
+          "depAt": 756,
+          "at": 756,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "12:56",
+          "dep": "12:57",
+          "arrAt": 776,
+          "depAt": 777,
+          "at": 777,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "13:02",
+          "dep": "13:03",
+          "arrAt": 782,
+          "depAt": 783,
+          "at": 783,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "13:06",
+          "dep": "13:07",
+          "arrAt": 786,
+          "depAt": 787,
+          "at": 787,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "13:11",
+          "dep": "13:12",
+          "arrAt": 791,
+          "depAt": 792,
+          "at": 792,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "13:23",
+          "dep": "13:24",
+          "arrAt": 803,
+          "depAt": 804,
+          "at": 804,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "13:28",
+          "dep": "13:29",
+          "arrAt": 808,
+          "depAt": 809,
+          "at": 809,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "13:34",
+          "dep": "13:35",
+          "arrAt": 814,
+          "depAt": 815,
+          "at": 815,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "13:40",
+          "dep": "13:41",
+          "arrAt": 820,
+          "depAt": 821,
+          "at": 821,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "13:45",
+          "dep": "13:46",
+          "arrAt": 825,
+          "depAt": 826,
+          "at": 826,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "13:58",
+          "dep": "13:59",
+          "arrAt": 838,
+          "depAt": 839,
+          "at": 839,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "14:02",
+          "dep": null,
+          "arrAt": 842,
+          "depAt": null,
+          "at": 842,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "492",
+      "numbers": [
+        "492"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "09:34",
+      "arrive": "12:35",
+      "durationMin": 181,
+      "stopCount": 30,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "09:34",
+          "arrAt": null,
+          "depAt": 574,
+          "at": 574,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "09:44",
+          "dep": "09:45",
+          "arrAt": 584,
+          "depAt": 585,
+          "at": 585,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "09:49",
+          "dep": "09:50",
+          "arrAt": 589,
+          "depAt": 590,
+          "at": 590,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "09:53",
+          "dep": "09:54",
+          "arrAt": 593,
+          "depAt": 594,
+          "at": 594,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "09:59",
+          "dep": "10:00",
+          "arrAt": 599,
+          "depAt": 600,
+          "at": 600,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "10:04",
+          "dep": "10:05",
+          "arrAt": 604,
+          "depAt": 605,
+          "at": 605,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "10:09",
+          "dep": "10:10",
+          "arrAt": 609,
+          "depAt": 610,
+          "at": 610,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "10:13",
+          "dep": "10:14",
+          "arrAt": 613,
+          "depAt": 614,
+          "at": 614,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "10:20",
+          "dep": "10:21",
+          "arrAt": 620,
+          "depAt": 621,
+          "at": 621,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "10:30",
+          "dep": "10:31",
+          "arrAt": 630,
+          "depAt": 631,
+          "at": 631,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "10:39",
+          "dep": "10:40",
+          "arrAt": 639,
+          "depAt": 640,
+          "at": 640,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "10:44",
+          "dep": "10:45",
+          "arrAt": 644,
+          "depAt": 645,
+          "at": 645,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "10:50",
+          "dep": "10:51",
+          "arrAt": 650,
+          "depAt": 651,
+          "at": 651,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "10:55",
+          "dep": "10:56",
+          "arrAt": 655,
+          "depAt": 656,
+          "at": 656,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "10:59",
+          "dep": "11:00",
+          "arrAt": 659,
+          "depAt": 660,
+          "at": 660,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "11:04",
+          "dep": "11:05",
+          "arrAt": 664,
+          "depAt": 665,
+          "at": 665,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "11:09",
+          "dep": "11:10",
+          "arrAt": 669,
+          "depAt": 670,
+          "at": 670,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "11:19",
+          "dep": "11:20",
+          "arrAt": 679,
+          "depAt": 680,
+          "at": 680,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "11:22",
+          "dep": "11:23",
+          "arrAt": 682,
+          "depAt": 683,
+          "at": 683,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Ezbet Godah",
+          "ar": "عزبة جودة",
+          "arr": "11:26",
+          "dep": "11:27",
+          "arrAt": 686,
+          "depAt": 687,
+          "at": 687,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "11:31",
+          "dep": "11:32",
+          "arrAt": 691,
+          "depAt": 692,
+          "at": 692,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Hwin",
+          "ar": "حوين",
+          "arr": "11:37",
+          "dep": "11:38",
+          "arrAt": 697,
+          "depAt": 698,
+          "at": 698,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "11:44",
+          "dep": "11:45",
+          "arrAt": 704,
+          "depAt": 705,
+          "at": 705,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Ibrahimiah",
+          "ar": "الإبراهيمية",
+          "arr": "11:50",
+          "dep": "11:51",
+          "arrAt": 710,
+          "depAt": 711,
+          "at": 711,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "12:00",
+          "dep": "12:01",
+          "arrAt": 720,
+          "depAt": 721,
+          "at": 721,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "12:06",
+          "dep": "12:07",
+          "arrAt": 726,
+          "depAt": 727,
+          "at": 727,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "12:14",
+          "dep": "12:15",
+          "arrAt": 734,
+          "depAt": 735,
+          "at": 735,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Shebshir Hessah",
+          "ar": "شبشير الحصة",
+          "arr": "12:19",
+          "dep": "12:20",
+          "arrAt": 739,
+          "depAt": 740,
+          "at": 740,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Ragdiah",
+          "ar": "الرجدية",
+          "arr": "12:26",
+          "dep": "12:27",
+          "arrAt": 746,
+          "depAt": 747,
+          "at": 747,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "12:35",
+          "dep": null,
+          "arrAt": 755,
+          "depAt": null,
+          "at": 755,
+          "tbc": false,
+          "seq": 30
+        }
+      ]
+    },
+    {
+      "number": "493",
+      "numbers": [
+        "493"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "14:00",
+      "arrive": "15:37",
+      "durationMin": 97,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "14:00",
+          "arrAt": null,
+          "depAt": 840,
+          "at": 840,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "14:11",
+          "dep": "14:12",
+          "arrAt": 851,
+          "depAt": 852,
+          "at": 852,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "14:16",
+          "dep": "14:17",
+          "arrAt": 856,
+          "depAt": 857,
+          "at": 857,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "14:21",
+          "dep": "14:22",
+          "arrAt": 861,
+          "depAt": 862,
+          "at": 862,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "14:25",
+          "dep": "14:26",
+          "arrAt": 865,
+          "depAt": 866,
+          "at": 866,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "14:31",
+          "dep": "14:32",
+          "arrAt": 871,
+          "depAt": 872,
+          "at": 872,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "14:35",
+          "dep": "14:36",
+          "arrAt": 875,
+          "depAt": 876,
+          "at": 876,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "14:38",
+          "dep": "14:39",
+          "arrAt": 878,
+          "depAt": 879,
+          "at": 879,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "14:48",
+          "dep": "14:49",
+          "arrAt": 888,
+          "depAt": 889,
+          "at": 889,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "14:56",
+          "dep": "14:57",
+          "arrAt": 896,
+          "depAt": 897,
+          "at": 897,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "15:02",
+          "dep": "15:03",
+          "arrAt": 902,
+          "depAt": 903,
+          "at": 903,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "15:06",
+          "dep": "15:07",
+          "arrAt": 906,
+          "depAt": 907,
+          "at": 907,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "15:12",
+          "dep": "15:13",
+          "arrAt": 912,
+          "depAt": 913,
+          "at": 913,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "15:20",
+          "dep": "15:21",
+          "arrAt": 920,
+          "depAt": 921,
+          "at": 921,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "15:31",
+          "dep": "15:32",
+          "arrAt": 931,
+          "depAt": 932,
+          "at": 932,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "15:37",
+          "dep": null,
+          "arrAt": 937,
+          "depAt": null,
+          "at": 937,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "494",
+      "numbers": [
+        "494"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "13:28",
+      "arrive": "16:30",
+      "durationMin": 182,
+      "stopCount": 30,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "13:28",
+          "arrAt": null,
+          "depAt": 808,
+          "at": 808,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "13:36",
+          "dep": "13:37",
+          "arrAt": 816,
+          "depAt": 817,
+          "at": 817,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "13:41",
+          "dep": "13:42",
+          "arrAt": 821,
+          "depAt": 822,
+          "at": 822,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "13:46",
+          "dep": "13:47",
+          "arrAt": 826,
+          "depAt": 827,
+          "at": 827,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "13:51",
+          "dep": "13:52",
+          "arrAt": 831,
+          "depAt": 832,
+          "at": 832,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "13:57",
+          "dep": "13:58",
+          "arrAt": 837,
+          "depAt": 838,
+          "at": 838,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "14:01",
+          "dep": "14:02",
+          "arrAt": 841,
+          "depAt": 842,
+          "at": 842,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "14:06",
+          "dep": "14:07",
+          "arrAt": 846,
+          "depAt": 847,
+          "at": 847,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "14:11",
+          "dep": "14:12",
+          "arrAt": 851,
+          "depAt": 852,
+          "at": 852,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "14:21",
+          "dep": "14:22",
+          "arrAt": 861,
+          "depAt": 862,
+          "at": 862,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "14:26",
+          "dep": "14:27",
+          "arrAt": 866,
+          "depAt": 867,
+          "at": 867,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "14:30",
+          "dep": "14:31",
+          "arrAt": 870,
+          "depAt": 871,
+          "at": 871,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "14:35",
+          "dep": "14:36",
+          "arrAt": 875,
+          "depAt": 876,
+          "at": 876,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "14:40",
+          "dep": "14:41",
+          "arrAt": 880,
+          "depAt": 881,
+          "at": 881,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "14:44",
+          "dep": "14:45",
+          "arrAt": 884,
+          "depAt": 885,
+          "at": 885,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "14:48",
+          "dep": "14:49",
+          "arrAt": 888,
+          "depAt": 889,
+          "at": 889,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "14:51",
+          "dep": "14:52",
+          "arrAt": 891,
+          "depAt": 892,
+          "at": 892,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "15:09",
+          "dep": "15:10",
+          "arrAt": 909,
+          "depAt": 910,
+          "at": 910,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "15:12",
+          "dep": "15:13",
+          "arrAt": 912,
+          "depAt": 913,
+          "at": 913,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Ezbet Godah",
+          "ar": "عزبة جودة",
+          "arr": "15:16",
+          "dep": "15:17",
+          "arrAt": 916,
+          "depAt": 917,
+          "at": 917,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "15:20",
+          "dep": "15:21",
+          "arrAt": 920,
+          "depAt": 921,
+          "at": 921,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Hwin",
+          "ar": "حوين",
+          "arr": "15:25",
+          "dep": "15:26",
+          "arrAt": 925,
+          "depAt": 926,
+          "at": 926,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "15:41",
+          "dep": "15:42",
+          "arrAt": 941,
+          "depAt": 942,
+          "at": 942,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Ibrahimiah",
+          "ar": "الإبراهيمية",
+          "arr": "15:47",
+          "dep": "15:48",
+          "arrAt": 947,
+          "depAt": 948,
+          "at": 948,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "15:53",
+          "dep": "15:54",
+          "arrAt": 953,
+          "depAt": 954,
+          "at": 954,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "15:59",
+          "dep": "16:00",
+          "arrAt": 959,
+          "depAt": 960,
+          "at": 960,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "16:09",
+          "dep": "16:10",
+          "arrAt": 969,
+          "depAt": 970,
+          "at": 970,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Shebshir Hessah",
+          "ar": "شبشير الحصة",
+          "arr": "16:14",
+          "dep": "16:15",
+          "arrAt": 974,
+          "depAt": 975,
+          "at": 975,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Ragdiah",
+          "ar": "الرجدية",
+          "arr": "16:21",
+          "dep": "16:22",
+          "arrAt": 981,
+          "depAt": 982,
+          "at": 982,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "16:30",
+          "dep": null,
+          "arrAt": 990,
+          "depAt": null,
+          "at": 990,
+          "tbc": false,
+          "seq": 30
+        }
+      ]
+    },
+    {
+      "number": "495",
+      "numbers": [
+        "495"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "16:12",
+      "arrive": "17:51",
+      "durationMin": 99,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "16:12",
+          "arrAt": null,
+          "depAt": 972,
+          "at": 972,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "16:22",
+          "dep": "16:23",
+          "arrAt": 982,
+          "depAt": 983,
+          "at": 983,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "16:27",
+          "dep": "16:28",
+          "arrAt": 987,
+          "depAt": 988,
+          "at": 988,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "16:32",
+          "dep": "16:33",
+          "arrAt": 992,
+          "depAt": 993,
+          "at": 993,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "16:37",
+          "dep": "16:38",
+          "arrAt": 997,
+          "depAt": 998,
+          "at": 998,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "16:43",
+          "dep": "16:47",
+          "arrAt": 1003,
+          "depAt": 1007,
+          "at": 1007,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "16:52",
+          "dep": "16:53",
+          "arrAt": 1012,
+          "depAt": 1013,
+          "at": 1013,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "16:56",
+          "dep": "16:57",
+          "arrAt": 1016,
+          "depAt": 1017,
+          "at": 1017,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "17:01",
+          "dep": "17:02",
+          "arrAt": 1021,
+          "depAt": 1022,
+          "at": 1022,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "17:10",
+          "dep": "17:11",
+          "arrAt": 1030,
+          "depAt": 1031,
+          "at": 1031,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "17:16",
+          "dep": "17:17",
+          "arrAt": 1036,
+          "depAt": 1037,
+          "at": 1037,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "17:20",
+          "dep": "17:21",
+          "arrAt": 1040,
+          "depAt": 1041,
+          "at": 1041,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "17:26",
+          "dep": "17:27",
+          "arrAt": 1046,
+          "depAt": 1047,
+          "at": 1047,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "17:33",
+          "dep": "17:34",
+          "arrAt": 1053,
+          "depAt": 1054,
+          "at": 1054,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "17:46",
+          "dep": "17:47",
+          "arrAt": 1066,
+          "depAt": 1067,
+          "at": 1067,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "17:51",
+          "dep": null,
+          "arrAt": 1071,
+          "depAt": null,
+          "at": 1071,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "496",
+      "numbers": [
+        "496"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "15:44",
+      "arrive": "19:25",
+      "durationMin": 221,
+      "stopCount": 30,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "15:44",
+          "arrAt": null,
+          "depAt": 944,
+          "at": 944,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "15:50",
+          "dep": "15:51",
+          "arrAt": 950,
+          "depAt": 951,
+          "at": 951,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "15:55",
+          "dep": "15:56",
+          "arrAt": 955,
+          "depAt": 956,
+          "at": 956,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "15:58",
+          "dep": "15:59",
+          "arrAt": 958,
+          "depAt": 959,
+          "at": 959,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "16:02",
+          "dep": "16:03",
+          "arrAt": 962,
+          "depAt": 963,
+          "at": 963,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "16:09",
+          "dep": "16:10",
+          "arrAt": 969,
+          "depAt": 970,
+          "at": 970,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "16:13",
+          "dep": "16:14",
+          "arrAt": 973,
+          "depAt": 974,
+          "at": 974,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "16:17",
+          "dep": "16:18",
+          "arrAt": 977,
+          "depAt": 978,
+          "at": 978,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "16:21",
+          "dep": "16:22",
+          "arrAt": 981,
+          "depAt": 982,
+          "at": 982,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "16:34",
+          "dep": "16:35",
+          "arrAt": 994,
+          "depAt": 995,
+          "at": 995,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "16:38",
+          "dep": "16:39",
+          "arrAt": 998,
+          "depAt": 999,
+          "at": 999,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "16:43",
+          "dep": "16:44",
+          "arrAt": 1003,
+          "depAt": 1004,
+          "at": 1004,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "16:47",
+          "dep": "16:48",
+          "arrAt": 1007,
+          "depAt": 1008,
+          "at": 1008,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "16:51",
+          "dep": "16:52",
+          "arrAt": 1011,
+          "depAt": 1012,
+          "at": 1012,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "16:55",
+          "dep": "16:56",
+          "arrAt": 1015,
+          "depAt": 1016,
+          "at": 1016,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "16:59",
+          "dep": "17:00",
+          "arrAt": 1019,
+          "depAt": 1020,
+          "at": 1020,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "17:03",
+          "dep": "17:04",
+          "arrAt": 1023,
+          "depAt": 1024,
+          "at": 1024,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "17:09",
+          "dep": "17:10",
+          "arrAt": 1029,
+          "depAt": 1030,
+          "at": 1030,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "17:13",
+          "dep": "17:14",
+          "arrAt": 1033,
+          "depAt": 1034,
+          "at": 1034,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Ezbet Godah",
+          "ar": "عزبة جودة",
+          "arr": "17:17",
+          "dep": "17:18",
+          "arrAt": 1037,
+          "depAt": 1038,
+          "at": 1038,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "17:23",
+          "dep": "17:24",
+          "arrAt": 1043,
+          "depAt": 1044,
+          "at": 1044,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Hwin",
+          "ar": "حوين",
+          "arr": "17:28",
+          "dep": "17:29",
+          "arrAt": 1048,
+          "depAt": 1049,
+          "at": 1049,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "17:36",
+          "dep": "17:37",
+          "arrAt": 1056,
+          "depAt": 1057,
+          "at": 1057,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Ibrahimiah",
+          "ar": "الإبراهيمية",
+          "arr": "17:42",
+          "dep": "17:43",
+          "arrAt": 1062,
+          "depAt": 1063,
+          "at": 1063,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "17:49",
+          "dep": "17:50",
+          "arrAt": 1069,
+          "depAt": 1070,
+          "at": 1070,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "17:54",
+          "dep": "17:55",
+          "arrAt": 1074,
+          "depAt": 1075,
+          "at": 1075,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "19:04",
+          "dep": "19:05",
+          "arrAt": 1144,
+          "depAt": 1145,
+          "at": 1145,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Shebshir Hessah",
+          "ar": "شبشير الحصة",
+          "arr": "19:08",
+          "dep": "19:09",
+          "arrAt": 1148,
+          "depAt": 1149,
+          "at": 1149,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Ragdiah",
+          "ar": "الرجدية",
+          "arr": "19:14",
+          "dep": "19:15",
+          "arrAt": 1154,
+          "depAt": 1155,
+          "at": 1155,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "19:25",
+          "dep": null,
+          "arrAt": 1165,
+          "depAt": null,
+          "at": 1165,
+          "tbc": false,
+          "seq": 30
+        }
+      ]
+    },
+    {
+      "number": "497",
+      "numbers": [
+        "497"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "17:55",
+      "arrive": "19:32",
+      "durationMin": 97,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "17:55",
+          "arrAt": null,
+          "depAt": 1075,
+          "at": 1075,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "18:04",
+          "dep": "18:05",
+          "arrAt": 1084,
+          "depAt": 1085,
+          "at": 1085,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "18:09",
+          "dep": "18:10",
+          "arrAt": 1089,
+          "depAt": 1090,
+          "at": 1090,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "18:14",
+          "dep": "18:15",
+          "arrAt": 1094,
+          "depAt": 1095,
+          "at": 1095,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "18:18",
+          "dep": "18:19",
+          "arrAt": 1098,
+          "depAt": 1099,
+          "at": 1099,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "18:24",
+          "dep": "18:25",
+          "arrAt": 1104,
+          "depAt": 1105,
+          "at": 1105,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "18:29",
+          "dep": "18:30",
+          "arrAt": 1109,
+          "depAt": 1110,
+          "at": 1110,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "18:33",
+          "dep": "18:34",
+          "arrAt": 1113,
+          "depAt": 1114,
+          "at": 1114,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "18:39",
+          "dep": "18:40",
+          "arrAt": 1119,
+          "depAt": 1120,
+          "at": 1120,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "18:53",
+          "dep": "18:54",
+          "arrAt": 1133,
+          "depAt": 1134,
+          "at": 1134,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "18:59",
+          "dep": "19:00",
+          "arrAt": 1139,
+          "depAt": 1140,
+          "at": 1140,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "19:03",
+          "dep": "19:04",
+          "arrAt": 1143,
+          "depAt": 1144,
+          "at": 1144,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "19:00",
+          "dep": "19:01",
+          "arrAt": 1140,
+          "depAt": 1141,
+          "at": 1144,
+          "tbc": true,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "19:15",
+          "dep": "19:16",
+          "arrAt": 1155,
+          "depAt": 1156,
+          "at": 1156,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "19:26",
+          "dep": "19:27",
+          "arrAt": 1166,
+          "depAt": 1167,
+          "at": 1167,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "19:32",
+          "dep": null,
+          "arrAt": 1172,
+          "depAt": null,
+          "at": 1172,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "498",
+      "numbers": [
+        "498"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Qleen",
+      "toAr": "قلين",
+      "depart": "16:53",
+      "arrive": "18:45",
+      "durationMin": 112,
+      "stopCount": 18,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "16:53",
+          "arrAt": null,
+          "depAt": 1013,
+          "at": 1013,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "17:00",
+          "dep": "17:01",
+          "arrAt": 1020,
+          "depAt": 1021,
+          "at": 1021,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "17:05",
+          "dep": "17:06",
+          "arrAt": 1025,
+          "depAt": 1026,
+          "at": 1026,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "17:09",
+          "dep": "17:10",
+          "arrAt": 1029,
+          "depAt": 1030,
+          "at": 1030,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "17:15",
+          "dep": "17:16",
+          "arrAt": 1035,
+          "depAt": 1036,
+          "at": 1036,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "17:20",
+          "dep": "17:21",
+          "arrAt": 1040,
+          "depAt": 1041,
+          "at": 1041,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "17:24",
+          "dep": "17:25",
+          "arrAt": 1044,
+          "depAt": 1045,
+          "at": 1045,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "17:29",
+          "dep": "17:30",
+          "arrAt": 1049,
+          "depAt": 1050,
+          "at": 1050,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "17:34",
+          "dep": "17:35",
+          "arrAt": 1054,
+          "depAt": 1055,
+          "at": 1055,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "17:44",
+          "dep": "18:10",
+          "arrAt": 1064,
+          "depAt": 1090,
+          "at": 1090,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "18:14",
+          "dep": "18:15",
+          "arrAt": 1094,
+          "depAt": 1095,
+          "at": 1095,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "18:19",
+          "dep": "18:20",
+          "arrAt": 1099,
+          "depAt": 1100,
+          "at": 1100,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "18:22",
+          "dep": "18:23",
+          "arrAt": 1102,
+          "depAt": 1103,
+          "at": 1103,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "18:26",
+          "dep": "18:27",
+          "arrAt": 1106,
+          "depAt": 1107,
+          "at": 1107,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "18:30",
+          "dep": "18:31",
+          "arrAt": 1110,
+          "depAt": 1111,
+          "at": 1111,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "18:34",
+          "dep": "18:39",
+          "arrAt": 1114,
+          "depAt": 1119,
+          "at": 1119,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "18:41",
+          "dep": "18:42",
+          "arrAt": 1121,
+          "depAt": 1122,
+          "at": 1122,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "18:45",
+          "dep": null,
+          "arrAt": 1125,
+          "depAt": null,
+          "at": 1125,
+          "tbc": false,
+          "seq": 18
+        }
+      ]
+    },
+    {
+      "number": "499",
+      "numbers": [
+        "499"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "20:17",
+      "arrive": "21:58",
+      "durationMin": 101,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "20:17",
+          "arrAt": null,
+          "depAt": 1217,
+          "at": 1217,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "20:27",
+          "dep": "20:28",
+          "arrAt": 1227,
+          "depAt": 1228,
+          "at": 1228,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "20:32",
+          "dep": "20:33",
+          "arrAt": 1232,
+          "depAt": 1233,
+          "at": 1233,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "20:37",
+          "dep": "20:38",
+          "arrAt": 1237,
+          "depAt": 1238,
+          "at": 1238,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "20:41",
+          "dep": "20:42",
+          "arrAt": 1241,
+          "depAt": 1242,
+          "at": 1242,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "20:47",
+          "dep": "20:48",
+          "arrAt": 1247,
+          "depAt": 1248,
+          "at": 1248,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "20:53",
+          "dep": "20:54",
+          "arrAt": 1253,
+          "depAt": 1254,
+          "at": 1254,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "20:57",
+          "dep": "20:58",
+          "arrAt": 1257,
+          "depAt": 1258,
+          "at": 1258,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "21:03",
+          "dep": "21:04",
+          "arrAt": 1263,
+          "depAt": 1264,
+          "at": 1264,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "21:17",
+          "dep": "21:18",
+          "arrAt": 1277,
+          "depAt": 1278,
+          "at": 1278,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "21:22",
+          "dep": "21:23",
+          "arrAt": 1282,
+          "depAt": 1283,
+          "at": 1283,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "21:26",
+          "dep": "21:27",
+          "arrAt": 1286,
+          "depAt": 1287,
+          "at": 1287,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "21:32",
+          "dep": "21:33",
+          "arrAt": 1292,
+          "depAt": 1293,
+          "at": 1293,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "21:38",
+          "dep": "21:39",
+          "arrAt": 1298,
+          "depAt": 1299,
+          "at": 1299,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "21:52",
+          "dep": "21:53",
+          "arrAt": 1312,
+          "depAt": 1313,
+          "at": 1313,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "21:58",
+          "dep": null,
+          "arrAt": 1318,
+          "depAt": null,
+          "at": 1318,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "500",
+      "numbers": [
+        "500"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Qleen",
+      "toAr": "قلين",
+      "depart": "18:53",
+      "arrive": "20:20",
+      "durationMin": 87,
+      "stopCount": 10,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "18:53",
+          "arrAt": null,
+          "depAt": 1133,
+          "at": 1133,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "19:00",
+          "dep": "19:01",
+          "arrAt": 1140,
+          "depAt": 1141,
+          "at": 1141,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "19:12",
+          "dep": "19:13",
+          "arrAt": 1152,
+          "depAt": 1153,
+          "at": 1153,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "19:19",
+          "dep": "19:20",
+          "arrAt": 1159,
+          "depAt": 1160,
+          "at": 1160,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "19:29",
+          "dep": "19:30",
+          "arrAt": 1169,
+          "depAt": 1170,
+          "at": 1170,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "19:44",
+          "dep": "19:45",
+          "arrAt": 1184,
+          "depAt": 1185,
+          "at": 1185,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "19:53",
+          "dep": "19:54",
+          "arrAt": 1193,
+          "depAt": 1194,
+          "at": 1194,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "20:01",
+          "dep": "20:02",
+          "arrAt": 1201,
+          "depAt": 1202,
+          "at": 1202,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "20:13",
+          "dep": "20:14",
+          "arrAt": 1213,
+          "depAt": 1214,
+          "at": 1214,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "20:20",
+          "dep": null,
+          "arrAt": 1220,
+          "depAt": null,
+          "at": 1220,
+          "tbc": false,
+          "seq": 10
+        }
+      ]
+    },
+    {
+      "number": "501",
+      "numbers": [
+        "501"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "22:45",
+      "arrive": "00:22",
+      "durationMin": 97,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "22:45",
+          "arrAt": null,
+          "depAt": 1365,
+          "at": 1365,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "22:55",
+          "dep": "22:56",
+          "arrAt": 1375,
+          "depAt": 1376,
+          "at": 1376,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "23:00",
+          "dep": "23:01",
+          "arrAt": 1380,
+          "depAt": 1381,
+          "at": 1381,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "23:05",
+          "dep": "23:06",
+          "arrAt": 1385,
+          "depAt": 1386,
+          "at": 1386,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "23:11",
+          "dep": "23:12",
+          "arrAt": 1391,
+          "depAt": 1392,
+          "at": 1392,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "23:19",
+          "dep": "23:20",
+          "arrAt": 1399,
+          "depAt": 1400,
+          "at": 1400,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "23:25",
+          "dep": "23:26",
+          "arrAt": 1405,
+          "depAt": 1406,
+          "at": 1406,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "23:29",
+          "dep": "23:30",
+          "arrAt": 1409,
+          "depAt": 1410,
+          "at": 1410,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "23:35",
+          "dep": "23:36",
+          "arrAt": 1415,
+          "depAt": 1416,
+          "at": 1416,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "23:42",
+          "dep": "23:43",
+          "arrAt": 1422,
+          "depAt": 1423,
+          "at": 1423,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "23:48",
+          "dep": "23:49",
+          "arrAt": 1428,
+          "depAt": 1429,
+          "at": 1429,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "23:51",
+          "dep": "23:52",
+          "arrAt": 1431,
+          "depAt": 1432,
+          "at": 1432,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "23:58",
+          "dep": "23:59",
+          "arrAt": 1438,
+          "depAt": 1439,
+          "at": 1439,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "00:04",
+          "dep": "00:05",
+          "arrAt": 1444,
+          "depAt": 1445,
+          "at": 1445,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "00:15",
+          "dep": "00:16",
+          "arrAt": 1455,
+          "depAt": 1456,
+          "at": 1456,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "00:22",
+          "dep": null,
+          "arrAt": 1462,
+          "depAt": null,
+          "at": 1462,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "502",
+      "numbers": [
+        "502"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "21:20",
+      "arrive": "00:20",
+      "durationMin": 180,
+      "stopCount": 30,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "21:20",
+          "arrAt": null,
+          "depAt": 1280,
+          "at": 1280,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "21:27",
+          "dep": "21:28",
+          "arrAt": 1287,
+          "depAt": 1288,
+          "at": 1288,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "21:32",
+          "dep": "21:33",
+          "arrAt": 1292,
+          "depAt": 1293,
+          "at": 1293,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "21:36",
+          "dep": "21:37",
+          "arrAt": 1296,
+          "depAt": 1297,
+          "at": 1297,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "21:42",
+          "dep": "21:43",
+          "arrAt": 1302,
+          "depAt": 1303,
+          "at": 1303,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "21:47",
+          "dep": "21:48",
+          "arrAt": 1307,
+          "depAt": 1308,
+          "at": 1308,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "21:51",
+          "dep": "21:52",
+          "arrAt": 1311,
+          "depAt": 1312,
+          "at": 1312,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "21:56",
+          "dep": "21:57",
+          "arrAt": 1316,
+          "depAt": 1317,
+          "at": 1317,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "22:01",
+          "dep": "22:02",
+          "arrAt": 1321,
+          "depAt": 1322,
+          "at": 1322,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "22:13",
+          "dep": "22:14",
+          "arrAt": 1333,
+          "depAt": 1334,
+          "at": 1334,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "22:18",
+          "dep": "22:19",
+          "arrAt": 1338,
+          "depAt": 1339,
+          "at": 1339,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "22:23",
+          "dep": "22:24",
+          "arrAt": 1343,
+          "depAt": 1344,
+          "at": 1344,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "22:27",
+          "dep": "22:28",
+          "arrAt": 1347,
+          "depAt": 1348,
+          "at": 1348,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "22:32",
+          "dep": "22:33",
+          "arrAt": 1352,
+          "depAt": 1353,
+          "at": 1353,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "22:36",
+          "dep": "22:37",
+          "arrAt": 1356,
+          "depAt": 1357,
+          "at": 1357,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "22:40",
+          "dep": "22:41",
+          "arrAt": 1360,
+          "depAt": 1361,
+          "at": 1361,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "22:44",
+          "dep": "22:45",
+          "arrAt": 1364,
+          "depAt": 1365,
+          "at": 1365,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "22:59",
+          "dep": "23:00",
+          "arrAt": 1379,
+          "depAt": 1380,
+          "at": 1380,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "23:03",
+          "dep": "23:04",
+          "arrAt": 1383,
+          "depAt": 1384,
+          "at": 1384,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Ezbet Godah",
+          "ar": "عزبة جودة",
+          "arr": "23:07",
+          "dep": "23:08",
+          "arrAt": 1387,
+          "depAt": 1388,
+          "at": 1388,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "23:12",
+          "dep": "23:13",
+          "arrAt": 1392,
+          "depAt": 1393,
+          "at": 1393,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Hwin",
+          "ar": "حوين",
+          "arr": "23:18",
+          "dep": "23:19",
+          "arrAt": 1398,
+          "depAt": 1399,
+          "at": 1399,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "23:26",
+          "dep": "23:27",
+          "arrAt": 1406,
+          "depAt": 1407,
+          "at": 1407,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Ibrahimiah",
+          "ar": "الإبراهيمية",
+          "arr": "23:32",
+          "dep": "23:33",
+          "arrAt": 1412,
+          "depAt": 1413,
+          "at": 1413,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "23:39",
+          "dep": "23:40",
+          "arrAt": 1419,
+          "depAt": 1420,
+          "at": 1420,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "23:46",
+          "dep": "23:47",
+          "arrAt": 1426,
+          "depAt": 1427,
+          "at": 1427,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "23:59",
+          "dep": "00:00",
+          "arrAt": 1439,
+          "depAt": 1440,
+          "at": 1440,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Shebshir Hessah",
+          "ar": "شبشير الحصة",
+          "arr": "00:04",
+          "dep": "00:05",
+          "arrAt": 1444,
+          "depAt": 1445,
+          "at": 1445,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Ragdiah",
+          "ar": "الرجدية",
+          "arr": "00:11",
+          "dep": "00:12",
+          "arrAt": 1451,
+          "depAt": 1452,
+          "at": 1452,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "00:20",
+          "dep": null,
+          "arrAt": 1460,
+          "depAt": null,
+          "at": 1460,
+          "tbc": false,
+          "seq": 30
+        }
+      ]
+    },
+    {
+      "number": "504",
+      "numbers": [
+        "504"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Qleen",
+      "toAr": "قلين",
+      "depart": "11:00",
+      "arrive": "12:40",
+      "durationMin": 100,
+      "stopCount": 18,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "11:00",
+          "arrAt": null,
+          "depAt": 660,
+          "at": 660,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "11:07",
+          "dep": "11:08",
+          "arrAt": 667,
+          "depAt": 668,
+          "at": 668,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "11:13",
+          "dep": "11:14",
+          "arrAt": 673,
+          "depAt": 674,
+          "at": 674,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "11:16",
+          "dep": "11:17",
+          "arrAt": 676,
+          "depAt": 677,
+          "at": 677,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "11:21",
+          "dep": "11:22",
+          "arrAt": 681,
+          "depAt": 682,
+          "at": 682,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "11:26",
+          "dep": "11:27",
+          "arrAt": 686,
+          "depAt": 687,
+          "at": 687,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "11:30",
+          "dep": "11:31",
+          "arrAt": 690,
+          "depAt": 691,
+          "at": 691,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "11:35",
+          "dep": "11:36",
+          "arrAt": 695,
+          "depAt": 696,
+          "at": 696,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "11:42",
+          "dep": "11:43",
+          "arrAt": 702,
+          "depAt": 703,
+          "at": 703,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "11:52",
+          "dep": "11:53",
+          "arrAt": 712,
+          "depAt": 713,
+          "at": 713,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "12:04",
+          "dep": "12:05",
+          "arrAt": 724,
+          "depAt": 725,
+          "at": 725,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "12:09",
+          "dep": "12:10",
+          "arrAt": 729,
+          "depAt": 730,
+          "at": 730,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "12:14",
+          "dep": "12:15",
+          "arrAt": 734,
+          "depAt": 735,
+          "at": 735,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "12:20",
+          "dep": "12:21",
+          "arrAt": 740,
+          "depAt": 741,
+          "at": 741,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "12:24",
+          "dep": "12:25",
+          "arrAt": 744,
+          "depAt": 745,
+          "at": 745,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "12:29",
+          "dep": "12:30",
+          "arrAt": 749,
+          "depAt": 750,
+          "at": 750,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "12:34",
+          "dep": "12:35",
+          "arrAt": 754,
+          "depAt": 755,
+          "at": 755,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "12:40",
+          "dep": null,
+          "arrAt": 760,
+          "depAt": null,
+          "at": 760,
+          "tbc": false,
+          "seq": 18
+        }
+      ]
+    },
+    {
+      "number": "506",
+      "numbers": [
+        "506"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "07:02",
+      "arrive": "10:25",
+      "durationMin": 203,
+      "stopCount": 30,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "07:02",
+          "arrAt": null,
+          "depAt": 422,
+          "at": 422,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "07:22",
+          "dep": "07:23",
+          "arrAt": 442,
+          "depAt": 443,
+          "at": 443,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "07:27",
+          "dep": "07:28",
+          "arrAt": 447,
+          "depAt": 448,
+          "at": 448,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "07:31",
+          "dep": "07:32",
+          "arrAt": 451,
+          "depAt": 452,
+          "at": 452,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "07:38",
+          "dep": "07:39",
+          "arrAt": 458,
+          "depAt": 459,
+          "at": 459,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "07:44",
+          "dep": "07:45",
+          "arrAt": 464,
+          "depAt": 465,
+          "at": 465,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "07:48",
+          "dep": "07:49",
+          "arrAt": 468,
+          "depAt": 469,
+          "at": 469,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "07:53",
+          "dep": "07:54",
+          "arrAt": 473,
+          "depAt": 474,
+          "at": 474,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "08:09",
+          "dep": "08:10",
+          "arrAt": 489,
+          "depAt": 490,
+          "at": 490,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "08:19",
+          "dep": "08:20",
+          "arrAt": 499,
+          "depAt": 500,
+          "at": 500,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "08:26",
+          "dep": "08:27",
+          "arrAt": 506,
+          "depAt": 507,
+          "at": 507,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "08:31",
+          "dep": "08:32",
+          "arrAt": 511,
+          "depAt": 512,
+          "at": 512,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "08:34",
+          "dep": "08:35",
+          "arrAt": 514,
+          "depAt": 515,
+          "at": 515,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "08:38",
+          "dep": "08:39",
+          "arrAt": 518,
+          "depAt": 519,
+          "at": 519,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "08:42",
+          "dep": "08:43",
+          "arrAt": 522,
+          "depAt": 523,
+          "at": 523,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "08:46",
+          "dep": "08:47",
+          "arrAt": 526,
+          "depAt": 527,
+          "at": 527,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "08:49",
+          "dep": "08:50",
+          "arrAt": 529,
+          "depAt": 530,
+          "at": 530,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "09:09",
+          "dep": "09:10",
+          "arrAt": 549,
+          "depAt": 550,
+          "at": 550,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "09:13",
+          "dep": "09:14",
+          "arrAt": 553,
+          "depAt": 554,
+          "at": 554,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Ezbet Godah",
+          "ar": "عزبة جودة",
+          "arr": "09:17",
+          "dep": "09:18",
+          "arrAt": 557,
+          "depAt": 558,
+          "at": 558,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "09:23",
+          "dep": "09:24",
+          "arrAt": 563,
+          "depAt": 564,
+          "at": 564,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Hwin",
+          "ar": "حوين",
+          "arr": "09:29",
+          "dep": "09:30",
+          "arrAt": 569,
+          "depAt": 570,
+          "at": 570,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "09:36",
+          "dep": "09:37",
+          "arrAt": 576,
+          "depAt": 577,
+          "at": 577,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Ibrahimiah",
+          "ar": "الإبراهيمية",
+          "arr": "09:42",
+          "dep": "09:43",
+          "arrAt": 582,
+          "depAt": 583,
+          "at": 583,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "09:48",
+          "dep": "09:49",
+          "arrAt": 588,
+          "depAt": 589,
+          "at": 589,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "09:54",
+          "dep": "09:55",
+          "arrAt": 594,
+          "depAt": 595,
+          "at": 595,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "10:03",
+          "dep": "10:04",
+          "arrAt": 603,
+          "depAt": 604,
+          "at": 604,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Shebshir Hessah",
+          "ar": "شبشير الحصة",
+          "arr": "10:08",
+          "dep": "10:09",
+          "arrAt": 608,
+          "depAt": 609,
+          "at": 609,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Ragdiah",
+          "ar": "الرجدية",
+          "arr": "10:15",
+          "dep": "10:16",
+          "arrAt": 615,
+          "depAt": 616,
+          "at": 616,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "10:25",
+          "dep": null,
+          "arrAt": 625,
+          "depAt": null,
+          "at": 625,
+          "tbc": false,
+          "seq": 30
+        }
+      ]
+    },
+    {
+      "number": "507",
+      "numbers": [
+        "507"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "14:48",
+      "arrive": "16:22",
+      "durationMin": 94,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "14:48",
+          "arrAt": null,
+          "depAt": 888,
+          "at": 888,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "14:57",
+          "dep": "14:58",
+          "arrAt": 897,
+          "depAt": 898,
+          "at": 898,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "15:02",
+          "dep": "15:03",
+          "arrAt": 902,
+          "depAt": 903,
+          "at": 903,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "15:07",
+          "dep": "15:08",
+          "arrAt": 907,
+          "depAt": 908,
+          "at": 908,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "15:16",
+          "dep": "15:17",
+          "arrAt": 916,
+          "depAt": 917,
+          "at": 917,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "15:22",
+          "dep": "15:23",
+          "arrAt": 922,
+          "depAt": 923,
+          "at": 923,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "15:26",
+          "dep": "15:27",
+          "arrAt": 926,
+          "depAt": 927,
+          "at": 927,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "15:30",
+          "dep": "15:31",
+          "arrAt": 930,
+          "depAt": 931,
+          "at": 931,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "15:34",
+          "dep": "15:35",
+          "arrAt": 934,
+          "depAt": 935,
+          "at": 935,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "15:42",
+          "dep": "15:43",
+          "arrAt": 942,
+          "depAt": 943,
+          "at": 943,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "15:48",
+          "dep": "15:49",
+          "arrAt": 948,
+          "depAt": 949,
+          "at": 949,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "15:52",
+          "dep": "15:53",
+          "arrAt": 952,
+          "depAt": 953,
+          "at": 953,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "15:58",
+          "dep": "15:59",
+          "arrAt": 958,
+          "depAt": 959,
+          "at": 959,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "16:04",
+          "dep": "16:05",
+          "arrAt": 964,
+          "depAt": 965,
+          "at": 965,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "16:16",
+          "dep": "16:17",
+          "arrAt": 976,
+          "depAt": 977,
+          "at": 977,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "16:22",
+          "dep": null,
+          "arrAt": 982,
+          "depAt": null,
+          "at": 982,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "508",
+      "numbers": [
+        "508"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Qleen",
+      "toAr": "قلين",
+      "depart": "23:23",
+      "arrive": "01:00",
+      "durationMin": 97,
+      "stopCount": 18,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "23:23",
+          "arrAt": null,
+          "depAt": 1403,
+          "at": 1403,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "23:36",
+          "dep": "23:37",
+          "arrAt": 1416,
+          "depAt": 1417,
+          "at": 1417,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "23:41",
+          "dep": "23:42",
+          "arrAt": 1421,
+          "depAt": 1422,
+          "at": 1422,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "23:45",
+          "dep": "23:46",
+          "arrAt": 1425,
+          "depAt": 1426,
+          "at": 1426,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "23:51",
+          "dep": "23:52",
+          "arrAt": 1431,
+          "depAt": 1432,
+          "at": 1432,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "23:57",
+          "dep": "23:58",
+          "arrAt": 1437,
+          "depAt": 1438,
+          "at": 1438,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "00:01",
+          "dep": "00:02",
+          "arrAt": 1441,
+          "depAt": 1442,
+          "at": 1442,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "00:06",
+          "dep": "00:07",
+          "arrAt": 1446,
+          "depAt": 1447,
+          "at": 1447,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "00:11",
+          "dep": "00:12",
+          "arrAt": 1451,
+          "depAt": 1452,
+          "at": 1452,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "00:24",
+          "dep": "00:25",
+          "arrAt": 1464,
+          "depAt": 1465,
+          "at": 1465,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "00:29",
+          "dep": "00:30",
+          "arrAt": 1469,
+          "depAt": 1470,
+          "at": 1470,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "00:34",
+          "dep": "00:35",
+          "arrAt": 1474,
+          "depAt": 1475,
+          "at": 1475,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "00:38",
+          "dep": "00:39",
+          "arrAt": 1478,
+          "depAt": 1479,
+          "at": 1479,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "00:41",
+          "dep": "00:42",
+          "arrAt": 1481,
+          "depAt": 1482,
+          "at": 1482,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "00:46",
+          "dep": "00:47",
+          "arrAt": 1486,
+          "depAt": 1487,
+          "at": 1487,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "00:50",
+          "dep": "00:51",
+          "arrAt": 1490,
+          "depAt": 1491,
+          "at": 1491,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "00:54",
+          "dep": "00:55",
+          "arrAt": 1494,
+          "depAt": 1495,
+          "at": 1495,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "01:00",
+          "dep": null,
+          "arrAt": 1500,
+          "depAt": null,
+          "at": 1500,
+          "tbc": false,
+          "seq": 18
+        }
+      ]
+    },
+    {
+      "number": "509",
+      "numbers": [
+        "509"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Kafr Shennawy",
+      "toAr": "كفر السناوى",
+      "depart": "10:22",
+      "arrive": "12:07",
+      "durationMin": 105,
+      "stopCount": 16,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "10:22",
+          "arrAt": null,
+          "depAt": 622,
+          "at": 622,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "10:32",
+          "dep": "10:33",
+          "arrAt": 632,
+          "depAt": 633,
+          "at": 633,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "10:36",
+          "dep": "10:37",
+          "arrAt": 636,
+          "depAt": 637,
+          "at": 637,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "10:40",
+          "dep": "10:41",
+          "arrAt": 640,
+          "depAt": 641,
+          "at": 641,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "10:43",
+          "dep": "10:44",
+          "arrAt": 643,
+          "depAt": 644,
+          "at": 644,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "10:49",
+          "dep": "10:50",
+          "arrAt": 649,
+          "depAt": 650,
+          "at": 650,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "10:55",
+          "dep": "10:56",
+          "arrAt": 655,
+          "depAt": 656,
+          "at": 656,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "10:59",
+          "dep": "11:00",
+          "arrAt": 659,
+          "depAt": 660,
+          "at": 660,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "11:11",
+          "dep": "11:12",
+          "arrAt": 671,
+          "depAt": 672,
+          "at": 672,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "11:17",
+          "dep": "11:18",
+          "arrAt": 677,
+          "depAt": 678,
+          "at": 678,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Kafr Garaydah",
+          "ar": "كفر الجرايد",
+          "arr": "11:25",
+          "dep": "11:26",
+          "arrAt": 685,
+          "depAt": 686,
+          "at": 686,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Buhut",
+          "ar": "بهوت",
+          "arr": "11:32",
+          "dep": "11:33",
+          "arrAt": 692,
+          "depAt": 693,
+          "at": 693,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Manshyt Badrawy",
+          "ar": "منشأة البدراوي",
+          "arr": "11:37",
+          "dep": "11:38",
+          "arrAt": 697,
+          "depAt": 698,
+          "at": 698,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "11:43",
+          "dep": "11:44",
+          "arrAt": 703,
+          "depAt": 704,
+          "at": 704,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "12:01",
+          "dep": "12:02",
+          "arrAt": 721,
+          "depAt": 722,
+          "at": 722,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Kafr Shennawy",
+          "ar": "كفر السناوى",
+          "arr": "12:07",
+          "dep": null,
+          "arrAt": 727,
+          "depAt": null,
+          "at": 727,
+          "tbc": false,
+          "seq": 16
+        }
+      ]
+    },
+    {
+      "number": "802/801",
+      "numbers": [
+        "802",
+        "801"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Biyala",
+      "toAr": "بيلا",
+      "depart": "10:48",
+      "arrive": "11:30",
+      "durationMin": 42,
+      "stopCount": 6,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "10:48",
+          "arrAt": null,
+          "depAt": 648,
+          "at": 648,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "10:57",
+          "dep": "10:58",
+          "arrAt": 657,
+          "depAt": 658,
+          "at": 658,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "11:07",
+          "dep": "11:08",
+          "arrAt": 667,
+          "depAt": 668,
+          "at": 668,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "11:13",
+          "dep": "11:14",
+          "arrAt": 673,
+          "depAt": 674,
+          "at": 674,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "11:23",
+          "dep": "11:24",
+          "arrAt": 683,
+          "depAt": 684,
+          "at": 684,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "11:30",
+          "dep": null,
+          "arrAt": 690,
+          "depAt": null,
+          "at": 690,
+          "tbc": false,
+          "seq": 6
+        }
+      ]
+    },
+    {
+      "number": "803",
+      "numbers": [
+        "803"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Basandilah",
+      "toAr": "بسنديلة",
+      "depart": "09:42",
+      "arrive": "10:51",
+      "durationMin": 69,
+      "stopCount": 8,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "09:42",
+          "arrAt": null,
+          "depAt": 582,
+          "at": 582,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "09:51",
+          "dep": "09:52",
+          "arrAt": 591,
+          "depAt": 592,
+          "at": 592,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "10:04",
+          "dep": "10:05",
+          "arrAt": 604,
+          "depAt": 605,
+          "at": 605,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "10:09",
+          "dep": "10:10",
+          "arrAt": 609,
+          "depAt": 610,
+          "at": 610,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "10:19",
+          "dep": "10:20",
+          "arrAt": 619,
+          "depAt": 620,
+          "at": 620,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "10:26",
+          "dep": "10:27",
+          "arrAt": 626,
+          "depAt": 627,
+          "at": 627,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "10:40",
+          "dep": "10:41",
+          "arrAt": 640,
+          "depAt": 641,
+          "at": 641,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "10:51",
+          "dep": null,
+          "arrAt": 651,
+          "depAt": null,
+          "at": 651,
+          "tbc": false,
+          "seq": 8
+        }
+      ]
+    },
+    {
+      "number": "809",
+      "numbers": [
+        "809"
+      ],
+      "type": "Mix",
+      "typeAr": "مختلط",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Basandilah",
+      "toAr": "بسنديلة",
+      "depart": "21:45",
+      "arrive": "23:08",
+      "durationMin": 83,
+      "stopCount": 8,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "21:45",
+          "arrAt": null,
+          "depAt": 1305,
+          "at": 1305,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "22:02",
+          "dep": "22:03",
+          "arrAt": 1322,
+          "depAt": 1323,
+          "at": 1323,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "22:12",
+          "dep": "22:13",
+          "arrAt": 1332,
+          "depAt": 1333,
+          "at": 1333,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "22:16",
+          "dep": "22:17",
+          "arrAt": 1336,
+          "depAt": 1337,
+          "at": 1337,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "22:32",
+          "dep": "22:33",
+          "arrAt": 1352,
+          "depAt": 1353,
+          "at": 1353,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "22:41",
+          "dep": "22:42",
+          "arrAt": 1361,
+          "depAt": 1362,
+          "at": 1362,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "22:58",
+          "dep": "22:59",
+          "arrAt": 1378,
+          "depAt": 1379,
+          "at": 1379,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "23:08",
+          "dep": null,
+          "arrAt": 1388,
+          "depAt": null,
+          "at": 1388,
+          "tbc": false,
+          "seq": 8
+        }
+      ]
+    },
+    {
+      "number": "810",
+      "numbers": [
+        "810"
+      ],
+      "type": "Mix",
+      "typeAr": "مختلط",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Cairo",
+      "toAr": "القاهرة",
+      "depart": "03:55",
+      "arrive": "08:10",
+      "durationMin": 255,
+      "stopCount": 18,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "03:55",
+          "arrAt": null,
+          "depAt": 235,
+          "at": 235,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "04:02",
+          "dep": "04:03",
+          "arrAt": 242,
+          "depAt": 243,
+          "at": 243,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "04:12",
+          "dep": "04:13",
+          "arrAt": 252,
+          "depAt": 253,
+          "at": 253,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "04:17",
+          "dep": "04:18",
+          "arrAt": 257,
+          "depAt": 258,
+          "at": 258,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "04:26",
+          "dep": "04:27",
+          "arrAt": 266,
+          "depAt": 267,
+          "at": 267,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "04:39",
+          "dep": "04:40",
+          "arrAt": 279,
+          "depAt": 280,
+          "at": 280,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "04:43",
+          "dep": "04:44",
+          "arrAt": 283,
+          "depAt": 284,
+          "at": 284,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "04:54",
+          "dep": "04:55",
+          "arrAt": 294,
+          "depAt": 295,
+          "at": 295,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "05:02",
+          "dep": "05:03",
+          "arrAt": 302,
+          "depAt": 303,
+          "at": 303,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "05:09",
+          "dep": "05:10",
+          "arrAt": 309,
+          "depAt": 310,
+          "at": 310,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "06:15",
+          "dep": "06:16",
+          "arrAt": 375,
+          "depAt": 376,
+          "at": 376,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Berket Saba",
+          "ar": "بركة السبع",
+          "arr": "06:48",
+          "dep": "06:49",
+          "arrAt": 408,
+          "depAt": 409,
+          "at": 409,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Quesna",
+          "ar": "قويسنا",
+          "arr": "07:00",
+          "dep": "07:01",
+          "arrAt": 420,
+          "depAt": 421,
+          "at": 421,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Banha",
+          "ar": "بنها",
+          "arr": "07:15",
+          "dep": "07:16",
+          "arrAt": 435,
+          "depAt": 436,
+          "at": 436,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Toukh",
+          "ar": "طوخ",
+          "arr": "07:28",
+          "dep": "07:29",
+          "arrAt": 448,
+          "depAt": 449,
+          "at": 449,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Qaha",
+          "ar": "قليوب",
+          "arr": "07:38",
+          "dep": "07:39",
+          "arrAt": 458,
+          "depAt": 459,
+          "at": 459,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Shobra Khemah",
+          "ar": "شبرا خيمة",
+          "arr": "07:56",
+          "dep": "07:57",
+          "arrAt": 476,
+          "depAt": 477,
+          "at": 477,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Cairo",
+          "ar": "القاهرة",
+          "arr": "08:10",
+          "dep": null,
+          "arrAt": 490,
+          "depAt": null,
+          "at": 490,
+          "tbc": false,
+          "seq": 18
+        }
+      ]
+    },
+    {
+      "number": "811/812",
+      "numbers": [
+        "811",
+        "812"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Basandilah",
+      "toAr": "بسنديلة",
+      "depart": "08:22",
+      "arrive": "10:26",
+      "durationMin": 124,
+      "stopCount": 12,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "08:22",
+          "arrAt": null,
+          "depAt": 502,
+          "at": 502,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "08:31",
+          "dep": "08:32",
+          "arrAt": 511,
+          "depAt": 512,
+          "at": 512,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "08:36",
+          "dep": "08:37",
+          "arrAt": 516,
+          "depAt": 517,
+          "at": 517,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "08:40",
+          "dep": "08:41",
+          "arrAt": 520,
+          "depAt": 521,
+          "at": 521,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "08:43",
+          "dep": "08:44",
+          "arrAt": 523,
+          "depAt": 524,
+          "at": 524,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "08:58",
+          "dep": "08:59",
+          "arrAt": 538,
+          "depAt": 539,
+          "at": 539,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "09:04",
+          "dep": "09:05",
+          "arrAt": 544,
+          "depAt": 545,
+          "at": 545,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "09:08",
+          "dep": "09:09",
+          "arrAt": 548,
+          "depAt": 549,
+          "at": 549,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "09:13",
+          "dep": "09:14",
+          "arrAt": 553,
+          "depAt": 554,
+          "at": 554,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "09:18",
+          "dep": "09:26",
+          "arrAt": 558,
+          "depAt": 566,
+          "at": 566,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "09:49",
+          "dep": "09:50",
+          "arrAt": 589,
+          "depAt": 590,
+          "at": 590,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "10:26",
+          "dep": null,
+          "arrAt": 626,
+          "depAt": null,
+          "at": 626,
+          "tbc": false,
+          "seq": 12
+        }
+      ]
+    },
+    {
+      "number": "814/815",
+      "numbers": [
+        "814",
+        "815"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Damanhour",
+      "toAr": "دمنهور",
+      "depart": "14:40",
+      "arrive": "18:10",
+      "durationMin": 210,
+      "stopCount": 32,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "14:40",
+          "arrAt": null,
+          "depAt": 880,
+          "at": 880,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "14:48",
+          "dep": "14:49",
+          "arrAt": 888,
+          "depAt": 889,
+          "at": 889,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Hajnah",
+          "ar": "كوم الحجنة",
+          "arr": "14:53",
+          "dep": "14:54",
+          "arrAt": 893,
+          "depAt": 894,
+          "at": 894,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Karykat",
+          "ar": "الكركات",
+          "arr": "14:57",
+          "dep": "14:58",
+          "arrAt": 897,
+          "depAt": 898,
+          "at": 898,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "15:04",
+          "dep": "15:05",
+          "arrAt": 904,
+          "depAt": 905,
+          "at": 905,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "15:19",
+          "dep": "15:20",
+          "arrAt": 919,
+          "depAt": 920,
+          "at": 920,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Salam",
+          "ar": "السلام",
+          "arr": "15:23",
+          "dep": "15:24",
+          "arrAt": 923,
+          "depAt": 924,
+          "at": 924,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Duqmayrah",
+          "ar": "دقميرة",
+          "arr": "15:28",
+          "dep": "15:29",
+          "arrAt": 928,
+          "depAt": 929,
+          "at": 929,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "15:33",
+          "dep": "15:34",
+          "arrAt": 933,
+          "depAt": 934,
+          "at": 934,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "15:44",
+          "dep": "15:45",
+          "arrAt": 944,
+          "depAt": 945,
+          "at": 945,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "15:48",
+          "dep": "15:49",
+          "arrAt": 948,
+          "depAt": 949,
+          "at": 949,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Rezqet Amay",
+          "ar": "رزقة أماي",
+          "arr": "15:53",
+          "dep": "15:54",
+          "arrAt": 953,
+          "depAt": 954,
+          "at": 954,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "16:00",
+          "dep": "16:01",
+          "arrAt": 960,
+          "depAt": 961,
+          "at": 961,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Hamidiyyah",
+          "ar": "الحميدية",
+          "arr": "16:04",
+          "dep": "16:05",
+          "arrAt": 964,
+          "depAt": 965,
+          "at": 965,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Monshaah Soghra",
+          "ar": "المنشأة الصغرى",
+          "arr": "16:08",
+          "dep": "16:09",
+          "arrAt": 968,
+          "depAt": 969,
+          "at": 969,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "16:11",
+          "dep": "16:12",
+          "arrAt": 971,
+          "depAt": 972,
+          "at": 972,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Henawi",
+          "ar": "الحناوي",
+          "arr": "16:15",
+          "dep": "16:16",
+          "arrAt": 975,
+          "depAt": 976,
+          "at": 976,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "16:44",
+          "dep": "16:45",
+          "arrAt": 1004,
+          "depAt": 1005,
+          "at": 1005,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Bekatush",
+          "ar": "البكاتوش",
+          "arr": "16:50",
+          "dep": "16:51",
+          "arrAt": 1010,
+          "depAt": 1011,
+          "at": 1011,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Kafr Gazayer",
+          "ar": "كفر الجزائر",
+          "arr": "16:55",
+          "dep": "16:56",
+          "arrAt": 1015,
+          "depAt": 1016,
+          "at": 1016,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Shbas",
+          "ar": "شباس",
+          "arr": "16:59",
+          "dep": "17:00",
+          "arrAt": 1019,
+          "depAt": 1020,
+          "at": 1020,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Madinah",
+          "ar": "المدينة",
+          "arr": "17:05",
+          "dep": "17:06",
+          "arrAt": 1025,
+          "depAt": 1026,
+          "at": 1026,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Gmagmun",
+          "ar": "جماجمون",
+          "arr": "17:10",
+          "dep": "17:11",
+          "arrAt": 1030,
+          "depAt": 1031,
+          "at": 1031,
+          "tbc": false,
+          "seq": 23
+        },
+        {
+          "station": "Desouk",
+          "ar": "دسوق",
+          "arr": "17:15",
+          "dep": "17:16",
+          "arrAt": 1035,
+          "depAt": 1036,
+          "at": 1036,
+          "tbc": false,
+          "seq": 24
+        },
+        {
+          "station": "Rahmaniah",
+          "ar": "الرحمانية",
+          "arr": "17:30",
+          "dep": "17:31",
+          "arrAt": 1050,
+          "depAt": 1051,
+          "at": 1051,
+          "tbc": false,
+          "seq": 25
+        },
+        {
+          "station": "Fath",
+          "ar": "الفتح",
+          "arr": "17:35",
+          "dep": "17:36",
+          "arrAt": 1055,
+          "depAt": 1056,
+          "at": 1056,
+          "tbc": false,
+          "seq": 26
+        },
+        {
+          "station": "Khazan",
+          "ar": "الخزان",
+          "arr": "17:40",
+          "dep": "17:41",
+          "arrAt": 1060,
+          "depAt": 1061,
+          "at": 1061,
+          "tbc": false,
+          "seq": 27
+        },
+        {
+          "station": "Hwariah",
+          "ar": "الهوارية",
+          "arr": "17:44",
+          "dep": "17:45",
+          "arrAt": 1064,
+          "depAt": 1065,
+          "at": 1065,
+          "tbc": false,
+          "seq": 28
+        },
+        {
+          "station": "Sanhur",
+          "ar": "سنهور",
+          "arr": "17:50",
+          "dep": "17:51",
+          "arrAt": 1070,
+          "depAt": 1071,
+          "at": 1071,
+          "tbc": false,
+          "seq": 29
+        },
+        {
+          "station": "Nefrah",
+          "ar": "نفرة",
+          "arr": "17:54",
+          "dep": "17:55",
+          "arrAt": 1074,
+          "depAt": 1075,
+          "at": 1075,
+          "tbc": false,
+          "seq": 30
+        },
+        {
+          "station": "Kafr Beni Helal",
+          "ar": "كفر بني هلال",
+          "arr": "17:59",
+          "dep": "18:00",
+          "arrAt": 1079,
+          "depAt": 1080,
+          "at": 1080,
+          "tbc": false,
+          "seq": 31
+        },
+        {
+          "station": "Damanhour",
+          "ar": "دمنهور",
+          "arr": "18:10",
+          "dep": null,
+          "arrAt": 1090,
+          "depAt": null,
+          "at": 1090,
+          "tbc": false,
+          "seq": 32
+        }
+      ]
+    },
+    {
+      "number": "876",
+      "numbers": [
+        "876"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Tanta",
+      "toAr": "طنطا",
+      "depart": "12:30",
+      "arrive": "15:10",
+      "durationMin": 160,
+      "stopCount": 17,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "12:30",
+          "arrAt": null,
+          "depAt": 750,
+          "at": 750,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "12:38",
+          "dep": "12:39",
+          "arrAt": 758,
+          "depAt": 759,
+          "at": 759,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "12:51",
+          "dep": "12:52",
+          "arrAt": 771,
+          "depAt": 772,
+          "at": 772,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "12:59",
+          "dep": "13:00",
+          "arrAt": 779,
+          "depAt": 780,
+          "at": 780,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "13:08",
+          "dep": "13:09",
+          "arrAt": 788,
+          "depAt": 789,
+          "at": 789,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "13:20",
+          "dep": "13:21",
+          "arrAt": 800,
+          "depAt": 801,
+          "at": 801,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "13:25",
+          "dep": "13:26",
+          "arrAt": 805,
+          "depAt": 806,
+          "at": 806,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "13:39",
+          "dep": "13:40",
+          "arrAt": 819,
+          "depAt": 820,
+          "at": 820,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "13:48",
+          "dep": "13:49",
+          "arrAt": 828,
+          "depAt": 829,
+          "at": 829,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "13:59",
+          "dep": "14:00",
+          "arrAt": 839,
+          "depAt": 840,
+          "at": 840,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Qleen B",
+          "ar": "قلين البلد",
+          "arr": "14:01",
+          "dep": "14:02",
+          "arrAt": 841,
+          "depAt": 842,
+          "at": 842,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Shin",
+          "ar": "الشين",
+          "arr": "14:11",
+          "dep": "14:12",
+          "arrAt": 851,
+          "depAt": 852,
+          "at": 852,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Qotur",
+          "ar": "قطور",
+          "arr": "14:21",
+          "dep": "14:22",
+          "arrAt": 861,
+          "depAt": 862,
+          "at": 862,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Ebshway",
+          "ar": "إبشواي",
+          "arr": "14:40",
+          "dep": "14:41",
+          "arrAt": 880,
+          "depAt": 881,
+          "at": 881,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Segin",
+          "ar": "سجين الكوم",
+          "arr": "14:46",
+          "dep": "14:47",
+          "arrAt": 886,
+          "depAt": 887,
+          "at": 887,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Mahallat Rouh",
+          "ar": "محلة روح",
+          "arr": "14:54",
+          "dep": "14:55",
+          "arrAt": 894,
+          "depAt": 895,
+          "at": 895,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Tanta",
+          "ar": "طنطا",
+          "arr": "15:10",
+          "dep": null,
+          "arrAt": 910,
+          "depAt": null,
+          "at": 910,
+          "tbc": false,
+          "seq": 17
+        }
+      ]
+    },
+    {
+      "number": "883/884",
+      "numbers": [
+        "883",
+        "884"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Alexandria",
+      "toAr": "الإسكندرية",
+      "depart": "11:50",
+      "arrive": "16:10",
+      "durationMin": 260,
+      "stopCount": 23,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "11:50",
+          "arrAt": null,
+          "depAt": 710,
+          "at": 710,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "11:57",
+          "dep": "11:58",
+          "arrAt": 717,
+          "depAt": 718,
+          "at": 718,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "12:08",
+          "dep": "12:09",
+          "arrAt": 728,
+          "depAt": 729,
+          "at": 729,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "12:13",
+          "dep": "12:14",
+          "arrAt": 733,
+          "depAt": 734,
+          "at": 734,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "12:22",
+          "dep": "12:23",
+          "arrAt": 742,
+          "depAt": 743,
+          "at": 743,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "12:34",
+          "dep": "12:35",
+          "arrAt": 754,
+          "depAt": 755,
+          "at": 755,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "12:39",
+          "dep": "12:40",
+          "arrAt": 759,
+          "depAt": 760,
+          "at": 760,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "12:47",
+          "dep": "12:48",
+          "arrAt": 767,
+          "depAt": 768,
+          "at": 768,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "12:56",
+          "dep": "12:57",
+          "arrAt": 776,
+          "depAt": 777,
+          "at": 777,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "12:05",
+          "dep": "12:20",
+          "arrAt": 725,
+          "depAt": 740,
+          "at": 777,
+          "tbc": true,
+          "seq": 10
+        },
+        {
+          "station": "Bekatush",
+          "ar": "البكاتوش",
+          "arr": "12:26",
+          "dep": "12:27",
+          "arrAt": 746,
+          "depAt": 747,
+          "at": 777,
+          "tbc": true,
+          "seq": 11
+        },
+        {
+          "station": "Shbas",
+          "ar": "شباس",
+          "arr": "12:47",
+          "dep": "12:49",
+          "arrAt": 767,
+          "depAt": 769,
+          "at": 777,
+          "tbc": true,
+          "seq": 12
+        },
+        {
+          "station": "Madinah",
+          "ar": "المدينة",
+          "arr": "12:54",
+          "dep": "12:56",
+          "arrAt": 774,
+          "depAt": 776,
+          "at": 777,
+          "tbc": true,
+          "seq": 13
+        },
+        {
+          "station": "Desouk",
+          "ar": "دسوق",
+          "arr": "14:05",
+          "dep": "14:08",
+          "arrAt": 845,
+          "depAt": 848,
+          "at": 848,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Rahmaniah",
+          "ar": "الرحمانية",
+          "arr": "14:13",
+          "dep": "14:15",
+          "arrAt": 853,
+          "depAt": 855,
+          "at": 855,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Khazan",
+          "ar": "الخزان",
+          "arr": "14:22",
+          "dep": "14:23",
+          "arrAt": 862,
+          "depAt": 863,
+          "at": 863,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Hwariah",
+          "ar": "الهوارية",
+          "arr": "14:26",
+          "dep": "14:27",
+          "arrAt": 866,
+          "depAt": 867,
+          "at": 867,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Sanhur",
+          "ar": "سنهور",
+          "arr": "14:30",
+          "dep": "14:38",
+          "arrAt": 870,
+          "depAt": 878,
+          "at": 878,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Damanhour",
+          "ar": "دمنهور",
+          "arr": "14:50",
+          "dep": "15:05",
+          "arrAt": 890,
+          "depAt": 905,
+          "at": 905,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Abo Homos",
+          "ar": "أبو حمص",
+          "arr": "15:23",
+          "dep": "15:24",
+          "arrAt": 923,
+          "depAt": 924,
+          "at": 924,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Kafr Dawar",
+          "ar": "كفر الدوار",
+          "arr": "15:37",
+          "dep": "15:38",
+          "arrAt": 937,
+          "depAt": 938,
+          "at": 938,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Sidi Gaber",
+          "ar": "سيدي جابر",
+          "arr": "16:00",
+          "dep": "16:03",
+          "arrAt": 960,
+          "depAt": 963,
+          "at": 963,
+          "tbc": false,
+          "seq": 22
+        },
+        {
+          "station": "Alexandria",
+          "ar": "الإسكندرية",
+          "arr": "16:10",
+          "dep": null,
+          "arrAt": 970,
+          "depAt": null,
+          "at": 970,
+          "tbc": false,
+          "seq": 23
+        }
+      ]
+    },
+    {
+      "number": "889/892",
+      "numbers": [
+        "889",
+        "892"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Biyala",
+      "fromAr": "بيلا",
+      "to": "Alexandria",
+      "toAr": "الإسكندرية",
+      "depart": "04:35",
+      "arrive": "08:10",
+      "durationMin": 215,
+      "stopCount": 22,
+      "stops": [
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": null,
+          "dep": "04:35",
+          "arrAt": null,
+          "depAt": 275,
+          "at": 275,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "04:42",
+          "dep": "04:43",
+          "arrAt": 282,
+          "depAt": 283,
+          "at": 283,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "04:52",
+          "dep": "04:53",
+          "arrAt": 292,
+          "depAt": 293,
+          "at": 293,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "04:57",
+          "dep": "05:02",
+          "arrAt": 297,
+          "depAt": 302,
+          "at": 302,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Murabian",
+          "ar": "المرابعين",
+          "arr": "05:10",
+          "dep": "05:11",
+          "arrAt": 310,
+          "depAt": 311,
+          "at": 311,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": "05:20",
+          "dep": "05:22",
+          "arrAt": 320,
+          "depAt": 322,
+          "at": 322,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "05:25",
+          "dep": "05:26",
+          "arrAt": 325,
+          "depAt": 326,
+          "at": 326,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "05:31",
+          "dep": "05:32",
+          "arrAt": 331,
+          "depAt": 332,
+          "at": 332,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "05:39",
+          "dep": "05:40",
+          "arrAt": 339,
+          "depAt": 340,
+          "at": 340,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "05:54",
+          "dep": "05:55",
+          "arrAt": 354,
+          "depAt": 355,
+          "at": 355,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Shbas",
+          "ar": "شباس",
+          "arr": "06:07",
+          "dep": "06:12",
+          "arrAt": 367,
+          "depAt": 372,
+          "at": 372,
+          "tbc": false,
+          "seq": 11
+        },
+        {
+          "station": "Madinah",
+          "ar": "المدينة",
+          "arr": "06:17",
+          "dep": "06:18",
+          "arrAt": 377,
+          "depAt": 378,
+          "at": 378,
+          "tbc": false,
+          "seq": 12
+        },
+        {
+          "station": "Desouk",
+          "ar": "دسوق",
+          "arr": "06:27",
+          "dep": "06:28",
+          "arrAt": 387,
+          "depAt": 388,
+          "at": 388,
+          "tbc": false,
+          "seq": 13
+        },
+        {
+          "station": "Rahmaniah",
+          "ar": "الرحمانية",
+          "arr": "06:34",
+          "dep": "06:35",
+          "arrAt": 394,
+          "depAt": 395,
+          "at": 395,
+          "tbc": false,
+          "seq": 14
+        },
+        {
+          "station": "Khazan",
+          "ar": "الخزان",
+          "arr": "06:41",
+          "dep": "06:42",
+          "arrAt": 401,
+          "depAt": 402,
+          "at": 402,
+          "tbc": false,
+          "seq": 15
+        },
+        {
+          "station": "Hwariah",
+          "ar": "الهوارية",
+          "arr": "06:45",
+          "dep": "06:46",
+          "arrAt": 405,
+          "depAt": 406,
+          "at": 406,
+          "tbc": false,
+          "seq": 16
+        },
+        {
+          "station": "Sanhur",
+          "ar": "سنهور",
+          "arr": "06:49",
+          "dep": "06:50",
+          "arrAt": 409,
+          "depAt": 410,
+          "at": 410,
+          "tbc": false,
+          "seq": 17
+        },
+        {
+          "station": "Damanhour",
+          "ar": "دمنهور",
+          "arr": "07:04",
+          "dep": "07:05",
+          "arrAt": 424,
+          "depAt": 425,
+          "at": 425,
+          "tbc": false,
+          "seq": 18
+        },
+        {
+          "station": "Abo Homos",
+          "ar": "أبو حمص",
+          "arr": "07:24",
+          "dep": "07:25",
+          "arrAt": 444,
+          "depAt": 445,
+          "at": 445,
+          "tbc": false,
+          "seq": 19
+        },
+        {
+          "station": "Kafr Dawar",
+          "ar": "كفر الدوار",
+          "arr": "07:39",
+          "dep": "07:40",
+          "arrAt": 459,
+          "depAt": 460,
+          "at": 460,
+          "tbc": false,
+          "seq": 20
+        },
+        {
+          "station": "Sidi Gaber",
+          "ar": "سيدي جابر",
+          "arr": "07:55",
+          "dep": "08:00",
+          "arrAt": 475,
+          "depAt": 480,
+          "at": 480,
+          "tbc": false,
+          "seq": 21
+        },
+        {
+          "station": "Alexandria",
+          "ar": "الإسكندرية",
+          "arr": "08:10",
+          "dep": null,
+          "arrAt": 490,
+          "depAt": null,
+          "at": 490,
+          "tbc": false,
+          "seq": 22
+        }
+      ]
+    },
+    {
+      "number": "894/899",
+      "numbers": [
+        "894",
+        "899"
+      ],
+      "type": "Improved",
+      "typeAr": "محسّن",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Basandilah",
+      "toAr": "بسنديلة",
+      "depart": "20:00",
+      "arrive": "21:08",
+      "durationMin": 68,
+      "stopCount": 7,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "20:00",
+          "arrAt": null,
+          "depAt": 1200,
+          "at": 1200,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Sidi Ghazy",
+          "ar": "سيدي غازي",
+          "arr": "20:17",
+          "dep": "20:18",
+          "arrAt": 1217,
+          "depAt": 1218,
+          "at": 1218,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Kom Taweel",
+          "ar": "الكوم الطويل",
+          "arr": "20:23",
+          "dep": "20:24",
+          "arrAt": 1223,
+          "depAt": 1224,
+          "at": 1224,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Ibshan",
+          "ar": "أبشان",
+          "arr": "20:33",
+          "dep": "20:34",
+          "arrAt": 1233,
+          "depAt": 1234,
+          "at": 1234,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Biyala",
+          "ar": "بيلا",
+          "arr": "20:41",
+          "dep": "20:42",
+          "arrAt": 1241,
+          "depAt": 1242,
+          "at": 1242,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Belkas",
+          "ar": "بلقاس",
+          "arr": "20:58",
+          "dep": "20:59",
+          "arrAt": 1258,
+          "depAt": 1259,
+          "at": 1259,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Basandilah",
+          "ar": "بسنديلة",
+          "arr": "21:08",
+          "dep": null,
+          "arrAt": 1268,
+          "depAt": null,
+          "at": 1268,
+          "tbc": false,
+          "seq": 7
+        }
+      ]
+    },
+    {
+      "number": "1150/1151",
+      "numbers": [
+        "1150",
+        "1151"
+      ],
+      "type": "AC Russian",
+      "typeAr": "مكيّف روسي",
+      "from": "Kafr Sheikh",
+      "fromAr": "كفر الشيخ",
+      "to": "Alexandria",
+      "toAr": "الإسكندرية",
+      "depart": "04:50",
+      "arrive": "07:40",
+      "durationMin": 170,
+      "stopCount": 11,
+      "stops": [
+        {
+          "station": "Kafr Sheikh",
+          "ar": "كفر الشيخ",
+          "arr": null,
+          "dep": "04:50",
+          "arrAt": null,
+          "depAt": 290,
+          "at": 290,
+          "tbc": false,
+          "seq": 1
+        },
+        {
+          "station": "Sakha",
+          "ar": "سخا",
+          "arr": "05:00",
+          "dep": "05:01",
+          "arrAt": 300,
+          "depAt": 301,
+          "at": 301,
+          "tbc": false,
+          "seq": 2
+        },
+        {
+          "station": "Mahallat Mousa",
+          "ar": "محلة موسى",
+          "arr": "05:06",
+          "dep": "05:07",
+          "arrAt": 306,
+          "depAt": 307,
+          "at": 307,
+          "tbc": false,
+          "seq": 3
+        },
+        {
+          "station": "Nashart",
+          "ar": "نشرت",
+          "arr": "05:14",
+          "dep": "05:15",
+          "arrAt": 314,
+          "depAt": 315,
+          "at": 315,
+          "tbc": false,
+          "seq": 4
+        },
+        {
+          "station": "Qleen",
+          "ar": "قلين",
+          "arr": "05:29",
+          "dep": "05:30",
+          "arrAt": 329,
+          "depAt": 330,
+          "at": 330,
+          "tbc": false,
+          "seq": 5
+        },
+        {
+          "station": "Shbas",
+          "ar": "شباس",
+          "arr": "05:42",
+          "dep": "05:43",
+          "arrAt": 342,
+          "depAt": 343,
+          "at": 343,
+          "tbc": false,
+          "seq": 6
+        },
+        {
+          "station": "Desouk",
+          "ar": "دسوق",
+          "arr": "05:59",
+          "dep": "06:00",
+          "arrAt": 359,
+          "depAt": 360,
+          "at": 360,
+          "tbc": false,
+          "seq": 7
+        },
+        {
+          "station": "Sanhur",
+          "ar": "سنهور",
+          "arr": "06:18",
+          "dep": "06:19",
+          "arrAt": 378,
+          "depAt": 379,
+          "at": 379,
+          "tbc": false,
+          "seq": 8
+        },
+        {
+          "station": "Damanhour",
+          "ar": "دمنهور",
+          "arr": "06:44",
+          "dep": "06:45",
+          "arrAt": 404,
+          "depAt": 405,
+          "at": 405,
+          "tbc": false,
+          "seq": 9
+        },
+        {
+          "station": "Sidi Gaber",
+          "ar": "سيدي جابر",
+          "arr": "07:28",
+          "dep": "07:33",
+          "arrAt": 448,
+          "depAt": 453,
+          "at": 453,
+          "tbc": false,
+          "seq": 10
+        },
+        {
+          "station": "Alexandria",
+          "ar": "الإسكندرية",
+          "arr": "07:40",
+          "dep": null,
+          "arrAt": 460,
+          "depAt": null,
+          "at": 460,
+          "tbc": false,
+          "seq": 11
+        }
+      ]
+    }
+  ]
+}
