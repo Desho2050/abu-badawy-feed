@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T23:44:16Z",
+  "generatedAt": "2026-10-19T16:39:53Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -296,11 +296,10 @@
       "order": 85,
       "home": true,
       "enabled": true,
-      "subtitle": "جدول الرحلات الداخلية: ابحث برقم القطار أو باسم المحطة",
-      "managedBy": "admin",
+      "subtitle": "ابحث عن موعد القطار بين محطتين: الوقت والمدة وعدد الوقفات",
       "source": {
         "kind": "json",
-        "url": "data/sections/trains.json"
+        "url": "data/trains/timetable.json"
       },
       "notifications": {
         "default": false,
