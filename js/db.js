@@ -37,7 +37,8 @@ export const LAYOUTS = [
   ['channels', 'قنوات بروابط وشعار (channels)'],
   ['memorials', 'تذكرة وفاة ودعاء (memorials)'],
   ['trains', 'مواعيد قطارات برقم وخط (trains)'],
-  ['results', 'نتائج امتحانات برقم جلوس (results)']
+  ['results', 'نتائج امتحانات برقم جلوس (results)'],
+  ['schedule', 'جدول مواعيد امتحانات بمرحلة وموعد (schedule)']
 ];
 
 export const KINDS = [
