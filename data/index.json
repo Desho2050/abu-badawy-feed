@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T18:33:34Z",
+  "generatedAt": "2026-10-19T20:02:33Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -328,6 +328,25 @@
       "notifications": {
         "default": true,
         "breaking": false
+      }
+    },
+    {
+      "id": "exam_schedule",
+      "title": "جدول مواعيد الامتحانات",
+      "icon": "calendar",
+      "layout": "schedule",
+      "order": 87,
+      "home": false,
+      "enabled": true,
+      "subtitle": "مواعيد امتحانات كل مرحلة كما تعلنها الجهة الرسمية",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/exam_schedule.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": true
       }
     },
     {
