@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T16:39:53Z",
+  "generatedAt": "2026-10-19T18:33:34Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -29,6 +29,11 @@
     "latitude": 31.1728,
     "longitude": 31.221,
     "timezone": "Africa/Cairo"
+  },
+  "results": {
+    "restUrl": "https://hrsrtvrrpnwxqhadxhfg.supabase.co/rest/v1",
+    "anonKey": "sb_publishable_6Mr6jf92JV7sPn7XuyaFxg_VJm704a5",
+    "lookup": "lookup_result"
   },
   "legal": {
     "privacy": {
@@ -303,6 +308,25 @@
       },
       "notifications": {
         "default": false,
+        "breaking": false
+      }
+    },
+    {
+      "id": "results",
+      "title": "نتائج الامتحانات",
+      "icon": "school",
+      "layout": "results",
+      "order": 86,
+      "home": true,
+      "enabled": true,
+      "subtitle": "ابحث برقم جلوسك، واعرف متى تعتمد نتيجة كل مرحلة",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/results.json"
+      },
+      "notifications": {
+        "default": true,
         "breaking": false
       }
     },
