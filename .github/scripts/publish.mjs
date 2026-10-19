@@ -558,7 +558,7 @@ function toItem(row, index) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results']);
 const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter', 'calendar']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);
@@ -585,6 +585,23 @@ function renderLocation(raw) {
     longitude: Math.round(longitude * 1e6) / 1e6,
     timezone
   };
+}
+
+/**
+ * باب نتائج الطلبة: يُكتب في index.json كما هو، فيبني منه التطبيق استعلامه.
+ * لا يُمرَّر أي رابط غير بوابة Supabase لهذا المشروع بصيغتها المعروفة — فملف عام
+ * يتحكم في عنوان خوادمه بابٌ لخداع التطبيق، لا إعدادٌ يُوثق.
+ */
+function renderResults(raw) {
+  const cfg = raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : null;
+  if (!cfg) return null;
+  const restUrl = String(cfg.restUrl || '').trim();
+  if (!/^https:\/\/[a-z0-9-]{5,64}\.supabase\.co\/rest\/v1$/.test(restUrl)) return null;
+  const anonKey = String(cfg.anonKey || '').trim();
+  if (!/^(sb_publishable_[A-Za-z0-9_-]{16,}|eyJ[A-Za-z0-9_.-]{20,})$/.test(anonKey)) return null;
+  const lookup = /^[a-z_][a-z0-9_]{0,60}$/.test(String(cfg.lookup || '').trim())
+    ? String(cfg.lookup).trim() : 'lookup_result';
+  return { restUrl, anonKey, lookup };
 }
 
 function renderIndex(settings, sectionRows, legalRows) {
@@ -626,6 +643,8 @@ function renderIndex(settings, sectionRows, legalRows) {
     },
     /* موقع القرية: منه تُحسب مواقيت الصلاة وتُطلب الأرصاد. */
     location: renderLocation(settings.location),
+    /* باب بحث النتائج؛ يُحذف إن لم يضبطه الناشر، فيبقى القسم إعلانات بلا بحث. */
+    results: renderResults(settings.results),
     legal: {
       privacy: { title: legalTitle('privacy', 'سياسة الخصوصية'), url: path.posix.join(DATA_DIR, 'legal', 'privacy.json') },
       terms: { title: legalTitle('terms', 'شروط الاستخدام'), url: path.posix.join(DATA_DIR, 'legal', 'terms.json') }
@@ -673,6 +692,8 @@ function renderIndex(settings, sectionRows, legalRows) {
   if (!out.brand.tagline) delete out.brand.tagline;
   /* لا عمود location بعدُ أو إحداثيات غير صالحة: احذف المفتاح، فيتبنى التطبيق موضعه الافتراضي. */
   if (!out.location) delete out.location;
+  /* لا إعداد نتائج مضبوط: احذفه، فلا عنوان خاطئ يُرسل بحث الطالب إلى لا مكان. */
+  if (!out.results) delete out.results;
   return out;
 }
 

@@ -24,7 +24,7 @@ export const ICONS = [
   ['list', 'قائمة (list)'], ['menu', 'شبكة (menu)'], ['settings', 'إعدادات (settings)'],
   ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
   ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)'],
-  ['memorial', 'دعاء وتذكار (memorial)'], ['train', 'قطار (train)']
+  ['memorial', 'دعاء وتذكار (memorial)'], ['train', 'قطار (train)'], ['school', 'مدرسة/نتائج (school)']
 ];
 
 export const LAYOUTS = [
@@ -36,7 +36,8 @@ export const LAYOUTS = [
   ['calendar', 'تقويم هجري وميلادي (calendar)'],
   ['channels', 'قنوات بروابط وشعار (channels)'],
   ['memorials', 'تذكرة وفاة ودعاء (memorials)'],
-  ['trains', 'مواعيد قطارات برقم وخط (trains)']
+  ['trains', 'مواعيد قطارات برقم وخط (trains)'],
+  ['results', 'نتائج امتحانات برقم جلوس (results)']
 ];
 
 export const KINDS = [
