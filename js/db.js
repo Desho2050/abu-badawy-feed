@@ -25,7 +25,7 @@ export const ICONS = [
   ['mosque', 'مسجد/صلاة (mosque)'], ['thermostat', 'طقس (thermostat)'], ['calculate', 'آلة حاسبة (calculate)'],
   ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)'],
   ['memorial', 'دعاء وتذكار (memorial)'], ['train', 'قطار (train)'], ['school', 'مدرسة/نتائج (school)'],
-  ['voting', 'حملة انتخابية (voting)'], ['quran', 'مصحف وتلاوات (quran)'], ['tasks', 'مهام وتذكيرات (tasks)'],
+  ['voting', 'حملة انتخابية (voting)'], ['quran', 'قرآن وتلاوات (quran)'], ['tasks', 'مهام وتذكيرات (tasks)'],
   ['matches', 'مباريات ورياضة (matches)'], ['hadith', 'حديث نبوي (hadith)']
 ];
 
