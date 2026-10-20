@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20 04:39",
+  "updatedAt": "2026-10-20 04:39",
+  "attribution": {
+    "live": {
+      "name": "ESPN",
+      "url": "https://www.espn.com/soccer/"
+    },
+    "table": {
+      "name": "ويكيبيديا العربية — قالب:جدول الدوري المصري الممتاز 2026-27 (CC BY-SA 4.0)",
+      "url": "https://ar.wikipedia.org/wiki/قالب:جدول_الدوري_المصري_الممتاز_2026-27",
+      "updated": "10 سبتمبر 2026"
+    }
+  },
+  "note": "النتائجُ الحيّة من بوابة ESPN العامة؛ جدولُ الدوري المصري منقولٌ من ويكيبيديا العربية (CC BY-SA 4.0) بختم تاريخها. الأسماءُ العربية في teams.json منقولةٌ عن مقالات ويكيبيديا العربية، والنادي الذي لا مقالةً عربيةٌ ثقةً باسمه يبقى بلاتينيَّه.",
+  "competitions": [
+    {
+      "slug": "eng.1",
+      "arName": "الدوري الإنجليزي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "esp.1",
+      "arName": "الدوري الإسباني",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "ita.1",
+      "arName": "الدوري الإيطالي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "ger.1",
+      "arName": "الدوري الألماني",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "fra.1",
+      "arName": "الدوري الفرنسي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "por.1",
+      "arName": "الدوري البرتغالي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "ned.1",
+      "arName": "الدوري الهولندي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "sco.1",
+      "arName": "الدوري الإسكتلندي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "tur.1",
+      "arName": "الدوري التركي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "uefa.champions",
+      "arName": "دوري أبطال أوروبا",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "uefa.europa",
+      "arName": "الدوري الأوروبي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "uefa.europa.conf",
+      "arName": "دوري المؤتمر الأوروبي",
+      "group": "europe",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "caf.champions",
+      "arName": "دوري أبطال أفريقيا",
+      "group": "continental",
+      "live": true,
+      "feedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/caf.champions/scoreboard",
+      "sourceName": "ESPN",
+      "sourceUrl": "https://www.espn.com/soccer/"
+    },
+    {
+      "slug": "egy.1",
+      "arName": "الدوري المصري الممتاز",
+      "group": "egypt",
+      "live": false,
+      "feedUrl": "data/matches/egy.json",
+      "sourceName": "ويكيبيديا العربية — قالب:جدول الدوري المصري الممتاز 2026-27 (CC BY-SA 4.0)",
+      "sourceUrl": "https://ar.wikipedia.org/wiki/قالب:جدول_الدوري_المصري_الممتاز_2026-27",
+      "sourceUpdated": "10 سبتمبر 2026"
+    }
+  ]
+}
