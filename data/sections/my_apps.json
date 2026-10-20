@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "my_apps",
-  "updatedAt": "2026-10-20T13:03:51Z",
+  "updatedAt": "2026-10-20T13:13:40Z",
   "note": "كل تطبيق عنصر هنا: الصورة أيقونته، و«رابط خارجي» متجره، وحقل «المميزات» سطورًا في البطاقة.",
   "items": [
     {
@@ -11,6 +11,7 @@
       "subtitle": "القرآن الكريم بأصوات أشهر القراء، مع أوقات الصلاة والأذكار والتفسير واتجاه القبلة",
       "image": "https://play-lh.googleusercontent.com/KxRd1Ie31XGwkTwn65iyWirvKILatU2KmbEO-LvaPds_QQwPxGLz9uH1OkAkP-SF4g08S1wy19GJLdjDxYSlllM=w192-h192-rw",
       "body": "<p>تطبيق «كتاب رابي» رفيق إسلامي متكامل: قراءة القرآن الكريم بخط عثماني واضح مع تفسير مدمج وأصوات متعددة للقراء، وأوقات الصلاة المحسوبة بدقة حسب موقعك مع إشعارات الأذان، والأذكار الصباحية والمسائية والنوم، إلى جانب البحث في القرآن والإشارات المرجعية وسجل القراءة واتجاه القبلة وعداد التسبيح والمتشابهات القرآنية ومواضيع قرآنية مختارة. يتميز بوضع ليلي مريح للعين وخطوط قابلة للتخصيص، ويعمل بدون إنترنت بعد تحميل البيانات.</p>",
+      "pinned": true,
       "link": "https://play.google.com/store/apps/details?id=ketabu.raby&hl=ar",
       "source": {
         "name": "Google Play",
@@ -29,6 +30,7 @@
       "date": "2026-10-19",
       "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
       "image": "https://lh3.googleusercontent.com/WZuhsBiWPfpnLDcsEHEpwszKsFqPRaHuj44VJ5RRvvKvmoYnJGwGI-uTbJ03gE9Bnm1TyDsadqNVoR2XYVxEoG4=w192-h192-rw",
+      "pinned": true,
       "source": {
         "name": "Desho.Co.Ltd",
         "url": ""
