@@ -31,7 +31,8 @@
 alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains')
+             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
+             'results','schedule','campaigns','quran','tasks','matches','hadith')
 );
 
 -- 2) القسم: ترتيبه 115 يلي «العزاء والوفيات» (110)، فهو ذاكرته لا إعلانه.

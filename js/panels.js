@@ -767,7 +767,7 @@ function itemEditor(draftIn, ctx, onDone) {
   function drawSectionHint() {
     const row = ctx.model.sections.find((s) => s.id === draft.section_id);
     const layout = row && row.layout;
-    const show = ['apps', 'channels', 'memorials', 'trains', 'schedule', 'campaigns', 'quran'].includes(layout);
+    const show = ['apps', 'channels', 'memorials', 'trains', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith'].includes(layout);
     sectionHint.style.display = show ? '' : 'none';
     if (!show) return;
     sectionHint.textContent = layout === 'apps'
@@ -805,6 +805,23 @@ function itemEditor(draftIn, ctx, onDone) {
             + 'فقط، وهذا القسم fileٌ بامتداد قسمِ المواعيد. ولا يُحفظ صوتٌ ولا نصُّ قرآنٍ على '
             + 'خادم القرية: التطبيقُ يربط بموزّع mp3quran ويُنزّل عند نقرِ المستخدم، ويذكر '
             + 'الموزّع على الشاشة.'
+        : layout === 'tasks'
+          ? 'قسم «مهامي اليومية» لا عناصرَ له البتّة: بياناتُه مهامُ كل مستخدمٍ على جهازه '
+            + 'وحده، يُضيفها ويؤرّخها ويعلّمها بنفسه داخل التطبيق، والتذكيرُ يعمل من جهازه هو. '
+            + 'لا تضيف مهمةً هنا ولا تنسخ مهامَ أحد: فالناشر لا يقرأ عناصرَ هذا القسم (مصدرُه '
+            + 'inline لا admin)، ولو فُرض يومًا إخفاؤه أو تغييرُ اسمه فمن لوحة الأقسام وحده.'
+        : layout === 'matches'
+          ? 'قسم «مباريات اليوم» لا عناصرَ له: مصدرُه كتالوجٌ مولَّد بأداة المستودع '
+            + 'tools/gen-matches-catalog.mjs وملفُّه web/data/matches/catalog.json في مستودع '
+            + 'التغذية، مع جدول الدوري المصري في data/matches/egy.json وأسماء الأندية في '
+            + 'teams.json. النتائجُ حيّةٌ من بوابة ESPN العامة يقرأها التطبيق عند فتح القسم، '
+            + 'فيذكر ختمَ تاريخها ولا يجعلها شهادةً منا. لا تضف مباراةً هنا فلن تُنشر.'
+        : layout === 'hadith'
+          ? 'قسم «صحيح البخاري ومسلم» لا عناصرَ له: فهرسُ كتبه في web/data/hadith/titles.json '
+            + 'وهو مولَّد بأداة المستودع، وأسماءُ الكتب العربية لم تُنشر منه حتى وُجد لها صفحةٌ '
+            + 'به على ويكي مصدر، والمتونُ يجلبها التطبيق من fawazahmed0/hadith-api على jsDelivr '
+            + 'ولا تُنسخ إلى خادم القرية البتّة. لا تضف حديثًا ولا كتابًا هنا: فالناشر '
+            + 'لا يكتب عناصرَ هذا التخطيط، والمصدرُ لا يرسل درجةً للحديث فلا يحكم التطبيق عليها.'
         : layout === 'trains'
           ? 'قسم قطارات: العنوان رقم القطار وخطه على مثال «906 — القاهرة ← الإسكندرية»، '
             + 'واكتب في الحقول الإضافية الأسطر: رقم، النوع، من، إلى، قيام، وصول، المدة، '

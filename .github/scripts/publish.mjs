@@ -558,7 +558,7 @@ function toItem(row, index) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results', 'schedule', 'campaigns', 'quran']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith']);
 const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter', 'calendar']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);
@@ -799,7 +799,21 @@ async function main() {
   console.log('✓ index.json ← ' + indexPayload.sections.length + ' قسمًا');
 
   /* 6أ) أقسام json المُدارة من اللوحة */
-  const managed = sectionRows.filter((row) => row.items_source === 'admin' && (row.source_kind || 'json') === 'json');
+  /*
+   * تخطيطاتُ الكتالوج لا تُنشر عناصرَها ولو قال صفُّها items_source=admin:
+   * timetable.json وmushafs.json وcatalog.json وtitles.json ملفاتٌ مولَّدة بلا مصفوفة
+   * items، فكتابةُ «items: []» فوقها تمسح قسمًا كاملًا، وحارسُ «الملف السابق غير فارغ»
+   * لا يراها لأنه لا items فيها.
+   */
+  const CATALOG_LAYOUTS = new Set(['trains', 'quran', 'matches', 'hadith']);
+  const managed = sectionRows.filter((row) => {
+    if (row.items_source !== 'admin' || (row.source_kind || 'json') !== 'json') return false;
+    if (CATALOG_LAYOUTS.has(row.layout)) {
+      notice('قسم «' + row.id + '» تخطيطُهُ كتالوجٌ مولَّد، وتُرِك ملفُّه وإن قال صفُّه items_source=admin — اجعله file في لوحة الأقسام.');
+      return false;
+    }
+    return true;
+  });
   const grouped = new Map();
   live.forEach((row) => {
     const id = plain(row.section_id, 60);

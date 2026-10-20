@@ -7,8 +7,9 @@
 -- كملف ثابت: data/trains/timetable.json.
 --
 -- لماذا لا يمسّه ناشر التغذية؟ لأن publish.mjs ينشر عناصر الأقسام التي items_source=admin
--- فقط (.github/scripts/publish.mjs:781)، ويطبع source.url لأي قسم json من feed_url إن وُجد
--- (الدالة sectionFileOf في السطر 568). فجعل القسم غيرَ مُدار وربطه بملفه يجعل index.json
+-- فقط (مرشَّح `managed` في الدالة الرئيسية، ويستثني تخطيطاتِ الكتالوج وحدها)،
+-- ويطبع source.url لأي قسم json من feed_url إن وُجد
+-- (الدالة sectionFileOf). فجعل القسم غيرَ مُدار وربطه بملفه يجعل index.json
 -- يشير إلى الملف المولَّد، ويبقي جدولة النشر كل خمس دقائق بعيدًا عنه.
 --
 -- التطبيق يعرف الصيغة من layout='trains' فيجلب source.url كما هو (ContentSource.trains)

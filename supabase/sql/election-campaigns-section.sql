@@ -21,7 +21,7 @@ alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
              'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns')
+             'results','schedule','campaigns','quran','tasks','matches','hadith')
 );
 
 -- 2) القسم: ترتيبه ٩٨ — بعد التطبيقات والقنوات وقبل «إعلانات القرية» (١٠٠): إعلاناتٌ هي،

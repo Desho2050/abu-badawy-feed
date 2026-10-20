@@ -37,7 +37,8 @@
 alter table public.sections drop constraint if exists sections_layout_check;
 alter table public.sections add constraint sections_layout_check check (
   layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains')
+             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
+             'results','schedule','campaigns','quran','tasks','matches','hadith')
 );
 
 -- 2) القسم: ترتيبه 85 يلي أسعار الذهب (80) ويُسبق العروض (90)، فهو خدمة يومية.
@@ -48,7 +49,7 @@ values
   ('trains', 'مواعيد قطارات مصر',
    'جدول الرحلات الداخلية: ابحث برقم القطار أو باسم المحطة',
    'train', 'trains', 'json', 85,
-   true, true, false, false, 'admin',
+   true, true, false, false, 'file',
    'كل رحلة عنصر: العنوان رقمها وخطها، وفي الحقول أسطر: رقم، النوع، من، إلى، قيام، وصول، '
    || 'المدة، الوقفات، الأسعار، الأيام، و«التاريخ كما يظهر» تاريخ سريان الجدول. المواعيد '
    || 'تُدخل من الإعلان الرسمي لهيئة السكك الحديدية؛ فالموقع يرفض الجلب الآلي (كل مساراته '
