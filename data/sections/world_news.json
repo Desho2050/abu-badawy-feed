@@ -1,36 +1,9 @@
 {
   "schemaVersion": 1,
   "sectionId": "world_news",
-  "updatedAt": "2026-10-20T09:27:26Z",
+  "updatedAt": "2026-10-20T12:17:23Z",
   "note": "هذا القسم يُكتب ملخصًا أصليًا باللغة العربية مع رابط المصدر، لا نقلًا حرفيًا. أو يُحوَّل إلى RSS عبر تغيير source.kind في index.json (راجع README).",
   "items": [
-    {
-      "id": "wn-1",
-      "title": "عنوان الخبر العالمي بصياغة القرية",
-      "date": "2026-09-28",
-      "subtitle": "ملخص من سطرين نكتبه بأسلوبنا، لا نسخة من المصدر",
-      "body": "<p>ملخص تحريري خاص بالقرية، ويظهر في التطبيق مع زر «فتح المصدر».</p>",
-      "tags": [
-        "عالمي"
-      ],
-      "link": "https://example.com/original-story",
-      "source": {
-        "name": "اسم المصدر الأصلي",
-        "url": "https://example.com/original-story"
-      }
-    },
-    {
-      "id": "wn-2",
-      "title": "خبر ثانٍ مع مصدر موثّق",
-      "date": "2026-09-27",
-      "subtitle": "مثال على التوثيق",
-      "body": "<p>نص الملخص.</p>",
-      "link": "https://example.com/another-story",
-      "source": {
-        "name": "اسم المصدر",
-        "url": "https://example.com/another-story"
-      }
-    },
     {
       "id": "rss-aa445d5401ca",
       "title": "دراسة: النيكوتين أثناء الحمل يؤثر على مناعة الطفل مدى الحياة",
