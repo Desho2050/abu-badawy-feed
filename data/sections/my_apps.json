@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "my_apps",
-  "updatedAt": "2026-10-19T18:12:16Z",
+  "updatedAt": "2026-10-20T13:03:51Z",
   "note": "كل تطبيق عنصر هنا: الصورة أيقونته، و«رابط خارجي» متجره، وحقل «المميزات» سطورًا في البطاقة.",
   "items": [
     {
@@ -21,6 +21,24 @@
         "المطوّر": "Desho.Co.Ltd",
         "المميزات": "خط عثماني واضح مع تفسير مدمج، أصوات متعددة للقراء، أوقات الصلاة مع إشعار الأذان، الأذكار الصباحية والمسائية والنوم، اتجاه القبلة وعداد التسبيح، وضع ليلي وخطوط قابلة للتخصيص، يعمل بدون إنترنت بعد تحميل البيانات",
         "آخر تحديث": "2026-09-28"
+      }
+    },
+    {
+      "id": "net-quran-mihrab",
+      "title": "محراب — مصاحف بأصوات القرّاء",
+      "date": "2026-10-19",
+      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
+      "image": "https://lh3.googleusercontent.com/WZuhsBiWPfpnLDcsEHEpwszKsFqPRaHuj44VJ5RRvvKvmoYnJGwGI-uTbJ03gE9Bnm1TyDsadqNVoR2XYVxEoG4=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "net.quran.mihrab",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-19"
       }
     },
     {
@@ -116,24 +134,6 @@
         "الحزمة": "com.elwahsh.subway",
         "المطوّر": "Desho.Co.Ltd",
         "آخر حزمة": "2026-10-18"
-      }
-    },
-    {
-      "id": "net-quran-mihrab",
-      "title": "محراب — مصاحف بأصوات القرّاء",
-      "date": "2026-10-19",
-      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/WZuhsBiWPfpnLDcsEHEpwszKsFqPRaHuj44VJ5RRvvKvmoYnJGwGI-uTbJ03gE9Bnm1TyDsadqNVoR2XYVxEoG4=w192-h192-rw",
-      "source": {
-        "name": "Desho.Co.Ltd",
-        "url": ""
-      },
-      "fields": {
-        "النوع": "تطبيق",
-        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "net.quran.mihrab",
-        "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-19"
       }
     },
     {
