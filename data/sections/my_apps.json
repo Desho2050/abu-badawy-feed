@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "my_apps",
-  "updatedAt": "2026-10-20T13:13:40Z",
+  "updatedAt": "2026-10-21T20:44:44Z",
   "note": "كل تطبيق عنصر هنا: الصورة أيقونته، و«رابط خارجي» متجره، وحقل «المميزات» سطورًا في البطاقة.",
   "items": [
     {
@@ -22,25 +22,6 @@
         "المطوّر": "Desho.Co.Ltd",
         "المميزات": "خط عثماني واضح مع تفسير مدمج، أصوات متعددة للقراء، أوقات الصلاة مع إشعار الأذان، الأذكار الصباحية والمسائية والنوم، اتجاه القبلة وعداد التسبيح، وضع ليلي وخطوط قابلة للتخصيص، يعمل بدون إنترنت بعد تحميل البيانات",
         "آخر تحديث": "2026-09-28"
-      }
-    },
-    {
-      "id": "net-quran-mihrab",
-      "title": "محراب — مصاحف بأصوات القرّاء",
-      "date": "2026-10-19",
-      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/WZuhsBiWPfpnLDcsEHEpwszKsFqPRaHuj44VJ5RRvvKvmoYnJGwGI-uTbJ03gE9Bnm1TyDsadqNVoR2XYVxEoG4=w192-h192-rw",
-      "pinned": true,
-      "source": {
-        "name": "Desho.Co.Ltd",
-        "url": ""
-      },
-      "fields": {
-        "النوع": "تطبيق",
-        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "net.quran.mihrab",
-        "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-19"
       }
     },
     {
@@ -139,6 +120,153 @@
       }
     },
     {
+      "id": "com-desho-browser",
+      "title": "Desho.Browser",
+      "date": "2026-10-17",
+      "subtitle": "متصفح سريع وخاص مع حجب الإعلانات، وماسح ضوئي لرموز QR، ووضع داكن وعلامات تبويب.",
+      "image": "https://lh3.googleusercontent.com/MWW1LV5Kaw-1hJtenitKmyADVzAfs9n4SqMl2V2FqjmUCco6qm8ljpSkexrMO8QyIPcP9Tabjtuo7CjX1UW8o8k=w192-h192-rw",
+      "link": "https://play.google.com/store/apps/details?id=com.desho.browser&hl=ar",
+      "source": {
+        "name": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.desho.browser&hl=ar"
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "منشور على متجر Google Play",
+        "الحزمة": "com.desho.browser",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-17"
+      }
+    },
+    {
+      "id": "com-deshosmart-pos",
+      "title": "DeshoSmart POS",
+      "date": "2026-10-17",
+      "subtitle": "نقاط بيع للمحلات والمطاعم: فواتير سريعة، ومخزون، وعملاء وتقارير، بواجهة عربية.",
+      "image": "https://lh3.googleusercontent.com/oG0B9MQvbjKlZZEGGVDA0jfc5WKuzJEnL_-hTnt2B5Uk2ux0wnRRJ7F_9NBYsnO5wmPyUnYFP7arPg29vLKRWw=w192-h192-rw",
+      "link": "https://play.google.com/store/apps/details?id=com.deshosmart.pos&hl=ar",
+      "source": {
+        "name": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.deshosmart.pos&hl=ar"
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "منشور على متجر Google Play",
+        "الحزمة": "com.deshosmart.pos",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-17"
+      }
+    },
+    {
+      "id": "com-seham-fruits",
+      "title": "Seham Fruits",
+      "date": "2026-10-17",
+      "subtitle": "لعبة مطابقة فواكه: 1000 مستوى، وألغاز الزعماء، وتحديات يومية — كل ذلك دون إنترنت.",
+      "image": "https://lh3.googleusercontent.com/eQkyR4VXCmDNLHp5dD4vPjgoUQkheBWhl58jPfmSrroy5a3arVVG-hiur3iYVTz9c6qaJe_acU8jqtIm3s8i83A=w192-h192-rw",
+      "link": "https://play.google.com/store/apps/details?id=com.seham.fruits&hl=ar",
+      "source": {
+        "name": "Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.seham.fruits&hl=ar"
+      },
+      "fields": {
+        "النوع": "لعبة",
+        "الحالة": "منشور على متجر Google Play",
+        "الحزمة": "com.seham.fruits",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-17"
+      }
+    },
+    {
+      "id": "com-abubadawy-app",
+      "title": "قرية أبو بدوي | أخبار وخدمات",
+      "date": "2026-10-20",
+      "subtitle": "تطبيق القرية الذي تعرض هذه القائمة — أخبار وخدمات، ما زال في الاختبار المغلق.",
+      "image": "https://lh3.googleusercontent.com/X5uBZCxCvJtQWZuLw058md9jwWglXepipIaotK3fxPB0fhDW6Hv4Avpb3MWU8QGQmZkQejDgMaDU89tXhsgb=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "com.abubadawy.app",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-20"
+      }
+    },
+    {
+      "id": "com-desho-grade6math",
+      "title": "تمارين رياضيات السادس",
+      "date": "2026-10-21",
+      "subtitle": "تمارين رياضيات للصف السادس الإعدادي — تطبيق قيد الاختبار لم يصل صفحة المتجر العامة بعد.",
+      "image": "https://lh3.googleusercontent.com/4NVS34ZVcfjhlDWnONrMygsjRQzXVM9cEEht29OWmlxmhWY64Frv0kyw3eGPgmH2Jn7_cZwQ7XOSQMwmTAGXDg=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "com.desho.grade6math",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-21"
+      }
+    },
+    {
+      "id": "com-desho-grade6social",
+      "title": "تمارين دراسات السادس",
+      "date": "2026-10-21",
+      "subtitle": "تمارين الدراسات الاجتماعية للصف السادس الإعدادي — تطبيق قيد الاختبار لم يصل صفحة المتجر العامة بعد.",
+      "image": "https://lh3.googleusercontent.com/ecTS9iSKctt5pWZ8W-MZF3xXIdkUX4-1PPyuvfv84yAfCoJOCmcgE3nu8dgwzV3vBTUKu1iEHAJOt7d41N-VaPU=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "com.desho.grade6social",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-21"
+      }
+    },
+    {
+      "id": "com-desho-grade4math",
+      "title": "تمارين رياضيات الرابع",
+      "date": "2026-10-21",
+      "subtitle": "تمارين رياضيات للصف الرابع الابتدائي — تطبيق قيد الاختبار لم يصل صفحة المتجر العامة بعد.",
+      "image": "https://lh3.googleusercontent.com/qEccR5LfgIIDYDiSlyOlAlm9f8RwBicDtZ546I7s7iZMuRzo-21VvUJc09S9XA1iz8tVgX0GnBA8dXUlAW1g6g=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "com.desho.grade4math",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-21"
+      }
+    },
+    {
+      "id": "net-quran-mihrab",
+      "title": "محراب — مصاحف بأصوات القرّاء",
+      "date": "2026-10-19",
+      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
+      "image": "https://lh3.googleusercontent.com/WZuhsBiWPfpnLDcsEHEpwszKsFqPRaHuj44VJ5RRvvKvmoYnJGwGI-uTbJ03gE9Bnm1TyDsadqNVoR2XYVxEoG4=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "net.quran.mihrab",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-19"
+      }
+    },
+    {
       "id": "com-desho-nearpass",
       "title": "Nearpass M0: Transfer Test",
       "date": "2026-10-18",
@@ -211,78 +339,6 @@
       }
     },
     {
-      "id": "com-desho-browser",
-      "title": "Desho.Browser",
-      "date": "2026-10-17",
-      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/MWW1LV5Kaw-1hJtenitKmyADVzAfs9n4SqMl2V2FqjmUCco6qm8ljpSkexrMO8QyIPcP9Tabjtuo7CjX1UW8o8k=w192-h192-rw",
-      "source": {
-        "name": "Desho.Co.Ltd",
-        "url": ""
-      },
-      "fields": {
-        "النوع": "تطبيق",
-        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "com.desho.browser",
-        "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-17"
-      }
-    },
-    {
-      "id": "com-deshosmart-pos",
-      "title": "DeshoSmart POS",
-      "date": "2026-10-17",
-      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/oG0B9MQvbjKlZZEGGVDA0jfc5WKuzJEnL_-hTnt2B5Uk2ux0wnRRJ7F_9NBYsnO5wmPyUnYFP7arPg29vLKRWw=w192-h192-rw",
-      "source": {
-        "name": "Desho.Co.Ltd",
-        "url": ""
-      },
-      "fields": {
-        "النوع": "تطبيق",
-        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "com.deshosmart.pos",
-        "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-17"
-      }
-    },
-    {
-      "id": "com-aiphoto-editor2027",
-      "title": "AI Photo 2027: On-Device Edit",
-      "date": "2026-10-09",
-      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/WNekBu_5OZJLkDKoaR06YZC5__7yvjJVrT0FZEgn8HFAgYDoC2TSX0Ef2uqOFKuciHAkpO0SPet2RcOP2GMX=w192-h192-rw",
-      "source": {
-        "name": "Desho.Co.Ltd",
-        "url": ""
-      },
-      "fields": {
-        "النوع": "تطبيق",
-        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "com.aiphoto.editor2027",
-        "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-09"
-      }
-    },
-    {
-      "id": "com-desho-medothegladiator",
-      "title": "Medo The Gladiator",
-      "date": "2026-10-13",
-      "subtitle": "لعبة قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/IlKsj6UabFj-2WX9K7AbmKM5sgUv2MFhqESf67ZkNLHC3m5KhMThioWgvwliyVNo9advjLIgwLpvaOy0HuXy=w192-h192-rw",
-      "source": {
-        "name": "Desho.Co.Ltd",
-        "url": ""
-      },
-      "fields": {
-        "النوع": "لعبة",
-        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "com.desho.medothegladiator",
-        "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-13"
-      }
-    },
-    {
       "id": "com-voidrun-game",
       "title": "VOIDRUN",
       "date": "2026-10-17",
@@ -337,11 +393,11 @@
       }
     },
     {
-      "id": "com-seham-fruits",
-      "title": "Seham Fruits",
-      "date": "2026-10-17",
+      "id": "com-desho-medothegladiator",
+      "title": "Medo The Gladiator",
+      "date": "2026-10-13",
       "subtitle": "لعبة قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
-      "image": "https://lh3.googleusercontent.com/eQkyR4VXCmDNLHp5dD4vPjgoUQkheBWhl58jPfmSrroy5a3arVVG-hiur3iYVTz9c6qaJe_acU8jqtIm3s8i83A=w192-h192-rw",
+      "image": "https://lh3.googleusercontent.com/IlKsj6UabFj-2WX9K7AbmKM5sgUv2MFhqESf67ZkNLHC3m5KhMThioWgvwliyVNo9advjLIgwLpvaOy0HuXy=w192-h192-rw",
       "source": {
         "name": "Desho.Co.Ltd",
         "url": ""
@@ -349,9 +405,27 @@
       "fields": {
         "النوع": "لعبة",
         "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
-        "الحزمة": "com.seham.fruits",
+        "الحزمة": "com.desho.medothegladiator",
         "المطوّر": "Desho.Co.Ltd",
-        "آخر حزمة": "2026-10-17"
+        "آخر حزمة": "2026-10-13"
+      }
+    },
+    {
+      "id": "com-aiphoto-editor2027",
+      "title": "AI Photo 2027: On-Device Edit",
+      "date": "2026-10-09",
+      "subtitle": "تطبيق قيد الاختبار — لم يصل صفحة المتجر العامة بعد",
+      "image": "https://lh3.googleusercontent.com/WNekBu_5OZJLkDKoaR06YZC5__7yvjJVrT0FZEgn8HFAgYDoC2TSX0Ef2uqOFKuciHAkpO0SPet2RcOP2GMX=w192-h192-rw",
+      "source": {
+        "name": "Desho.Co.Ltd",
+        "url": ""
+      },
+      "fields": {
+        "النوع": "تطبيق",
+        "الحالة": "قيد الاختبار — لم يُنشر علنًا على المتجر بعد",
+        "الحزمة": "com.aiphoto.editor2027",
+        "المطوّر": "Desho.Co.Ltd",
+        "آخر حزمة": "2026-10-09"
       }
     }
   ]
