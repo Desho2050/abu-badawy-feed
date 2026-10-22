@@ -26,7 +26,8 @@ export const ICONS = [
   ['apps', 'تطبيقات (apps)'], ['calendar', 'تقويم (calendar)'], ['channels', 'قناة فيديو (channels)'],
   ['memorial', 'دعاء وتذكار (memorial)'], ['train', 'قطار (train)'], ['school', 'مدرسة/نتائج (school)'],
   ['voting', 'حملة انتخابية (voting)'], ['quran', 'قرآن وتلاوات (quran)'], ['tasks', 'مهام وتذكيرات (tasks)'],
-  ['matches', 'مباريات ورياضة (matches)'], ['hadith', 'حديث نبوي (hadith)']
+  ['matches', 'مباريات ورياضة (matches)'], ['hadith', 'حديث نبوي (hadith)'],
+  ['emergency', 'رقم نجدة (emergency)'], ['jobs', 'لوحة وظائف (jobs)'], ['fixes', 'هاتف يُصلَح (fixes)']
 ];
 
 export const LAYOUTS = [
@@ -42,6 +43,8 @@ export const LAYOUTS = [
   ['results', 'نتائج امتحانات برقم جلوس (results)'],
   ['schedule', 'جدول مواعيد امتحانات بمرحلة وموعد (schedule)'],
   ['campaigns', 'حملات انتخابية بمرشح ودائرة (campaigns)'],
+  ['jobs', 'فرص عمل بجهة وموعد تقديم (jobs)'],
+  ['fixes', 'حلول موبايل بخطوات منشورة ورابط فيديو (fixes)'],
   ['quran', 'تحميل القرآن برواية وقارئ (quran) — قسم ملفٍ مولَّد'],
   ['tasks', 'مهام المستخدم وتذكيراته (tasks) — محليٌّ في جهازه، لا عناصرَ له'],
   ['matches', 'مباريات اليوم من كتالوج مولَّد (matches) — قسم fileٌ، لا عناصرَ له'],

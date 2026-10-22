@@ -52,8 +52,18 @@ function fail(message) {
   throw new Error(message);
 }
 
+const NOTICES = [];
+let contentLoss = 0;
+
 function notice(message) {
+  NOTICES.push(message);
   console.log('-- NOTICE: ' + message);
+}
+
+/** قطعٌ سيصل إلى التطبيق ناقصًا — يُطبع ويُسجَّل ويُلوّن آخرَ جولة في لوحة «سجل النشر». */
+function warn(message) {
+  contentLoss++;
+  notice(message);
 }
 
 /* ── 1) قوائم بيضاء للتنظيف ──────────────────────────────────────────────── */
@@ -516,13 +526,15 @@ function shortIdFromUuid(uuid) {
   return String(uuid || '').replace(/-/g, '').slice(0, 12);
 }
 
-function toItem(row, index) {
+function toItem(row, index, layout) {
   const attachments = toAttachments(row.attachments);
   const firstImage = attachments.find((a) => a.type === 'image');
   const item = {
     id: plain(row.slug, 60) || shortIdFromUuid(row.id) || ('item-' + index),
     title: plain(row.title, 200) || 'بدون عنوان'
   };
+  /* عنوانٌ يُقرأ في سجل النشر: slug وإلا عنوانٌ مختصر وإلا رقمُ السطر. */
+  const label = plain(row.slug || row.title, 60) || ('سطر ' + (index + 1));
   /* تاريخ العرض نصًا كما كتبه المحرر؛ بلا تاريخ لا نختلق تاريخ اليوم. */
   const date = plain(row.event_date || String(row.published_at || '').slice(0, 10), 40);
   if (date) item.date = date;
@@ -545,12 +557,31 @@ function toItem(row, index) {
   if (sourceName || (sourceUrl && ABSOLUTE.test(sourceUrl))) {
     item.source = { name: sourceName || 'الرابط الأصلي', url: sourceUrl || link || '' };
   }
+  /* نسبةُ الحلِّ إلى صاحبه شرطُ قسم الحلول: بطاقةٌ بلا مصدرٍ تُقرأ شهادةً من القرية
+     لا نقلًا عمّن جرّب، فلا تُمنع لكن تُكتب في السجل لأن اللوحة لا تسأل عنها. */
+  if (layout === 'fixes' && !(sourceName && sourceUrl)) {
+    notice('حلٌّ بلا مصدرٍ كامل في «' + label + '» — «اسم المصدر» و«رابط المصدر» واجبان في قسم الحلول.');
+  }
   const fields = row.fields && typeof row.fields === 'object' && !Array.isArray(row.fields) ? row.fields : {};
   const cleaned = {};
-  Object.keys(fields).slice(0, 10).forEach((key) => {
+  const keys = Object.keys(fields);
+  /* القاعدة عشرةُ حقولٍ و٤٠٠ حرف: ما زاد يُقطع، والقطعُ الصامت يُقرأ في التطبيق
+     «حقلًا غاب»، فأُبلغ عنه هنا لأن القارئ لا يرى من اللوحة إلا بطاقةً ناقصة. */
+  if (keys.length > 10) {
+    warn('العنصر «' + label + '» يحوي ' + keys.length + ' حقلًا ويقرأ الناشر عشرةً فقط — تُرِك: '
+      + keys.slice(10).join('، ') + '. (ترتيب jsonb ترتيبُ القاعدة لا ترتيب كتابتك.)');
+  }
+  keys.slice(0, 10).forEach((key) => {
     const k = plain(key, 40);
+    const flat = String(fields[key] == null ? '' : fields[key]).replace(/\s+/g, ' ').trim();
     const v = plain(fields[key], 400);
-    if (k && v) cleaned[k] = v;
+    if (!k || !v) {
+      if (flat) warn('الحقل «' + key + '» في «' + label + '» فارغ بعد التنظيف — سقط من العنصر.');
+      return;
+    }
+    if (k !== key) warn('اسم حقل طُوّل إلى ٤٠ حرفًا في «' + label + '»: «' + key + '» ← «' + k + '»، فلن يطابقه التطبيق.');
+    if (flat.length > 400) warn('الحقل «' + k + '» في «' + label + '» كان ' + flat.length + ' حرفًا فقُطع إلى ٤٠٠.');
+    cleaned[k] = v;
   });
   if (Object.keys(cleaned).length) item.fields = cleaned;
   if (attachments.length) item.attachments = attachments;
@@ -558,7 +589,7 @@ function toItem(row, index) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'jobs', 'fixes', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith']);
 const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter', 'calendar']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);
@@ -833,9 +864,15 @@ async function main() {
   for (const section of managed) {
     const id = plain(section.id, 60);
     if (!id) continue;
-    const rows = (grouped.get(id) || []).slice(0, MAX_ITEMS);
+    const allRows = grouped.get(id) || [];
+    const rows = allRows.slice(0, MAX_ITEMS);
+    if (allRows.length > MAX_ITEMS) {
+      warn('قسم «' + id + '» فيه ' + allRows.length + ' عنصرًا منشورًا وملفُّ القسمٍ يحتمل '
+        + MAX_ITEMS + ' فقط — تُرِك آخر ' + (allRows.length - MAX_ITEMS) + ' بحسب ترتيب النشر. '
+        + 'ارفع MAX_ITEMS في سير العمل، أو اجعل ما لا يظهر مسودةً أو مؤرشفًا من لوحة العناصر.');
+    }
     const file = path.resolve(process.cwd(), sectionFileOf(section));
-    const items = rows.map((row, index) => toItem(row, index));
+    const items = rows.map((row, index) => toItem(row, index, plain(section.layout, 40)));
     items.forEach((item, i) => {
       if (!item.id || items.findIndex((x) => x.id === item.id) !== i) {
         item.id = id + '-' + (shortIdFromUuid(rows[i].id) || i);
@@ -918,7 +955,12 @@ async function main() {
   const summary = 'أقسام ' + sectionsWritten + '، عناصر ' + itemsWritten +
     '، قوانين ' + legalWritten + '، أسعار ' + pricesWritten;
   const nothingWritten = sectionsWritten + legalWritten + pricesWritten === 0;
-  await logPublish(nothingWritten ? 'error' : 'ok', summary, sectionsWritten, itemsWritten);
+  /* اللوحة لا تفتح سجل GitHub: فآخرُ ما يراه المحرّر رسالةُ هذه الجولة، لذا تُنقل
+     أولُ ملاحظةٍ كاملةً إلى داخلها ويصبح اللونُ أحمرَ فاتحًا إن كان في القطع نقصُ محتوى. */
+  const logged = NOTICES.length
+    ? summary + ' — ملاحظات ' + NOTICES.length + (contentLoss ? ' (قطعٌ في المحتوى ' + contentLoss + ')' : '') + ': ' + NOTICES[0]
+    : summary;
+  await logPublish(nothingWritten ? 'error' : (contentLoss ? 'partial' : 'ok'), logged, sectionsWritten, itemsWritten);
   console.log('\nتم النشر: ' + summary + ' (' + live.length + ' عنصرًا منشورًا في القاعدة).');
   if (nothingWritten) fail('لم تُكتب أي ملف — راجع الرسائل أعلاه.');
 }
