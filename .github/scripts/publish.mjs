@@ -890,6 +890,10 @@ async function main() {
 
     const payload = { schemaVersion: 1, sectionId: id, updatedAt: nowIso };
     const note = plain(section.note, 400);
+    // القطعُ هنا صامتٌ بخلاف حدود الحقول: ملاحظةٌ تتجاوز أربعمئةٍ تصل مبتورةً بلا أثرٍ في السجل.
+    if (section.note && note.length < String(section.note).length) {
+      notice('ملاحظةُ القسم ' + id + ' فيها ' + String(section.note).length + ' حرفًا والناشرُ يقطعُها عند 400 — اختصرها في اللوحة أو في البذرة.');
+    }
     if (note) payload.note = note;
     payload.items = items;
     await writeJson(file, payload);
