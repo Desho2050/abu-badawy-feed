@@ -23,19 +23,17 @@
 -- لا إعلانَ هنا ولا تنبيهات: آيةُ قرآنٍ وحديثُ نبِيٍّ لا يُقطَعان بلافتةِ شركة، و«عاجل» لا
 -- يكون في سنةٍ ثابتة. ولا معاينةَ على الرئيسية: فهرسُ كتبٍ لا يزاحم أخبارَ القرية.
 --
--- آمن للتكرار: يوسّع القيد ويزكّي صفَّ القسم وحده، ولا يمسّ قسمًا آخر ولا عنصرًا.
+-- آمن للتكرار: يزكّي صفَّ القسم وحده، ولا يمسّ قسمًا آخر ولا عنصرًا.
 -- نفّذه في Supabase ← SQL Editor ← الصق ← Run (مشروع DeshoStore)، وارفع
 -- web/data/hadith/titles.json إلى مستودع التغذية أولًا (node tools/gen-hadith-titles.mjs).
 
 begin;
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: ترتيبه ٩٧ — يجاور «تحميل القرآن الكريم» (٩٩) في ذيل القائمة، فالاثنان مكتبةُ
 --    القرية لا نشرتها: من يفتح مصحفًا يفتح صحيحًا، ولا يزاحم الأسعارَ ولا الأخبار.

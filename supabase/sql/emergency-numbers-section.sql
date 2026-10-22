@@ -24,17 +24,15 @@
 -- التطبيق ودون رفع نسخة APK. لكن لا تُعدّل رقمًا قبل التحقق منه من مصدرين: هذا
 -- القسم يُستخدم في لحظةٍ لا احتمالَ فيها لرقمٍ خاطئ.
 --
--- آمن للتكرار (idempotent): يوسّع قيد layout، وينشئ القسم أو يحدّثه مع اثني عشر رقمًا.
+-- آمن للتكرار (idempotent): ينشئ القسم أو يحدّثه مع اثني عشر رقمًا.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
 
--- 1) قيد التخطيط: 'directory' موجودٌ أصلًا في القائمة، والتوسيع هنا تأمينٌ لترتيب
---    التشغيل على الملفات الأخرى، لا تغييرٌ في السمة.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    'directory' و'jobs' و'fixes' منذ أُنشئت أقسامها (تحقّقٌ بـ pg_get_constraintdef لا
+--    بالافتراض). كان هنا drop constraint ثم add، فحُذف لسببين: يُفعِّل حرّاسَ اللوحة
+--    التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ التي أعاد بها المشغّلُ أقدمُ من 'jobs'
+--    فتنقصُها — أيُّ تشغيلٍ له بعد بذرة «فرص عمل» يقطعُ القيدَ ويرجعُ صفَّ jobs مرفوضًا.
+--    احتاجتِ السمةُ تخطيطًا جديدًا، فاذكر تعديلَ القيد في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ.
 
 -- 2) القسم: sort_order = 7 يضعه مع خدمات اليوم (بعد المواقيت والتقويم وقبل الطقس)،
 --    لأنه شاشةٌ تُفتح وقت الحاجة لا وقت التصفّح.

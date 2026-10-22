@@ -22,18 +22,16 @@
 -- أهله؛ فلا يُنقل من صفحات النعي في المواقع الإخبارية (نصها مملوك لصحفها)، والمحتوى
 -- كله يدخَل من اللوحة. الاسم والتاريخ معلومات عامة عن شخص متوفّى، والدعاء نص مأثور.
 --
--- آمن للتكرار (idempotent): يوسّع قيدًا ويزكي صفًّا واحدًا، ولا يمسّ عناصر أحد.
+-- آمن للتكرار (idempotent): يزكي صفًّا واحدًا، ولا يمسّ عناصر أحد.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
--- قائمة أسماء القيد هنا نفسها في almanac-sections وcalendar-section وmy-apps-section
--- وcode-channels-section، فترتيب تشغيل هذه الملفات لا يهم.
+-- القيدُ لا يُعدَّل في البذرة: قائمةُ layouts وsource_kind في supabase-setup.sql هي
+-- المرجعُ الواحد، فأيُّ ترتيبٍ لتشغيل هذه الملفات آمن.
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: ترتيبه 115 يلي «العزاء والوفيات» (110)، فهو ذاكرته لا إعلانه.
 insert into public.sections

@@ -9,23 +9,16 @@
 --   قائمة مناسبات الشهر بتأريخه في التقويمين
 --   محوّل تاريخين: ميلادي ← هجري وبالعكس، مع اسم اليوم بالعربية
 --
--- آمن للتكرار (idempotent): يوسّع قيدين ويزكي صفًّا واحدًا.
+-- آمن للتكرار (idempotent): يزكي صفًّا واحدًا.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
--- قائمة أسماء القيود هنا نفسها في almanac-sections وmy-apps-section وcode-channels-section،
--- فترتيب تشغيل هذه الملفات الأربعة لا يهم.
+-- القيدُ لا يُعدَّل في البذرة: قائمةُ layouts وsource_kind في supabase-setup.sql هي
+-- المرجعُ الواحد، فأيُّ ترتيبٍ لتشغيل هذه الملفات آمن.
 
--- 1) القيود: بلا توسيعهما ترفض القاعدة حفظ القسم الجديد.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
-
-alter table public.sections drop constraint if exists sections_source_kind_check;
-alter table public.sections add constraint sections_source_kind_check check (
-  source_kind in ('json','rss','html','fx','gold','inline','prayer','weather','converter','calendar')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: بلا feed_url ولا عناصر، والتطبيق يعرف مصدره من kind وحده.
 --    ترتيبه 6 فيلي فورًا بعد مواقيت الصلاة، فإن كان قسم المواقيت معطّلًا ظهر

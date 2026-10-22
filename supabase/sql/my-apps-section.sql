@@ -8,18 +8,16 @@
 --   رابط خارجي    ← رابط المتجر أو أي صفحة تخص التطبيق
 --   حقل «المميزات» ← مميزات مفصولة بفواصل، وتُعرض سطورًا تحت الوصف
 --
--- آمن للتكرار (idempotent): يوسّع قيد layout، ويزكي قسمًا وصفًّا واحدًا.
+-- آمن للتكرار (idempotent): يزكي قسمًا وصفًّا واحدًا.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
 -- ملاحظة: قائمة قيد التخطيط هنا مطابقة لقوائم almanac-sections وcalendar-section
 -- وcode-channels-section، فأي ترتيب يشغّلها.
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: مصدره json وعناصره من اللوحة، فلا ملف تحريره يدويًا ولا رابط تغذية.
 insert into public.sections

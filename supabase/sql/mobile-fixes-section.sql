@@ -55,17 +55,15 @@
 -- الرابطُ في عمود link في الثمانية، والنسبةُ في source_name،
 -- وصورةُ كلٍّ رسمٌ مُولَّد لأغراض هذا القسم لا لقطةٌ من الفيديو، فحقلُ image_credit يقولها.
 --
--- آمنة للتكرار (idempotent): تُوسّع قيد layout ليقبل 'fixes'، وتنشئ القسمَ أو تحدّثُه،
+-- آمنة للتكرار (idempotent): تنشئ القسمَ أو تحدّثُه،
 -- وتضيف العناصرَ مرةً واحدة (where not exists) فلا تكتب على تعديلٍ من اللوحة.
 -- نفّذها في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
 
--- 1) قيد التخطيط: تُضاف 'fixes' إلى القائمة الحاضرة، مع بقاء ما فيها.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'jobs','fixes','apps','channels','prayer','weather','converter','calendar','memorials',
-             'trains','results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: sort_order = 42 يضعه بعد «فرص عمل». لا إشعارَ افتراضيًّا منه: حلٌّ جديدٌ
 --    ليس خبرًا عاجلًا، والقارئ لا ينتظره. عناصرُه تمرّ بمسار اللوحة (items_source=admin)

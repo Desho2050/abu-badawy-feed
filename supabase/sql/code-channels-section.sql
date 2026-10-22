@@ -15,18 +15,16 @@
 -- وعنوان القناة مطابقًا، ومعها معرّف القناة UC… في الحقول، فلو تغيّر الاسم
 -- المستعار (@handle) بقي المعرّف طريقًا لتحديث الرابط.
 --
--- آمن للتكرار (idempotent): يوسّع قيد layout، وينشئ القسم أو يحدّثه مع ستة عناصر.
+-- آمن للتكرار (idempotent): ينشئ القسم أو يحدّثه مع ستة عناصر.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
--- يوسّع قيد التخطيط ليشمل channels مع الأسماء كلها؛ والقوائم في الملفات الأربعة
--- صارت نسخة واحدة، فلا يرتبط نجاح التشغيل بترتيب معيّن.
+-- لا قيدَ في هذه البذرة: قائمةُ layout في supabase-setup.sql فيها channels مع الأسماء
+-- كلها، فلا يترتب نجاحُ التشغيل على ترتيب الملفات.
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: مصدره json وعناصره من اللوحة، فيكتب الناشر ملفه في الجولة القادمة.
 insert into public.sections

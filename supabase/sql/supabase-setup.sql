@@ -147,8 +147,12 @@ create table if not exists public.sections (
   subtitle       text,
   icon           text        not null default 'article',
   layout         text        not null default 'list'
+                 -- المرجعُ الواحدُ لتخطيطات الأقسام: بذورُ الأقسام لا تُعدِّل القيدَ، فهذا
+                 -- السطرُ هو ما يُوسَّع عند تخطيطٍ جديد — بحذفِ القيدِ المولَّد ثم إضافته
+                 -- في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ، لأنّ drop constraint داخلَ بذرةٍ
+                 -- يُبطل تشغيلَها في حرّاسِ اللوحة التدميرية.
                  check (layout in ('richArticle','list','cards','profiles',
-                                   'offers','ads','rates','directory','apps','channels',
+                                   'offers','ads','rates','directory','jobs','fixes','apps','channels',
                                    'prayer','weather','converter','calendar','memorials','trains',
                                    'results','schedule','campaigns','quran','tasks','matches','hadith')),
   source_kind    text        not null default 'json'

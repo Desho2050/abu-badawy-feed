@@ -30,16 +30,13 @@
 --                        ويرسله إلى نظام التشغيل (مثل apps وchannels: بلا WebView
 --                        ولا تتبّع). يقبله التطبيق أيضًا في fields."الرابط".
 --
--- آمنة للتكرار (idempotent): تُوسّع قيد layout ليقبل 'jobs'، ثم تنشئ صفَّ القسم أو
--- تحدّثه. نفّذها في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
+-- آمنة للتكرار (idempotent): تنشئ صفَّ القسم أو تحدّثه. نفّذها في Supabase ← SQL Editor
+-- ← New query ← الصق ← Run (مشروع DeshoStore).
 
--- 1) قيد التخطيط: تُضاف 'jobs' إلى القائمة الحاضرة، مع بقاء ما فيها.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'jobs','apps','channels','prayer','weather','converter','calendar','memorials',
-             'trains','results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدِ هنا: القيدُ الحيُّ يقبل 'jobs' (تحقّقٌ بـ pg_get_constraintdef لا
+--    بالافتراض). كان هنا سابقًا drop constraint ثم add، فحُذف: يُفعِّل حرّاس اللوحة
+--    العملياتِ التدميريةَ فيُبطل التنفيذ بصمت. احتاجت سمةٌ تخطيطًا جديدًا، فاكتب تعديلَ
+--    القيد في ملفٍ مستقلّ ننفّذه وحدنا.
 
 -- 2) القسم: sort_order = 41 يضعه بعد أخبار القرية مباشرةً، فالفرصةُ خبرٌ سعيدٌ
 --    يُقرأ كل يوم، لكنها لا تُزاحم «أحدث المنشورات» (التطبيق يُخرج تخطيط jobs من

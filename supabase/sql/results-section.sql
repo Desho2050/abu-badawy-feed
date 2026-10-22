@@ -20,19 +20,16 @@
 -- تبقى خلف RLS، بلا أي سياسة لـ anon على الجدولين: السبيل الوحيد صفٌّ واحد تطابق رقمه
 -- واسمه معًا عبر lookup_result. والمصدر يبقى المدرسة، فلا يدّعي التطبيق أنه جهة اعتداد.
 --
--- آمن للتكرار: يوسّع قيدًا، وينشئ جداول ودوال، ويزكّي صفّ القسم وثابت الاختبار.
+-- آمن للتكرار: ينشئ جداول ودوال، ويزكّي صفّ القسم وثابت الاختبار.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
 -- ثابت '__test__' مقصود ولا يُمسح: عليه يعمل tools/verify-results.mjs، ولا يظهر للقارئ
 -- لأنّ عناصر القسم تُقرأ من جدول items لا من exam_stages.
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
---    الأسماء نفسها في trains-section وalmanac-sections وcalendar-section وغيرها.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) الامتحان: سطر لكل (مرحلة × محافظة × عام × دور). published هي ما يفرق
 --    «لم تُعتمد بعد» عن «ابحث الآن»؛ فلا تُقلَب إلا بعد وصول الكشف.

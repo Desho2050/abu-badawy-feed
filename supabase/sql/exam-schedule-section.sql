@@ -16,18 +16,16 @@
 -- الأول الخميس ٣١ ديسمبر ويبدأ الثاني السبت ٦ فبراير ٢٠٢٧. خمسة مواضع من الخبر تطابق التقويم،
 -- فليس هنا تاريخٌ من اختلاق.
 --
--- آمن للتكرار: يوسّع القيد، ويزكّي صفّ القسم وثلاثة عناصر بسلاسلها، ولا يمسّ غيرها.
+-- آمن للتكرار: يزكّي صفّ القسم وثلاثة عناصر بسلاسلها، ولا يمسّ غيرها.
 -- نفّذه في Supabase ← SQL Editor ← الصق ← Run (مشروع DeshoStore)، ثم workflow_dispatch.
 
 begin;
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: ترتيبه ٨٧ يلي النتائج (٨٦) — خدمةٌ واحدة لطالبٍ واحد: الجدول أولًا ثم النتيجة.
 insert into public.sections

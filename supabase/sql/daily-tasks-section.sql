@@ -18,20 +18,17 @@
 -- القرية تعني أن مهامَ شخصٍ تُرى لغيره — وهو عكس الوعدِ المكتوبِ على الشاشة نفسها
 -- («المهامُ كلّها على جهازك وحدك: لا تُرفع إلى خادمٍ ولا تظهر لأحدٍ غيرك»).
 --
--- آمن للتكرار: يوسّع قيدَ تخطيطٍ ويزكّي صفَّ القسم وحده، ولا يمسّ قسمًا آخر ولا عنصرًا.
+-- آمن للتكرار: يزكّي صفَّ القسم وحده، ولا يمسّ قسمًا آخر ولا عنصرًا.
 -- نفّذه في Supabase ← SQL Editor ← New query ← الصق ← Run (مشروع DeshoStore).
 -- لا يُرفَع شيءٌ إلى Play ولا إلى مستودع التغذية بأمرٍ من هذا الملف: هو قيدُ قسمٍ فقط.
 
 begin;
 
--- 1) قيد التخطيط: بلا توسيعه ترفض القاعدة حفظ القسم الجديد (واللوحة تُسكت الرفض).
---    الأسماء نفسها في quran-download-section وelection-campaigns-section وغيرها.
-alter table public.sections drop constraint if exists sections_layout_check;
-alter table public.sections add constraint sections_layout_check check (
-  layout in ('richArticle','list','cards','profiles','offers','ads','rates','directory',
-             'apps','channels','prayer','weather','converter','calendar','memorials','trains',
-             'results','schedule','campaigns','quran','tasks','matches','hadith')
-);
+-- 1) لا تعديلَ لقيدٍ هنا: القيدُ الحيُّ — وقيدُ supabase-setup.sql في مشروعٍ جديد — يقبل
+--    كلَّ تخطيطٍ ومصدرٍ تُدرجه هذه البذرة. كان الملفُ يوسّعُ القيدَ بـ drop ثم add، فحُذف
+--    لسببين: drop constraint يُفعِّل حرّاسَ اللوحة التدميريةَ فيُبطل التشغيلَ بصمت، والقائمةُ
+--    التي يُعيدُها المشغّلُ أقدمُ من 'jobs' و'fixes' فتنقصُهما من السمة. احتاجتِ السمةُ
+--    قيدًا جديدًا، فاذكرهُ في ملفٍ مستقلٍّ لا تُشغّلُه اللوحةُ وحده.
 
 -- 2) القسم: ترتيبه ٩ — بعد حالة الطقس (٨) وقبل التعريف بالقرية (١٠)، بين خدماتِ الجهاز
 --    التي لا تنتظر اتصالًا. لا ملفَ له (feed_url null) ولا نوعَ تغذيةٍ سوى inline.
