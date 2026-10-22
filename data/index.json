@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T02:17:41Z",
+  "generatedAt": "2026-10-22T04:03:49Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -419,6 +419,25 @@
       "notifications": {
         "default": false,
         "breaking": true
+      }
+    },
+    {
+      "id": "prophets_stories",
+      "title": "قصصُ الأنبياء",
+      "icon": "history",
+      "layout": "list",
+      "order": 94,
+      "home": false,
+      "enabled": true,
+      "subtitle": "مرتَّبةٌ على ترتيبِ كتابِ ابن كثير، بآياتِها من القرآنِ وكلامِ مؤلِّفها، مع ذِكرِ المصدر",
+      "managedBy": "admin",
+      "source": {
+        "kind": "json",
+        "url": "data/sections/prophets_stories.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
       }
     },
     {
