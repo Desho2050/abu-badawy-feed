@@ -772,7 +772,7 @@ function itemEditor(draftIn, ctx, onDone) {
   function drawSectionHint() {
     const row = ctx.model.sections.find((s) => s.id === draft.section_id);
     const layout = row && row.layout;
-    const show = ['apps', 'channels', 'memorials', 'trains', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith', 'fixes'].includes(layout);
+    const show = ['apps', 'channels', 'memorials', 'trains', 'schedule', 'campaigns', 'quran', 'quranRead', 'tasks', 'matches', 'hadith', 'fixes'].includes(layout);
     sectionHint.style.display = show ? '' : 'none';
     if (!show) return;
     sectionHint.textContent = layout === 'apps'
@@ -810,6 +810,14 @@ function itemEditor(draftIn, ctx, onDone) {
             + 'فقط، وهذا القسم fileٌ بامتداد قسمِ المواعيد. ولا يُحفظ صوتٌ ولا نصُّ قرآنٍ على '
             + 'خادم القرية: التطبيقُ يربط بموزّع mp3quran ويُنزّل عند نقرِ المستخدم، ويذكر '
             + 'الموزّع على الشاشة.'
+        : layout === 'quranRead'
+          ? 'قسم «قراءةُ القرآن الكريم» لا عناصرَ له: مصدرُه ملفٌ مولَّد بأداة المستودع '
+            + 'tools/gen-quran-text.mjs هو web/data/quran/text.json في مستودع التغذية، وفيه '
+            + 'أسماءُ السورِ وآياتُها ومواضعُ نزولِها وأجزاؤها وصفحاتُها كما نشرَها موزّع '
+            + 'المصاحف، والنسبةُ إلى المصدرِ مرئيةٌ على الشاشةِ من حقل attribution في الملفِ '
+            + 'نفسه. التلاوةُ يربطُها التطبيقُ بموزّع mp3quran عند النقرِ على الآية. لا تضف '
+            + 'سورةً ولا آيةً هنا فلن تُنشر: الناشرُ لا يكتب عناصرَ هذا التخطيط، ولا يُخزَّن '
+            + 'نصُّ القرآن ولا صوتُه على خادم القرية.'
         : layout === 'tasks'
           ? 'قسم «مهامي اليومية» لا عناصرَ له البتّة: بياناتُه مهامُ كل مستخدمٍ على جهازه '
             + 'وحده، يُضيفها ويؤرّخها ويعلّمها بنفسه داخل التطبيق، والتذكيرُ يعمل من جهازه هو. '

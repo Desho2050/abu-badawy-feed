@@ -154,7 +154,7 @@ create table if not exists public.sections (
                  check (layout in ('richArticle','list','cards','profiles',
                                    'offers','ads','rates','directory','jobs','fixes','apps','channels',
                                    'prayer','weather','converter','calendar','memorials','trains',
-                                   'results','schedule','campaigns','quran','tasks','matches','hadith')),
+                                   'results','schedule','campaigns','quran','quranRead','tasks','matches','hadith')),
   source_kind    text        not null default 'json'
                  check (source_kind in ('json','rss','html','fx','gold','inline',
                                         'prayer','weather','converter','calendar')),

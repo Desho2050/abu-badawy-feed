@@ -589,7 +589,7 @@ function toItem(row, index, layout) {
 }
 
 /* ── 4) index.json ────────────────────────────────────────────────────────── */
-const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'jobs', 'fixes', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith']);
+const LAYOUTS = new Set(['richArticle', 'list', 'cards', 'profiles', 'offers', 'ads', 'rates', 'directory', 'jobs', 'fixes', 'apps', 'channels', 'prayer', 'weather', 'converter', 'calendar', 'memorials', 'trains', 'results', 'schedule', 'campaigns', 'quran', 'tasks', 'matches', 'hadith', 'quranRead']);
 const KINDS = new Set(['json', 'rss', 'html', 'fx', 'gold', 'inline', 'prayer', 'weather', 'converter', 'calendar']);
 const CLAMP = (value, min, max, fallback) => {
   const n = Number(value);
@@ -832,11 +832,11 @@ async function main() {
   /* 6أ) أقسام json المُدارة من اللوحة */
   /*
    * تخطيطاتُ الكتالوج لا تُنشر عناصرَها ولو قال صفُّها items_source=admin:
-   * timetable.json وmushafs.json وcatalog.json وtitles.json ملفاتٌ مولَّدة بلا مصفوفة
+   * timetable.json وmushafs.json وcatalog.json وtitles.json وtext.json ملفاتٌ مولَّدة بلا مصفوفة
    * items، فكتابةُ «items: []» فوقها تمسح قسمًا كاملًا، وحارسُ «الملف السابق غير فارغ»
    * لا يراها لأنه لا items فيها.
    */
-  const CATALOG_LAYOUTS = new Set(['trains', 'quran', 'matches', 'hadith']);
+  const CATALOG_LAYOUTS = new Set(['trains', 'quran', 'matches', 'hadith', 'quranRead']);
   const managed = sectionRows.filter((row) => {
     if (row.items_source !== 'admin' || (row.source_kind || 'json') !== 'json') return false;
     if (CATALOG_LAYOUTS.has(row.layout)) {
