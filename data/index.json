@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T09:15:18Z",
+  "generatedAt": "2026-10-24T03:31:32Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -584,6 +584,24 @@
       "source": {
         "kind": "json",
         "url": "data/quran/mushafs.json"
+      },
+      "notifications": {
+        "default": false,
+        "breaking": false
+      }
+    },
+    {
+      "id": "quran_reader",
+      "title": "قراءةُ القرآن الكريم",
+      "icon": "quran",
+      "layout": "quranRead",
+      "order": 99,
+      "home": false,
+      "enabled": true,
+      "subtitle": "اقرأ السورَ بالرسم المدني وتتبعَ التلاوةَ آيةً آية",
+      "source": {
+        "kind": "json",
+        "url": "data/quran/text.json"
       },
       "notifications": {
         "default": false,
