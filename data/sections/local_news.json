@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sectionId": "local_news",
-  "updatedAt": "2026-11-20T16:49:08Z",
+  "updatedAt": "2026-11-20T23:00:21Z",
   "note": "يملؤه .github/scripts/sync-news.mjs آليًا: البوابة الرسمية kfs.gov.eg + بحث NewsAPI بكلمات المحافظة + فلتر على الخلاصات العربية الموجودة. البطاقة عنوان وملخّص قصير ورابط للمصدر، لا متن منقول. العناصر الآلية يبدأ slug بالبادئة rss-؛ العناصر اليدوية لا يمسّها المزامن.",
   "items": [
     {
@@ -244,23 +244,6 @@
       }
     },
     {
-      "id": "rss-b245a02b4485",
-      "title": "محافظ كفرالشيخ يتابع أعمال النظافة والتجميل بالرياض ضمن مبادرة «جميلة يا بلدي»",
-      "date": "2026-06-27",
-      "subtitle": "تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …",
-      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9DSTQ9PPPHEKPVCQSTYRT4.jpg",
-      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
-      "body": "<p>تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …</p>",
-      "tags": [
-        "كفر الشيخ"
-      ],
-      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy",
-      "source": {
-        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
-        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy"
-      }
-    },
-    {
       "id": "rss-2943605e77b6",
       "title": "محافظ كفرالشيخ: اصطفاف المعدات للتأكد من كفاءتها وجاهزيتها لمجابهة الأزمات والكوارث",
       "date": "2026-06-27",
@@ -292,6 +275,23 @@
       "source": {
         "name": "البوابة الرسمية لمحافظة كفر الشيخ",
         "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-yslm-17-aakd-tknyn-llmoatnyn-ofk-alkanon-168-lsn-2025-antlak-gdyd-ltsoy-alaodaaa-otthbyt-almlky-btysyrat-ghyr-msbok"
+      }
+    },
+    {
+      "id": "rss-b245a02b4485",
+      "title": "محافظ كفرالشيخ يتابع أعمال النظافة والتجميل بالرياض ضمن مبادرة «جميلة يا بلدي»",
+      "date": "2026-06-27",
+      "subtitle": "تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …",
+      "image": "https://kfs.gov.eg/storage/posts/thumbnails/01KW9DSTQ9PPPHEKPVCQSTYRT4.jpg",
+      "imageCredit": "الصورة من البوابة الرسمية لمحافظة كفر الشيخ",
+      "body": "<p>تابع المهندس إبراهيم مكي، محافظ كفرالشيخ، جهود النظافة والتجميل، وترميم ودهان البلدورات، وزراعة وري …</p>",
+      "tags": [
+        "كفر الشيخ"
+      ],
+      "link": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy",
+      "source": {
+        "name": "البوابة الرسمية لمحافظة كفر الشيخ",
+        "url": "https://kfs.gov.eg/posts/mhafth-kfralshykh-ytabaa-aaamal-alnthaf-oaltgmyl-balryad-dmn-mbadr-gmyl-ya-bldy"
       }
     },
     {
