@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T03:31:32Z",
+  "generatedAt": "2026-11-20T07:47:51Z",
   "notice": null,
   "brand": {
     "name": "قرية أبو بدوي",
@@ -499,13 +499,13 @@
     },
     {
       "id": "my_apps",
-      "title": "تطبيقاتي",
+      "title": "تطبيقات مفيدة",
       "icon": "apps",
       "layout": "apps",
       "order": 95,
       "home": true,
       "enabled": true,
-      "subtitle": "تطبيقات من تصميمي: أيقونة ووصف ومميزات ورابط",
+      "subtitle": "تطبيقات وألعاب من تطويري على Google Play: أيقونة ووصف ورابط",
       "managedBy": "admin",
       "source": {
         "kind": "json",
