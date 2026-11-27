@@ -1,339 +1,339 @@
 {
   "schemaVersion": 1,
   "title": "أسعار العملات",
-  "updatedAt": "2026-11-25T07:14:21.83516+00:00",
+  "updatedAt": "2026-11-26T22:49:25.507871+00:00",
   "rates": [
     {
       "code": "USD",
       "name": "دولار أمريكي",
       "symbol": "$",
-      "value": "54.23"
+      "value": "54.66"
     },
     {
       "code": "EUR",
       "name": "يورو",
       "symbol": "€",
-      "value": "59.43"
+      "value": "59.93"
     },
     {
       "code": "SAR",
       "name": "ريال سعودي",
       "symbol": "﷼",
-      "value": "14.46"
+      "value": "14.58"
     },
     {
       "code": "AED",
       "name": "درهم إماراتي",
       "symbol": "د.إ",
-      "value": "14.77"
+      "value": "14.88"
     },
     {
       "code": "KWD",
       "name": "دينار كويتي",
       "symbol": "د.ك",
-      "value": "174.11"
+      "value": "175.63"
     },
     {
       "code": "GBP",
       "name": "جنيه إسترليني",
       "symbol": "£",
-      "value": "71.04"
+      "value": "71.60"
     },
     {
       "code": "TRY",
       "name": "ليرة تركية",
       "symbol": "₺",
-      "value": "1.07"
+      "value": "1.08"
     },
     {
       "code": "AFN",
       "name": "أفغاني",
-      "value": "0.823"
+      "value": "0.8257"
     },
     {
       "code": "ALL",
       "name": "ليك ألباني",
-      "value": "0.6608"
+      "value": "0.6659"
     },
     {
       "code": "AMD",
       "name": "درام أرميني",
-      "value": "0.1505"
+      "value": "0.1518"
     },
     {
       "code": "ANG",
       "name": "غيلدر أنتيلي هولندي",
-      "value": "30.29"
+      "value": "30.54"
     },
     {
       "code": "AOA",
       "name": "كوانزا أنغولي",
-      "value": "0.0582"
+      "value": "0.059"
     },
     {
       "code": "ARS",
       "name": "بيزو أرجنتيني",
-      "value": "0.0341"
+      "value": "0.034"
     },
     {
       "code": "AUD",
       "name": "دولار أسترالي",
-      "value": "35.98"
+      "value": "36.12"
     },
     {
       "code": "AWG",
       "name": "فلورن أروبي",
-      "value": "30.29"
+      "value": "30.54"
     },
     {
       "code": "AZN",
       "name": "مانات أذربيجان",
-      "value": "31.92"
+      "value": "32.17"
     },
     {
       "code": "BAM",
       "name": "مارك البوسنة والهرسك قابل للتحويل",
-      "value": "30.39"
+      "value": "30.64"
     },
     {
       "code": "BBD",
       "name": "دولار بربادوسي",
-      "value": "27.11"
+      "value": "27.33"
     },
     {
       "code": "BDT",
       "name": "تاكا بنغلاديشي",
-      "value": "0.4349"
+      "value": "0.4366"
     },
     {
       "code": "BGN",
       "name": "ليف بلغاري",
-      "value": "30.39"
+      "value": "30.64"
     },
     {
       "code": "BHD",
       "name": "دينار بحريني",
-      "value": "144.22"
+      "value": "145.37"
     },
     {
       "code": "BIF",
       "name": "فرنك بروندي",
-      "value": "0.018"
+      "value": "0.0182"
     },
     {
       "code": "BMD",
       "name": "دولار برمودي",
-      "value": "54.23"
+      "value": "54.66"
     },
     {
       "code": "BND",
       "name": "دولار بروناي",
-      "value": "42.04"
+      "value": "42.34"
     },
     {
       "code": "BOB",
       "name": "بوليفيانو بوليفي",
-      "value": "4.61"
+      "value": "4.64"
     },
     {
       "code": "BRL",
       "name": "ريال برازيلي",
-      "value": "9.20"
+      "value": "9.29"
     },
     {
       "code": "BSD",
       "name": "دولار باهامي",
-      "value": "54.23"
+      "value": "54.66"
     },
     {
       "code": "BTN",
       "name": "نولتوم بوتاني",
-      "value": "0.5835"
+      "value": "0.592"
     },
     {
       "code": "BWP",
       "name": "بولا بتسواني",
-      "value": "3.70"
+      "value": "3.76"
     },
     {
       "code": "BYN",
       "name": "روبل بيلاروسي",
-      "value": "18.14"
+      "value": "18.18"
     },
     {
       "code": "BZD",
       "name": "دولار بليزي",
-      "value": "27.11"
+      "value": "27.33"
     },
     {
       "code": "CAD",
       "name": "دولار كندي",
-      "value": "37.94"
+      "value": "38.42"
     },
     {
       "code": "CDF",
       "name": "فرنك كونغولي",
-      "value": "0.0236"
+      "value": "0.0237"
     },
     {
       "code": "CHF",
       "name": "فرنك سويسري",
-      "value": "64.81"
+      "value": "65.75"
     },
     {
       "code": "CLF",
       "name": "CLF",
-      "value": "2,109.05"
+      "value": "2,091.17"
     },
     {
       "code": "CLP",
       "name": "بيزو تشيلي",
-      "value": "0.0534"
+      "value": "0.0529"
     },
     {
       "code": "CNH",
       "name": "يوان صيني (في الخارج)",
-      "value": "8.14"
+      "value": "8.19"
     },
     {
       "code": "CNY",
       "name": "يوان صيني",
-      "value": "8.12"
+      "value": "8.18"
     },
     {
       "code": "COP",
       "name": "بيزو كولومبي",
-      "value": "0.0154"
+      "value": "0.0152"
     },
     {
       "code": "CRC",
       "name": "كولن كوستاريكي",
-      "value": "0.1214"
+      "value": "0.1231"
     },
     {
       "code": "CUP",
       "name": "بيزو كوبي",
-      "value": "2.26"
+      "value": "2.28"
     },
     {
       "code": "CVE",
       "name": "اسكودو الرأس الأخضر",
-      "value": "0.539"
+      "value": "0.5435"
     },
     {
       "code": "CZK",
       "name": "كرونة تشيكية",
-      "value": "2.43"
+      "value": "2.45"
     },
     {
       "code": "DJF",
       "name": "فرنك جيبوتي",
-      "value": "0.3051"
+      "value": "0.3076"
     },
     {
       "code": "DKK",
       "name": "كرونة دنماركية",
-      "value": "7.95"
+      "value": "8.00"
     },
     {
       "code": "DOP",
       "name": "بيزو الدومنيكان",
-      "value": "0.9084"
+      "value": "0.9137"
     },
     {
       "code": "DZD",
       "name": "دينار جزائري",
-      "value": "0.3951"
+      "value": "0.3983"
     },
     {
       "code": "ERN",
       "name": "ناكفا أريتري",
-      "value": "3.62"
+      "value": "3.64"
     },
     {
       "code": "ETB",
       "name": "بير أثيوبي",
-      "value": "0.3357"
+      "value": "0.3367"
     },
     {
       "code": "FJD",
       "name": "دولار فيجي",
-      "value": "23.46"
+      "value": "23.71"
     },
     {
       "code": "FKP",
       "name": "جنيه جزر فوكلاند",
-      "value": "71.05"
+      "value": "71.60"
     },
     {
       "code": "FOK",
       "name": "FOK",
-      "value": "7.95"
+      "value": "8.00"
     },
     {
       "code": "GEL",
       "name": "لارى جورجي",
-      "value": "20.91"
+      "value": "21.10"
     },
     {
       "code": "GGP",
       "name": "GGP",
-      "value": "71.05"
+      "value": "71.60"
     },
     {
       "code": "GHS",
       "name": "سيدي غانا",
-      "value": "4.57"
+      "value": "4.60"
     },
     {
       "code": "GIP",
       "name": "جنيه جبل طارق",
-      "value": "71.05"
+      "value": "71.60"
     },
     {
       "code": "GMD",
       "name": "دلاسي غامبي",
-      "value": "0.7249"
+      "value": "0.731"
     },
     {
       "code": "GNF",
       "name": "فرنك غينيا",
-      "value": "0.0061"
+      "value": "0.0062"
     },
     {
       "code": "GTQ",
       "name": "كوتزال غواتيمالا",
-      "value": "7.10"
+      "value": "7.15"
     },
     {
       "code": "GYD",
       "name": "دولار غيانا",
-      "value": "0.2593"
+      "value": "0.2616"
     },
     {
       "code": "HKD",
       "name": "دولار هونغ كونغ",
-      "value": "6.91"
+      "value": "6.97"
     },
     {
       "code": "HNL",
       "name": "ليمبيرا هنداروس",
-      "value": "2.02"
+      "value": "2.03"
     },
     {
       "code": "HRK",
       "name": "كونا كرواتي",
-      "value": "7.89"
+      "value": "7.95"
     },
     {
       "code": "HTG",
       "name": "جوردى هايتي",
-      "value": "0.4135"
+      "value": "0.4169"
     },
     {
       "code": "HUF",
       "name": "فورينت هنغاري",
-      "value": "0.1608"
+      "value": "0.1609"
     },
     {
       "code": "IDR",
@@ -348,17 +348,17 @@
     {
       "code": "IMP",
       "name": "IMP",
-      "value": "71.05"
+      "value": "71.60"
     },
     {
       "code": "INR",
       "name": "روبية هندي",
-      "value": "0.5835"
+      "value": "0.5919"
     },
     {
       "code": "IQD",
       "name": "دينار عراقي",
-      "value": "0.0358"
+      "value": "0.0361"
     },
     {
       "code": "IRR",
@@ -368,67 +368,67 @@
     {
       "code": "ISK",
       "name": "كرونة أيسلندية",
-      "value": "0.4332"
+      "value": "0.4359"
     },
     {
       "code": "JEP",
       "name": "JEP",
-      "value": "71.05"
+      "value": "71.60"
     },
     {
       "code": "JMD",
       "name": "دولار جامايكي",
-      "value": "0.3423"
+      "value": "0.3457"
     },
     {
       "code": "JOD",
       "name": "دينار أردني",
-      "value": "76.48"
+      "value": "77.09"
     },
     {
       "code": "JPY",
       "name": "ين ياباني",
-      "value": "0.3405"
+      "value": "0.3434"
     },
     {
       "code": "KES",
       "name": "شلن كينيي",
-      "value": "0.4172"
+      "value": "0.4202"
     },
     {
       "code": "KGS",
       "name": "سوم قيرغستاني",
-      "value": "0.62"
+      "value": "0.6252"
     },
     {
       "code": "KHR",
       "name": "رييال كمبودي",
-      "value": "0.0133"
+      "value": "0.0134"
     },
     {
       "code": "KID",
       "name": "KID",
-      "value": "35.98"
+      "value": "36.12"
     },
     {
       "code": "KMF",
       "name": "فرنك جزر القمر",
-      "value": "0.1208"
+      "value": "0.1218"
     },
     {
       "code": "KRW",
       "name": "وون كوريا الجنوبية",
-      "value": "0.0404"
+      "value": "0.0407"
     },
     {
       "code": "KYD",
       "name": "دولار جزر كيمن",
-      "value": "65.07"
+      "value": "65.59"
     },
     {
       "code": "KZT",
       "name": "تينغ كازاخستاني",
-      "value": "0.1179"
+      "value": "0.1194"
     },
     {
       "code": "LAK",
@@ -443,157 +443,157 @@
     {
       "code": "LKR",
       "name": "روبية سريلانكية",
-      "value": "0.1631"
+      "value": "0.1646"
     },
     {
       "code": "LRD",
       "name": "دولار ليبيري",
-      "value": "0.3265"
+      "value": "0.3322"
     },
     {
       "code": "LSL",
       "name": "لوتي ليسوتو",
-      "value": "3.09"
+      "value": "3.11"
     },
     {
       "code": "LYD",
       "name": "دينار ليبي",
-      "value": "8.39"
+      "value": "8.44"
     },
     {
       "code": "MAD",
       "name": "درهم مغربي",
-      "value": "5.43"
+      "value": "5.47"
     },
     {
       "code": "MDL",
       "name": "ليو مولدوفي",
-      "value": "2.96"
+      "value": "2.97"
     },
     {
       "code": "MGA",
       "name": "أرياري مدغشقر",
-      "value": "0.0118"
+      "value": "0.012"
     },
     {
       "code": "MKD",
       "name": "دينار مقدوني",
-      "value": "0.9704"
+      "value": "0.9756"
     },
     {
       "code": "MMK",
       "name": "كيات ميانمار",
-      "value": "0.0258"
+      "value": "0.026"
     },
     {
       "code": "MNT",
       "name": "توغروغ منغولي",
-      "value": "0.015"
+      "value": "0.0151"
     },
     {
       "code": "MOP",
       "name": "باتاكا ماكاوي",
-      "value": "6.71"
+      "value": "6.77"
     },
     {
       "code": "MRU",
       "name": "أوقية موريتانية",
-      "value": "1.33"
+      "value": "1.34"
     },
     {
       "code": "MUR",
       "name": "روبية موريشيوسية",
-      "value": "1.15"
+      "value": "1.16"
     },
     {
       "code": "MVR",
       "name": "روفيه جزر المالديف",
-      "value": "3.51"
+      "value": "3.54"
     },
     {
       "code": "MWK",
       "name": "كواشا مالاوي",
-      "value": "0.0311"
+      "value": "0.0314"
     },
     {
       "code": "MXN",
       "name": "بيزو مكسيكي",
-      "value": "2.80"
+      "value": "2.78"
     },
     {
       "code": "MYR",
       "name": "رينغيت ماليزي",
-      "value": "13.18"
+      "value": "13.27"
     },
     {
       "code": "MZN",
       "name": "متكال موزمبيقي",
-      "value": "0.8512"
+      "value": "0.8577"
     },
     {
       "code": "NAD",
       "name": "دولار ناميبي",
-      "value": "3.09"
+      "value": "3.11"
     },
     {
       "code": "NGN",
       "name": "نايرا نيجيري",
-      "value": "0.0397"
+      "value": "0.04"
     },
     {
       "code": "NIO",
       "name": "قرطبة نيكاراغوا",
-      "value": "1.48"
+      "value": "1.49"
     },
     {
       "code": "NOK",
       "name": "كرونة نرويجية",
-      "value": "5.53"
+      "value": "5.57"
     },
     {
       "code": "NPR",
       "name": "روبية نيبالي",
-      "value": "0.3647"
+      "value": "0.37"
     },
     {
       "code": "NZD",
       "name": "دولار نيوزيلندي",
-      "value": "29.69"
+      "value": "29.94"
     },
     {
       "code": "OMR",
       "name": "ريال عماني",
-      "value": "141.03"
+      "value": "142.16"
     },
     {
       "code": "PAB",
       "name": "بالبوا بنمي",
-      "value": "54.23"
+      "value": "54.66"
     },
     {
       "code": "PEN",
       "name": "سول بيروفي",
-      "value": "15.61"
+      "value": "15.70"
     },
     {
       "code": "PGK",
       "name": "كينا بابوا غينيا الجديدة",
-      "value": "11.98"
+      "value": "12.01"
     },
     {
       "code": "PHP",
       "name": "بيزو فلبيني",
-      "value": "0.8503"
+      "value": "0.8585"
     },
     {
       "code": "PKR",
       "name": "روبية باكستاني",
-      "value": "0.1962"
+      "value": "0.1978"
     },
     {
       "code": "PLN",
       "name": "زلوتي بولندي",
-      "value": "13.32"
+      "value": "13.40"
     },
     {
       "code": "PYG",
@@ -603,62 +603,62 @@
     {
       "code": "QAR",
       "name": "ريال قطري",
-      "value": "14.90"
+      "value": "15.02"
     },
     {
       "code": "RON",
       "name": "ليو روماني",
-      "value": "11.13"
+      "value": "11.19"
     },
     {
       "code": "RSD",
       "name": "دينار صربي",
-      "value": "0.505"
+      "value": "0.5094"
     },
     {
       "code": "RUB",
       "name": "روبل روسي",
-      "value": "0.6616"
+      "value": "0.6639"
     },
     {
       "code": "RWF",
       "name": "فرنك رواندي",
-      "value": "0.0366"
+      "value": "0.0369"
     },
     {
       "code": "SBD",
       "name": "دولار جزر سليمان",
-      "value": "6.74"
+      "value": "6.78"
     },
     {
       "code": "SCR",
       "name": "روبية سيشيلية",
-      "value": "3.82"
+      "value": "3.81"
     },
     {
       "code": "SDG",
       "name": "جنيه سوداني",
-      "value": "0.1206"
+      "value": "0.1005"
     },
     {
       "code": "SEK",
       "name": "كرونة سويدية",
-      "value": "5.30"
+      "value": "5.33"
     },
     {
       "code": "SGD",
       "name": "دولار سنغافوري",
-      "value": "42.04"
+      "value": "42.34"
     },
     {
       "code": "SHP",
       "name": "جنيه سانت هيلين",
-      "value": "71.05"
+      "value": "71.60"
     },
     {
       "code": "SLE",
       "name": "ليون سيراليوني",
-      "value": "2.36"
+      "value": "2.38"
     },
     {
       "code": "SLL",
@@ -668,32 +668,32 @@
     {
       "code": "SOS",
       "name": "شلن صومالي",
-      "value": "0.0949"
+      "value": "0.0958"
     },
     {
       "code": "SRD",
       "name": "دولار سورينامي",
-      "value": "1.45"
+      "value": "1.46"
     },
     {
       "code": "SSP",
       "name": "جنيه جنوب السودان",
-      "value": "0.0094"
+      "value": "0.0095"
     },
     {
       "code": "STN",
       "name": "دوبرا ساو تومي وبرينسيبي",
-      "value": "2.43"
+      "value": "2.45"
     },
     {
       "code": "SYP",
       "name": "ليرة سورية",
-      "value": "0.4462"
+      "value": "0.4488"
     },
     {
       "code": "SZL",
       "name": "ليلانجيني سوازيلندي",
-      "value": "3.09"
+      "value": "3.11"
     },
     {
       "code": "THB",
@@ -703,32 +703,32 @@
     {
       "code": "TJS",
       "name": "سوموني طاجيكستاني",
-      "value": "5.88"
+      "value": "5.92"
     },
     {
       "code": "TMT",
       "name": "مانات تركمانستان",
-      "value": "15.49"
+      "value": "15.63"
     },
     {
       "code": "TND",
       "name": "دينار تونسي",
-      "value": "17.73"
+      "value": "17.82"
     },
     {
       "code": "TOP",
       "name": "بانغا تونغا",
-      "value": "22.48"
+      "value": "22.60"
     },
     {
       "code": "TTD",
       "name": "دولار ترينداد وتوباغو",
-      "value": "8.03"
+      "value": "8.08"
     },
     {
       "code": "TVD",
       "name": "TVD",
-      "value": "35.98"
+      "value": "36.12"
     },
     {
       "code": "TWD",
@@ -738,32 +738,32 @@
     {
       "code": "TZS",
       "name": "شلن تنزاني",
-      "value": "0.0203"
+      "value": "0.0205"
     },
     {
       "code": "UAH",
       "name": "هريفنيا أوكراني",
-      "value": "1.20"
+      "value": "1.21"
     },
     {
       "code": "UGX",
       "name": "شلن أوغندي",
-      "value": "0.0133"
+      "value": "0.0131"
     },
     {
       "code": "UYU",
       "name": "بيزو اوروغواي",
-      "value": "1.34"
+      "value": "1.35"
     },
     {
       "code": "UZS",
       "name": "سوم أوزبكستاني",
-      "value": "0.0045"
+      "value": "0.0046"
     },
     {
       "code": "VES",
       "name": "بوليفار فنزويلي",
-      "value": "0.0588"
+      "value": "0.0591"
     },
     {
       "code": "VND",
@@ -773,67 +773,67 @@
     {
       "code": "VUV",
       "name": "فاتو فانواتو",
-      "value": "0.4482"
+      "value": "0.4492"
     },
     {
       "code": "WST",
       "name": "تالا ساموا",
-      "value": "19.40"
+      "value": "19.69"
     },
     {
       "code": "XAF",
       "name": "فرنك وسط أفريقي",
-      "value": "0.0906"
+      "value": "0.0914"
     },
     {
       "code": "XCD",
       "name": "دولار شرق الكاريبي",
-      "value": "20.08"
+      "value": "20.24"
     },
     {
       "code": "XCG",
       "name": "غيلدر كاريبي",
-      "value": "30.29"
+      "value": "30.54"
     },
     {
       "code": "XDR",
       "name": "حقوق السحب الخاصة",
-      "value": "72.82"
+      "value": "73.31"
     },
     {
       "code": "XOF",
       "name": "فرنك غرب أفريقي",
-      "value": "0.0906"
+      "value": "0.0914"
     },
     {
       "code": "XPF",
       "name": "فرنك سي إف بي",
-      "value": "0.498"
+      "value": "0.5022"
     },
     {
       "code": "YER",
       "name": "ريال يمني",
-      "value": "0.2295"
+      "value": "0.2312"
     },
     {
       "code": "ZAR",
       "name": "راند جنوب أفريقيا",
-      "value": "3.09"
+      "value": "3.11"
     },
     {
       "code": "ZMW",
       "name": "كواشا زامبي",
-      "value": "2.61"
+      "value": "2.63"
     },
     {
       "code": "ZWG",
       "name": "ذهب زيمبابوي",
-      "value": "2.04"
+      "value": "2.06"
     },
     {
       "code": "ZWL",
       "name": "دولار زمبابوي 2009",
-      "value": "2.04"
+      "value": "2.06"
     }
   ],
   "base": "EGP",
